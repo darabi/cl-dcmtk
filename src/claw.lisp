@@ -12,7 +12,7 @@
                                      :dcmdata-includes)
                           (:targets ((:and :x86-64 :linux) "x86_64-pc-linux-gnu"
                                      (:includes "config/x86_64-pc-linux-gnu/")))
-                          (:persistent :cl-dcmtk-binding
+                          (:persistent :cl-dcmtk-bindings
                            :asd-path "../cl-dcmtk-bindings.asd"
                            :bindings-path "../bindings/")
                           (:include-definitions "^Dcm.*")
