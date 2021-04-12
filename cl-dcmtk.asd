@@ -9,7 +9,11 @@
 
 (asdf:defsystem :cl-dcmtk/wrapper
   :description "Thin wrapper over DCMTK DICOM libraries"
-  :depends-on (:alexandria :uiop :cffi :claw-utils :claw)
+  :depends-on (:alexandria :uiop :cffi :claw)
   :pathname "src/"
   :serial t
-  :components ((:file "claw")))
+  :components ((:file "claw")
+               (:module :config-includes :pathname "lib/dcmtk/build/config/include/")
+               (:module :oflog-includes :pathname "lib/dcmtk/oflog/include/")
+               (:module :ofstd-includes :pathname "lib/dcmtk/ofstd/include/")
+               (:module :dcmdata-includes :pathname "lib/dcmtk/dcmdata/include/")))
