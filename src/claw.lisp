@@ -8,9 +8,10 @@
 
 (claw.wrapper:defwrapper (:cl-dcmtk/wrapper
                           (:headers "dcmtk/dcmdata/dctk.h")
-                          (:includes :config-includes :oflog-includes
-                                     :ofstd-includes :dcmdata-includes)
-                          (:targets ((:and :x86-64 :linux) "x86_64-pc-linux-gnu"))
+                          (:includes :oflog-includes :ofstd-includes
+                                     :dcmdata-includes)
+                          (:targets ((:and :x86-64 :linux) "x86_64-pc-linux-gnu"
+                                     (:includes "config/x86_64-pc-linux-gnu/")))
                           (:persistent :cl-dcmtk-binding
                            :asd-path "../cl-dcmtk-bindings.asd"
                            :bindings-path "../bindings/")
