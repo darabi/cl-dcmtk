@@ -1,6 +1,6 @@
 (uiop:define-package :%dcmtk (:use))
-(uiop:define-package :cl-dcmtk-binding~pristine (:use :cl))
-(common-lisp:in-package :cl-dcmtk-binding~pristine)
+(uiop:define-package :cl-dcmtk-bindings~pristine (:use :cl))
+(common-lisp:in-package :cl-dcmtk-bindings~pristine)
 
 (defparameter %dcmtk::+dcm-tag-error-tag-name+ "Unknown Tag & Data")
 
@@ -11,61 +11,6 @@
                (:unspecified 0)
                (:odd 1)
                (:even 2))
-
-(cffi:defcenum (%dcmtk::dcm-evr :unsigned-int)
-               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:120:6"
-               (:ae 0)
-               (:as 1)
-               (:at 2)
-               (:cs 3)
-               (:da 4)
-               (:ds 5)
-               (:dt 6)
-               (:fl 7)
-               (:fd 8)
-               (:is 9)
-               (:lo 10)
-               (:lt 11)
-               (:ob 12)
-               (:od 13)
-               (:of 14)
-               (:ol 15)
-               (:ov 16)
-               (:ow 17)
-               (:pn 18)
-               (:sh 19)
-               (:sl 20)
-               (:sq 21)
-               (:ss 22)
-               (:st 23)
-               (:sv 24)
-               (:tm 25)
-               (:uc 26)
-               (:ui 27)
-               (:ul 28)
-               (:ur 29)
-               (:us 30)
-               (:ut 31)
-               (:uv 32)
-               (:ox 33)
-               (:px 34)
-               (:xs 35)
-               (:lt 36)
-               (:na 37)
-               (:up 38)
-               (:item 39)
-               (:metainfo 40)
-               (:dataset 41)
-               (:file-format 42)
-               (:dicom-dir 43)
-               (:dir-record 44)
-               (:pixel-sq 45)
-               (:pixel-item 46)
-               (:unknown 47)
-               (:un 48)
-               (:pixel-data 49)
-               (:overlay-data 50)
-               (:unknown2b 51))
 
 (cffi:defcenum (%dcmtk::dcm-input-stream-factory-type :unsigned-int)
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcistrma.h:116:6"
@@ -167,13 +112,6 @@
                (:pointer %dcmtk::dcm-age-string))
               (%dcmtk::rhs (:pointer %dcmtk::dcm-object)))
 
-(iffi:defifun ("__claw__ZNK12DcmAgeString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvras.h:87:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-age-string)))
-
 (iffi:defifun ("__claw__ZN12DcmAgeStringaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-age-string)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvras.h:60:19"
@@ -262,13 +200,6 @@
               (%dcmtk::string-val (:pointer %dcmtk::of-string))
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
-
-(iffi:defifun ("__claw__ZNK20DcmApplicationEntity5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrae.h:87:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-application-entity)))
 
 (iffi:defifun ("__claw__ZN20DcmApplicationEntity16isUniversalMatchEbb"
                %dcmtk::is-universal-match)
@@ -435,13 +366,6 @@
 (iffi:defifun ("__claw__ZN15DcmAttributeTag5getVMEv" %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrat.h:127:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-attribute-tag)))
-
-(iffi:defifun ("__claw__ZNK15DcmAttributeTag5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrat.h:113:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-attribute-tag)))
 
@@ -646,99 +570,60 @@
                (:pointer %dcmtk::dcm-byte-string))
               (%dcmtk::rhs (:pointer %dcmtk::dcm-object)))
 
-(defparameter %dcmtk::+exs-unknown+ -1)
-
-(defparameter %dcmtk::+exs-little-endian-implicit+ 0)
-
-(defparameter %dcmtk::+exs-big-endian-implicit+ 1)
-
-(defparameter %dcmtk::+exs-little-endian-explicit+ 2)
-
-(defparameter %dcmtk::+exs-big-endian-explicit+ 3)
-
-(defparameter %dcmtk::+exs-jpeg-process1+ 4)
-
-(defparameter %dcmtk::+exs-jpeg-process2-4+ 5)
-
-(defparameter %dcmtk::+exs-jpeg-process3-5+ 6)
-
-(defparameter %dcmtk::+exs-jpeg-process6-8+ 7)
-
-(defparameter %dcmtk::+exs-jpeg-process7-9+ 8)
-
-(defparameter %dcmtk::+exs-jpeg-process10-12+ 9)
-
-(defparameter %dcmtk::+exs-jpeg-process11-13+ 10)
-
-(defparameter %dcmtk::+exs-jpeg-process14+ 11)
-
-(defparameter %dcmtk::+exs-jpeg-process15+ 12)
-
-(defparameter %dcmtk::+exs-jpeg-process16-18+ 13)
-
-(defparameter %dcmtk::+exs-jpeg-process17-19+ 14)
-
-(defparameter %dcmtk::+exs-jpeg-process20-22+ 15)
-
-(defparameter %dcmtk::+exs-jpeg-process21-23+ 16)
-
-(defparameter %dcmtk::+exs-jpeg-process24-26+ 17)
-
-(defparameter %dcmtk::+exs-jpeg-process25-27+ 18)
-
-(defparameter %dcmtk::+exs-jpeg-process28+ 19)
-
-(defparameter %dcmtk::+exs-jpeg-process29+ 20)
-
-(defparameter %dcmtk::+exs-jpeg-process14sv1+ 21)
-
-(defparameter %dcmtk::+exs-rle-lossless+ 22)
-
-(defparameter %dcmtk::+exs-deflated-little-endian-explicit+ 23)
-
-(defparameter %dcmtk::+exs-jpegls-lossless+ 24)
-
-(defparameter %dcmtk::+exs-jpegls-lossy+ 25)
-
-(defparameter %dcmtk::+exs-jpeg2000lossless-only+ 26)
-
-(defparameter %dcmtk::+exs-jpeg2000+ 27)
-
-(defparameter %dcmtk::+exs-jpeg2000multicomponent-lossless-only+ 28)
-
-(defparameter %dcmtk::+exs-jpeg2000multicomponent+ 29)
-
-(defparameter %dcmtk::+exs-jpip-referenced+ 30)
-
-(defparameter %dcmtk::+exs-jpip-referenced-deflate+ 31)
-
-(defparameter %dcmtk::+exs-mpeg2main-profile-at-main-level+ 32)
-
-(defparameter %dcmtk::+exs-mpeg2main-profile-at-high-level+ 33)
-
-(defparameter %dcmtk::+exs-mpeg4high-profile-level4-1+ 34)
-
-(defparameter %dcmtk::+exs-mpeg4b-dcompatible-high-profile-level4-1+ 35)
-
-(defparameter %dcmtk::+exs-mpeg4high-profile-level4-2-for2d-video+ 36)
-
-(defparameter %dcmtk::+exs-mpeg4high-profile-level4-2-for3d-video+ 37)
-
-(defparameter %dcmtk::+exs-mpeg4stereo-high-profile-level4-2+ 38)
-
-(defparameter %dcmtk::+exs-hevc-main-profile-level5-1+ 39)
-
-(defparameter %dcmtk::+exs-hevc-main10profile-level5-1+ 40)
-
-(defparameter %dcmtk::+exs-private-ge-lei-with-big-endian-pixel-data+ 41)
+(cffi:defcenum (%dcmtk::|C:@EA@E-TRANSFER-SYNTAX| :int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:37:9"
+               (:unknown -1)
+               (:little-endian-implicit 0)
+               (:big-endian-implicit 1)
+               (:little-endian-explicit 2)
+               (:big-endian-explicit 3)
+               (:jpeg-process1 4)
+               (:jpeg-process2-4 5)
+               (:jpeg-process3-5 6)
+               (:jpeg-process6-8 7)
+               (:jpeg-process7-9 8)
+               (:jpeg-process10-12 9)
+               (:jpeg-process11-13 10)
+               (:jpeg-process14 11)
+               (:jpeg-process15 12)
+               (:jpeg-process16-18 13)
+               (:jpeg-process17-19 14)
+               (:jpeg-process20-22 15)
+               (:jpeg-process21-23 16)
+               (:jpeg-process24-26 17)
+               (:jpeg-process25-27 18)
+               (:jpeg-process28 19)
+               (:jpeg-process29 20)
+               (:jpeg-process14sv1 21)
+               (:rle-lossless 22)
+               (:deflated-little-endian-explicit 23)
+               (:jpegls-lossless 24)
+               (:jpegls-lossy 25)
+               (:jpeg2000lossless-only 26)
+               (:jpeg2000 27)
+               (:jpeg2000multicomponent-lossless-only 28)
+               (:jpeg2000multicomponent 29)
+               (:jpip-referenced 30)
+               (:jpip-referenced-deflate 31)
+               (:mpeg2main-profile-at-main-level 32)
+               (:mpeg2main-profile-at-high-level 33)
+               (:mpeg4high-profile-level4-1 34)
+               (:mpeg4b-dcompatible-high-profile-level4-1 35)
+               (:mpeg4high-profile-level4-2-for2d-video 36)
+               (:mpeg4high-profile-level4-2-for3d-video 37)
+               (:mpeg4stereo-high-profile-level4-2 38)
+               (:hevc-main-profile-level5-1 39)
+               (:hevc-main10profile-level5-1 40)
+               (:private-ge-lei-with-big-endian-pixel-data 41))
 
 (iffi:defitype %dcmtk::e-transfer-syntax
                %dcmtk::|C:@EA@E-TRANSFER-SYNTAX|
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:124:3")
 
-(defparameter %dcmtk::+eet-explicit-length+ 0)
-
-(defparameter %dcmtk::+eet-undefined-length+ 1)
+(cffi:defcenum (%dcmtk::|C:@EA@E-ENCODING-TYPE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:91:9"
+               (:explicit-length 0)
+               (:undefined-length 1))
 
 (iffi:defitype %dcmtk::e-encoding-type
                %dcmtk::|C:@EA@E-ENCODING-TYPE|
@@ -814,13 +699,6 @@
 (iffi:defifun ("__claw__ZN13DcmByteString5getVMEv" %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcbytstr.h:140:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-byte-string)))
-
-(iffi:defifun ("__claw__ZNK13DcmByteString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcbytstr.h:130:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-byte-string)))
 
@@ -1185,13 +1063,6 @@
               (%dcmtk::string-val (:pointer %dcmtk::of-string))
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
-
-(iffi:defifun ("__claw__ZNK13DcmCodeString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrcs.h:87:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-code-string)))
 
 (iffi:defifun ("__claw__ZN13DcmCodeString16isUniversalMatchEbb"
                %dcmtk::is-universal-match)
@@ -1561,25 +1432,18 @@
               (%dcmtk::rep-param
                (:pointer %dcmtk::dcm-representation-parameter)))
 
-(iffi:defifun ("__claw__ZNK10DcmDataset5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdatset.h:90:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dataset)))
-
 (iffi:deficlass (%dcmtk::of-filename :size-reporter
                  "__claw_sizeof_OFFilename" :alignment-reporter
                  "__claw_alignof_OFFilename")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:124:26")
 
-(defparameter %dcmtk::+egl-no-change+ 0)
-
-(defparameter %dcmtk::+egl-without-gl+ 1)
-
-(defparameter %dcmtk::+egl-with-gl+ 2)
-
-(defparameter %dcmtk::+egl-recalc-gl+ 3)
+(cffi:defcenum (%dcmtk::|C:@EA@E-GRP-LEN-ENCODING| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:100:9"
+               (:no-change 0)
+               (:without-gl 1)
+               (:with-gl 2)
+               (:recalc-gl 3))
 
 (iffi:defitype %dcmtk::e-grp-len-encoding
                %dcmtk::|C:@EA@E-GRP-LEN-ENCODING|
@@ -1679,11 +1543,11 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dataset))
               (%dcmtk::cmd-set %dcmtk::of-bool))
 
-(defparameter %dcmtk::+epd-no-change+ 0)
-
-(defparameter %dcmtk::+epd-without-padding+ 1)
-
-(defparameter %dcmtk::+epd-with-padding+ 2)
+(cffi:defcenum (%dcmtk::|C:@EA@E-PADDING-ENCODING| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:112:9"
+               (:no-change 0)
+               (:without-padding 1)
+               (:with-padding 2))
 
 (iffi:defitype %dcmtk::e-padding-encoding
                %dcmtk::|C:@EA@E-PADDING-ENCODING|
@@ -1966,12 +1830,6 @@
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
 
-(iffi:defifun ("__claw__ZNK7DcmDate5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrda.h:87:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-date)))
-
 (iffi:defifun ("__claw__ZNK7DcmDate7matchesERK8OFStringS2_b"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -2183,12 +2041,6 @@
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
 
-(iffi:defifun ("__claw__ZNK11DcmDateTime5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrdt.h:87:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-date-time)))
-
 (iffi:defifun ("__claw__ZNK11DcmDateTime7matchesERK8OFStringS2_b"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -2335,13 +2187,6 @@
               (%dcmtk::string-val (:pointer %dcmtk::of-string))
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
-
-(iffi:defifun ("__claw__ZNK16DcmDecimalString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrds.h:91:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-decimal-string)))
 
 (iffi:defifun ("__claw__ZN16DcmDecimalStringaSERKS_"
                %dcmtk::operator=)
@@ -2600,13 +2445,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-dict-entry))
               (%dcmtk::name :string))
-
-(iffi:defifun ("__claw__ZNK12DcmDictEntry6getEVREv" %dcmtk::get-evr
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicent.h:111:12"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-dict-entry)))
 
 (iffi:defifun ("__claw__ZNK12DcmDictEntry26getElementRangeRestrictionEv"
                %dcmtk::get-element-range-restriction :non-mutating t)
@@ -2979,103 +2817,57 @@
               (%dcmtk::file-format
                (:pointer %dcmtk::dcm-file-format)))
 
-(defparameter %dcmtk::+ert-root+ 0)
-
-(defparameter %dcmtk::+ert-curve+ 1)
-
-(defparameter %dcmtk::+ert-film-box+ 2)
-
-(defparameter %dcmtk::+ert-film-session+ 3)
-
-(defparameter %dcmtk::+ert-image+ 4)
-
-(defparameter %dcmtk::+ert-image-box+ 5)
-
-(defparameter %dcmtk::+ert-interpretation+ 6)
-
-(defparameter %dcmtk::+ert-modality-lut+ 7)
-
-(defparameter %dcmtk::+ert-mrdr+ 8)
-
-(defparameter %dcmtk::+ert-overlay+ 9)
-
-(defparameter %dcmtk::+ert-patient+ 10)
-
-(defparameter %dcmtk::+ert-print-queue+ 11)
-
-(defparameter %dcmtk::+ert-private+ 12)
-
-(defparameter %dcmtk::+ert-results+ 13)
-
-(defparameter %dcmtk::+ert-series+ 14)
-
-(defparameter %dcmtk::+ert-study+ 15)
-
-(defparameter %dcmtk::+ert-study-component+ 16)
-
-(defparameter %dcmtk::+ert-topic+ 17)
-
-(defparameter %dcmtk::+ert-visit+ 18)
-
-(defparameter %dcmtk::+ert-voi-lut+ 19)
-
-(defparameter %dcmtk::+ert-sr-document+ 20)
-
-(defparameter %dcmtk::+ert-presentation+ 21)
-
-(defparameter %dcmtk::+ert-waveform+ 22)
-
-(defparameter %dcmtk::+ert-rt-dose+ 23)
-
-(defparameter %dcmtk::+ert-rt-structure-set+ 24)
-
-(defparameter %dcmtk::+ert-rt-plan+ 25)
-
-(defparameter %dcmtk::+ert-rt-treat-record+ 26)
-
-(defparameter %dcmtk::+ert-stored-print+ 27)
-
-(defparameter %dcmtk::+ert-key-object-doc+ 28)
-
-(defparameter %dcmtk::+ert-registration+ 29)
-
-(defparameter %dcmtk::+ert-fiducial+ 30)
-
-(defparameter %dcmtk::+ert-raw-data+ 31)
-
-(defparameter %dcmtk::+ert-spectroscopy+ 32)
-
-(defparameter %dcmtk::+ert-encap-doc+ 33)
-
-(defparameter %dcmtk::+ert-value-map+ 34)
-
-(defparameter %dcmtk::+ert-hanging-protocol+ 35)
-
-(defparameter %dcmtk::+ert-stereometric+ 36)
-
-(defparameter %dcmtk::+ert-hl7struc-doc+ 37)
-
-(defparameter %dcmtk::+ert-palette+ 38)
-
-(defparameter %dcmtk::+ert-surface+ 39)
-
-(defparameter %dcmtk::+ert-measurement+ 40)
-
-(defparameter %dcmtk::+ert-implant+ 41)
-
-(defparameter %dcmtk::+ert-implant-group+ 42)
-
-(defparameter %dcmtk::+ert-implant-assy+ 43)
-
-(defparameter %dcmtk::+ert-plan+ 44)
-
-(defparameter %dcmtk::+ert-surface-scan+ 45)
-
-(defparameter %dcmtk::+ert-tract+ 46)
-
-(defparameter %dcmtk::+ert-assessment+ 47)
-
-(defparameter %dcmtk::+ert-radiotherapy+ 48)
+(cffi:defcenum (%dcmtk::|C:@EA@E-DIR-REC-TYPE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdirrec.h:33:9"
+               (:root 0)
+               (:curve 1)
+               (:film-box 2)
+               (:film-session 3)
+               (:image 4)
+               (:image-box 5)
+               (:interpretation 6)
+               (:modality-lut 7)
+               (:mrdr 8)
+               (:overlay 9)
+               (:patient 10)
+               (:print-queue 11)
+               (:private 12)
+               (:results 13)
+               (:series 14)
+               (:study 15)
+               (:study-component 16)
+               (:topic 17)
+               (:visit 18)
+               (:voi-lut 19)
+               (:sr-document 20)
+               (:presentation 21)
+               (:waveform 22)
+               (:rt-dose 23)
+               (:rt-structure-set 24)
+               (:rt-plan 25)
+               (:rt-treat-record 26)
+               (:stored-print 27)
+               (:key-object-doc 28)
+               (:registration 29)
+               (:fiducial 30)
+               (:raw-data 31)
+               (:spectroscopy 32)
+               (:encap-doc 33)
+               (:value-map 34)
+               (:hanging-protocol 35)
+               (:stereometric 36)
+               (:hl7struc-doc 37)
+               (:palette 38)
+               (:surface 39)
+               (:measurement 40)
+               (:implant 41)
+               (:implant-group 42)
+               (:implant-assy 43)
+               (:plan 44)
+               (:surface-scan 45)
+               (:tract 46)
+               (:assessment 47)
+               (:radiotherapy 48))
 
 (iffi:defitype %dcmtk::e-dir-rec-type
                %dcmtk::|C:@EA@E-DIR-REC-TYPE|
@@ -3259,13 +3051,6 @@
                (:pointer %dcmtk::dcm-directory-record))
               (%dcmtk::num :unsigned-long))
 
-(iffi:defifun ("__claw__ZNK18DcmDirectoryRecord5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdirrec.h:219:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-directory-record)))
-
 (iffi:defifun ("__claw__ZN18DcmDirectoryRecord9insertSubEPS_mb"
                %dcmtk::insert-sub)
               (:pointer %dcmtk::of-condition)
@@ -3357,11 +3142,11 @@
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcstack.h:71:28")
 
-(defparameter %dcmtk::+esm-from-here+ 0)
-
-(defparameter %dcmtk::+esm-from-stack-top+ 1)
-
-(defparameter %dcmtk::+esm-after-stack-top+ 2)
+(cffi:defcenum (%dcmtk::|C:@EA@E-SEARCH-MODE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:122:9"
+               (:from-here 0)
+               (:from-stack-top 1)
+               (:after-stack-top 2))
 
 (iffi:defitype %dcmtk::e-search-mode
                %dcmtk::|C:@EA@E-SEARCH-MODE|
@@ -3517,11 +3302,11 @@
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcistrma.h:128:28")
 
-(defparameter %dcmtk::+ebo-unknown+ 0)
-
-(defparameter %dcmtk::+ebo-little-endian+ 1)
-
-(defparameter %dcmtk::+ebo-big-endian+ 2)
+(cffi:defcenum (%dcmtk::|C:@EA@E-BYTE-ORDER| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:128:9"
+               (:unknown 0)
+               (:little-endian 1)
+               (:big-endian 2))
 
 (iffi:defitype %dcmtk::e-byte-order
                %dcmtk::|C:@EA@E-BYTE-ORDER|
@@ -4323,13 +4108,12 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-file-format)))
 
-(defparameter %dcmtk::+erm-auto-detect+ 0)
-
-(defparameter %dcmtk::+erm-dataset+ 1)
-
-(defparameter %dcmtk::+erm-file-only+ 2)
-
-(defparameter %dcmtk::+erm-meta-only+ 3)
+(cffi:defcenum (%dcmtk::|C:@EA@E-FILE-READ-MODE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:144:9"
+               (:auto-detect 0)
+               (:dataset 1)
+               (:file-only 2)
+               (:meta-only 3))
 
 (iffi:defitype %dcmtk::e-file-read-mode
                %dcmtk::|C:@EA@E-FILE-READ-MODE|
@@ -4351,13 +4135,6 @@
               (%dcmtk::rep-type %dcmtk::e-transfer-syntax)
               (%dcmtk::rep-param
                (:pointer %dcmtk::dcm-representation-parameter)))
-
-(iffi:defifun ("__claw__ZNK13DcmFileFormat5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcfilefo.h:103:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-file-format)))
 
 (iffi:defifun ("__claw__ZN13DcmFileFormat10insertItemEP7DcmItemm"
                %dcmtk::insert-item)
@@ -4483,15 +4260,13 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-file-format)))
 
-(defparameter %dcmtk::+ewm-fileformat+ 0)
-
-(defparameter %dcmtk::+ewm-dataset+ 1)
-
-(defparameter %dcmtk::+ewm-update-meta+ 2)
-
-(defparameter %dcmtk::+ewm-create-new-meta+ 3)
-
-(defparameter %dcmtk::+ewm-dont-update-meta+ 4)
+(cffi:defcenum (%dcmtk::|C:@EA@E-FILE-WRITE-MODE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:156:9"
+               (:fileformat 0)
+               (:dataset 1)
+               (:update-meta 2)
+               (:create-new-meta 3)
+               (:dont-update-meta 4))
 
 (iffi:defitype %dcmtk::e-file-write-mode
                %dcmtk::|C:@EA@E-FILE-WRITE-MODE|
@@ -4706,13 +4481,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-floating-point-double)))
 
-(iffi:defifun ("__claw__ZNK22DcmFloatingPointDouble5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrfd.h:110:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-floating-point-double)))
-
 (iffi:defifun ("__claw__ZNK22DcmFloatingPointDouble7matchesERK10DcmElementb"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -4921,13 +4689,6 @@
                %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrfl.h:125:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-floating-point-single)))
-
-(iffi:defifun ("__claw__ZNK22DcmFloatingPointSingle5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrfl.h:111:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-floating-point-single)))
 
@@ -5225,11 +4986,11 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-input-stream)))
 
-(defparameter %dcmtk::+esc-none+ 0)
-
-(defparameter %dcmtk::+esc-unsupported+ 1)
-
-(defparameter %dcmtk::+esc-zlib+ 2)
+(cffi:defcenum (%dcmtk::|C:@EA@E-STREAM-COMPRESSION| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:161:9"
+               (:none 0)
+               (:unsupported 1)
+               (:zlib 2))
 
 (iffi:defitype %dcmtk::e-stream-compression
                %dcmtk::|C:@EA@E-STREAM-COMPRESSION|
@@ -5401,13 +5162,6 @@
                (:pointer %dcmtk::dcm-integer-string))
               (%dcmtk::sint-val (:pointer %dcmtk::sint32))
               (%dcmtk::pos :unsigned-long))
-
-(iffi:defifun ("__claw__ZNK16DcmIntegerString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvris.h:90:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-integer-string)))
 
 (iffi:defifun ("__claw__ZN16DcmIntegerStringaSERKS_"
                %dcmtk::operator=)
@@ -5984,12 +5738,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcitem.h:138:27"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-item)))
 
-(iffi:defifun ("__claw__ZNK7DcmItem5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcitem.h:133:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-item)))
-
 (iffi:defifun ("__claw__ZN7DcmItem6insertEP10DcmElementbb"
                %dcmtk::insert)
               (:pointer %dcmtk::of-condition)
@@ -6501,15 +6249,13 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:162:19"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-list)))
 
-(defparameter %dcmtk::+elp-atpos+ 0)
-
-(defparameter %dcmtk::+elp-first+ 1)
-
-(defparameter %dcmtk::+elp-last+ 2)
-
-(defparameter %dcmtk::+elp-prev+ 3)
-
-(defparameter %dcmtk::+elp-next+ 4)
+(cffi:defcenum (%dcmtk::|C:@EA@E-LIST-POS| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:76:9"
+               (:atpos 0)
+               (:first 1)
+               (:last 2)
+               (:prev 3)
+               (:next 4))
 
 (iffi:defitype %dcmtk::e-list-pos
                %dcmtk::|C:@EA@E-LIST-POS|
@@ -6664,13 +6410,6 @@
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
 
-(iffi:defifun ("__claw__ZNK13DcmLongString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlo.h:90:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-long-string)))
-
 (iffi:defifun ("__claw__ZN13DcmLongStringaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-long-string)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlo.h:63:20"
@@ -6786,12 +6525,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlt.h:122:27"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-long-text)))
 
-(iffi:defifun ("__claw__ZNK11DcmLongText5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlt.h:105:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-long-text)))
-
 (iffi:defifun ("__claw__ZN11DcmLongTextaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-long-text)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlt.h:58:18"
@@ -6842,12 +6575,6 @@
                %dcmtk::get-original-xfer :non-mutating t)
               %dcmtk::e-transfer-syntax
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcmetinf.h:109:22"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-meta-info)))
-
-(iffi:defifun ("__claw__ZNK11DcmMetaInfo5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcmetinf.h:99:20"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-meta-info)))
 
 (iffi:defifun ("__claw__ZN11DcmMetaInfo8loadFileERK10OFFilename16E_TransferSyntax16E_GrpLenEncodingj"
@@ -7074,18 +6801,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcobject.h:421:27"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object)))
 
-(iffi:defifun ("__claw__ZNK9DcmObject5getVREv" %dcmtk::get-vr
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcobject.h:293:19"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object)))
-
-(iffi:defifun ("__claw__ZNK9DcmObject5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcobject.h:284:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object)))
-
 (iffi:defifun ("__claw__ZNK9DcmObject32isAffectedBySpecificCharacterSetEv"
                %dcmtk::is-affected-by-specific-character-set
                :non-mutating t)
@@ -7202,14 +6917,6 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object))
               (%dcmtk::parent (:pointer %dcmtk::dcm-object)))
 
-(iffi:defifun ("__claw__ZN9DcmObject5setVRE6DcmEVR" %dcmtk::set-vr)
-              (:pointer %dcmtk::of-condition)
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcobject.h:412:25"
-              (%dcmtk::%%claw-result-
-               (:pointer %dcmtk::of-condition))
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object))
-              (%dcmtk::arg0 %dcmtk::dcm-evr))
-
 (iffi:defifun ("__claw__ZN9DcmObject11transferEndEv"
                %dcmtk::transfer-end)
               :void
@@ -7222,13 +6929,12 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcobject.h:338:18"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-object)))
 
-(defparameter %dcmtk::+erw-init+ 0)
-
-(defparameter %dcmtk::+erw-ready+ 1)
-
-(defparameter %dcmtk::+erw-in-work+ 2)
-
-(defparameter %dcmtk::+erw-not-initialized+ 3)
+(cffi:defcenum (%dcmtk::|C:@EA@E-TRANSFER-STATE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctypes.h:132:9"
+               (:init 0)
+               (:ready 1)
+               (:in-work 2)
+               (:not-initialized 3))
 
 (iffi:defitype %dcmtk::e-transfer-state
                %dcmtk::|C:@EA@E-TRANSFER-STATE|
@@ -7395,13 +7101,6 @@
                %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrov.h:106:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other64bit-very-long)))
-
-(iffi:defifun ("__claw__ZNK21DcmOther64bitVeryLong5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrov.h:93:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other64bit-very-long)))
 
@@ -7616,13 +7315,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-byte-other-word)))
 
-(iffi:defifun ("__claw__ZNK21DcmOtherByteOtherWord5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrobow.h:115:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other-byte-other-word)))
-
 (iffi:defifun ("__claw__ZN21DcmOtherByteOtherWordaSERKS_"
                %dcmtk::operator=)
               (:pointer %dcmtk::dcm-other-byte-other-word)
@@ -7686,16 +7378,6 @@
                (:pointer %dcmtk::dcm-other-byte-other-word))
               (%dcmtk::byte-value (:pointer %dcmtk::uint8))
               (%dcmtk::num-bytes :unsigned-long))
-
-(iffi:defifun ("__claw__ZN21DcmOtherByteOtherWord5setVRE6DcmEVR"
-               %dcmtk::set-vr)
-              (:pointer %dcmtk::of-condition)
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrobow.h:141:25"
-              (%dcmtk::%%claw-result-
-               (:pointer %dcmtk::of-condition))
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other-byte-other-word))
-              (%dcmtk::vr %dcmtk::dcm-evr))
 
 (iffi:defifun ("__claw__ZN21DcmOtherByteOtherWord6verifyEb"
                %dcmtk::verify)
@@ -7835,13 +7517,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-double)))
 
-(iffi:defifun ("__claw__ZNK14DcmOtherDouble5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrod.h:91:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other-double)))
-
 (iffi:defifun ("__claw__ZN14DcmOtherDoubleaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-other-double)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrod.h:64:21"
@@ -7949,13 +7624,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-float)))
 
-(iffi:defifun ("__claw__ZNK13DcmOtherFloat5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrof.h:91:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other-float)))
-
 (iffi:defifun ("__claw__ZN13DcmOtherFloataSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-other-float)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrof.h:64:20"
@@ -8059,13 +7727,6 @@
 (iffi:defifun ("__claw__ZN12DcmOtherLong5getVMEv" %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrol.h:106:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-other-long)))
-
-(iffi:defifun ("__claw__ZNK12DcmOtherLong5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrol.h:93:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-long)))
 
@@ -8229,13 +7890,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-overlay-data))
               (%dcmtk::rhs (:pointer %dcmtk::dcm-object)))
-
-(iffi:defifun ("__claw__ZNK14DcmOverlayData5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcovlay.h:104:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-overlay-data)))
 
 (iffi:defifun ("__claw__ZN14DcmOverlayDataaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-overlay-data)
@@ -8413,13 +8067,6 @@
               (%dcmtk::name-prefix (:pointer %dcmtk::of-string))
               (%dcmtk::name-suffix (:pointer %dcmtk::of-string))
               (%dcmtk::dicom-name (:pointer %dcmtk::of-string)))
-
-(iffi:defifun ("__claw__ZNK13DcmPersonName5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrpn.h:90:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-person-name)))
 
 (iffi:defifun ("__claw__ZN13DcmPersonNameaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-person-name)
@@ -8689,13 +8336,6 @@
               (%dcmtk::rep-param
                (:pointer %dcmtk::dcm-representation-parameter)))
 
-(iffi:defifun ("__claw__ZNK12DcmPixelData5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:322:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-pixel-data)))
-
 (iffi:defifun ("__claw__ZN12DcmPixelData21loadAllDataIntoMemoryEv"
                %dcmtk::load-all-data-into-memory)
               (:pointer %dcmtk::of-condition)
@@ -8826,16 +8466,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-pixel-data))
               (%dcmtk::flag %dcmtk::of-bool))
-
-(iffi:defifun ("__claw__ZN12DcmPixelData5setVRE6DcmEVR"
-               %dcmtk::set-vr)
-              (:pointer %dcmtk::of-condition)
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:314:25"
-              (%dcmtk::%%claw-result-
-               (:pointer %dcmtk::of-condition))
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-pixel-data))
-              (%dcmtk::vr %dcmtk::dcm-evr))
 
 (iffi:defifun ("__claw__ZN12DcmPixelData11transferEndEv"
                %dcmtk::transfer-end)
@@ -8985,13 +8615,6 @@
               (%dcmtk::item
                (:pointer (:pointer %dcmtk::dcm-pixel-item)))
               (%dcmtk::num :unsigned-long))
-
-(iffi:defifun ("__claw__ZNK16DcmPixelSequence5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixseq.h:106:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-pixel-sequence)))
 
 (iffi:defifun ("__claw__ZN16DcmPixelSequence6insertEP12DcmPixelItemm"
                %dcmtk::insert)
@@ -9666,13 +9289,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-sequence-of-items)))
 
-(iffi:defifun ("__claw__ZNK18DcmSequenceOfItems5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcsequen.h:124:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-sequence-of-items)))
-
 (iffi:defifun ("__claw__ZN18DcmSequenceOfItems6insertEP7DcmItemmb"
                %dcmtk::insert)
               (:pointer %dcmtk::of-condition)
@@ -9982,13 +9598,6 @@
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
 
-(iffi:defifun ("__claw__ZNK14DcmShortString5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsh.h:91:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-short-string)))
-
 (iffi:defifun ("__claw__ZN14DcmShortStringaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-short-string)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsh.h:64:21"
@@ -10113,13 +9722,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-short-text)))
 
-(iffi:defifun ("__claw__ZNK12DcmShortText5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrst.h:106:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-short-text)))
-
 (iffi:defifun ("__claw__ZN12DcmShortTextaSERKS_" %dcmtk::operator=)
               (:pointer %dcmtk::dcm-short-text)
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrst.h:59:19"
@@ -10241,13 +9843,6 @@
                %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsv.h:123:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-signed64bit-very-long)))
-
-(iffi:defifun ("__claw__ZNK22DcmSigned64bitVeryLong5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsv.h:109:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-signed64bit-very-long)))
 
@@ -10450,13 +10045,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-signed-long)))
 
-(iffi:defifun ("__claw__ZNK13DcmSignedLong5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsl.h:109:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-signed-long)))
-
 (iffi:defifun ("__claw__ZNK13DcmSignedLong7matchesERK10DcmElementb"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -10648,13 +10236,6 @@
 (iffi:defifun ("__claw__ZN14DcmSignedShort5getVMEv" %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrss.h:123:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-signed-short)))
-
-(iffi:defifun ("__claw__ZNK14DcmSignedShort5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrss.h:109:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-signed-short)))
 
@@ -10915,12 +10496,6 @@
                :non-mutating t)
               %dcmtk::uint16
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctag.h:127:12"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-tag)))
-
-(iffi:defifun ("__claw__ZNK6DcmTag6getEVREv" %dcmtk::get-evr
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctag.h:114:12"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-tag)))
 
 (iffi:defifun ("__claw__ZNK6DcmTag7getGTagEv" %dcmtk::get-g-tag
@@ -11391,12 +10966,6 @@
               (%dcmtk::dicom-time-zone-size %dcmtk::size-t)
               (%dcmtk::time-zone (:pointer :double)))
 
-(iffi:defifun ("__claw__ZNK7DcmTime5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrtm.h:88:20"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-time)))
-
 (iffi:defifun ("__claw__ZNK7DcmTime7matchesERK8OFStringS2_b"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -11510,13 +11079,6 @@
               (%dcmtk::string-val (:pointer %dcmtk::of-string))
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
-
-(iffi:defifun ("__claw__ZNK19DcmUniqueIdentifier5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrui.h:86:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unique-identifier)))
 
 (iffi:defifun ("__claw__ZN19DcmUniqueIdentifieraSERKS_"
                %dcmtk::operator=)
@@ -11680,14 +11242,6 @@
                (:pointer
                 %dcmtk::dcm-universal-resource-identifier-or-locator)))
 
-(iffi:defifun ("__claw__ZNK39DcmUniversalResourceIdentifierOrLocator5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrur.h:109:20"
-              (%dcmtk::%%claw-this-
-               (:pointer
-                %dcmtk::dcm-universal-resource-identifier-or-locator)))
-
 (iffi:defifun ("__claw__ZN39DcmUniversalResourceIdentifierOrLocator16isUniversalMatchEbb"
                %dcmtk::is-universal-match)
               %dcmtk::of-bool
@@ -11806,13 +11360,6 @@
               (%dcmtk::pos :unsigned-long)
               (%dcmtk::normalize %dcmtk::of-bool))
 
-(iffi:defifun ("__claw__ZNK22DcmUnlimitedCharacters5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvruc.h:87:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unlimited-characters)))
-
 (iffi:defifun ("__claw__ZN22DcmUnlimitedCharactersaSERKS_"
                %dcmtk::operator=)
               (:pointer %dcmtk::dcm-unlimited-characters)
@@ -11925,13 +11472,6 @@
 (iffi:defifun ("__claw__ZN16DcmUnlimitedText5getVMEv" %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrut.h:125:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unlimited-text)))
-
-(iffi:defifun ("__claw__ZNK16DcmUnlimitedText5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrut.h:108:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unlimited-text)))
 
@@ -12057,13 +11597,6 @@
                %dcmtk::get-vm)
               :unsigned-long
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvruv.h:122:27"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unsigned64bit-very-long)))
-
-(iffi:defifun ("__claw__ZNK24DcmUnsigned64bitVeryLong5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvruv.h:108:20"
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned64bit-very-long)))
 
@@ -12266,13 +11799,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned-long)))
 
-(iffi:defifun ("__claw__ZNK15DcmUnsignedLong5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrul.h:109:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unsigned-long)))
-
 (iffi:defifun ("__claw__ZNK15DcmUnsignedLong7matchesERK10DcmElementb"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -12420,13 +11946,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned-long-offset)))
 
-(iffi:defifun ("__claw__ZNK21DcmUnsignedLongOffset5identEv"
-               %dcmtk::ident :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrulup.h:93:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unsigned-long-offset)))
-
 (iffi:defifun ("__claw__ZN21DcmUnsignedLongOffsetaSERKS_"
                %dcmtk::operator=)
               (:pointer %dcmtk::dcm-unsigned-long-offset)
@@ -12568,13 +12087,6 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned-short)))
 
-(iffi:defifun ("__claw__ZNK16DcmUnsignedShort5identEv" %dcmtk::ident
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrus.h:109:20"
-              (%dcmtk::%%claw-this-
-               (:pointer %dcmtk::dcm-unsigned-short)))
-
 (iffi:defifun ("__claw__ZNK16DcmUnsignedShort7matchesERK10DcmElementb"
                %dcmtk::matches :non-mutating t)
               %dcmtk::of-bool
@@ -12669,12 +12181,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:287:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
 
-(iffi:defifun ("__claw__ZN5DcmVRC1E6DcmEVR" %dcmtk::dcm-vr)
-              :void
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:295:5"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr))
-              (%dcmtk::evr %dcmtk::dcm-evr))
-
 (iffi:defifun ("__claw__ZN5DcmVRC1ERKS_" %dcmtk::dcm-vr)
               :void
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:317:5"
@@ -12693,12 +12199,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:459:21"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
 
-(iffi:defifun ("__claw__ZNK5DcmVR6getEVREv" %dcmtk::get-evr
-               :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:353:12"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
-
 (iffi:defifun ("__claw__ZNK5DcmVR17getMaxValueLengthEv"
                %dcmtk::get-max-value-length :non-mutating t)
               %dcmtk::uint32
@@ -12715,12 +12215,6 @@
                :non-mutating t)
               :string
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:374:17"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
-
-(iffi:defifun ("__claw__ZNK5DcmVR11getValidEVREv"
-               %dcmtk::get-valid-evr :non-mutating t)
-              %dcmtk::dcm-evr
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:369:12"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
 
 (iffi:defifun ("__claw__ZNK5DcmVR14getValidVRNameEv"
@@ -12778,12 +12272,6 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:344:12"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr))
               (%dcmtk::arg (:pointer %dcmtk::dcm-vr)))
-
-(iffi:defifun ("__claw__ZN5DcmVR5setVRE6DcmEVR" %dcmtk::set-vr)
-              :void
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:325:10"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr))
-              (%dcmtk::evr %dcmtk::dcm-evr))
 
 (iffi:defifun ("__claw__ZN5DcmVR5setVRERKS_" %dcmtk::set-vr)
               :void
@@ -12961,17 +12449,40 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-xfer))
               (%dcmtk::xfer %dcmtk::e-transfer-syntax))
 
-(iffi:defifun ("__claw__ZNK7DcmXfer15sizeofTagHeaderE6DcmEVR"
-               %dcmtk::sizeof-tag-header :non-mutating t)
-              %dcmtk::uint32
-              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:306:12"
-              (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-xfer))
-              (%dcmtk::evr %dcmtk::dcm-evr))
-
 (iffi:defifun ("__claw__ZN7DcmXferD1Ev" %dcmtk::~dcm-xfer)
               :void
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:194:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-xfer)))
+
+(cffi:defcenum (%dcmtk::|C:@EA@E-JPEG-ENCAPSULATED| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:151:9"
+               (:not-encapsulated 0)
+               (:encapsulated 1))
+
+(iffi:defitype %dcmtk::e-jpeg-encapsulated
+               %dcmtk::|C:@EA@E-JPEG-ENCAPSULATED|
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:157:3")
+
+(cffi:defcenum (%dcmtk::|C:@EA@E-STORAGE-SOP-CLASS-TYPE|
+                :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcuid.h:44:9"
+               (:patient 1)
+               (:non-patient 2)
+               (:image 4)
+               (:all 3))
+
+(iffi:defitype %dcmtk::e-storage-sop-class-type
+               %dcmtk::|C:@EA@E-STORAGE-SOP-CLASS-TYPE|
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcuid.h:53:3")
+
+(cffi:defcenum (%dcmtk::|C:@EA@E-VR-TYPE| :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:141:9"
+               (:implicit 0)
+               (:explicit 1))
+
+(iffi:defitype %dcmtk::e-vr-type
+               %dcmtk::|C:@EA@E-VR-TYPE|
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:147:3")
 
 (iffi:deficlass (%dcmtk::of-list<dcm-representation-entry*>
                  :size-reporter
@@ -13002,764 +12513,645 @@
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:130:50")
 
 (eval-when (:load-toplevel :compile-toplevel :execute)
-  (export '%dcmtk::~dcm-dataset "%DCMTK")
-  (export '%dcmtk::+elp-prev+ "%DCMTK")
-  (export '%dcmtk::number-of-normal-tag-entries "%DCMTK")
-  (export '%dcmtk::+elp-atpos+ "%DCMTK")
-  (export '%dcmtk::dcm-universal-resource-identifier-or-locator
-          "%DCMTK")
-  (export '%dcmtk::get-uint32 "%DCMTK")
-  (export '%dcmtk::remove-all-but-original-representations "%DCMTK")
-  (export '%dcmtk::dcm-code-string+check-string-value "%DCMTK")
-  (export '%dcmtk::operator++ "%DCMTK")
-  (export '%dcmtk::+ert-presentation+ "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process25-27+ "%DCMTK")
-  (export '%dcmtk::dcm-short-string+check-string-value "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process3-5+ "%DCMTK")
-  (export '%dcmtk::is-empty "%DCMTK")
-  (export '%dcmtk::uint16 "%DCMTK")
-  (export '%dcmtk::write-json "%DCMTK")
-  (export '%dcmtk::remove-invalid-groups "%DCMTK")
-  (export '%dcmtk::dcm-floating-point-double "%DCMTK")
-  (export '%dcmtk::+ert-results+ "%DCMTK")
-  (export '%dcmtk::get-referenced-mrdr "%DCMTK")
-  (export '%dcmtk::get-byte-order "%DCMTK")
-  (export '%dcmtk::get-float32 "%DCMTK")
-  (export '%dcmtk::dcm-representation-entry "%DCMTK")
-  (export '%dcmtk::dcm-pixel-item "%DCMTK")
-  (export '%dcmtk::get-uncompressed-frame "%DCMTK")
-  (export '%dcmtk::dcm-object+print-helper "%DCMTK")
-  (export '%dcmtk::dcm-private-tag-cache-entry "%DCMTK")
-  (export '%dcmtk::put-uint16array "%DCMTK")
-  (export '%dcmtk::get-sint64 "%DCMTK")
-  (export '%dcmtk::dcm-date+check-string-value "%DCMTK")
-  (export '%dcmtk::+ert-private+ "%DCMTK")
-  (export '%dcmtk::+esc-unsupported+ "%DCMTK")
-  (export '%dcmtk::flush "%DCMTK")
-  (export '%dcmtk::put-and-insert-tag-key "%DCMTK")
-  (export '%dcmtk::is-private-reservation "%DCMTK")
-  (export '%dcmtk::dcm-element+get-value-from-string "%DCMTK")
-  (export '%dcmtk::is-flushed "%DCMTK")
-  (export '%dcmtk::assign-to-sop-file "%DCMTK")
-  (export '%dcmtk::get-string "%DCMTK")
-  (export '%dcmtk::+exs-jpeg2000lossless-only+ "%DCMTK")
-  (export '%dcmtk::+ert-hl7struc-doc+ "%DCMTK")
-  (export '%dcmtk::~dcm-date-time "%DCMTK")
-  (export '%dcmtk::write-xml "%DCMTK")
-  (export '%dcmtk::card-sub "%DCMTK")
-  (export '%dcmtk::+ert-rt-dose+ "%DCMTK")
-  (export '%dcmtk::dcm-date+get-dicom-date-from-of-date "%DCMTK")
-  (export '%dcmtk::get-sint16 "%DCMTK")
-  (export '%dcmtk::subset "%DCMTK")
-  (export '%dcmtk::get-partial-value "%DCMTK")
-  (export '%dcmtk::get-of-time "%DCMTK")
-  (export '%dcmtk::put-uint8array "%DCMTK")
-  (export '%dcmtk::+ert-tract+ "%DCMTK")
-  (export '%dcmtk::get-sint32array "%DCMTK")
-  (export '%dcmtk::repeating-end "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint32 "%DCMTK")
-  (export '%dcmtk::store-compressed-frame "%DCMTK")
-  (export '%dcmtk::+esm-from-stack-top+ "%DCMTK")
-  (export '%dcmtk::find-and-get-float32array "%DCMTK")
-  (export '%dcmtk::dcm-sequence-of-items "%DCMTK")
-  (export '%dcmtk::find-and-get-element "%DCMTK")
-  (export '%dcmtk::+ert-overlay+ "%DCMTK")
-  (export '%dcmtk::+exs-jpeg2000multicomponent+ "%DCMTK")
-  (export '%dcmtk::of-date "%DCMTK")
-  (export '%dcmtk::+exs-jpeg2000+ "%DCMTK")
-  (export '%dcmtk::~dcm-dict-entry-list "%DCMTK")
-  (export '%dcmtk::get-g-tag "%DCMTK")
-  (export '%dcmtk::find-and-get-float32 "%DCMTK")
-  (export '%dcmtk::number-of-entries "%DCMTK")
-  (export '%dcmtk::dcm-element+check-vm "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-text "%DCMTK")
-  (export '%dcmtk::is-referenced "%DCMTK")
-  (export '%dcmtk::dcm-other64bit-very-long "%DCMTK")
-  (export '%dcmtk::operator!= "%DCMTK")
-  (export '%dcmtk::+ert-patient+ "%DCMTK")
-  (export '%dcmtk::put-uint64array "%DCMTK")
-  (export '%dcmtk::get-element-range-restriction "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process1+ "%DCMTK")
-  (export '%dcmtk::insert-sub-at-current-pos "%DCMTK")
-  (export '%dcmtk::+ewm-dont-update-meta+ "%DCMTK")
-  (export '%dcmtk::create-float32array "%DCMTK")
-  (export '%dcmtk::+ert-assessment+ "%DCMTK")
-  (export '%dcmtk::find-and-get-float64 "%DCMTK")
-  (export '%dcmtk::~dcm-integer-string "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint16array "%DCMTK")
-  (export '%dcmtk::check-for-specific-character-set "%DCMTK")
-  (export '%dcmtk::~dcm-age-string "%DCMTK")
-  (export '%dcmtk::size "%DCMTK")
-  (export '%dcmtk::get-max-value-length "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process10-12+ "%DCMTK")
-  (export '%dcmtk::can-choose-representation "%DCMTK")
-  (export '%dcmtk::get-root-record "%DCMTK")
-  (export '%dcmtk::dcm-other-long "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process2-4+ "%DCMTK")
-  (export '%dcmtk::~dcm-signed-short "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint16array "%DCMTK")
-  (export '%dcmtk::+exs-mpeg4high-profile-level4-1+ "%DCMTK")
-  (export '%dcmtk::normal-begin "%DCMTK")
-  (export '%dcmtk::number-of-repeating-tag-entries "%DCMTK")
-  (export '%dcmtk::+exs-mpeg4high-profile-level4-2-for2d-video+
-          "%DCMTK")
-  (export '%dcmtk::find-and-get-uint32array "%DCMTK")
-  (export '%dcmtk::dcm-date+get-iso-formatted-date-from-string
-          "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process14sv1+ "%DCMTK")
-  (export '%dcmtk::+ert-modality-lut+ "%DCMTK")
-  (export '%dcmtk::get-e-tag "%DCMTK")
-  (export '%dcmtk::put-sint16 "%DCMTK")
-  (export '%dcmtk::dcm-long-text+check-string-value "%DCMTK")
-  (export '%dcmtk::+ert-measurement+ "%DCMTK")
-  (export '%dcmtk::is-private-creator-for "%DCMTK")
-  (export '%dcmtk::get-formatted-name "%DCMTK")
-  (export '%dcmtk::get-record-type "%DCMTK")
-  (export '%dcmtk::set-next-record "%DCMTK")
-  (export '%dcmtk::is-dictionary-loaded "%DCMTK")
-  (export '%dcmtk::find-and-get-long-int "%DCMTK")
-  (export '%dcmtk::get-group "%DCMTK")
-  (export '%dcmtk::begin "%DCMTK")
-  (export '%dcmtk::~dcm-other64bit-very-long "%DCMTK")
-  (export '%dcmtk::dcm-time+get-current-time "%DCMTK")
-  (export '%dcmtk::find-or-create-sequence-item "%DCMTK")
-  (export '%dcmtk::card "%DCMTK")
-  (export '%dcmtk::put-and-insert-float32 "%DCMTK")
-  (export '%dcmtk::+dcm-tag-error-tag-name+ "%DCMTK")
-  (export '%dcmtk::is-universal-match "%DCMTK")
-  (export '%dcmtk::+ert-print-queue+ "%DCMTK")
-  (export '%dcmtk::is-lossy "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint32array "%DCMTK")
-  (export '%dcmtk::~dcm-pixel-data "%DCMTK")
-  (export '%dcmtk::is-encapsulated "%DCMTK")
-  (export '%dcmtk::operator> "%DCMTK")
-  (export '%dcmtk::save-file "%DCMTK")
-  (export '%dcmtk::+ert-curve+ "%DCMTK")
-  (export '%dcmtk::put-float64prec "%DCMTK")
-  (export '%dcmtk::clear-sub "%DCMTK")
-  (export '%dcmtk::get-valid-vr-name "%DCMTK")
-  (export '%dcmtk::+ert-root+ "%DCMTK")
-  (export '%dcmtk::set-non-encapsulation-flag "%DCMTK")
-  (export '%dcmtk::+exs-jpeg2000multicomponent-lossless-only+
-          "%DCMTK")
-  (export '%dcmtk::create-float64array "%DCMTK")
-  (export '%dcmtk::find-and-get-elements "%DCMTK")
-  (export '%dcmtk::private-creator-match "%DCMTK")
-  (export '%dcmtk::dcm-output-filter "%DCMTK")
-  (export '%dcmtk::dcm-decimal-string+check-string-value "%DCMTK")
-  (export '%dcmtk::set-eq "%DCMTK")
-  (export '%dcmtk::dcm-unique-identifier+check-string-value "%DCMTK")
-  (export '%dcmtk::read "%DCMTK")
-  (export '%dcmtk::get-read-mode "%DCMTK")
-  (export '%dcmtk::dcm-write-cache "%DCMTK")
-  (export '%dcmtk::contains-extended-characters "%DCMTK")
-  (export '%dcmtk::remove-original-representation "%DCMTK")
-  (export '%dcmtk::find-and-get-uint16array "%DCMTK")
-  (export '%dcmtk::put-sint64array "%DCMTK")
-  (export '%dcmtk::dcm-codec-list "%DCMTK")
-  (export '%dcmtk::is-standard "%DCMTK")
-  (export '%dcmtk::dcm-attribute-tag "%DCMTK")
-  (export '%dcmtk::get-length "%DCMTK")
-  (export '%dcmtk::get-jpeg-process12bit "%DCMTK")
-  (export '%dcmtk::put-sint32 "%DCMTK")
-  (export '%dcmtk::get-dir-file-format "%DCMTK")
-  (export '%dcmtk::dcm-tag+find-tag-from-name "%DCMTK")
-  (export '%dcmtk::eos "%DCMTK")
-  (export '%dcmtk::e-file-read-mode "%DCMTK")
-  (export '%dcmtk::get-sint32 "%DCMTK")
-  (export '%dcmtk::find-and-get-sint16array "%DCMTK")
-  (export '%dcmtk::+epd-without-padding+ "%DCMTK")
-  (export '%dcmtk::dcm-private-tag-cache "%DCMTK")
-  (export '%dcmtk::~dcm-signed64bit-very-long "%DCMTK")
-  (export '%dcmtk::write-json-ext "%DCMTK")
-  (export '%dcmtk::convert-to-utf8 "%DCMTK")
-  (export '%dcmtk::is-nested "%DCMTK")
-  (export '%dcmtk::~dcm-unlimited-characters "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process28+ "%DCMTK")
-  (export '%dcmtk::dcm-hash-dict "%DCMTK")
-  (export '%dcmtk::e-grp-len-encoding "%DCMTK")
-  (export '%dcmtk::read-until-tag "%DCMTK")
-  (export '%dcmtk::+erm-meta-only+ "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-string-from-name-components
-          "%DCMTK")
-  (export '%dcmtk::isa-string "%DCMTK")
-  (export '%dcmtk::dcm-time "%DCMTK")
-  (export '%dcmtk::dcm-short-text+check-string-value "%DCMTK")
-  (export '%dcmtk::insert-sub "%DCMTK")
-  (export '%dcmtk::~dcm-other-double "%DCMTK")
-  (export '%dcmtk::seek "%DCMTK")
-  (export '%dcmtk::put-and-insert-float64 "%DCMTK")
-  (export '%dcmtk::get-pixel-data-byte-order "%DCMTK")
-  (export '%dcmtk::get-uint8 "%DCMTK")
-  (export '%dcmtk::get-tag "%DCMTK")
-  (export '%dcmtk::+ebo-little-endian+ "%DCMTK")
-  (export '%dcmtk::dcm-pixel-sequence "%DCMTK")
-  (export '%dcmtk::~dcm-data-dictionary "%DCMTK")
-  (export '%dcmtk::get-parent-item "%DCMTK")
-  (export '%dcmtk::~dcm-output-stream "%DCMTK")
-  (export '%dcmtk::print "%DCMTK")
-  (export '%dcmtk::+exs-jpip-referenced-deflate+ "%DCMTK")
-  (export '%dcmtk::~dcm-attribute-tag "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process15+ "%DCMTK")
-  (export '%dcmtk::~dcm-sequence-of-items "%DCMTK")
-  (export '%dcmtk::dcm-age-string "%DCMTK")
-  (export '%dcmtk::+egl-without-gl+ "%DCMTK")
-  (export '%dcmtk::sizeof-tag-header "%DCMTK")
-  (export '%dcmtk::is-retired "%DCMTK")
-  (export '%dcmtk::calc-element-length "%DCMTK")
-  (export '%dcmtk::+erw-not-initialized+ "%DCMTK")
-  (export '%dcmtk::+dcm-variable-vm+ "%DCMTK")
-  (export '%dcmtk::get-xfer "%DCMTK")
-  (export '%dcmtk::+exs-big-endian-implicit+ "%DCMTK")
-  (export '%dcmtk::set-current-representation-parameter "%DCMTK")
-  (export '%dcmtk::dcm-hash-dict-iterator "%DCMTK")
-  (export '%dcmtk::find-entry "%DCMTK")
-  (export '%dcmtk::+exs-mpeg4b-dcompatible-high-profile-level4-1+
-          "%DCMTK")
-  (export '%dcmtk::set-group "%DCMTK")
-  (export '%dcmtk::set-parent "%DCMTK")
-  (export '%dcmtk::create-uint8array "%DCMTK")
-  (export '%dcmtk::put-tag-val "%DCMTK")
-  (export '%dcmtk::~dcm-long-string "%DCMTK")
-  (export '%dcmtk::~dcm-universal-resource-identifier-or-locator
-          "%DCMTK")
-  (export '%dcmtk::get-real-length "%DCMTK")
-  (export '%dcmtk::can-write-xfer "%DCMTK")
-  (export '%dcmtk::dcm-tag-key "%DCMTK")
-  (export '%dcmtk::+ert-rt-structure-set+ "%DCMTK")
-  (export '%dcmtk::of-filename "%DCMTK")
-  (export '%dcmtk::get-float64vector "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process7-9+ "%DCMTK")
-  (export '%dcmtk::is-lossless "%DCMTK")
-  (export '%dcmtk::+ert-study+ "%DCMTK")
-  (export '%dcmtk::get-tag-val "%DCMTK")
-  (export '%dcmtk::~dcm-decimal-string "%DCMTK")
-  (export '%dcmtk::of-iterator<dcm-dict-entry*> "%DCMTK")
-  (export '%dcmtk::~dcm-xfer "%DCMTK")
-  (export '%dcmtk::dcm-dicom-dir "%DCMTK")
-  (export '%dcmtk::~dcm-list "%DCMTK")
-  (export '%dcmtk::+ert-study-component+ "%DCMTK")
-  (export '%dcmtk::+exs-jpegls-lossy+ "%DCMTK")
-  (export '%dcmtk::delete-sub-and-purge-file "%DCMTK")
-  (export '%dcmtk::~dcm-private-tag-cache-entry "%DCMTK")
-  (export '%dcmtk::+ert-surface+ "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process17-19+ "%DCMTK")
-  (export '%dcmtk::dcm-code-string+check-vr "%DCMTK")
-  (export '%dcmtk::dcm-short-string "%DCMTK")
-  (export '%dcmtk::set-current-date "%DCMTK")
-  (export '%dcmtk::+epd-with-padding+ "%DCMTK")
-  (export '%dcmtk::dcm-meta-info "%DCMTK")
-  (export '%dcmtk::put-and-insert-float64array "%DCMTK")
-  (export '%dcmtk::dcm-stack-node "%DCMTK")
-  (export '%dcmtk::dcm-unique-identifier "%DCMTK")
-  (export '%dcmtk::e-dir-rec-type "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list "%DCMTK")
-  (export '%dcmtk::get "%DCMTK")
-  (export '%dcmtk::+ert-voi-lut+ "%DCMTK")
-  (export '%dcmtk::+ert-implant-group+ "%DCMTK")
-  (export '%dcmtk::~dcm-signed-long "%DCMTK")
-  (export '%dcmtk::dcm-time+check "%DCMTK")
-  (export '%dcmtk::normal-end "%DCMTK")
-  (export '%dcmtk::putback "%DCMTK")
-  (export '%dcmtk::seek-to "%DCMTK")
-  (export '%dcmtk::is-variable-range-vm "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-name-components-from-string
-          "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-date "%DCMTK")
-  (export '%dcmtk::+elp-next+ "%DCMTK")
-  (export '%dcmtk::is-big-endian "%DCMTK")
-  (export '%dcmtk::dcm-vr "%DCMTK")
-  (export '%dcmtk::detach-value-field "%DCMTK")
-  (export '%dcmtk::dcm-application-entity "%DCMTK")
-  (export '%dcmtk::get-records-origin-file "%DCMTK")
-  (export '%dcmtk::put-float32 "%DCMTK")
-  (export '%dcmtk::find-and-get-sint64 "%DCMTK")
-  (export '%dcmtk::load-file-until-tag "%DCMTK")
-  (export '%dcmtk::dcm-other-float "%DCMTK")
-  (export '%dcmtk::find-and-get-uint16 "%DCMTK")
-  (export '%dcmtk::uses-extended-length-encoding "%DCMTK")
-  (export '%dcmtk::load-summary "%DCMTK")
-  (export '%dcmtk::e-search-mode "%DCMTK")
-  (export '%dcmtk::value "%DCMTK")
-  (export '%dcmtk::~dcm-item "%DCMTK")
-  (export '%dcmtk::get-xfer-name "%DCMTK")
-  (export '%dcmtk::dcm-signed-long "%DCMTK")
-  (export '%dcmtk::dcm-attribute-tag+check-string-value "%DCMTK")
-  (export '%dcmtk::is-explicit-vr "%DCMTK")
-  (export '%dcmtk::dcm-long-text "%DCMTK")
-  (export '%dcmtk::get-valid-evr "%DCMTK")
-  (export '%dcmtk::dcm-unsigned64bit-very-long "%DCMTK")
-  (export '%dcmtk::get-name-components "%DCMTK")
-  (export '%dcmtk::+exs-jpegls-lossless+ "%DCMTK")
-  (export '%dcmtk::dcm-time+get-of-time-from-string "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process6-8+ "%DCMTK")
-  (export '%dcmtk::mark "%DCMTK")
-  (export '%dcmtk::to-string "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-long "%DCMTK")
-  (export '%dcmtk::get-file-offset "%DCMTK")
-  (export '%dcmtk::of-vector<double> "%DCMTK")
-  (export '%dcmtk::find-and-get-uint8array "%DCMTK")
-  (export '%dcmtk::good "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint32 "%DCMTK")
-  (export '%dcmtk::add-entry "%DCMTK")
-  (export '%dcmtk::+esc-zlib+ "%DCMTK")
-  (export '%dcmtk::+erw-init+ "%DCMTK")
-  (export '%dcmtk::hash "%DCMTK")
-  (export '%dcmtk::+egl-with-gl+ "%DCMTK")
-  (export '%dcmtk::dcm-evr "%DCMTK")
-  (export '%dcmtk::get-uint32array "%DCMTK")
-  (export '%dcmtk::get-evr "%DCMTK")
-  (export '%dcmtk::insert-at-current-pos "%DCMTK")
-  (export '%dcmtk::+exs-private-ge-lei-with-big-endian-pixel-data+
-          "%DCMTK")
-  (export '%dcmtk::get-float32array "%DCMTK")
-  (export '%dcmtk::get-uncompressed-frame-size "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-short "%DCMTK")
-  (export '%dcmtk::get-key "%DCMTK")
-  (export '%dcmtk::lookup-v-rin-dictionary "%DCMTK")
-  (export '%dcmtk::get-x-tag "%DCMTK")
-  (export '%dcmtk::is-signable "%DCMTK")
-  (export '%dcmtk::insert-empty-element "%DCMTK")
-  (export '%dcmtk::~dcm-short-string "%DCMTK")
-  (export '%dcmtk::find-and-get-uint64array "%DCMTK")
-  (export '%dcmtk::dcm-time+get-time-zone-from-string "%DCMTK")
-  (export '%dcmtk::dcm-code-string "%DCMTK")
-  (export '%dcmtk::dcm-consumer "%DCMTK")
-  (export '%dcmtk::is-fixed-single-vm "%DCMTK")
-  (export '%dcmtk::put-uint64 "%DCMTK")
-  (export '%dcmtk::~dcm-polymorph-obow "%DCMTK")
-  (export '%dcmtk::create-uint16array "%DCMTK")
-  (export '%dcmtk::dcm-date-time "%DCMTK")
-  (export '%dcmtk::dcm-age-string+check-string-value "%DCMTK")
-  (export '%dcmtk::find-and-insert-copy-of-element "%DCMTK")
-  (export '%dcmtk::dcm-input-stream-factory-type "%DCMTK")
-  (export '%dcmtk::dcm-person-name "%DCMTK")
-  (export '%dcmtk::assign-to-mrdr "%DCMTK")
-  (export '%dcmtk::+ert-film-box+ "%DCMTK")
-  (export '%dcmtk::dcm-time+get-iso-formatted-time-from-string
-          "%DCMTK")
-  (export '%dcmtk::+ert-radiotherapy+ "%DCMTK")
-  (export '%dcmtk::+elp-last+ "%DCMTK")
-  (export '%dcmtk::dcm-dataset "%DCMTK")
-  (export '%dcmtk::~dcm-other-long "%DCMTK")
-  (export '%dcmtk::dcm-representation-list "%DCMTK")
-  (export '%dcmtk::+ert-raw-data+ "%DCMTK")
-  (export '%dcmtk::load-dictionary "%DCMTK")
-  (export '%dcmtk::dcm-date-time+check-string-value "%DCMTK")
-  (export '%dcmtk::+eet-undefined-length+ "%DCMTK")
-  (export '%dcmtk::+ert-surface-scan+ "%DCMTK")
-  (export '%dcmtk::put-sint64 "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-characters+check-string-value
-          "%DCMTK")
-  (export '%dcmtk::dcm-representation-list-const-iterator "%DCMTK")
-  (export '%dcmtk::~dcm-tag "%DCMTK")
   (export '%dcmtk::~dcm-char-string "%DCMTK")
-  (export '%dcmtk::~dcm-file-format "%DCMTK")
-  (export '%dcmtk::is-length-in-char "%DCMTK")
-  (export '%dcmtk::compact-elements "%DCMTK")
-  (export '%dcmtk::sint64 "%DCMTK")
-  (export '%dcmtk::+ert-palette+ "%DCMTK")
-  (export '%dcmtk::get-number-of-values "%DCMTK")
-  (export '%dcmtk::dcm-element "%DCMTK")
-  (export '%dcmtk::reload-dictionaries "%DCMTK")
-  (export '%dcmtk::put-of-string-at-pos "%DCMTK")
-  (export '%dcmtk::+exs-big-endian-explicit+ "%DCMTK")
-  (export '%dcmtk::get-mrdr-sequence "%DCMTK")
-  (export '%dcmtk::+ebo-unknown+ "%DCMTK")
-  (export '%dcmtk::dcm-directory-record "%DCMTK")
-  (export '%dcmtk::is-private "%DCMTK")
-  (export '%dcmtk::is-not-encapsulated "%DCMTK")
-  (export '%dcmtk::e-padding-encoding "%DCMTK")
-  (export '%dcmtk::+ert-film-session+ "%DCMTK")
-  (export '%dcmtk::get-float64array "%DCMTK")
-  (export '%dcmtk::search "%DCMTK")
-  (export '%dcmtk::~dcm-private-tag-cache "%DCMTK")
-  (export '%dcmtk::find-and-get-sint32array "%DCMTK")
-  (export '%dcmtk::find-and-get-uint32 "%DCMTK")
-  (export '%dcmtk::dcm-object "%DCMTK")
-  (export '%dcmtk::get-current-representation-key "%DCMTK")
-  (export '%dcmtk::next-sub "%DCMTK")
-  (export '%dcmtk::get-uint64array "%DCMTK")
-  (export '%dcmtk::copy-from "%DCMTK")
-  (export '%dcmtk::get-uint16 "%DCMTK")
-  (export '%dcmtk::~dcm-dicom-dir "%DCMTK")
-  (export '%dcmtk::dcm-date+get-of-date-from-string "%DCMTK")
-  (export '%dcmtk::push "%DCMTK")
-  (export '%dcmtk::find-and-get-sequence "%DCMTK")
-  (export '%dcmtk::e-stream-compression "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-formatted-name-from-components
-          "%DCMTK")
-  (export '%dcmtk::change-xfer "%DCMTK")
-  (export '%dcmtk::+ewm-update-meta+ "%DCMTK")
-  (export '%dcmtk::set-vr "%DCMTK")
-  (export '%dcmtk::sint32 "%DCMTK")
-  (export '%dcmtk::+elp-first+ "%DCMTK")
-  (export '%dcmtk::is-repeating-group "%DCMTK")
-  (export '%dcmtk::float32 "%DCMTK")
-  (export '%dcmtk::set-upper-element "%DCMTK")
-  (export '%dcmtk::get-tag-name "%DCMTK")
-  (export '%dcmtk::load-all-data-into-memory "%DCMTK")
-  (export '%dcmtk::write-signature-format "%DCMTK")
-  (export '%dcmtk::dcm-long-string "%DCMTK")
-  (export '%dcmtk::~dcm-application-entity "%DCMTK")
-  (export '%dcmtk::transfer-state "%DCMTK")
-  (export '%dcmtk::create-uint64array "%DCMTK")
-  (export '%dcmtk::operator>= "%DCMTK")
-  (export '%dcmtk::put-uint16 "%DCMTK")
-  (export '%dcmtk::~dcm-overlay-data "%DCMTK")
-  (export '%dcmtk::operator== "%DCMTK")
-  (export '%dcmtk::dcm-signed64bit-very-long "%DCMTK")
-  (export '%dcmtk::~dcm-directory-record "%DCMTK")
-  (export '%dcmtk::remove "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-date-time "%DCMTK")
-  (export '%dcmtk::get-upper-element "%DCMTK")
-  (export '%dcmtk::+erm-auto-detect+ "%DCMTK")
-  (export '%dcmtk::remove-sub "%DCMTK")
-  (export '%dcmtk::dcm-list-node "%DCMTK")
-  (export '%dcmtk::dcm-long-string+check-string-value "%DCMTK")
-  (export '%dcmtk::dcm-tag "%DCMTK")
-  (export '%dcmtk::+epd-no-change+ "%DCMTK")
-  (export '%dcmtk::put-sint16array "%DCMTK")
-  (export '%dcmtk::combination-matches "%DCMTK")
-  (export '%dcmtk::dcm-decimal-string "%DCMTK")
-  (export '%dcmtk::put "%DCMTK")
-  (export '%dcmtk::get-vr "%DCMTK")
-  (export '%dcmtk::+ert-sr-document+ "%DCMTK")
-  (export '%dcmtk::~dcm-long-text "%DCMTK")
-  (export '%dcmtk::+ert-rt-plan+ "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry "%DCMTK")
-  (export '%dcmtk::operator* "%DCMTK")
-  (export '%dcmtk::~dcm-code-string "%DCMTK")
-  (export '%dcmtk::compare "%DCMTK")
-  (export '%dcmtk::get-uint16array "%DCMTK")
-  (export '%dcmtk::contains-unknown-vr "%DCMTK")
-  (export '%dcmtk::is-repeating-element "%DCMTK")
-  (export '%dcmtk::matches "%DCMTK")
-  (export '%dcmtk::find-and-get-of-string "%DCMTK")
-  (export '%dcmtk::dcm-overlay-data "%DCMTK")
-  (export '%dcmtk::is-for-internal-use-only "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process16-18+ "%DCMTK")
-  (export '%dcmtk::status "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-time "%DCMTK")
-  (export '%dcmtk::get-item "%DCMTK")
-  (export '%dcmtk::find-and-get-sint64array "%DCMTK")
-  (export '%dcmtk::dcm-specific-character-set "%DCMTK")
-  (export '%dcmtk::is-equivalent "%DCMTK")
-  (export '%dcmtk::put-name-components "%DCMTK")
-  (export '%dcmtk::+egl-no-change+ "%DCMTK")
-  (export '%dcmtk::remove-all-but-current-representations "%DCMTK")
-  (export '%dcmtk::std+ostream "%DCMTK")
-  (export '%dcmtk::~dcm-stack "%DCMTK")
-  (export '%dcmtk::get-sint64array "%DCMTK")
-  (export '%dcmtk::put-and-insert-of-string-array "%DCMTK")
-  (export '%dcmtk::+ert-image-box+ "%DCMTK")
-  (export '%dcmtk::float64 "%DCMTK")
-  (export '%dcmtk::remove-representation "%DCMTK")
-  (export '%dcmtk::get-vm-max "%DCMTK")
-  (export '%dcmtk::get-and-remove-dataset "%DCMTK")
-  (export '%dcmtk::dcm-pixel-data "%DCMTK")
-  (export '%dcmtk::contains "%DCMTK")
-  (export '%dcmtk::+ert-value-map+ "%DCMTK")
-  (export '%dcmtk::transfer-init "%DCMTK")
-  (export '%dcmtk::is-affected-by-specific-character-set "%DCMTK")
-  (export '%dcmtk::get-original-xfer "%DCMTK")
-  (export '%dcmtk::+ert-encap-doc+ "%DCMTK")
-  (export '%dcmtk::+ert-image+ "%DCMTK")
-  (export '%dcmtk::get-vm-min "%DCMTK")
-  (export '%dcmtk::install-compression-filter "%DCMTK")
-  (export '%dcmtk::~dcm-time "%DCMTK")
-  (export '%dcmtk::set-current-time "%DCMTK")
-  (export '%dcmtk::get-of-date "%DCMTK")
-  (export '%dcmtk::dcm-person-name+check-string-value "%DCMTK")
-  (export '%dcmtk::dcm-input-filter "%DCMTK")
-  (export '%dcmtk::dcm-file-format "%DCMTK")
-  (export '%dcmtk::prepend "%DCMTK")
-  (export '%dcmtk::operator= "%DCMTK")
-  (export '%dcmtk::e-list-pos "%DCMTK")
-  (export '%dcmtk::dcm-file-cache "%DCMTK")
-  (export '%dcmtk::offile-off-t "%DCMTK")
-  (export '%dcmtk::of-iterator<dcm-representation-entry*> "%DCMTK")
-  (export '%dcmtk::skip "%DCMTK")
-  (export '%dcmtk::error "%DCMTK")
-  (export '%dcmtk::dcm-producer "%DCMTK")
-  (export '%dcmtk::has-representation "%DCMTK")
-  (export '%dcmtk::dcm-date "%DCMTK")
-  (export '%dcmtk::~dcm-dict-entry "%DCMTK")
-  (export '%dcmtk::find-and-get-sequence-item "%DCMTK")
-  (export '%dcmtk::transfer-end "%DCMTK")
-  (export '%dcmtk::get-current-xfer "%DCMTK")
-  (export '%dcmtk::create-value-from-temp-file "%DCMTK")
-  (export '%dcmtk::+ert-rt-treat-record+ "%DCMTK")
-  (export '%dcmtk::supports-undefined-length "%DCMTK")
-  (export '%dcmtk::get-next-record "%DCMTK")
-  (export '%dcmtk::dcm-application-entity+check-string-value
-          "%DCMTK")
-  (export '%dcmtk::number-of-skeleton-entries "%DCMTK")
-  (export '%dcmtk::is-group-length "%DCMTK")
-  (export '%dcmtk::get-sint16array "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-long-offset "%DCMTK")
-  (export '%dcmtk::of-list<unsigned+int> "%DCMTK")
-  (export '%dcmtk::dcm-date+check "%DCMTK")
-  (export '%dcmtk::find-private-creator "%DCMTK")
-  (export '%dcmtk::put-of-string-array "%DCMTK")
-  (export '%dcmtk::insert-item "%DCMTK")
-  (export '%dcmtk::insert "%DCMTK")
-  (export '%dcmtk::get-stream-compression "%DCMTK")
-  (export '%dcmtk::is-little-endian "%DCMTK")
-  (export '%dcmtk::get-private-creator "%DCMTK")
-  (export '%dcmtk::dcmobj- "%DCMTK")
-  (export '%dcmtk::append "%DCMTK")
-  (export '%dcmtk::next-object "%DCMTK")
-  (export '%dcmtk::end "%DCMTK")
-  (export '%dcmtk::valid "%DCMTK")
-  (export '%dcmtk::+exs-hevc-main10profile-level5-1+ "%DCMTK")
-  (export '%dcmtk::~dcm-pixel-sequence "%DCMTK")
-  (export '%dcmtk::dcm-item+new-dicom-element "%DCMTK")
-  (export '%dcmtk::set-current-date-time "%DCMTK")
-  (export '%dcmtk::+erm-dataset+ "%DCMTK")
-  (export '%dcmtk::dcm-polymorph-obow "%DCMTK")
-  (export '%dcmtk::get-input-stream "%DCMTK")
-  (export '%dcmtk::create-uint32array "%DCMTK")
-  (export '%dcmtk::+exs-hevc-main-profile-level5-1+ "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-current-date-time "%DCMTK")
-  (export '%dcmtk::set-records-origin-file "%DCMTK")
-  (export '%dcmtk::put-uint32array "%DCMTK")
-  (export '%dcmtk::validate-meta-info "%DCMTK")
-  (export '%dcmtk::get-decompressed-color-model "%DCMTK")
-  (export '%dcmtk::+ert-implant+ "%DCMTK")
-  (export '%dcmtk::+erw-ready+ "%DCMTK")
-  (export '%dcmtk::repeating-begin "%DCMTK")
-  (export '%dcmtk::set-upper "%DCMTK")
-  (export '%dcmtk::+ert-visit+ "%DCMTK")
-  (export '%dcmtk::find "%DCMTK")
-  (export '%dcmtk::has-valid-group "%DCMTK")
-  (export '%dcmtk::of-condition "%DCMTK")
-  (export '%dcmtk::~dcm-floating-point-double "%DCMTK")
-  (export '%dcmtk::sint16 "%DCMTK")
-  (export '%dcmtk::+eet-explicit-length+ "%DCMTK")
-  (export '%dcmtk::get-of-string "%DCMTK")
-  (export '%dcmtk::put-float64array "%DCMTK")
-  (export '%dcmtk::~print-helper "%DCMTK")
-  (export '%dcmtk::print-helper "%DCMTK")
-  (export '%dcmtk::dcm-floating-point-single "%DCMTK")
-  (export '%dcmtk::set-read-mode "%DCMTK")
-  (export '%dcmtk::clear "%DCMTK")
-  (export '%dcmtk::+ert-stereometric+ "%DCMTK")
-  (export '%dcmtk::clone "%DCMTK")
-  (export '%dcmtk::set-of-time "%DCMTK")
-  (export '%dcmtk::~dcm-person-name "%DCMTK")
-  (export '%dcmtk::e-encoding-type "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-short "%DCMTK")
-  (export '%dcmtk::get-uint8array "%DCMTK")
-  (export '%dcmtk::tag-exists "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned64bit-very-long "%DCMTK")
-  (export '%dcmtk::get-dataset "%DCMTK")
-  (export '%dcmtk::put-sint32array "%DCMTK")
-  (export '%dcmtk::operator< "%DCMTK")
-  (export '%dcmtk::+exs-mpeg4stereo-high-profile-level4-2+ "%DCMTK")
-  (export '%dcmtk::find-and-delete-sequence-item "%DCMTK")
-  (export '%dcmtk::get-value-width "%DCMTK")
-  (export '%dcmtk::set-group-range-restriction "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint8array "%DCMTK")
-  (export '%dcmtk::get-parent "%DCMTK")
-  (export '%dcmtk::+ert-key-object-doc+ "%DCMTK")
-  (export '%dcmtk::+erw-in-work+ "%DCMTK")
-  (export '%dcmtk::dcm-stack "%DCMTK")
-  (export '%dcmtk::empty "%DCMTK")
-  (export '%dcmtk::~dcm-unique-identifier "%DCMTK")
-  (export '%dcmtk::elem "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-long-offset "%DCMTK")
-  (export '%dcmtk::~dcm-byte-string "%DCMTK")
-  (export '%dcmtk::find-and-get-sint16 "%DCMTK")
-  (export '%dcmtk::uint64 "%DCMTK")
-  (export '%dcmtk::+ert-stored-print+ "%DCMTK")
-  (export '%dcmtk::~dcm-hash-dict-iterator "%DCMTK")
-  (export '%dcmtk::compact "%DCMTK")
-  (export '%dcmtk::~dcm-short-text "%DCMTK")
-  (export '%dcmtk::+ert-registration+ "%DCMTK")
-  (export '%dcmtk::put-float32array "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-iso-formatted-date-time-from-string
-          "%DCMTK")
-  (export '%dcmtk::load-file "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-of-date-time-from-string
-          "%DCMTK")
-  (export '%dcmtk::match-filename "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-text+check-string-value "%DCMTK")
-  (export '%dcmtk::put-string "%DCMTK")
-  (export '%dcmtk::find-and-get-string "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-long "%DCMTK")
-  (export '%dcmtk::get-encapsulated-representation "%DCMTK")
-  (export '%dcmtk::get-uint64 "%DCMTK")
-  (export '%dcmtk::get-jpeg-process8bit "%DCMTK")
-  (export '%dcmtk::~dcm-vr "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list-iterator "%DCMTK")
-  (export '%dcmtk::set-of-date "%DCMTK")
-  (export '%dcmtk::+esm-after-stack-top+ "%DCMTK")
-  (export '%dcmtk::tag-exists-with-value "%DCMTK")
-  (export '%dcmtk::new-factory "%DCMTK")
-  (export '%dcmtk::+exs-little-endian-implicit+ "%DCMTK")
-  (export '%dcmtk::+exs-mpeg4high-profile-level4-2-for3d-video+
-          "%DCMTK")
-  (export '%dcmtk::choose-representation "%DCMTK")
-  (export '%dcmtk::dcm-byte-string "%DCMTK")
-  (export '%dcmtk::dcm-item "%DCMTK")
-  (export '%dcmtk::is-fixed-range-vm "%DCMTK")
-  (export '%dcmtk::verify "%DCMTK")
-  (export '%dcmtk::e-byte-order "%DCMTK")
-  (export '%dcmtk::is-implicit-vr "%DCMTK")
-  (export '%dcmtk::dcm-date-time+check "%DCMTK")
-  (export '%dcmtk::get-min-value-length "%DCMTK")
-  (export '%dcmtk::dcm-other-byte-other-word "%DCMTK")
-  (export '%dcmtk::get-upper-group "%DCMTK")
-  (export '%dcmtk::tell "%DCMTK")
-  (export '%dcmtk::set-element "%DCMTK")
-  (export '%dcmtk::dcm-representation-list-iterator "%DCMTK")
-  (export '%dcmtk::check-value "%DCMTK")
-  (export '%dcmtk::dcm-output-stream "%DCMTK")
-  (export '%dcmtk::+exs-unknown+ "%DCMTK")
-  (export '%dcmtk::insert-sequence-item "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint16 "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint16 "%DCMTK")
-  (export '%dcmtk::dcm-short-text "%DCMTK")
-  (export '%dcmtk::+exs-little-endian-explicit+ "%DCMTK")
-  (export '%dcmtk::is-signable-tag "%DCMTK")
-  (export '%dcmtk::find-and-get-uint8 "%DCMTK")
-  (export '%dcmtk::of-date-time "%DCMTK")
-  (export '%dcmtk::set-upper-group "%DCMTK")
-  (export '%dcmtk::dcm-xfer "%DCMTK")
-  (export '%dcmtk::create "%DCMTK")
-  (export '%dcmtk::get-dir-file-name "%DCMTK")
-  (export '%dcmtk::operator<= "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process20-22+ "%DCMTK")
-  (export '%dcmtk::std+basic-ostream<char> "%DCMTK")
-  (export '%dcmtk::dcm-byte-string+e-string-mode "%DCMTK")
-  (export '%dcmtk::dcm-integer-string+check-string-value "%DCMTK")
-  (export '%dcmtk::get-element "%DCMTK")
-  (export '%dcmtk::~dcm-date "%DCMTK")
-  (export '%dcmtk::del "%DCMTK")
-  (export '%dcmtk::uint32 "%DCMTK")
-  (export '%dcmtk::+exs-mpeg2main-profile-at-main-level+ "%DCMTK")
-  (export '%dcmtk::top "%DCMTK")
-  (export '%dcmtk::match-or-create-mrdr "%DCMTK")
-  (export '%dcmtk::~dcm-meta-info "%DCMTK")
-  (export '%dcmtk::get-float64 "%DCMTK")
-  (export '%dcmtk::dcm-universal-resource-identifier-or-locator+check-string-value
-          "%DCMTK")
-  (export '%dcmtk::dcm-signed-short "%DCMTK")
-  (export '%dcmtk::+ewm-create-new-meta+ "%DCMTK")
-  (export '%dcmtk::e-transfer-syntax "%DCMTK")
-  (export '%dcmtk::dcm-codec "%DCMTK")
-  (export '%dcmtk::~dcm-other-byte-other-word "%DCMTK")
-  (export '%dcmtk::find-and-delete-element "%DCMTK")
-  (export '%dcmtk::get-upper-key "%DCMTK")
-  (export '%dcmtk::dcm-time+get-dicom-time-from-of-time "%DCMTK")
-  (export '%dcmtk::+ert-spectroscopy+ "%DCMTK")
-  (export '%dcmtk::dcm-representation-parameter "%DCMTK")
   (export '%dcmtk::get-delimiter-chars "%DCMTK")
-  (export '%dcmtk::+exs-deflated-little-endian-explicit+ "%DCMTK")
-  (export '%dcmtk::put-original-representation "%DCMTK")
-  (export '%dcmtk::+ewm-fileformat+ "%DCMTK")
-  (export '%dcmtk::e-transfer-state "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-time "%DCMTK")
+  (export '%dcmtk::e-transfer-syntax "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-LIST-POS| "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned64bit-very-long "%DCMTK")
+  (export '%dcmtk::get-number-of-values "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-VR-TYPE| "%DCMTK")
   (export '%dcmtk::pop "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process24-26+ "%DCMTK")
-  (export '%dcmtk::put-float64 "%DCMTK")
-  (export '%dcmtk::~dcm-list-node "%DCMTK")
-  (export '%dcmtk::find-and-get-sint32 "%DCMTK")
-  (export '%dcmtk::is-unknown-vr "%DCMTK")
-  (export '%dcmtk::+ert-interpretation+ "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process21-23+ "%DCMTK")
-  (export '%dcmtk::push-back "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-characters "%DCMTK")
-  (export '%dcmtk::set "%DCMTK")
-  (export '%dcmtk::insert-and-replace "%DCMTK")
-  (export '%dcmtk::uint8 "%DCMTK")
-  (export '%dcmtk::get-vm "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-component-group "%DCMTK")
-  (export '%dcmtk::+exs-rle-lossless+ "%DCMTK")
-  (export '%dcmtk::+ert-topic+ "%DCMTK")
-  (export '%dcmtk::get-base-tag "%DCMTK")
-  (export '%dcmtk::size-t "%DCMTK")
-  (export '%dcmtk::set-element-range-restriction "%DCMTK")
-  (export '%dcmtk::find-and-get-uint64 "%DCMTK")
-  (export '%dcmtk::get-group-range-restriction "%DCMTK")
-  (export '%dcmtk::find-and-get-of-string-array "%DCMTK")
-  (export '%dcmtk::dcm-date+get-current-date "%DCMTK")
-  (export '%dcmtk::avail "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list-const-iterator "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-formatted-name-from-string
-          "%DCMTK")
-  (export '%dcmtk::put-and-insert-string "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process29+ "%DCMTK")
-  (export '%dcmtk::dcm-list "%DCMTK")
-  (export '%dcmtk::~dcm-tag-key "%DCMTK")
-  (export '%dcmtk::+ert-hanging-protocol+ "%DCMTK")
-  (export '%dcmtk::get-sub "%DCMTK")
-  (export '%dcmtk::e-file-write-mode "%DCMTK")
-  (export '%dcmtk::+exs-jpip-referenced+ "%DCMTK")
-  (export '%dcmtk::~dcm-hash-dict "%DCMTK")
-  (export '%dcmtk::+esc-none+ "%DCMTK")
-  (export '%dcmtk::+ert-plan+ "%DCMTK")
-  (export '%dcmtk::find-and-get-float64array "%DCMTK")
-  (export '%dcmtk::+erm-file-only+ "%DCMTK")
-  (export '%dcmtk::set-g-tag "%DCMTK")
-  (export '%dcmtk::is-leaf "%DCMTK")
-  (export '%dcmtk::+ert-fiducial+ "%DCMTK")
-  (export '%dcmtk::dcm-data-dictionary "%DCMTK")
-  (export '%dcmtk::put-and-insert-float32array "%DCMTK")
-  (export '%dcmtk::dcm-offset-list "%DCMTK")
-  (export '%dcmtk::~dcm-floating-point-single "%DCMTK")
-  (export '%dcmtk::+ert-waveform+ "%DCMTK")
-  (export '%dcmtk::+ert-implant-assy+ "%DCMTK")
-  (export '%dcmtk::get-meta-info "%DCMTK")
-  (export '%dcmtk::ident "%DCMTK")
-  (export '%dcmtk::~dcm-stack-node "%DCMTK")
-  (export '%dcmtk::dcm-char-string "%DCMTK")
-  (export '%dcmtk::of-string "%DCMTK")
-  (export '%dcmtk::+egl-recalc-gl+ "%DCMTK")
-  (export '%dcmtk::get-xfer-id "%DCMTK")
-  (export '%dcmtk::+ert-series+ "%DCMTK")
-  (export '%dcmtk::is-repeating "%DCMTK")
-  (export '%dcmtk::delete-all-elements "%DCMTK")
-  (export '%dcmtk::of-list<dcm-representation-entry*> "%DCMTK")
-  (export '%dcmtk::+ewm-dataset+ "%DCMTK")
-  (export '%dcmtk::get-of-date-time "%DCMTK")
-  (export '%dcmtk::+exs-mpeg2main-profile-at-high-level+ "%DCMTK")
-  (export '%dcmtk::+ebo-big-endian+ "%DCMTK")
-  (export '%dcmtk::get-standard-version "%DCMTK")
-  (export '%dcmtk::get-original-representation-key "%DCMTK")
-  (export '%dcmtk::~dcm-other-float "%DCMTK")
+  (export '%dcmtk::set-current-date "%DCMTK")
+  (export '%dcmtk::new-factory "%DCMTK")
+  (export '%dcmtk::write "%DCMTK")
+  (export '%dcmtk::lookup-v-rin-dictionary "%DCMTK")
+  (export '%dcmtk::dcm-specific-character-set "%DCMTK")
+  (export '%dcmtk::get-xfer-name "%DCMTK")
+  (export '%dcmtk::e-grp-len-encoding "%DCMTK")
+  (export '%dcmtk::get-valid-vr-name "%DCMTK")
+  (export '%dcmtk::~dcm-code-string "%DCMTK")
+  (export '%dcmtk::number-of-repeating-tag-entries "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-date-time "%DCMTK")
+  (export '%dcmtk::mark "%DCMTK")
+  (export '%dcmtk::dcm-code-string+check-string-value "%DCMTK")
+  (export '%dcmtk::of-time "%DCMTK")
+  (export '%dcmtk::find-and-get-of-string "%DCMTK")
+  (export '%dcmtk::find-and-delete-element "%DCMTK")
+  (export '%dcmtk::~dcm-unique-identifier "%DCMTK")
+  (export '%dcmtk::put-and-insert-float32 "%DCMTK")
+  (export '%dcmtk::transfer-end "%DCMTK")
+  (export '%dcmtk::dcm-pixel-sequence "%DCMTK")
+  (export '%dcmtk::putback "%DCMTK")
   (export '%dcmtk::~dcm-unlimited-text "%DCMTK")
-  (export '%dcmtk::dcm-item+new-dicom-element-with-vr "%DCMTK")
-  (export '%dcmtk::dcm-element+determine-vm "%DCMTK")
-  (export '%dcmtk::dcm-other-double "%DCMTK")
-  (export '%dcmtk::convert-character-set "%DCMTK")
-  (export '%dcmtk::update-original-xfer "%DCMTK")
-  (export '%dcmtk::compute-group-length-and-padding "%DCMTK")
+  (export '%dcmtk::get-x-tag "%DCMTK")
+  (export '%dcmtk::empty "%DCMTK")
+  (export '%dcmtk::card-sub "%DCMTK")
+  (export '%dcmtk::dcm-item+new-dicom-element "%DCMTK")
+  (export '%dcmtk::find-and-delete-sequence-item "%DCMTK")
+  (export '%dcmtk::~dcm-data-dictionary "%DCMTK")
   (export '%dcmtk::dcm-date-time+get-dicom-date-time-from-of-date-time
           "%DCMTK")
-  (export '%dcmtk::dcm-dict-range-restriction "%DCMTK")
-  (export '%dcmtk::write "%DCMTK")
-  (export '%dcmtk::next-in-container "%DCMTK")
-  (export '%dcmtk::value-loaded "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process11-13+ "%DCMTK")
-  (export '%dcmtk::+exs-jpeg-process14+ "%DCMTK")
-  (export '%dcmtk::of-time "%DCMTK")
-  (export '%dcmtk::get-length-field "%DCMTK")
-  (export '%dcmtk::get-of-string-array "%DCMTK")
+  (export '%dcmtk::get-real-length "%DCMTK")
+  (export '%dcmtk::dcm-date+get-dicom-date-from-of-date "%DCMTK")
+  (export '%dcmtk::clear-sub "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint8array "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint16 "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-date "%DCMTK")
+  (export '%dcmtk::ident "%DCMTK")
+  (export '%dcmtk::~dcm-stack "%DCMTK")
+  (export '%dcmtk::~dcm-xfer "%DCMTK")
+  (export '%dcmtk::dcm-date-time+check-string-value "%DCMTK")
+  (export '%dcmtk::set-current-time "%DCMTK")
   (export '%dcmtk::of-bool "%DCMTK")
   (export '%dcmtk::dcm-input-stream "%DCMTK")
-  (export '%dcmtk::dcm-input-stream-factory "%DCMTK")
-  (export '%dcmtk::dcm-integer-string "%DCMTK")
-  (export '%dcmtk::dcm-time+check-string-value "%DCMTK")
-  (export '%dcmtk::+esm-from-here+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-SEARCH-MODE| "%DCMTK")
+  (export '%dcmtk::get-partial-value "%DCMTK")
+  (export '%dcmtk::dcm-overlay-data "%DCMTK")
+  (export '%dcmtk::get-string "%DCMTK")
+  (export '%dcmtk::convert-character-set "%DCMTK")
+  (export '%dcmtk::dcm-long-text+check-string-value "%DCMTK")
+  (export '%dcmtk::contains "%DCMTK")
+  (export '%dcmtk::push "%DCMTK")
+  (export '%dcmtk::set-of-date "%DCMTK")
+  (export '%dcmtk::dcm-private-tag-cache "%DCMTK")
+  (export '%dcmtk::create-uint16array "%DCMTK")
+  (export '%dcmtk::set-upper "%DCMTK")
+  (export '%dcmtk::e-dir-rec-type "%DCMTK")
+  (export '%dcmtk::dcm-write-cache "%DCMTK")
+  (export '%dcmtk::dcm-time+get-current-time "%DCMTK")
+  (export '%dcmtk::~dcm-file-format "%DCMTK")
+  (export '%dcmtk::dcm-universal-resource-identifier-or-locator
+          "%DCMTK")
+  (export '%dcmtk::get-byte-order "%DCMTK")
+  (export '%dcmtk::get-uncompressed-frame "%DCMTK")
+  (export '%dcmtk::remove-invalid-groups "%DCMTK")
+  (export '%dcmtk::good "%DCMTK")
+  (export '%dcmtk::dcm-date+check "%DCMTK")
+  (export '%dcmtk::remove "%DCMTK")
+  (export '%dcmtk::is-lossy "%DCMTK")
+  (export '%dcmtk::float64 "%DCMTK")
+  (export '%dcmtk::set-g-tag "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-PADDING-ENCODING| "%DCMTK")
+  (export '%dcmtk::find-and-get-float32 "%DCMTK")
+  (export '%dcmtk::dcm-char-string "%DCMTK")
+  (export '%dcmtk::is-lossless "%DCMTK")
+  (export '%dcmtk::compute-group-length-and-padding "%DCMTK")
+  (export '%dcmtk::put-uint8array "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-component-group "%DCMTK")
+  (export '%dcmtk::set-of-time "%DCMTK")
+  (export '%dcmtk::is-standard "%DCMTK")
+  (export '%dcmtk::find-and-get-sint32 "%DCMTK")
+  (export '%dcmtk::dcm-decimal-string+check-string-value "%DCMTK")
+  (export '%dcmtk::dcm-representation-list-const-iterator "%DCMTK")
+  (export '%dcmtk::of-iterator<dcm-representation-entry*> "%DCMTK")
+  (export '%dcmtk::contains-unknown-vr "%DCMTK")
+  (export '%dcmtk::skip "%DCMTK")
+  (export '%dcmtk::is-private-creator-for "%DCMTK")
+  (export '%dcmtk::is-big-endian "%DCMTK")
+  (export '%dcmtk::uint32 "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list "%DCMTK")
+  (export '%dcmtk::error "%DCMTK")
+  (export '%dcmtk::change-xfer "%DCMTK")
+  (export '%dcmtk::dcm-short-string+check-string-value "%DCMTK")
+  (export '%dcmtk::set "%DCMTK")
+  (export '%dcmtk::get-parent "%DCMTK")
+  (export '%dcmtk::dcm-age-string "%DCMTK")
+  (export '%dcmtk::~dcm-short-string "%DCMTK")
+  (export '%dcmtk::put-uint16 "%DCMTK")
+  (export '%dcmtk::dcm-dicom-dir "%DCMTK")
+  (export '%dcmtk::~dcm-attribute-tag "%DCMTK")
+  (export '%dcmtk::dcm-other-float "%DCMTK")
+  (export '%dcmtk::dcm-polymorph-obow "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-BYTE-ORDER| "%DCMTK")
+  (export '%dcmtk::create-uint8array "%DCMTK")
+  (export '%dcmtk::is-affected-by-specific-character-set "%DCMTK")
+  (export '%dcmtk::load-dictionary "%DCMTK")
+  (export '%dcmtk::get-uint16 "%DCMTK")
+  (export '%dcmtk::transfer-init "%DCMTK")
+  (export '%dcmtk::find-and-get-elements "%DCMTK")
+  (export '%dcmtk::tag-exists-with-value "%DCMTK")
+  (export '%dcmtk::find-and-get-sint64 "%DCMTK")
+  (export '%dcmtk::dcm-object "%DCMTK")
+  (export '%dcmtk::get-read-mode "%DCMTK")
+  (export '%dcmtk::dcm-date-time "%DCMTK")
+  (export '%dcmtk::get-jpeg-process8bit "%DCMTK")
+  (export '%dcmtk::get-referenced-mrdr "%DCMTK")
+  (export '%dcmtk::size "%DCMTK")
+  (export '%dcmtk::uint64 "%DCMTK")
+  (export '%dcmtk::dcm-short-text "%DCMTK")
   (export '%dcmtk::set-private-creator "%DCMTK")
-  (export '%dcmtk::class-name "%DCMTK")
-  (export '%dcmtk::put-uint32 "%DCMTK")
-  (export '%dcmtk::dcm-element+scan-value "%DCMTK")
+  (export '%dcmtk::repeating-begin "%DCMTK")
+  (export '%dcmtk::get "%DCMTK")
+  (export '%dcmtk::is-private "%DCMTK")
+  (export '%dcmtk::get-jpeg-process12bit "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list-iterator "%DCMTK")
+  (export '%dcmtk::set-element "%DCMTK")
+  (export '%dcmtk::put "%DCMTK")
+  (export '%dcmtk::get-input-stream "%DCMTK")
+  (export '%dcmtk::compact-elements "%DCMTK")
+  (export '%dcmtk::create-uint64array "%DCMTK")
+  (export '%dcmtk::reload-dictionaries "%DCMTK")
+  (export '%dcmtk::next-sub "%DCMTK")
+  (export '%dcmtk::create-float64array "%DCMTK")
+  (export '%dcmtk::is-retired "%DCMTK")
+  (export '%dcmtk::dcm-floating-point-double "%DCMTK")
+  (export '%dcmtk::dcm-unique-identifier+check-string-value "%DCMTK")
+  (export '%dcmtk::get-and-remove-dataset "%DCMTK")
+  (export '%dcmtk::get-decompressed-color-model "%DCMTK")
+  (export '%dcmtk::operator>= "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list-const-iterator "%DCMTK")
+  (export '%dcmtk::~dcm-other-double "%DCMTK")
+  (export '%dcmtk::put-of-string-array "%DCMTK")
+  (export '%dcmtk::elem "%DCMTK")
+  (export '%dcmtk::write-json-ext "%DCMTK")
+  (export '%dcmtk::insert-item "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-long "%DCMTK")
+  (export '%dcmtk::get-group-range-restriction "%DCMTK")
+  (export '%dcmtk::create-value-from-temp-file "%DCMTK")
+  (export '%dcmtk::~dcm-dataset "%DCMTK")
   (export '%dcmtk::update-cache "%DCMTK")
-  (export '%dcmtk::get-vr-name "%DCMTK")
+  (export '%dcmtk::is-variable-range-vm "%DCMTK")
+  (export '%dcmtk::of-list<unsigned+int> "%DCMTK")
+  (export '%dcmtk::dcm-input-stream-factory-type "%DCMTK")
+  (export '%dcmtk::is-private-reservation "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-formatted-name-from-components
+          "%DCMTK")
+  (export '%dcmtk::is-implicit-vr "%DCMTK")
+  (export '%dcmtk::dcm-tag "%DCMTK")
+  (export '%dcmtk::find "%DCMTK")
+  (export '%dcmtk::get-current-representation-key "%DCMTK")
+  (export '%dcmtk::set-vr "%DCMTK")
+  (export '%dcmtk::put-and-insert-tag-key "%DCMTK")
+  (export '%dcmtk::is-fixed-range-vm "%DCMTK")
+  (export '%dcmtk::get-tag-val "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-long-offset "%DCMTK")
+  (export '%dcmtk::get-element "%DCMTK")
+  (export '%dcmtk::subset "%DCMTK")
+  (export '%dcmtk::get-key "%DCMTK")
+  (export '%dcmtk::dcm-vr "%DCMTK")
+  (export '%dcmtk::search "%DCMTK")
+  (export '%dcmtk::is-little-endian "%DCMTK")
+  (export '%dcmtk::e-jpeg-encapsulated "%DCMTK")
+  (export '%dcmtk::set-element-range-restriction "%DCMTK")
+  (export '%dcmtk::dcm-time "%DCMTK")
+  (export '%dcmtk::delete-sub-and-purge-file "%DCMTK")
+  (export '%dcmtk::choose-representation "%DCMTK")
+  (export '%dcmtk::~dcm-age-string "%DCMTK")
+  (export '%dcmtk::valid "%DCMTK")
+  (export '%dcmtk::e-transfer-state "%DCMTK")
+  (export '%dcmtk::put-sint16 "%DCMTK")
+  (export '%dcmtk::dcm-offset-list "%DCMTK")
+  (export '%dcmtk::dcm-code-string+check-vr "%DCMTK")
+  (export '%dcmtk::~dcm-decimal-string "%DCMTK")
+  (export '%dcmtk::dcm-date+get-of-date-from-string "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-string-from-name-components
+          "%DCMTK")
+  (export '%dcmtk::~dcm-tag-key "%DCMTK")
+  (export '%dcmtk::get-tag "%DCMTK")
+  (export '%dcmtk::~dcm-signed-long "%DCMTK")
+  (export '%dcmtk::std+ostream "%DCMTK")
+  (export '%dcmtk::set-current-representation-parameter "%DCMTK")
+  (export '%dcmtk::e-storage-sop-class-type "%DCMTK")
+  (export '%dcmtk::dcm-output-filter "%DCMTK")
+  (export '%dcmtk::dcm-file-format "%DCMTK")
+  (export '%dcmtk::of-filename "%DCMTK")
+  (export '%dcmtk::assign-to-mrdr "%DCMTK")
+  (export '%dcmtk::detach-value-field "%DCMTK")
+  (export '%dcmtk::dcm-stack "%DCMTK")
+  (export '%dcmtk::~dcm-other64bit-very-long "%DCMTK")
+  (export '%dcmtk::number-of-skeleton-entries "%DCMTK")
+  (export '%dcmtk::dcm-private-tag-cache-entry "%DCMTK")
+  (export '%dcmtk::write-json "%DCMTK")
+  (export '%dcmtk::operator* "%DCMTK")
+  (export '%dcmtk::put-uint32array "%DCMTK")
+  (export '%dcmtk::is-repeating-group "%DCMTK")
+  (export '%dcmtk::~dcm-other-float "%DCMTK")
+  (export '%dcmtk::contains-extended-characters "%DCMTK")
+  (export '%dcmtk::dcm-long-string+check-string-value "%DCMTK")
+  (export '%dcmtk::dcm-dict-range-restriction "%DCMTK")
+  (export '%dcmtk::verify "%DCMTK")
+  (export '%dcmtk::put-float64 "%DCMTK")
+  (export '%dcmtk::get-xfer "%DCMTK")
+  (export '%dcmtk::check-value "%DCMTK")
+  (export '%dcmtk::e-stream-compression "%DCMTK")
+  (export '%dcmtk::get-dataset "%DCMTK")
+  (export '%dcmtk::uint16 "%DCMTK")
+  (export '%dcmtk::value "%DCMTK")
+  (export '%dcmtk::next-in-container "%DCMTK")
+  (export '%dcmtk::set-records-origin-file "%DCMTK")
+  (export '%dcmtk::get-records-origin-file "%DCMTK")
+  (export '%dcmtk::validate-meta-info "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-FILE-WRITE-MODE| "%DCMTK")
+  (export '%dcmtk::dcm-hash-dict "%DCMTK")
+  (export '%dcmtk::size-t "%DCMTK")
+  (export '%dcmtk::dcm-list "%DCMTK")
+  (export '%dcmtk::get-formatted-name "%DCMTK")
+  (export '%dcmtk::find-and-get-long-int "%DCMTK")
+  (export '%dcmtk::get-uncompressed-frame-size "%DCMTK")
+  (export '%dcmtk::get-of-string-array "%DCMTK")
+  (export '%dcmtk::put-float64array "%DCMTK")
+  (export '%dcmtk::dcm-element "%DCMTK")
+  (export '%dcmtk::dcm-producer "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint16 "%DCMTK")
+  (export '%dcmtk::get-float32 "%DCMTK")
+  (export '%dcmtk::print-helper "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-JPEG-ENCAPSULATED| "%DCMTK")
+  (export '%dcmtk::dcm-pixel-item "%DCMTK")
+  (export '%dcmtk::put-sint32array "%DCMTK")
+  (export '%dcmtk::is-universal-match "%DCMTK")
+  (export '%dcmtk::dcm-time+check-string-value "%DCMTK")
+  (export '%dcmtk::get-current-xfer "%DCMTK")
+  (export '%dcmtk::dcm-stack-node "%DCMTK")
+  (export '%dcmtk::std+basic-ostream<char> "%DCMTK")
+  (export '%dcmtk::store-compressed-frame "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-short "%DCMTK")
+  (export '%dcmtk::~dcm-stack-node "%DCMTK")
+  (export '%dcmtk::dcm-tag+find-tag-from-name "%DCMTK")
+  (export '%dcmtk::put-uint32 "%DCMTK")
+  (export '%dcmtk::dcm-code-string "%DCMTK")
+  (export '%dcmtk::dcm-time+get-dicom-time-from-of-time "%DCMTK")
+  (export '%dcmtk::put-float32 "%DCMTK")
+  (export '%dcmtk::find-and-get-sequence-item "%DCMTK")
+  (export '%dcmtk::create-float32array "%DCMTK")
+  (export '%dcmtk::dcmobj- "%DCMTK")
+  (export '%dcmtk::dcm-list-node "%DCMTK")
+  (export '%dcmtk::remove-all-but-current-representations "%DCMTK")
+  (export '%dcmtk::float32 "%DCMTK")
+  (export '%dcmtk::combination-matches "%DCMTK")
+  (export '%dcmtk::put-and-insert-of-string-array "%DCMTK")
+  (export '%dcmtk::get-meta-info "%DCMTK")
+  (export '%dcmtk::put-sint64array "%DCMTK")
+  (export '%dcmtk::is-for-internal-use-only "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-TRANSFER-STATE| "%DCMTK")
+  (export '%dcmtk::insert-sub "%DCMTK")
+  (export '%dcmtk::~dcm-long-string "%DCMTK")
+  (export '%dcmtk::put-tag-val "%DCMTK")
+  (export '%dcmtk::get-uint32array "%DCMTK")
+  (export '%dcmtk::get-vr "%DCMTK")
+  (export '%dcmtk::tag-exists "%DCMTK")
+  (export '%dcmtk::insert-at-current-pos "%DCMTK")
+  (export '%dcmtk::of-date-time "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-text+check-string-value "%DCMTK")
+  (export '%dcmtk::put-sint64 "%DCMTK")
+  (export '%dcmtk::get-max-value-length "%DCMTK")
+  (export '%dcmtk::set-read-mode "%DCMTK")
+  (export '%dcmtk::is-encapsulated "%DCMTK")
+  (export '%dcmtk::~dcm-hash-dict-iterator "%DCMTK")
+  (export '%dcmtk::get-root-record "%DCMTK")
+  (export '%dcmtk::+dcm-variable-vm+ "%DCMTK")
+  (export '%dcmtk::is-not-encapsulated "%DCMTK")
+  (export '%dcmtk::dcm-other-long "%DCMTK")
+  (export '%dcmtk::~dcm-date "%DCMTK")
+  (export '%dcmtk::uses-extended-length-encoding "%DCMTK")
+  (export '%dcmtk::get-float64 "%DCMTK")
+  (export '%dcmtk::find-and-get-uint8array "%DCMTK")
+  (export '%dcmtk::dcm-element+get-value-from-string "%DCMTK")
+  (export '%dcmtk::match-or-create-mrdr "%DCMTK")
+  (export '%dcmtk::of-condition "%DCMTK")
+  (export '%dcmtk::get-uint16array "%DCMTK")
+  (export '%dcmtk::get-xfer-id "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-STORAGE-SOP-CLASS-TYPE| "%DCMTK")
+  (export '%dcmtk::of-date "%DCMTK")
+  (export '%dcmtk::clone "%DCMTK")
+  (export '%dcmtk::is-explicit-vr "%DCMTK")
+  (export '%dcmtk::~dcm-dict-entry "%DCMTK")
   (export '%dcmtk::get-root-item "%DCMTK")
-  (export '%dcmtk::dcm-json-format "%DCMTK")
+  (export '%dcmtk::get-float64array "%DCMTK")
+  (export '%dcmtk::card "%DCMTK")
+  (export '%dcmtk::top "%DCMTK")
+  (export '%dcmtk::is-signable "%DCMTK")
+  (export '%dcmtk::put-string "%DCMTK")
+  (export '%dcmtk::insert "%DCMTK")
+  (export '%dcmtk::normal-end "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-characters+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::~dcm-item "%DCMTK")
+  (export '%dcmtk::get-g-tag "%DCMTK")
+  (export '%dcmtk::dcm-directory-record "%DCMTK")
+  (export '%dcmtk::e-search-mode "%DCMTK")
+  (export '%dcmtk::~dcm-byte-string "%DCMTK")
+  (export '%dcmtk::find-and-get-uint32 "%DCMTK")
   (export '%dcmtk::set-of-date-time "%DCMTK")
-  (export '%dcmtk::+ert-mrdr+ "%DCMTK"))
+  (export '%dcmtk::is-unknown-vr "%DCMTK")
+  (export '%dcmtk::~dcm-long-text "%DCMTK")
+  (export '%dcmtk::put-of-string-at-pos "%DCMTK")
+  (export '%dcmtk::~dcm-hash-dict "%DCMTK")
+  (export '%dcmtk::install-compression-filter "%DCMTK")
+  (export '%dcmtk::~dcm-signed-short "%DCMTK")
+  (export '%dcmtk::~dcm-integer-string "%DCMTK")
+  (export '%dcmtk::~dcm-other-long "%DCMTK")
+  (export '%dcmtk::dcm-date+check-string-value "%DCMTK")
+  (export '%dcmtk::get-vm-min "%DCMTK")
+  (export '%dcmtk::get-sint32 "%DCMTK")
+  (export '%dcmtk::to-string "%DCMTK")
+  (export '%dcmtk::~dcm-universal-resource-identifier-or-locator
+          "%DCMTK")
+  (export '%dcmtk::get-private-creator "%DCMTK")
+  (export '%dcmtk::get-length "%DCMTK")
+  (export '%dcmtk::dcm-short-text+check-string-value "%DCMTK")
+  (export '%dcmtk::e-list-pos "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint32 "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-name-components-from-string
+          "%DCMTK")
+  (export '%dcmtk::~dcm-unlimited-characters "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint16array "%DCMTK")
+  (export '%dcmtk::of-iterator<dcm-dict-entry*> "%DCMTK")
+  (export '%dcmtk::put-and-insert-float64 "%DCMTK")
+  (export '%dcmtk::~dcm-vr "%DCMTK")
+  (export '%dcmtk::tell "%DCMTK")
+  (export '%dcmtk::of-list<dcm-representation-entry*> "%DCMTK")
+  (export '%dcmtk::~dcm-time "%DCMTK")
+  (export '%dcmtk::avail "%DCMTK")
+  (export '%dcmtk::operator< "%DCMTK")
+  (export '%dcmtk::~dcm-floating-point-single "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry "%DCMTK")
+  (export '%dcmtk::update-original-xfer "%DCMTK")
+  (export '%dcmtk::get-value-width "%DCMTK")
+  (export '%dcmtk::find-and-get-sequence "%DCMTK")
+  (export '%dcmtk::get-uint64 "%DCMTK")
+  (export '%dcmtk::dcm-consumer "%DCMTK")
+  (export '%dcmtk::create-uint32array "%DCMTK")
+  (export '%dcmtk::get-dir-file-format "%DCMTK")
+  (export '%dcmtk::get-sint64 "%DCMTK")
+  (export '%dcmtk::put-float32array "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-TRANSFER-SYNTAX| "%DCMTK")
+  (export '%dcmtk::dcm-integer-string "%DCMTK")
+  (export '%dcmtk::dcm-signed-short "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-iso-formatted-date-time-from-string
+          "%DCMTK")
+  (export '%dcmtk::insert-sequence-item "%DCMTK")
+  (export '%dcmtk::operator== "%DCMTK")
+  (export '%dcmtk::find-and-get-float64array "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-GRP-LEN-ENCODING| "%DCMTK")
+  (export '%dcmtk::~dcm-dict-entry-list "%DCMTK")
+  (export '%dcmtk::load-all-data-into-memory "%DCMTK")
+  (export '%dcmtk::~dcm-floating-point-double "%DCMTK")
+  (export '%dcmtk::find-and-get-uint32array "%DCMTK")
+  (export '%dcmtk::get-sint32array "%DCMTK")
+  (export '%dcmtk::dcm-object+print-helper "%DCMTK")
+  (export '%dcmtk::uint8 "%DCMTK")
+  (export '%dcmtk::put-float64prec "%DCMTK")
+  (export '%dcmtk::get-uint8array "%DCMTK")
+  (export '%dcmtk::read "%DCMTK")
+  (export '%dcmtk::put-uint64 "%DCMTK")
+  (export '%dcmtk::calc-element-length "%DCMTK")
+  (export '%dcmtk::dcm-other-double "%DCMTK")
+  (export '%dcmtk::get-vr-name "%DCMTK")
+  (export '%dcmtk::dcm-sequence-of-items "%DCMTK")
+  (export '%dcmtk::insert-empty-element "%DCMTK")
+  (export '%dcmtk::dcm-meta-info "%DCMTK")
+  (export '%dcmtk::write-xml "%DCMTK")
+  (export '%dcmtk::operator!= "%DCMTK")
+  (export '%dcmtk::is-leaf "%DCMTK")
+  (export '%dcmtk::~dcm-list-node "%DCMTK")
+  (export '%dcmtk::print "%DCMTK")
+  (export '%dcmtk::seek-to "%DCMTK")
+  (export '%dcmtk::~dcm-private-tag-cache-entry "%DCMTK")
+  (export '%dcmtk::sint64 "%DCMTK")
+  (export '%dcmtk::convert-to-utf8 "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-long-offset "%DCMTK")
+  (export '%dcmtk::can-choose-representation "%DCMTK")
+  (export '%dcmtk::~dcm-other-byte-other-word "%DCMTK")
+  (export '%dcmtk::get-sint16 "%DCMTK")
+  (export '%dcmtk::dcm-representation-parameter "%DCMTK")
+  (export '%dcmtk::supports-undefined-length "%DCMTK")
+  (export '%dcmtk::flush "%DCMTK")
+  (export '%dcmtk::~dcm-person-name "%DCMTK")
+  (export '%dcmtk::get-float64vector "%DCMTK")
+  (export '%dcmtk::is-fixed-single-vm "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint32array "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-FILE-READ-MODE| "%DCMTK")
+  (export '%dcmtk::is-length-in-char "%DCMTK")
+  (export '%dcmtk::check-for-specific-character-set "%DCMTK")
+  (export '%dcmtk::dcm-age-string+check-string-value "%DCMTK")
+  (export '%dcmtk::get-of-string "%DCMTK")
+  (export '%dcmtk::dcm-codec-list "%DCMTK")
+  (export '%dcmtk::get-element-range-restriction "%DCMTK")
+  (export '%dcmtk::add-entry "%DCMTK")
+  (export '%dcmtk::dcm-unique-identifier "%DCMTK")
+  (export '%dcmtk::dcm-application-entity+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::dcm-hash-dict-iterator "%DCMTK")
+  (export '%dcmtk::has-valid-group "%DCMTK")
+  (export '%dcmtk::dcm-floating-point-single "%DCMTK")
+  (export '%dcmtk::get-original-xfer "%DCMTK")
+  (export '%dcmtk::e-encoding-type "%DCMTK")
+  (export '%dcmtk::set-current-date-time "%DCMTK")
+  (export '%dcmtk::e-file-read-mode "%DCMTK")
+  (export '%dcmtk::put-sint16array "%DCMTK")
+  (export '%dcmtk::is-repeating-element "%DCMTK")
+  (export '%dcmtk::put-uint16array "%DCMTK")
+  (export '%dcmtk::get-sub "%DCMTK")
+  (export '%dcmtk::is-empty "%DCMTK")
+  (export '%dcmtk::find-entry "%DCMTK")
+  (export '%dcmtk::dcm-integer-string+check-string-value "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-long "%DCMTK")
+  (export '%dcmtk::next-object "%DCMTK")
+  (export '%dcmtk::operator<= "%DCMTK")
+  (export '%dcmtk::get-float32array "%DCMTK")
+  (export '%dcmtk::dcm-date-time+check "%DCMTK")
+  (export '%dcmtk::~print-helper "%DCMTK")
+  (export '%dcmtk::normal-begin "%DCMTK")
+  (export '%dcmtk::is-flushed "%DCMTK")
+  (export '%dcmtk::dcm-pixel-data "%DCMTK")
+  (export '%dcmtk::has-representation "%DCMTK")
+  (export '%dcmtk::create "%DCMTK")
+  (export '%dcmtk::find-and-get-uint16array "%DCMTK")
+  (export '%dcmtk::prepend "%DCMTK")
+  (export '%dcmtk::set-upper-group "%DCMTK")
+  (export '%dcmtk::of-string "%DCMTK")
+  (export '%dcmtk::dcm-long-text "%DCMTK")
+  (export '%dcmtk::find-and-get-sint16 "%DCMTK")
+  (export '%dcmtk::compare "%DCMTK")
+  (export '%dcmtk::~dcm-dicom-dir "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-short "%DCMTK")
+  (export '%dcmtk::load-summary "%DCMTK")
+  (export '%dcmtk::find-and-get-float64 "%DCMTK")
+  (export '%dcmtk::set-upper-element "%DCMTK")
+  (export '%dcmtk::number-of-normal-tag-entries "%DCMTK")
+  (export '%dcmtk::dcm-signed-long "%DCMTK")
+  (export '%dcmtk::dcm-byte-string+e-string-mode "%DCMTK")
+  (export '%dcmtk::find-and-get-of-string-array "%DCMTK")
+  (export '%dcmtk::push-back "%DCMTK")
+  (export '%dcmtk::begin "%DCMTK")
+  (export '%dcmtk::dcm-unsigned64bit-very-long "%DCMTK")
+  (export '%dcmtk::compact "%DCMTK")
+  (export '%dcmtk::put-and-insert-float64array "%DCMTK")
+  (export '%dcmtk::set-group "%DCMTK")
+  (export '%dcmtk::write-signature-format "%DCMTK")
+  (export '%dcmtk::get-uint64array "%DCMTK")
+  (export '%dcmtk::dcm-byte-string "%DCMTK")
+  (export '%dcmtk::dcm-input-stream-factory "%DCMTK")
+  (export '%dcmtk::dcm-decimal-string "%DCMTK")
+  (export '%dcmtk::dcm-codec "%DCMTK")
+  (export '%dcmtk::is-nested "%DCMTK")
+  (export '%dcmtk::find-and-get-sint16array "%DCMTK")
+  (export '%dcmtk::dcm-file-cache "%DCMTK")
+  (export '%dcmtk::get-encapsulated-representation "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-formatted-name-from-string
+          "%DCMTK")
+  (export '%dcmtk::find-or-create-sequence-item "%DCMTK")
+  (export '%dcmtk::isa-string "%DCMTK")
+  (export '%dcmtk::get-of-time "%DCMTK")
+  (export '%dcmtk::put-sint32 "%DCMTK")
+  (export '%dcmtk::dcm-date+get-iso-formatted-date-from-string
+          "%DCMTK")
+  (export '%dcmtk::~dcm-list "%DCMTK")
+  (export '%dcmtk::dcm-time+check "%DCMTK")
+  (export '%dcmtk::is-referenced "%DCMTK")
+  (export '%dcmtk::dcm-item "%DCMTK")
+  (export '%dcmtk::get-tag-name "%DCMTK")
+  (export '%dcmtk::find-and-get-uint64 "%DCMTK")
+  (export '%dcmtk::get-stream-compression "%DCMTK")
+  (export '%dcmtk::dcm-other64bit-very-long "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-DIR-REC-TYPE| "%DCMTK")
+  (export '%dcmtk::~dcm-meta-info "%DCMTK")
+  (export '%dcmtk::~dcm-polymorph-obow "%DCMTK")
+  (export '%dcmtk::~dcm-output-stream "%DCMTK")
+  (export '%dcmtk::dcm-tag-key "%DCMTK")
+  (export '%dcmtk::match-filename "%DCMTK")
+  (export '%dcmtk::~dcm-pixel-data "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint32 "%DCMTK")
+  (export '%dcmtk::get-uint32 "%DCMTK")
+  (export '%dcmtk::dcm-representation-list-iterator "%DCMTK")
+  (export '%dcmtk::dcm-attribute-tag+check-string-value "%DCMTK")
+  (export '%dcmtk::remove-representation "%DCMTK")
+  (export '%dcmtk::put-and-insert-string "%DCMTK")
+  (export '%dcmtk::put-name-components "%DCMTK")
+  (export '%dcmtk::private-creator-match "%DCMTK")
+  (export '%dcmtk::~dcm-short-text "%DCMTK")
+  (export '%dcmtk::find-and-insert-copy-of-element "%DCMTK")
+  (export '%dcmtk::get-upper-group "%DCMTK")
+  (export '%dcmtk::get-vm "%DCMTK")
+  (export '%dcmtk::dcm-universal-resource-identifier-or-locator+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::operator= "%DCMTK")
+  (export '%dcmtk::get-sint16array "%DCMTK")
+  (export '%dcmtk::operator> "%DCMTK")
+  (export '%dcmtk::insert-sub-at-current-pos "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-current-date-time "%DCMTK")
+  (export '%dcmtk::get-min-value-length "%DCMTK")
+  (export '%dcmtk::insert-and-replace "%DCMTK")
+  (export '%dcmtk::get-record-type "%DCMTK")
+  (export '%dcmtk::eos "%DCMTK")
+  (export '%dcmtk::find-and-get-float32array "%DCMTK")
+  (export '%dcmtk::status "%DCMTK")
+  (export '%dcmtk::~dcm-sequence-of-items "%DCMTK")
+  (export '%dcmtk::dcm-signed64bit-very-long "%DCMTK")
+  (export '%dcmtk::dcm-element+determine-vm "%DCMTK")
+  (export '%dcmtk::dcm-application-entity "%DCMTK")
+  (export '%dcmtk::dcm-representation-entry "%DCMTK")
+  (export '%dcmtk::find-private-creator "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-STREAM-COMPRESSION| "%DCMTK")
+  (export '%dcmtk::dcm-time+get-time-zone-from-string "%DCMTK")
+  (export '%dcmtk::get-of-date-time "%DCMTK")
+  (export '%dcmtk::~dcm-date-time "%DCMTK")
+  (export '%dcmtk::dcm-time+get-of-time-from-string "%DCMTK")
+  (export '%dcmtk::find-and-get-sint64array "%DCMTK")
+  (export '%dcmtk::find-and-get-uint16 "%DCMTK")
+  (export '%dcmtk::is-dictionary-loaded "%DCMTK")
+  (export '%dcmtk::get-sint64array "%DCMTK")
+  (export '%dcmtk::put-uint64array "%DCMTK")
+  (export '%dcmtk::get-of-date "%DCMTK")
+  (export '%dcmtk::value-loaded "%DCMTK")
+  (export '%dcmtk::dcm-data-dictionary "%DCMTK")
+  (export '%dcmtk::set-non-encapsulation-flag "%DCMTK")
+  (export '%dcmtk::matches "%DCMTK")
+  (export '%dcmtk::find-and-get-uint64array "%DCMTK")
+  (export '%dcmtk::~dcm-directory-record "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-characters "%DCMTK")
+  (export '%dcmtk::get-next-record "%DCMTK")
+  (export '%dcmtk::get-upper-key "%DCMTK")
+  (export '%dcmtk::e-file-write-mode "%DCMTK")
+  (export '%dcmtk::assign-to-sop-file "%DCMTK")
+  (export '%dcmtk::dcm-date+get-current-date "%DCMTK")
+  (export '%dcmtk::remove-sub "%DCMTK")
+  (export '%dcmtk::remove-all-but-original-representations "%DCMTK")
+  (export '%dcmtk::dcm-attribute-tag "%DCMTK")
+  (export '%dcmtk::dcm-person-name+check-string-value "%DCMTK")
+  (export '%dcmtk::sint16 "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-ENCODING-TYPE| "%DCMTK")
+  (export '%dcmtk::dcm-other-byte-other-word "%DCMTK")
+  (export '%dcmtk::get-group "%DCMTK")
+  (export '%dcmtk::get-pixel-data-byte-order "%DCMTK")
+  (export '%dcmtk::dcm-dataset "%DCMTK")
+  (export '%dcmtk::dcm-representation-list "%DCMTK")
+  (export '%dcmtk::get-standard-version "%DCMTK")
+  (export '%dcmtk::sint32 "%DCMTK")
+  (export '%dcmtk::~dcm-signed64bit-very-long "%DCMTK")
+  (export '%dcmtk::remove-original-representation "%DCMTK")
+  (export '%dcmtk::end "%DCMTK")
+  (export '%dcmtk::get-vm-max "%DCMTK")
+  (export '%dcmtk::dcm-date "%DCMTK")
+  (export '%dcmtk::dcm-item+new-dicom-element-with-vr "%DCMTK")
+  (export '%dcmtk::+dcm-tag-error-tag-name+ "%DCMTK")
+  (export '%dcmtk::get-mrdr-sequence "%DCMTK")
+  (export '%dcmtk::get-name-components "%DCMTK")
+  (export '%dcmtk::e-vr-type "%DCMTK")
+  (export '%dcmtk::dcm-element+scan-value "%DCMTK")
+  (export '%dcmtk::dcm-short-string "%DCMTK")
+  (export '%dcmtk::dcm-input-filter "%DCMTK")
+  (export '%dcmtk::hash "%DCMTK")
+  (export '%dcmtk::dcm-long-string "%DCMTK")
+  (export '%dcmtk::set-eq "%DCMTK")
+  (export '%dcmtk::dcm-person-name "%DCMTK")
+  (export '%dcmtk::load-file-until-tag "%DCMTK")
+  (export '%dcmtk::put-original-representation "%DCMTK")
+  (export '%dcmtk::seek "%DCMTK")
+  (export '%dcmtk::transfer-state "%DCMTK")
+  (export '%dcmtk::can-write-xfer "%DCMTK")
+  (export '%dcmtk::of-vector<double> "%DCMTK")
+  (export '%dcmtk::get-e-tag "%DCMTK")
+  (export '%dcmtk::delete-all-elements "%DCMTK")
+  (export '%dcmtk::dcm-element+check-vm "%DCMTK")
+  (export '%dcmtk::copy-from "%DCMTK")
+  (export '%dcmtk::get-file-offset "%DCMTK")
+  (export '%dcmtk::save-file "%DCMTK")
+  (export '%dcmtk::set-parent "%DCMTK")
+  (export '%dcmtk::find-and-get-element "%DCMTK")
+  (export '%dcmtk::append "%DCMTK")
+  (export '%dcmtk::is-repeating "%DCMTK")
+  (export '%dcmtk::operator++ "%DCMTK")
+  (export '%dcmtk::del "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint16array "%DCMTK")
+  (export '%dcmtk::put-and-insert-float32array "%DCMTK")
+  (export '%dcmtk::get-item "%DCMTK")
+  (export '%dcmtk::e-byte-order "%DCMTK")
+  (export '%dcmtk::clear "%DCMTK")
+  (export '%dcmtk::get-uint8 "%DCMTK")
+  (export '%dcmtk::repeating-end "%DCMTK")
+  (export '%dcmtk::set-group-range-restriction "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-of-date-time-from-string
+          "%DCMTK")
+  (export '%dcmtk::get-original-representation-key "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-text "%DCMTK")
+  (export '%dcmtk::~dcm-overlay-data "%DCMTK")
+  (export '%dcmtk::~dcm-application-entity "%DCMTK")
+  (export '%dcmtk::get-dir-file-name "%DCMTK")
+  (export '%dcmtk::~dcm-tag "%DCMTK")
+  (export '%dcmtk::get-upper-element "%DCMTK")
+  (export '%dcmtk::find-and-get-uint8 "%DCMTK")
+  (export '%dcmtk::dcm-xfer "%DCMTK")
+  (export '%dcmtk::set-next-record "%DCMTK")
+  (export '%dcmtk::is-group-length "%DCMTK")
+  (export '%dcmtk::dcm-time+get-iso-formatted-time-from-string
+          "%DCMTK")
+  (export '%dcmtk::number-of-entries "%DCMTK")
+  (export '%dcmtk::read-until-tag "%DCMTK")
+  (export '%dcmtk::get-base-tag "%DCMTK")
+  (export '%dcmtk::~dcm-private-tag-cache "%DCMTK")
+  (export '%dcmtk::get-length-field "%DCMTK")
+  (export '%dcmtk::e-padding-encoding "%DCMTK")
+  (export '%dcmtk::is-equivalent "%DCMTK")
+  (export '%dcmtk::class-name "%DCMTK")
+  (export '%dcmtk::offile-off-t "%DCMTK")
+  (export '%dcmtk::dcm-json-format "%DCMTK")
+  (export '%dcmtk::is-signable-tag "%DCMTK")
+  (export '%dcmtk::find-and-get-sint32array "%DCMTK")
+  (export '%dcmtk::~dcm-pixel-sequence "%DCMTK")
+  (export '%dcmtk::find-and-get-string "%DCMTK")
+  (export '%dcmtk::dcm-output-stream "%DCMTK")
+  (export '%dcmtk::load-file "%DCMTK")
+  (export '%dcmtk::get-parent-item "%DCMTK"))
 

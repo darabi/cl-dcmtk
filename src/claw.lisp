@@ -15,7 +15,8 @@
                           (:persistent :cl-dcmtk-bindings
                            :asd-path "../cl-dcmtk-bindings.asd"
                            :bindings-path "../bindings/")
-                          (:include-definitions "^Dcm.*")
+                          (:include-definitions "^Dcm.*" "^E_.*")
+                          (:exclude-definitions "DcmEVR$")
                           (:language :c++))
   :in-package :%dcmtk
   :trim-enum-prefix t
