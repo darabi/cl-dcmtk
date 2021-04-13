@@ -2,9 +2,9873 @@
 (uiop:define-package :cl-dcmtk-bindings~pristine (:use :cl))
 (common-lisp:in-package :cl-dcmtk-bindings~pristine)
 
+(defparameter %dcmtk::+dcm-end-of-list-index+ -1)
+
+(defparameter %dcmtk::+dcm-max-read-length+ 4096)
+
+(defparameter %dcmtk::+dcm-opt-print-attribute-name-length+ 35)
+
+(defparameter %dcmtk::+dcm-opt-print-line-length+ 70)
+
+(defparameter %dcmtk::+dcm-opt-print-value-length+ 40)
+
+(defparameter %dcmtk::+dcm-tag-info-length+ 12)
+
+(defparameter %dcmtk::+dcm-undefined-length+ 4294967295)
+
+(defparameter %dcmtk::+of-string-npos+ -1)
+
+(defparameter %dcmtk::+dcm-ait-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-a-line-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-a-line-rate+ nil)
+
+(defparameter %dcmtk::+dcm-a-lines-per-frame+ nil)
+
+(defparameter %dcmtk::+dcm-asl-bolus-cutoff-delay-time+ nil)
+
+(defparameter %dcmtk::+dcm-asl-bolus-cutoff-flag+ nil)
+
+(defparameter %dcmtk::+dcm-asl-bolus-cutoff-technique+ nil)
+
+(defparameter %dcmtk::+dcm-asl-bolus-cutoff-timing-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-asl-context+ nil)
+
+(defparameter %dcmtk::+dcm-asl-crusher-description+ nil)
+
+(defparameter %dcmtk::+dcm-asl-crusher-flag+ nil)
+
+(defparameter %dcmtk::+dcm-asl-crusher-flow-limit+ nil)
+
+(defparameter %dcmtk::+dcm-asl-mid-slab-position+ nil)
+
+(defparameter %dcmtk::+dcm-asl-pulse-train-duration+ nil)
+
+(defparameter %dcmtk::+dcm-asl-slab-number+ nil)
+
+(defparameter %dcmtk::+dcm-asl-slab-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-asl-slab-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-asl-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-asl-technique-description+ nil)
+
+(defparameter %dcmtk::+dcm-atd-ability-assessment+ nil)
+
+(defparameter %dcmtk::+dcm-atd-assessment-flag+ nil)
+
+(defparameter %dcmtk::+dcm-atd-assessment-probability+ nil)
+
+(defparameter %dcmtk::+dcm-atd-assessment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-abort-flag+ nil)
+
+(defparameter %dcmtk::+dcm-abort-reason+ nil)
+
+(defparameter %dcmtk::+dcm-absolute-channel-display-scale+ nil)
+
+(defparameter %dcmtk::+dcm-absolute-dosimetric-objective-flag+ nil)
+
+(defparameter %dcmtk::+dcm-abstract-prior-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-abstract-prior-value+ nil)
+
+(defparameter %dcmtk::+dcm-acceleration+ nil)
+
+(defparameter %dcmtk::+dcm-accession-number+ nil)
+
+(defparameter %dcmtk::+dcm-accessory-code+ nil)
+
+(defparameter %dcmtk::+dcm-acquired-image-area-dose-product+ nil)
+
+(defparameter %dcmtk::+dcm-acquired-soundpath-length+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-compression-type+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-context-description+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-context-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-contrast+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-date+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-device-processing-code+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-device-processing-description+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-device-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-duration+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-end-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-index+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-method-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-motion+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-number+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-protocol-description+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-protocol-element-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-protocol-element-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-protocol-name+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-sample-size+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-start-condition+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-start-condition-data+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-start-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-status+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-termination-condition+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-termination-condition-data+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-time+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-time-synchronized+ nil)
+
+(defparameter %dcmtk::+dcm-acquisition-type+ nil)
+
+(defparameter %dcmtk::+dcm-across-scan-spatial-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-action-type-id+ nil)
+
+(defparameter %dcmtk::+dcm-active-aperture+ nil)
+
+(defparameter %dcmtk::+dcm-active-source-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-active-source-length+ nil)
+
+(defparameter %dcmtk::+dcm-actual-cardiac-trigger-delay-time+ nil)
+
+(defparameter %dcmtk::+dcm-actual-cardiac-trigger-time-prior-to-r-peak+ nil)
+
+(defparameter %dcmtk::+dcm-actual-environmental-conditions+ nil)
+
+(defparameter %dcmtk::+dcm-actual-frame-duration+ nil)
+
+(defparameter %dcmtk::+dcm-actual-human-performers-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-actual-respiratory-trigger-delay-time+ nil)
+
+(defparameter %dcmtk::+dcm-add-intermediate-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-add-near-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-add-other-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-add-power+ nil)
+
+(defparameter %dcmtk::+dcm-additional-drug-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-additional-inspection-method-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-additional-inspection-selection-criteria+ nil)
+
+(defparameter %dcmtk::+dcm-additional-parameter-recording-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-additional-patient-history+ nil)
+
+(defparameter %dcmtk::+dcm-additional-screening-performed+ nil)
+
+(defparameter %dcmtk::+dcm-administration-route-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-admission-id+ nil)
+
+(defparameter %dcmtk::+dcm-admitting-date+ nil)
+
+(defparameter %dcmtk::+dcm-admitting-diagnoses-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-admitting-diagnoses-description+ nil)
+
+(defparameter %dcmtk::+dcm-admitting-time+ nil)
+
+(defparameter %dcmtk::+dcm-advanced-blending-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-affected-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-affected-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-afterloader-channel-id+ nil)
+
+(defparameter %dcmtk::+dcm-age-corrected-sensitivity-deviation-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-age-corrected-sensitivity-deviation-probability-value+ nil)
+
+(defparameter %dcmtk::+dcm-age-corrected-sensitivity-deviation-value+ nil)
+
+(defparameter %dcmtk::+dcm-air-counts+ nil)
+
+(defparameter %dcmtk::+dcm-alarm-decision+ nil)
+
+(defparameter %dcmtk::+dcm-alarm-decision-time+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-description+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-family-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-name+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-parameters+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-routing-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-source+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-type+ nil)
+
+(defparameter %dcmtk::+dcm-algorithm-version+ nil)
+
+(defparameter %dcmtk::+dcm-aliased-data-type+ nil)
+
+(defparameter %dcmtk::+dcm-allergies+ nil)
+
+(defparameter %dcmtk::+dcm-allow-lossy-compression+ nil)
+
+(defparameter %dcmtk::+dcm-allow-media-splitting+ nil)
+
+(defparameter %dcmtk::+dcm-along-scan-spatial-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-alpha-lut-transfer-function+ nil)
+
+(defparameter %dcmtk::+dcm-alpha-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-alpha-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-beam-dose+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-beam-dose-type+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-container-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-content-description-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-representation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-alternate-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ambient-light-value-source+ nil)
+
+(defparameter %dcmtk::+dcm-ambient-reflection-intensity+ nil)
+
+(defparameter %dcmtk::+dcm-amplifier-type+ nil)
+
+(defparameter %dcmtk::+dcm-analyzed-area+ nil)
+
+(defparameter %dcmtk::+dcm-anatomic-region-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-anatomic-region-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-anatomic-regions-in-study-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-anatomic-structure-reference-point+ nil)
+
+(defparameter %dcmtk::+dcm-anatomical-orientation-type+ nil)
+
+(defparameter %dcmtk::+dcm-anchor-point+ nil)
+
+(defparameter %dcmtk::+dcm-anchor-point-annotation-units+ nil)
+
+(defparameter %dcmtk::+dcm-anchor-point-visibility+ nil)
+
+(defparameter %dcmtk::+dcm-angio-flag+ nil)
+
+(defparameter %dcmtk::+dcm-angular-step+ nil)
+
+(defparameter %dcmtk::+dcm-angular-view-vector+ nil)
+
+(defparameter %dcmtk::+dcm-animation-curve-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-animation-step-size+ nil)
+
+(defparameter %dcmtk::+dcm-annotation-clipping+ nil)
+
+(defparameter %dcmtk::+dcm-annotation-display-format-id+ nil)
+
+(defparameter %dcmtk::+dcm-annotation-group-number+ nil)
+
+(defparameter %dcmtk::+dcm-annotation-position+ nil)
+
+(defparameter %dcmtk::+dcm-anode-target-material+ nil)
+
+(defparameter %dcmtk::+dcm-anomaly-locator-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-anomaly-locator-indicator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-anterior-chamber-depth+ nil)
+
+(defparameter %dcmtk::+dcm-anterior-chamber-depth-definition-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-anterior-chamber-depth-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-aperture-elevation+ nil)
+
+(defparameter %dcmtk::+dcm-aperture-value+ nil)
+
+(defparameter %dcmtk::+dcm-apex-position+ nil)
+
+(defparameter %dcmtk::+dcm-applicable-frame-range+ nil)
+
+(defparameter %dcmtk::+dcm-applicable-safety-standard-agency+ nil)
+
+(defparameter %dcmtk::+dcm-applicable-safety-standard-description+ nil)
+
+(defparameter %dcmtk::+dcm-application-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-application-maximum-repaint-time+ nil)
+
+(defparameter %dcmtk::+dcm-application-name+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-check+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-name+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-number+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-application-setup-type+ nil)
+
+(defparameter %dcmtk::+dcm-application-version+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-aperture-shape+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-description+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-id+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-opening+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-opening-x+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-opening-y+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-applicator-type+ nil)
+
+(defparameter %dcmtk::+dcm-approval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-approval-status+ nil)
+
+(defparameter %dcmtk::+dcm-approval-status-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-approval-status-further-description+ nil)
+
+(defparameter %dcmtk::+dcm-approval-subject-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-archive-requested+ nil)
+
+(defparameter %dcmtk::+dcm-arterial-spin-labeling-contrast+ nil)
+
+(defparameter %dcmtk::+dcm-ascan-rate+ nil)
+
+(defparameter %dcmtk::+dcm-asserter-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assertion-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assertion-comments+ nil)
+
+(defparameter %dcmtk::+dcm-assertion-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-assertion-expiration-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-assertion-uid+ nil)
+
+(defparameter %dcmtk::+dcm-assessed-attribute-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assessed-sop-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-label+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-observations-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-requester-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-summary+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-summary-description+ nil)
+
+(defparameter %dcmtk::+dcm-assessment-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assigned-location+ nil)
+
+(defparameter %dcmtk::+dcm-assigning-agency-or-department-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assigning-facility-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-assigning-jurisdiction-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-attached-contours+ nil)
+
+(defparameter %dcmtk::+dcm-attenuation-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-attenuation-correction-method+ nil)
+
+(defparameter %dcmtk::+dcm-attenuation-correction-source+ nil)
+
+(defparameter %dcmtk::+dcm-attenuation-correction-temporal-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-identifier-list+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-item-selector+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-modification-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-occurrence-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-occurrence-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-occurrence-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-attribute-tolerance-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-author-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-author-observer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-authorization-equipment-certification-number+ nil)
+
+(defparameter %dcmtk::+dcm-auto-kvp-lower-bound+ nil)
+
+(defparameter %dcmtk::+dcm-auto-kvp-selection-type+ nil)
+
+(defparameter %dcmtk::+dcm-auto-kvp-upper-bound+ nil)
+
+(defparameter %dcmtk::+dcm-autorefraction-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-autorefraction-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-autosequence-flag+ nil)
+
+(defparameter %dcmtk::+dcm-available-transfer-syntax-uid+ nil)
+
+(defparameter %dcmtk::+dcm-average-beam-dose-point-source-to-external-contour-distance+ nil)
+
+(defparameter %dcmtk::+dcm-average-corneal-power+ nil)
+
+(defparameter %dcmtk::+dcm-average-pulse-width+ nil)
+
+(defparameter %dcmtk::+dcm-axial-acceptance+ nil)
+
+(defparameter %dcmtk::+dcm-axial-detector-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-axial-length-of-the-eye+ nil)
+
+(defparameter %dcmtk::+dcm-axial-mash+ nil)
+
+(defparameter %dcmtk::+dcm-axial-power+ nil)
+
+(defparameter %dcmtk::+dcm-axial-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-axis-of-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-b1rms+ nil)
+
+(defparameter %dcmtk::+dcm-background-color+ nil)
+
+(defparameter %dcmtk::+dcm-background-illumination-color-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-background-luminance+ nil)
+
+(defparameter %dcmtk::+dcm-bad-pixel-image+ nil)
+
+(defparameter %dcmtk::+dcm-barcode-symbology+ nil)
+
+(defparameter %dcmtk::+dcm-barcode-value+ nil)
+
+(defparameter %dcmtk::+dcm-baseline-correction+ nil)
+
+(defparameter %dcmtk::+dcm-basic-color-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-basic-grayscale-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-basis-materials-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-basis-rt-treatment-phase-index+ nil)
+
+(defparameter %dcmtk::+dcm-battery-level+ nil)
+
+(defparameter %dcmtk::+dcm-beam-angle+ nil)
+
+(defparameter %dcmtk::+dcm-beam-area-limit-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-current-modulation-id+ nil)
+
+(defparameter %dcmtk::+dcm-beam-delivery-duration-limit+ nil)
+
+(defparameter %dcmtk::+dcm-beam-description+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-meaning+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-point-depth+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-point-equivalent-depth+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-point-ssd+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-point-source-to-external-contour-distance+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-type+ nil)
+
+(defparameter %dcmtk::+dcm-beam-dose-verification-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-angle+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-leaf-pairs-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-limiting-device-tolerance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-beam-modifier-orientation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-beam-name+ nil)
+
+(defparameter %dcmtk::+dcm-beam-number+ nil)
+
+(defparameter %dcmtk::+dcm-beam-order-index+ nil)
+
+(defparameter %dcmtk::+dcm-beam-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-spot-size+ nil)
+
+(defparameter %dcmtk::+dcm-beam-stopper-position+ nil)
+
+(defparameter %dcmtk::+dcm-beam-task-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-beam-task-type+ nil)
+
+(defparameter %dcmtk::+dcm-beam-type+ nil)
+
+(defparameter %dcmtk::+dcm-beat-rejection-flag+ nil)
+
+(defparameter %dcmtk::+dcm-belt-height+ nil)
+
+(defparameter %dcmtk::+dcm-billing-item-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-billing-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-billing-supplies-and-devices-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-biopsy-target-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-bits-allocated+ nil)
+
+(defparameter %dcmtk::+dcm-bits-mapped-to-color-lookup-table+ nil)
+
+(defparameter %dcmtk::+dcm-bits-stored+ nil)
+
+(defparameter %dcmtk::+dcm-blending-display-input-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-blending-display-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-blending-input-number+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lut1sequence+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lut1transfer-function+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lut2sequence+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lut2transfer-function+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-blending-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-blending-mode+ nil)
+
+(defparameter %dcmtk::+dcm-blending-operation-type+ nil)
+
+(defparameter %dcmtk::+dcm-blending-position+ nil)
+
+(defparameter %dcmtk::+dcm-blending-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-blending-weight-constant+ nil)
+
+(defparameter %dcmtk::+dcm-blind-spot-localized+ nil)
+
+(defparameter %dcmtk::+dcm-blind-spot-x-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-blind-spot-y-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-block-data+ nil)
+
+(defparameter %dcmtk::+dcm-block-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-block-divergence+ nil)
+
+(defparameter %dcmtk::+dcm-block-edge-data+ nil)
+
+(defparameter %dcmtk::+dcm-block-edge-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-block-identifying-information-status+ nil)
+
+(defparameter %dcmtk::+dcm-block-mounting-position+ nil)
+
+(defparameter %dcmtk::+dcm-block-name+ nil)
+
+(defparameter %dcmtk::+dcm-block-number+ nil)
+
+(defparameter %dcmtk::+dcm-block-number-of-points+ nil)
+
+(defparameter %dcmtk::+dcm-block-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-block-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-block-slab-number+ nil)
+
+(defparameter %dcmtk::+dcm-block-slab-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-block-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-block-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-block-transmission+ nil)
+
+(defparameter %dcmtk::+dcm-block-tray-id+ nil)
+
+(defparameter %dcmtk::+dcm-block-type+ nil)
+
+(defparameter %dcmtk::+dcm-blood-signal-nulling+ nil)
+
+(defparameter %dcmtk::+dcm-blue-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-blue-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-boarding-pass-id+ nil)
+
+(defparameter %dcmtk::+dcm-body-part-examined+ nil)
+
+(defparameter %dcmtk::+dcm-body-part-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-bold+ nil)
+
+(defparameter %dcmtk::+dcm-bolus-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-bolus-description+ nil)
+
+(defparameter %dcmtk::+dcm-bolus-id+ nil)
+
+(defparameter %dcmtk::+dcm-bone-thermal-index+ nil)
+
+(defparameter %dcmtk::+dcm-border-density+ nil)
+
+(defparameter %dcmtk::+dcm-bottom-right-hand-corner-of-localizer-area+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-box-annotation-units+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-box-bottom-right-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-box-crop+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-box-text-horizontal-justification+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-box-top-left-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-polygon+ nil)
+
+(defparameter %dcmtk::+dcm-bounding-rectangle+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-name+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-nominal-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-nominal-transmission+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-number+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-accessory-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-application-setup-dose+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-application-setup-dose-specification-point+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-control-point-delivered-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-pulse-control-point-delivered-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-referenced-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-task-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-treatment-technique+ nil)
+
+(defparameter %dcmtk::+dcm-brachy-treatment-type+ nil)
+
+(defparameter %dcmtk::+dcm-brachytherapy-source-type+ nil)
+
+(defparameter %dcmtk::+dcm-branch-of-service+ nil)
+
+(defparameter %dcmtk::+dcm-breast-implant-present+ nil)
+
+(defparameter %dcmtk::+dcm-breast-support-isocenter-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-breast-support-isocenter-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-breast-support-x-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-breast-support-y-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-breast-support-z-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-breed-registration-number+ nil)
+
+(defparameter %dcmtk::+dcm-breed-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-breed-registry-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-bridge-resistors+ nil)
+
+(defparameter %dcmtk::+dcm-brightness-value+ nil)
+
+(defparameter %dcmtk::+dcm-bscan-cycle-time+ nil)
+
+(defparameter %dcmtk::+dcm-bscan-cycle-time-vector+ nil)
+
+(defparameter %dcmtk::+dcm-bscan-rate+ nil)
+
+(defparameter %dcmtk::+dcm-bscan-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-bulk-motion-compensation-technique+ nil)
+
+(defparameter %dcmtk::+dcm-bulk-motion-signal-source+ nil)
+
+(defparameter %dcmtk::+dcm-burned-in-annotation+ nil)
+
+(defparameter %dcmtk::+dcm-c-arm-photon-electron-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-c-arm-positioner-tabletop-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-ci-exy-white-point+ nil)
+
+(defparameter %dcmtk::+dcm-css-font-name+ nil)
+
+(defparameter %dcmtk::+dcm-ct-acquisition-details-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-acquisition-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-additional-x-ray-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ctdi-phantom-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ctd-ivol+ nil)
+
+(defparameter %dcmtk::+dcm-ctd-ivol-notification-trigger+ nil)
+
+(defparameter %dcmtk::+dcm-ct-exposure-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-image-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-reconstruction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ct-table-dynamics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ctx-ray-details-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calcium-scoring-mass-factor-device+ nil)
+
+(defparameter %dcmtk::+dcm-calcium-scoring-mass-factor-patient+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-anatomy-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-dose-reference-description+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-dose-reference-dose-value+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-frame-list+ nil)
+
+(defparameter %dcmtk::+dcm-calculated-target-position+ nil)
+
+(defparameter %dcmtk::+dcm-calculation-comment+ nil)
+
+(defparameter %dcmtk::+dcm-calculation-comment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calculation-comment-type+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-date+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-image+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-notes+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-calibration-time+ nil)
+
+(defparameter %dcmtk::+dcm-camera-angle-of-view+ nil)
+
+(defparameter %dcmtk::+dcm-camera-elevation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-camera-owner-name+ nil)
+
+(defparameter %dcmtk::+dcm-camera-position-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-beat-rejection-technique+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-cycle-position+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-framing-type+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-number-of-images+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-rr-interval-specified+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-signal-source+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-synchronization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-cardiac-synchronization-technique+ nil)
+
+(defparameter %dcmtk::+dcm-carrier-id+ nil)
+
+(defparameter %dcmtk::+dcm-carrier-id-assigning-authority+ nil)
+
+(defparameter %dcmtk::+dcm-cassette-id+ nil)
+
+(defparameter %dcmtk::+dcm-cassette-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-cassette-size+ nil)
+
+(defparameter %dcmtk::+dcm-catch-trials-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-catheter-direction-of-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-catheter-rotational-rate+ nil)
+
+(defparameter %dcmtk::+dcm-cell-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-circular-collimator+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-circular-exposure-control-sensing-region+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-circular-outline+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-circular-shutter+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-mass+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-pto+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-center-of-rotation-offset+ nil)
+
+(defparameter %dcmtk::+dcm-certificate-of-signer+ nil)
+
+(defparameter %dcmtk::+dcm-certificate-type+ nil)
+
+(defparameter %dcmtk::+dcm-certified-timestamp+ nil)
+
+(defparameter %dcmtk::+dcm-certified-timestamp-type+ nil)
+
+(defparameter %dcmtk::+dcm-chair-head-frame-position+ nil)
+
+(defparameter %dcmtk::+dcm-chair-head-frame-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-channel-baseline+ nil)
+
+(defparameter %dcmtk::+dcm-channel-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-delivery-continuation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-delivery-order-index+ nil)
+
+(defparameter %dcmtk::+dcm-channel-delivery-order-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-derivation-description+ nil)
+
+(defparameter %dcmtk::+dcm-channel-description-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-display-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-effective-length+ nil)
+
+(defparameter %dcmtk::+dcm-channel-identification-code+ nil)
+
+(defparameter %dcmtk::+dcm-channel-impedance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-inner-length+ nil)
+
+(defparameter %dcmtk::+dcm-channel-label+ nil)
+
+(defparameter %dcmtk::+dcm-channel-length+ nil)
+
+(defparameter %dcmtk::+dcm-channel-maximum-value+ nil)
+
+(defparameter %dcmtk::+dcm-channel-minimum-value+ nil)
+
+(defparameter %dcmtk::+dcm-channel-mode+ nil)
+
+(defparameter %dcmtk::+dcm-channel-number+ nil)
+
+(defparameter %dcmtk::+dcm-channel-offset+ nil)
+
+(defparameter %dcmtk::+dcm-channel-overlap+ nil)
+
+(defparameter %dcmtk::+dcm-channel-position+ nil)
+
+(defparameter %dcmtk::+dcm-channel-recommended-display-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-channel-sample-skew+ nil)
+
+(defparameter %dcmtk::+dcm-channel-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-channel-sensitivity-correction-factor+ nil)
+
+(defparameter %dcmtk::+dcm-channel-sensitivity-units-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-id+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-name+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-nominal-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-nominal-transmission+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-number+ nil)
+
+(defparameter %dcmtk::+dcm-channel-shield-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-source-modifiers-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-channel-status+ nil)
+
+(defparameter %dcmtk::+dcm-channel-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-channel-time-skew+ nil)
+
+(defparameter %dcmtk::+dcm-channel-total-time+ nil)
+
+(defparameter %dcmtk::+dcm-channel-width+ nil)
+
+(defparameter %dcmtk::+dcm-chemical-shift-maximum-integration-limit-inppm+ nil)
+
+(defparameter %dcmtk::+dcm-chemical-shift-minimum-integration-limit-inppm+ nil)
+
+(defparameter %dcmtk::+dcm-chemical-shift-reference+ nil)
+
+(defparameter %dcmtk::+dcm-chemical-shift-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-cine-rate+ nil)
+
+(defparameter %dcmtk::+dcm-cine-relative-to-real-time+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-fraction-number+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-coordinating-center-name+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-protocol-ethics-committee-approval-number+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-protocol-ethics-committee-name+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-protocol-id+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-protocol-name+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-series-description+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-series-id+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-site-id+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-site-name+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-sponsor-name+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-subject-id+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-subject-reading-id+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-time-point-description+ nil)
+
+(defparameter %dcmtk::+dcm-clinical-trial-time-point-id+ nil)
+
+(defparameter %dcmtk::+dcm-coating-materials-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-code-meaning+ nil)
+
+(defparameter %dcmtk::+dcm-code-value+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-designator+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-external-id+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-name+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-registry+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-resources-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-responsible-organization+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-uid+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-url+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-url-type+ nil)
+
+(defparameter %dcmtk::+dcm-coding-scheme-version+ nil)
+
+(defparameter %dcmtk::+dcm-coincidence-window-width+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-grid-name+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-left-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-lower-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-right-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-shape+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-shape-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-type+ nil)
+
+(defparameter %dcmtk::+dcm-collimator-upper-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-color-filter-array-pattern-columns+ nil)
+
+(defparameter %dcmtk::+dcm-color-filter-array-pattern-rows+ nil)
+
+(defparameter %dcmtk::+dcm-color-filter-array-pattern-values+ nil)
+
+(defparameter %dcmtk::+dcm-color-space+ nil)
+
+(defparameter %dcmtk::+dcm-column-angulation+ nil)
+
+(defparameter %dcmtk::+dcm-column-angulation-patient+ nil)
+
+(defparameter %dcmtk::+dcm-column-position-in-total-image-pixel-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-columns+ nil)
+
+(defparameter %dcmtk::+dcm-combination-segment-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-command-data-set-type+ nil)
+
+(defparameter %dcmtk::+dcm-command-field+ nil)
+
+(defparameter %dcmtk::+dcm-command-group-length+ nil)
+
+(defparameter %dcmtk::+dcm-comments-on-patient-performance-of-visual-field+ nil)
+
+(defparameter %dcmtk::+dcm-comments-on-radiation-dose+ nil)
+
+(defparameter %dcmtk::+dcm-comments-on-the-performed-procedure-step+ nil)
+
+(defparameter %dcmtk::+dcm-comments-on-the-scheduled-procedure-step+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-base-plane-offset+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-column-offset+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-columns+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-description+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-distal-thickness-map+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-divergence+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-id+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-map-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-milling-tool-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-mounting-position+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-number+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-position+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-proximal-thickness-map+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-relative-stopping-power-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-rows+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-shape-fabrication-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-shape-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-thickness-data+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-transmission-data+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-tray-id+ nil)
+
+(defparameter %dcmtk::+dcm-compensator-type+ nil)
+
+(defparameter %dcmtk::+dcm-completion-flag+ nil)
+
+(defparameter %dcmtk::+dcm-completion-flag-description+ nil)
+
+(defparameter %dcmtk::+dcm-complex-image-component+ nil)
+
+(defparameter %dcmtk::+dcm-component1referenced-id+ nil)
+
+(defparameter %dcmtk::+dcm-component1referenced-mating-feature-id+ nil)
+
+(defparameter %dcmtk::+dcm-component1referenced-mating-feature-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-component2referenced-id+ nil)
+
+(defparameter %dcmtk::+dcm-component2referenced-mating-feature-id+ nil)
+
+(defparameter %dcmtk::+dcm-component2referenced-mating-feature-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-component-assembly-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-component-id+ nil)
+
+(defparameter %dcmtk::+dcm-component-input-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-component-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-component-manufacturing-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-component-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-component-shape+ nil)
+
+(defparameter %dcmtk::+dcm-component-type+ nil)
+
+(defparameter %dcmtk::+dcm-component-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-component-types-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-component-welder-i-ds+ nil)
+
+(defparameter %dcmtk::+dcm-compound-graphic-instance-id+ nil)
+
+(defparameter %dcmtk::+dcm-compound-graphic-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-compound-graphic-type+ nil)
+
+(defparameter %dcmtk::+dcm-compound-graphic-units+ nil)
+
+(defparameter %dcmtk::+dcm-compression-contact-area+ nil)
+
+(defparameter %dcmtk::+dcm-compression-force+ nil)
+
+(defparameter %dcmtk::+dcm-compression-pressure+ nil)
+
+(defparameter %dcmtk::+dcm-concatenation-frame-offset-number+ nil)
+
+(defparameter %dcmtk::+dcm-concatenation-uid+ nil)
+
+(defparameter %dcmtk::+dcm-concept-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-concept-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-blocking-constraint+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-combination-description+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-combination-expression+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-combination-flag+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-constituent-index+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-constituent-segmentation-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-constituent-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-derivation-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-description+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-optimization-precedence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-segmentation-defined-flag+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-segmentation-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-type-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conceptual-volume-uid+ nil)
+
+(defparameter %dcmtk::+dcm-condenser-lens-power+ nil)
+
+(defparameter %dcmtk::+dcm-confidentiality-code+ nil)
+
+(defparameter %dcmtk::+dcm-confidentiality-constraint-on-patient-data-description+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-description+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-id+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-information+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-information-description+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-name+ nil)
+
+(defparameter %dcmtk::+dcm-configuration-qa-results-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-confirmation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-connector-type+ nil)
+
+(defparameter %dcmtk::+dcm-consent-for-clinical-trial-use-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-consent-for-distribution-flag+ nil)
+
+(defparameter %dcmtk::+dcm-constant-volume-flag+ nil)
+
+(defparameter %dcmtk::+dcm-constituent-conceptual-volume-uid+ nil)
+
+(defparameter %dcmtk::+dcm-constraint-type+ nil)
+
+(defparameter %dcmtk::+dcm-constraint-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-constraint-violation-condition+ nil)
+
+(defparameter %dcmtk::+dcm-constraint-violation-significance+ nil)
+
+(defparameter %dcmtk::+dcm-constraint-weight+ nil)
+
+(defparameter %dcmtk::+dcm-consulting-physician-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-consulting-physician-name+ nil)
+
+(defparameter %dcmtk::+dcm-contact-display-name+ nil)
+
+(defparameter %dcmtk::+dcm-contact-method+ nil)
+
+(defparameter %dcmtk::+dcm-contact-uri+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-description+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-id+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-length+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-material+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-container-component-width+ nil)
+
+(defparameter %dcmtk::+dcm-container-description+ nil)
+
+(defparameter %dcmtk::+dcm-container-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-container-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-content-creator-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-content-creator-name+ nil)
+
+(defparameter %dcmtk::+dcm-content-date+ nil)
+
+(defparameter %dcmtk::+dcm-content-description+ nil)
+
+(defparameter %dcmtk::+dcm-content-item-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-content-label+ nil)
+
+(defparameter %dcmtk::+dcm-content-qualification+ nil)
+
+(defparameter %dcmtk::+dcm-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-content-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-content-time+ nil)
+
+(defparameter %dcmtk::+dcm-context-group-extension-creator-uid+ nil)
+
+(defparameter %dcmtk::+dcm-context-group-extension-flag+ nil)
+
+(defparameter %dcmtk::+dcm-context-group-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-context-group-local-version+ nil)
+
+(defparameter %dcmtk::+dcm-context-group-version+ nil)
+
+(defparameter %dcmtk::+dcm-context-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-context-uid+ nil)
+
+(defparameter %dcmtk::+dcm-continuation-end-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-continuation-end-total-reference-air-kerma+ nil)
+
+(defparameter %dcmtk::+dcm-continuation-pulse-number+ nil)
+
+(defparameter %dcmtk::+dcm-continuation-start-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-continuation-start-total-reference-air-kerma+ nil)
+
+(defparameter %dcmtk::+dcm-continuity-of-content+ nil)
+
+(defparameter %dcmtk::+dcm-contour-data+ nil)
+
+(defparameter %dcmtk::+dcm-contour-geometric-type+ nil)
+
+(defparameter %dcmtk::+dcm-contour-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contour-number+ nil)
+
+(defparameter %dcmtk::+dcm-contour-offset-vector+ nil)
+
+(defparameter %dcmtk::+dcm-contour-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contour-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-contour-uncertainty-radius+ nil)
+
+(defparameter %dcmtk::+dcm-contraindications-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-administration-profile-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-administration-route-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent-administered+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent-detected+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent-number+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent-phase+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-agent-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-ingredient+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-ingredient-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-ingredient-concentration+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-ingredient-opaque+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-ingredient-percent-by-volume+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-route+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-stop-time+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-t1relaxivity+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-total-dose+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-usage-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-bolus-volume+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-flow-duration+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-flow-rate+ nil)
+
+(defparameter %dcmtk::+dcm-contrast-frame-averaging+ nil)
+
+(defparameter %dcmtk::+dcm-contributing-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contributing-sop-instances-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contributing-sources-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-contribution-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-contribution-description+ nil)
+
+(defparameter %dcmtk::+dcm-control-point3d-position+ nil)
+
+(defparameter %dcmtk::+dcm-control-point-delivery-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-control-point-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-control-point-relative-position+ nil)
+
+(defparameter %dcmtk::+dcm-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conventional-control-point-verification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conventional-machine-verification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conversion-source-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-conversion-type+ nil)
+
+(defparameter %dcmtk::+dcm-convolution-kernel+ nil)
+
+(defparameter %dcmtk::+dcm-convolution-kernel-group+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axis-description+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axis-number+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axis-type+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axis-units+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-axis-values+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-data-set-mapping+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-number-of-axes+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-transform-rotation-and-scale-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-transform-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-coordinate-system-transform-translation-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-cornea-measurement-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-cornea-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-axis+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-eccentricity-index+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-is-value+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-point-estimated+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-point-location+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-power+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-size+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-size-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-topography-map-quality-evaluation+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-topography-map-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-topography-mapping-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-topography-surface+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-vertex-location+ nil)
+
+(defparameter %dcmtk::+dcm-corneal-wavefront+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-image+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-localized-deviation-from-normal+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-localized-deviation-from-normal-calculated+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-localized-deviation-from-normal-probability+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-localized-deviation-from-normal-probability-calculated+ nil)
+
+(defparameter %dcmtk::+dcm-corrected-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-correction-value+ nil)
+
+(defparameter %dcmtk::+dcm-count-loss-normalization-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-count-rate+ nil)
+
+(defparameter %dcmtk::+dcm-country-of-residence+ nil)
+
+(defparameter %dcmtk::+dcm-counts-accumulated+ nil)
+
+(defparameter %dcmtk::+dcm-counts-source+ nil)
+
+(defparameter %dcmtk::+dcm-coupling-medium+ nil)
+
+(defparameter %dcmtk::+dcm-coupling-technique+ nil)
+
+(defparameter %dcmtk::+dcm-coupling-velocity+ nil)
+
+(defparameter %dcmtk::+dcm-coverage-of-k-space+ nil)
+
+(defparameter %dcmtk::+dcm-cranial-thermal-index+ nil)
+
+(defparameter %dcmtk::+dcm-creation-date+ nil)
+
+(defparameter %dcmtk::+dcm-creation-time+ nil)
+
+(defparameter %dcmtk::+dcm-creator-version-uid+ nil)
+
+(defparameter %dcmtk::+dcm-crop+ nil)
+
+(defparameter %dcmtk::+dcm-cropping-specification-index+ nil)
+
+(defparameter %dcmtk::+dcm-cropping-specification-number+ nil)
+
+(defparameter %dcmtk::+dcm-cumulative-dose-reference-coefficient+ nil)
+
+(defparameter %dcmtk::+dcm-cumulative-dose-to-dose-reference+ nil)
+
+(defparameter %dcmtk::+dcm-cumulative-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-cumulative-meterset-weight+ nil)
+
+(defparameter %dcmtk::+dcm-cumulative-time-weight+ nil)
+
+(defparameter %dcmtk::+dcm-current-configuration-id+ nil)
+
+(defparameter %dcmtk::+dcm-current-fraction-number+ nil)
+
+(defparameter %dcmtk::+dcm-current-frame-functional-groups-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-current-patient-location+ nil)
+
+(defparameter %dcmtk::+dcm-current-requested-procedure-evidence-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-current-treatment-status+ nil)
+
+(defparameter %dcmtk::+dcm-curvature-type+ nil)
+
+(defparameter %dcmtk::+dcm-custodial-organization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-custom-rendered+ nil)
+
+(defparameter %dcmtk::+dcm-cylinder-axis+ nil)
+
+(defparameter %dcmtk::+dcm-cylinder-lens-power+ nil)
+
+(defparameter %dcmtk::+dcm-cylinder-power+ nil)
+
+(defparameter %dcmtk::+dcm-cylinder-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dac-amplitude+ nil)
+
+(defparameter %dcmtk::+dcm-dac-gain-points+ nil)
+
+(defparameter %dcmtk::+dcm-dac-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dac-time-points+ nil)
+
+(defparameter %dcmtk::+dcm-dac-type+ nil)
+
+(defparameter %dcmtk::+dcm-ddl-value+ nil)
+
+(defparameter %dcmtk::+dcm-dicom-media-retrieval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dicom-retrieval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dicom-storage-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dicos-version+ nil)
+
+(defparameter %dcmtk::+dcm-dict-default-path+ "/usr/local/share/dcmtk/dicom.dic")
+
+(defparameter %dcmtk::+dcm-dict-deftag-build-date+ "2020-11-24 14:49:52")
+
+(defparameter %dcmtk::+dcm-dict-environment-variable+ "DCMDICTPATH")
+
+(defparameter %dcmtk::+dcm-dlp-notification-trigger+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-data+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-dose-scaling+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-maximum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-mean-dose+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-minimum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-normalization-dose-value+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-normalization-point+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-number-of-bins+ nil)
+
+(defparameter %dcmtk::+dcm-dvhroi-contribution-type+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-referenced-roi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-type+ nil)
+
+(defparameter %dcmtk::+dcm-dvh-volume-units+ nil)
+
+(defparameter %dcmtk::+dcm-damping+ nil)
+
+(defparameter %dcmtk::+dcm-dark-current-counts+ nil)
+
+(defparameter %dcmtk::+dcm-dark-current-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-data-collection-center-patient+ nil)
+
+(defparameter %dcmtk::+dcm-data-collection-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-data-elements-signed+ nil)
+
+(defparameter %dcmtk::+dcm-data-frame-assignment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-data-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-data-observation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-data-path-assignment+ nil)
+
+(defparameter %dcmtk::+dcm-data-path-id+ nil)
+
+(defparameter %dcmtk::+dcm-data-point-columns+ nil)
+
+(defparameter %dcmtk::+dcm-data-point-rows+ nil)
+
+(defparameter %dcmtk::+dcm-data-representation+ nil)
+
+(defparameter %dcmtk::+dcm-data-set-description+ nil)
+
+(defparameter %dcmtk::+dcm-data-set-name+ nil)
+
+(defparameter %dcmtk::+dcm-data-set-source+ nil)
+
+(defparameter %dcmtk::+dcm-data-set-trailing-padding+ nil)
+
+(defparameter %dcmtk::+dcm-data-set-version+ nil)
+
+(defparameter %dcmtk::+dcm-data-type+ nil)
+
+(defparameter %dcmtk::+dcm-date+ nil)
+
+(defparameter %dcmtk::+dcm-date-of-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-date-of-last-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-date-of-last-detector-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-date-of-secondary-capture+ nil)
+
+(defparameter %dcmtk::+dcm-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-date-time-of-last-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-dead-time-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-dead-time-factor+ nil)
+
+(defparameter %dcmtk::+dcm-decay-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-decay-correction+ nil)
+
+(defparameter %dcmtk::+dcm-decay-correction-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-decay-factor+ nil)
+
+(defparameter %dcmtk::+dcm-decimal-potential-visual-acuity+ nil)
+
+(defparameter %dcmtk::+dcm-decimal-visual-acuity+ nil)
+
+(defparameter %dcmtk::+dcm-decimate-crop-result+ nil)
+
+(defparameter %dcmtk::+dcm-decomposition-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-decomposition-description+ nil)
+
+(defparameter %dcmtk::+dcm-decomposition-material-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-decomposition-method+ nil)
+
+(defparameter %dcmtk::+dcm-decoupled-nucleus+ nil)
+
+(defparameter %dcmtk::+dcm-decoupling+ nil)
+
+(defparameter %dcmtk::+dcm-decoupling-chemical-shift-reference+ nil)
+
+(defparameter %dcmtk::+dcm-decoupling-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-decoupling-method+ nil)
+
+(defparameter %dcmtk::+dcm-default-magnification-type+ nil)
+
+(defparameter %dcmtk::+dcm-default-printer-resolution-id+ nil)
+
+(defparameter %dcmtk::+dcm-default-smoothing-type+ nil)
+
+(defparameter %dcmtk::+dcm-definition-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-deformable-registration-grid-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-deformable-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-degree-of-dilation+ nil)
+
+(defparameter %dcmtk::+dcm-degree-of-freedom-id+ nil)
+
+(defparameter %dcmtk::+dcm-degree-of-freedom-type+ nil)
+
+(defparameter %dcmtk::+dcm-deidentification-action+ nil)
+
+(defparameter %dcmtk::+dcm-deidentification-action-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-deidentification-method+ nil)
+
+(defparameter %dcmtk::+dcm-deidentification-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-delay-law-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-deletion-lock+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-channel-total-time+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-depth-dose-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-distal-depth+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-distal-depth-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-nominal-range-modulated-region-depths+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-nominal-range-modulation-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-number-of-pulses+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-primary-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-pulse-repetition-interval+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-reference-dose-definition+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-secondary-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-delivered-treatment-time+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-maximum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-rate+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-rate-unit-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-time-structure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-verification-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-delivery-warning-dose+ nil)
+
+(defparameter %dcmtk::+dcm-density+ nil)
+
+(defparameter %dcmtk::+dcm-depth-dose-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-depth-of-scan-field+ nil)
+
+(defparameter %dcmtk::+dcm-depth-of-transverse-image+ nil)
+
+(defparameter %dcmtk::+dcm-depth-spatial-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-depth-value-averaging-flag+ nil)
+
+(defparameter %dcmtk::+dcm-depths-of-focus+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-conceptual-volume-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-description+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-implant-assembly-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-derivation-implant-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-destination-ae+ nil)
+
+(defparameter %dcmtk::+dcm-detector-activation-offset-from-exposure+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-area-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-area-tlhc-position+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-origin+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-shape+ nil)
+
+(defparameter %dcmtk::+dcm-detector-active-time+ nil)
+
+(defparameter %dcmtk::+dcm-detector-binning+ nil)
+
+(defparameter %dcmtk::+dcm-detector-calibration-data+ nil)
+
+(defparameter %dcmtk::+dcm-detector-conditions-nominal-flag+ nil)
+
+(defparameter %dcmtk::+dcm-detector-configuration+ nil)
+
+(defparameter %dcmtk::+dcm-detector-description+ nil)
+
+(defparameter %dcmtk::+dcm-detector-element-physical-size+ nil)
+
+(defparameter %dcmtk::+dcm-detector-element-size+ nil)
+
+(defparameter %dcmtk::+dcm-detector-element-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-detector-geometry+ nil)
+
+(defparameter %dcmtk::+dcm-detector-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-detector-id+ nil)
+
+(defparameter %dcmtk::+dcm-detector-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-detector-isocenter-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-detector-isocenter-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-detector-lines-of-response-used+ nil)
+
+(defparameter %dcmtk::+dcm-detector-manufacturer-model-name+ nil)
+
+(defparameter %dcmtk::+dcm-detector-manufacturer-name+ nil)
+
+(defparameter %dcmtk::+dcm-detector-mode+ nil)
+
+(defparameter %dcmtk::+dcm-detector-normalization-correction+ nil)
+
+(defparameter %dcmtk::+dcm-detector-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-detector-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-detector-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-detector-temperature+ nil)
+
+(defparameter %dcmtk::+dcm-detector-temperature-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-detector-time-since-last-exposure+ nil)
+
+(defparameter %dcmtk::+dcm-detector-type+ nil)
+
+(defparameter %dcmtk::+dcm-detector-vector+ nil)
+
+(defparameter %dcmtk::+dcm-detector-x-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-detector-y-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-detector-z-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-deviation-index+ nil)
+
+(defparameter %dcmtk::+dcm-device-alternate-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-device-alternate-identifier-format+ nil)
+
+(defparameter %dcmtk::+dcm-device-alternate-identifier-type+ nil)
+
+(defparameter %dcmtk::+dcm-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-device-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-device-diameter-units+ nil)
+
+(defparameter %dcmtk::+dcm-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-device-index+ nil)
+
+(defparameter %dcmtk::+dcm-device-label+ nil)
+
+(defparameter %dcmtk::+dcm-device-length+ nil)
+
+(defparameter %dcmtk::+dcm-device-motion-control-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-device-motion-execution-mode+ nil)
+
+(defparameter %dcmtk::+dcm-device-motion-observation-mode+ nil)
+
+(defparameter %dcmtk::+dcm-device-motion-parameter-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-device-order-index+ nil)
+
+(defparameter %dcmtk::+dcm-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-device-serial-number+ nil)
+
+(defparameter %dcmtk::+dcm-device-setting-description+ nil)
+
+(defparameter %dcmtk::+dcm-device-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-device-uid+ nil)
+
+(defparameter %dcmtk::+dcm-device-volume+ nil)
+
+(defparameter %dcmtk::+dcm-diameter-of-circular-outline+ nil)
+
+(defparameter %dcmtk::+dcm-diameter-of-visibility+ nil)
+
+(defparameter %dcmtk::+dcm-diaphragm-position+ nil)
+
+(defparameter %dcmtk::+dcm-diffuse-reflection-intensity+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-acquisition-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-anisotropy-type+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-matrix-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-xx+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-xy+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-xz+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-yy+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-yz+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-b-value-zz+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-directionality+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-gradient-direction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-gradient-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-diffusion-model-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-digital-image-format-acquired+ nil)
+
+(defparameter %dcmtk::+dcm-digital-signature-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-digital-signature-purpose-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-digital-signature-uid+ nil)
+
+(defparameter %dcmtk::+dcm-digital-signatures-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-digital-zoom-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-digitizing-device-transport-direction+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-description-label+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-index-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-index-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-index-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-index-values+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-organization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-organization-type+ nil)
+
+(defparameter %dcmtk::+dcm-dimension-organization-uid+ nil)
+
+(defparameter %dcmtk::+dcm-direct-segment-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-directory-record-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-directory-record-type+ nil)
+
+(defparameter %dcmtk::+dcm-display-calibration-result-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-device-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-environment-spatial-position+ nil)
+
+(defparameter %dcmtk::+dcm-display-filter-percentage+ nil)
+
+(defparameter %dcmtk::+dcm-display-function-type+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-horizontal-justification+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-number+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-patient-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-presentation-group+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-presentation-group-description+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-scrolling-group+ nil)
+
+(defparameter %dcmtk::+dcm-display-set-vertical-justification+ nil)
+
+(defparameter %dcmtk::+dcm-display-sets-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-shading-flag+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-configuration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-description+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-id+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-name+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-qa-results-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-subsystem-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-display-window-label-vector+ nil)
+
+(defparameter %dcmtk::+dcm-displayed-area-bottom-right-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-displayed-area-selection-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-displayed-area-top-left-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-displayed-z-value+ nil)
+
+(defparameter %dcmtk::+dcm-distal-depth+ nil)
+
+(defparameter %dcmtk::+dcm-distal-depth-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-distance-between-bscan-slabs+ nil)
+
+(defparameter %dcmtk::+dcm-distance-between-focal-planes+ nil)
+
+(defparameter %dcmtk::+dcm-distance-object-to-table-top+ nil)
+
+(defparameter %dcmtk::+dcm-distance-pupillary-distance+ nil)
+
+(defparameter %dcmtk::+dcm-distance-receptor-plane-to-detector-housing+ nil)
+
+(defparameter %dcmtk::+dcm-distance-source-to-data-collection-center+ nil)
+
+(defparameter %dcmtk::+dcm-distance-source-to-detector+ nil)
+
+(defparameter %dcmtk::+dcm-distance-source-to-entrance+ nil)
+
+(defparameter %dcmtk::+dcm-distance-source-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-distance-source-to-patient+ nil)
+
+(defparameter %dcmtk::+dcm-distribution-type+ nil)
+
+(defparameter %dcmtk::+dcm-document-class-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-document-title+ nil)
+
+(defparameter %dcmtk::+dcm-doppler-correction-angle+ nil)
+
+(defparameter %dcmtk::+dcm-doppler-sample-volume-x-position+ nil)
+
+(defparameter %dcmtk::+dcm-doppler-sample-volume-y-position+ nil)
+
+(defparameter %dcmtk::+dcm-dose-calibration-factor+ nil)
+
+(defparameter %dcmtk::+dcm-dose-comment+ nil)
+
+(defparameter %dcmtk::+dcm-dose-grid-scaling+ nil)
+
+(defparameter %dcmtk::+dcm-dose-measurement-device-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dose-rate-delivered+ nil)
+
+(defparameter %dcmtk::+dcm-dose-rate-set+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-description+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-point-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-structure-type+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-type+ nil)
+
+(defparameter %dcmtk::+dcm-dose-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-dose-summation-type+ nil)
+
+(defparameter %dcmtk::+dcm-dose-type+ nil)
+
+(defparameter %dcmtk::+dcm-dose-units+ nil)
+
+(defparameter %dcmtk::+dcm-dose-value+ nil)
+
+(defparameter %dcmtk::+dcm-dose-value-purpose+ nil)
+
+(defparameter %dcmtk::+dcm-dose-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-evaluation-scope+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-purpose+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-uid+ nil)
+
+(defparameter %dcmtk::+dcm-dosimetric-objective-weight+ nil)
+
+(defparameter %dcmtk::+dcm-double-exposure-field-delta+ nil)
+
+(defparameter %dcmtk::+dcm-double-exposure-flag+ nil)
+
+(defparameter %dcmtk::+dcm-double-exposure-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-double-exposure-ordering+ nil)
+
+(defparameter %dcmtk::+dcm-double-float-pixel-data+ nil)
+
+(defparameter %dcmtk::+dcm-double-float-pixel-padding-range-limit+ nil)
+
+(defparameter %dcmtk::+dcm-double-float-pixel-padding-value+ nil)
+
+(defparameter %dcmtk::+dcm-double-float-real-world-value-first-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-double-float-real-world-value-last-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-drive-probe-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-drive-type+ nil)
+
+(defparameter %dcmtk::+dcm-exif-version+ nil)
+
+(defparameter %dcmtk::+dcm-echo-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-echo-peak-position+ nil)
+
+(defparameter %dcmtk::+dcm-echo-planar-pulse-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-echo-pulse-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-echo-time+ nil)
+
+(defparameter %dcmtk::+dcm-echo-train-length+ nil)
+
+(defparameter %dcmtk::+dcm-effective-bin-energy+ nil)
+
+(defparameter %dcmtk::+dcm-effective-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-effective-dose-calculation-method-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-effective-dose-calculation-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-effective-dose-calculation-method-description+ nil)
+
+(defparameter %dcmtk::+dcm-effective-duration+ nil)
+
+(defparameter %dcmtk::+dcm-effective-echo-time+ nil)
+
+(defparameter %dcmtk::+dcm-effective-refractive-index+ nil)
+
+(defparameter %dcmtk::+dcm-effective-wedge-angle+ nil)
+
+(defparameter %dcmtk::+dcm-element-dimension-a+ nil)
+
+(defparameter %dcmtk::+dcm-element-dimension-b+ nil)
+
+(defparameter %dcmtk::+dcm-element-pitch-a+ nil)
+
+(defparameter %dcmtk::+dcm-element-pitch-b+ nil)
+
+(defparameter %dcmtk::+dcm-element-shape+ nil)
+
+(defparameter %dcmtk::+dcm-emitter-color-temperature+ nil)
+
+(defparameter %dcmtk::+dcm-emmetropic-magnification+ nil)
+
+(defparameter %dcmtk::+dcm-empty-image-box-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-empty-image-density+ nil)
+
+(defparameter %dcmtk::+dcm-encapsulated-document+ nil)
+
+(defparameter %dcmtk::+dcm-encapsulated-document-length+ nil)
+
+(defparameter %dcmtk::+dcm-encrypted-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-encrypted-content+ nil)
+
+(defparameter %dcmtk::+dcm-encrypted-content-transfer-syntax-uid+ nil)
+
+(defparameter %dcmtk::+dcm-end-acquisition-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-end-cumulative-meterset-weight+ nil)
+
+(defparameter %dcmtk::+dcm-end-cumulative-time-weight+ nil)
+
+(defparameter %dcmtk::+dcm-end-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-ending-respiratory-amplitude+ nil)
+
+(defparameter %dcmtk::+dcm-ending-respiratory-phase+ nil)
+
+(defparameter %dcmtk::+dcm-energy-unit-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-energy-weighting-factor+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-lower-limit+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-name+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-number+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-range-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-upper-limit+ nil)
+
+(defparameter %dcmtk::+dcm-energy-window-vector+ nil)
+
+(defparameter %dcmtk::+dcm-enhanced-palette-color-lookup-table-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-entity-description+ nil)
+
+(defparameter %dcmtk::+dcm-entity-label+ nil)
+
+(defparameter %dcmtk::+dcm-entity-long-label+ nil)
+
+(defparameter %dcmtk::+dcm-entity-name+ nil)
+
+(defparameter %dcmtk::+dcm-entrance-dose+ nil)
+
+(defparameter %dcmtk::+dcm-entrance-dose-derivation+ nil)
+
+(defparameter %dcmtk::+dcm-entrance-dose-inm-gy+ nil)
+
+(defparameter %dcmtk::+dcm-environmental-conditions+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-administrator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-coordinate-system-identification+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-frame-of-reference-description+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-modality+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-reference-point-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equipment-reference-point-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equivalent-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equivalent-conceptual-volume-instance-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equivalent-conceptual-volumes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-equivalent-pupil-radius+ nil)
+
+(defparameter %dcmtk::+dcm-error-comment+ nil)
+
+(defparameter %dcmtk::+dcm-error-id+ nil)
+
+(defparameter %dcmtk::+dcm-estimated-dose-saving+ nil)
+
+(defparameter %dcmtk::+dcm-estimated-radiographic-magnification-factor+ nil)
+
+(defparameter %dcmtk::+dcm-ethics-committee-approval-effectiveness-end-date+ nil)
+
+(defparameter %dcmtk::+dcm-ethics-committee-approval-effectiveness-start-date+ nil)
+
+(defparameter %dcmtk::+dcm-ethnic-group+ nil)
+
+(defparameter %dcmtk::+dcm-evaluation-attempt+ nil)
+
+(defparameter %dcmtk::+dcm-evaluator-name+ nil)
+
+(defparameter %dcmtk::+dcm-evaluator-number+ nil)
+
+(defparameter %dcmtk::+dcm-evaluator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-event-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-event-elapsed-times+ nil)
+
+(defparameter %dcmtk::+dcm-event-time-offset+ nil)
+
+(defparameter %dcmtk::+dcm-event-timer-names+ nil)
+
+(defparameter %dcmtk::+dcm-event-timer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-event-type-id+ nil)
+
+(defparameter %dcmtk::+dcm-examined-body-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-false-negatives+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-false-negatives-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-false-positives+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-false-positives-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-fixation-losses+ nil)
+
+(defparameter %dcmtk::+dcm-excessive-fixation-losses-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-excitation-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-excluded-intervals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-exclusion-duration+ nil)
+
+(defparameter %dcmtk::+dcm-exclusion-start-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-exclusive-component-type+ nil)
+
+(defparameter %dcmtk::+dcm-execution-status+ nil)
+
+(defparameter %dcmtk::+dcm-execution-status-info+ nil)
+
+(defparameter %dcmtk::+dcm-expected-completion-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-expected-in-vivo-measurement-value-index+ nil)
+
+(defparameter %dcmtk::+dcm-expected-in-vivo-measurement-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-expiry-date+ nil)
+
+(defparameter %dcmtk::+dcm-exposed-area+ nil)
+
+(defparameter %dcmtk::+dcm-exposure+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-bias-value+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-mode+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-mode-description+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-region-left-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-region-lower-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-region-right-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-region-shape+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-region-upper-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-control-sensing-regions-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-index+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-inm-as+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-inu-as+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-mode+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-modulation-type+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-program+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-status+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-time+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-time-in-seconds+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-time-inms+ nil)
+
+(defparameter %dcmtk::+dcm-exposure-time-inu-s+ nil)
+
+(defparameter %dcmtk::+dcm-exposures-on-detector-since-last-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-exposures-on-detector-since-manufactured+ nil)
+
+(defparameter %dcmtk::+dcm-exposures-on-plate+ nil)
+
+(defparameter %dcmtk::+dcm-extended-code-meaning+ nil)
+
+(defparameter %dcmtk::+dcm-extended-code-value+ nil)
+
+(defparameter %dcmtk::+dcm-extended-depth-of-field+ nil)
+
+(defparameter %dcmtk::+dcm-extended-offset-table+ nil)
+
+(defparameter %dcmtk::+dcm-extended-offset-table-lengths+ nil)
+
+(defparameter %dcmtk::+dcm-external-contour-entry-point+ nil)
+
+(defparameter %dcmtk::+dcm-f-number+ nil)
+
+(defparameter %dcmtk::+dcm-facet-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-failed-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-failed-sop-instance-uid-list+ nil)
+
+(defparameter %dcmtk::+dcm-failed-sop-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-failure-attributes+ nil)
+
+(defparameter %dcmtk::+dcm-failure-reason+ nil)
+
+(defparameter %dcmtk::+dcm-false-negatives-estimate+ nil)
+
+(defparameter %dcmtk::+dcm-false-negatives-estimate-flag+ nil)
+
+(defparameter %dcmtk::+dcm-false-negatives-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-false-positives-estimate+ nil)
+
+(defparameter %dcmtk::+dcm-false-positives-estimate-flag+ nil)
+
+(defparameter %dcmtk::+dcm-false-positives-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-description+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-identifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fiducial-uid+ nil)
+
+(defparameter %dcmtk::+dcm-fiducials-property-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-description+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-dimensions-in-float+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-horizontal-flip+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-origin+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-field-of-view-shape+ nil)
+
+(defparameter %dcmtk::+dcm-file-meta-information-group-length+ nil)
+
+(defparameter %dcmtk::+dcm-file-meta-information-version+ nil)
+
+(defparameter %dcmtk::+dcm-file-set-consistency-flag+ nil)
+
+(defparameter %dcmtk::+dcm-file-set-descriptor-file-id+ nil)
+
+(defparameter %dcmtk::+dcm-file-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-file-source+ nil)
+
+(defparameter %dcmtk::+dcm-fill-mode+ nil)
+
+(defparameter %dcmtk::+dcm-fill-pattern+ nil)
+
+(defparameter %dcmtk::+dcm-fill-style-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-filler-order-number-imaging-service-request+ nil)
+
+(defparameter %dcmtk::+dcm-film-consumption-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-film-destination+ nil)
+
+(defparameter %dcmtk::+dcm-film-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-film-session-label+ nil)
+
+(defparameter %dcmtk::+dcm-film-size-id+ nil)
+
+(defparameter %dcmtk::+dcm-filter-beam-path-length-maximum+ nil)
+
+(defparameter %dcmtk::+dcm-filter-beam-path-length-minimum+ nil)
+
+(defparameter %dcmtk::+dcm-filter-by-attribute-presence+ nil)
+
+(defparameter %dcmtk::+dcm-filter-by-category+ nil)
+
+(defparameter %dcmtk::+dcm-filter-by-operator+ nil)
+
+(defparameter %dcmtk::+dcm-filter-high-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-filter-low-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-filter-material+ nil)
+
+(defparameter %dcmtk::+dcm-filter-material-used-in-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-filter-operations-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-filter-thickness-maximum+ nil)
+
+(defparameter %dcmtk::+dcm-filter-thickness-minimum+ nil)
+
+(defparameter %dcmtk::+dcm-filter-thickness-used-in-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-filter-type+ nil)
+
+(defparameter %dcmtk::+dcm-final-cumulative-meterset-weight+ nil)
+
+(defparameter %dcmtk::+dcm-final-cumulative-time-weight+ nil)
+
+(defparameter %dcmtk::+dcm-finite-volume+ nil)
+
+(defparameter %dcmtk::+dcm-first-a-line-location+ nil)
+
+(defparameter %dcmtk::+dcm-first-order-phase-correction+ nil)
+
+(defparameter %dcmtk::+dcm-first-order-phase-correction-angle+ nil)
+
+(defparameter %dcmtk::+dcm-first-treatment-date+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-checked-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-label+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-pitch-angle+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-position+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-roll-angle+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-eye+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-light-azimuthal-angle+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-light-azimuthal-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-light-polar-angle+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-light-polar-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-monitoring-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fixation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fixed-rt-beam-delimiter-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-flash-energy+ nil)
+
+(defparameter %dcmtk::+dcm-flash-firing-status+ nil)
+
+(defparameter %dcmtk::+dcm-flash-function-present+ nil)
+
+(defparameter %dcmtk::+dcm-flash-mode+ nil)
+
+(defparameter %dcmtk::+dcm-flash-red-eye-mode+ nil)
+
+(defparameter %dcmtk::+dcm-flash-return-status+ nil)
+
+(defparameter %dcmtk::+dcm-flat-corneal-axis-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-flat-keratometric-axis-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-flip-angle+ nil)
+
+(defparameter %dcmtk::+dcm-float-pixel-data+ nil)
+
+(defparameter %dcmtk::+dcm-float-pixel-padding-range-limit+ nil)
+
+(defparameter %dcmtk::+dcm-float-pixel-padding-value+ nil)
+
+(defparameter %dcmtk::+dcm-floating-point-value+ nil)
+
+(defparameter %dcmtk::+dcm-floating-point-values+ nil)
+
+(defparameter %dcmtk::+dcm-flow-compensation+ nil)
+
+(defparameter %dcmtk::+dcm-flow-compensation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-flow-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-flow-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-flow-rtp-sampling-rate+ nil)
+
+(defparameter %dcmtk::+dcm-flow-transfer-syntax-uid+ nil)
+
+(defparameter %dcmtk::+dcm-fluence-data-scale+ nil)
+
+(defparameter %dcmtk::+dcm-fluence-data-source+ nil)
+
+(defparameter %dcmtk::+dcm-fluence-map-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fluence-mode+ nil)
+
+(defparameter %dcmtk::+dcm-fluence-mode-id+ nil)
+
+(defparameter %dcmtk::+dcm-fluoroscopy-flag+ nil)
+
+(defparameter %dcmtk::+dcm-focal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-focal-length+ nil)
+
+(defparameter %dcmtk::+dcm-focal-length-in35mm-film+ nil)
+
+(defparameter %dcmtk::+dcm-focal-spots+ nil)
+
+(defparameter %dcmtk::+dcm-focus-depth+ nil)
+
+(defparameter %dcmtk::+dcm-focus-method+ nil)
+
+(defparameter %dcmtk::+dcm-font-name+ nil)
+
+(defparameter %dcmtk::+dcm-font-name-type+ nil)
+
+(defparameter %dcmtk::+dcm-foveal-point-normative-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-foveal-point-probability-value+ nil)
+
+(defparameter %dcmtk::+dcm-foveal-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-foveal-sensitivity-measured+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-based-relationship-interval-anchor+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-based-relationship-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-group-description+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-group-number+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-group-summary-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-group-type+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-number+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-pattern+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-pattern-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fraction-status-summary-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-fractional-channel-display-scale+ nil)
+
+(defparameter %dcmtk::+dcm-fractionation-notes+ nil)
+
+(defparameter %dcmtk::+dcm-frame-acquisition-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-frame-acquisition-duration+ nil)
+
+(defparameter %dcmtk::+dcm-frame-acquisition-number+ nil)
+
+(defparameter %dcmtk::+dcm-frame-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-anatomy-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-comments+ nil)
+
+(defparameter %dcmtk::+dcm-frame-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-delay+ nil)
+
+(defparameter %dcmtk::+dcm-frame-detector-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-dimension-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-frame-display-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-display-shutter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-extraction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-increment-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-frame-label+ nil)
+
+(defparameter %dcmtk::+dcm-frame-label-vector+ nil)
+
+(defparameter %dcmtk::+dcm-frame-laterality+ nil)
+
+(defparameter %dcmtk::+dcm-frame-numbers-of-interest+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-interest-description+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-interest-type+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-reference-to-displayed-coordinate-system-transformation-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-reference-transformation-comment+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-reference-transformation-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-reference-transformation-matrix-type+ nil)
+
+(defparameter %dcmtk::+dcm-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-frame-origin-timestamp+ nil)
+
+(defparameter %dcmtk::+dcm-frame-pixel-data-properties-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-pixel-shift-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-primary-angle-vector+ nil)
+
+(defparameter %dcmtk::+dcm-frame-reference-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-frame-reference-time+ nil)
+
+(defparameter %dcmtk::+dcm-frame-secondary-angle-vector+ nil)
+
+(defparameter %dcmtk::+dcm-frame-time+ nil)
+
+(defparameter %dcmtk::+dcm-frame-time-vector+ nil)
+
+(defparameter %dcmtk::+dcm-frame-type+ nil)
+
+(defparameter %dcmtk::+dcm-frame-usefulness-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frame-voilut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-frequency-correction+ nil)
+
+(defparameter %dcmtk::+dcm-functional-group-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-functional-group-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-functional-mr-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-functional-settling-phase-frames-present+ nil)
+
+(defparameter %dcmtk::+dcm-functional-sync-pulse+ nil)
+
+(defparameter %dcmtk::+dcm-gps-altitude+ nil)
+
+(defparameter %dcmtk::+dcm-gps-altitude-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-area-information+ nil)
+
+(defparameter %dcmtk::+dcm-gpsdop+ nil)
+
+(defparameter %dcmtk::+dcm-gps-date-stamp+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-bearing+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-bearing-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-distance+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-distance-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-latitude+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-latitude-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-longitude+ nil)
+
+(defparameter %dcmtk::+dcm-gps-dest-longitude-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-differential+ nil)
+
+(defparameter %dcmtk::+dcm-gps-img-direction+ nil)
+
+(defparameter %dcmtk::+dcm-gps-img-direction-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-latitude+ nil)
+
+(defparameter %dcmtk::+dcm-gps-latitude-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-longitude+ nil)
+
+(defparameter %dcmtk::+dcm-gps-longitude-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-map-datum+ nil)
+
+(defparameter %dcmtk::+dcm-gps-measure-mode+ nil)
+
+(defparameter %dcmtk::+dcm-gps-processing-method+ nil)
+
+(defparameter %dcmtk::+dcm-gps-satellites+ nil)
+
+(defparameter %dcmtk::+dcm-gps-speed+ nil)
+
+(defparameter %dcmtk::+dcm-gps-speed-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-status+ nil)
+
+(defparameter %dcmtk::+dcm-gps-time-stamp+ nil)
+
+(defparameter %dcmtk::+dcm-gps-track+ nil)
+
+(defparameter %dcmtk::+dcm-gps-track-ref+ nil)
+
+(defparameter %dcmtk::+dcm-gps-version-id+ nil)
+
+(defparameter %dcmtk::+dcm-gain-control+ nil)
+
+(defparameter %dcmtk::+dcm-gain-correction-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-gamma-value+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-angle+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-detector-slew+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-detector-tilt+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-id+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-motion-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-pitch-angle+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-pitch-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-pitch-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-gantry-type+ nil)
+
+(defparameter %dcmtk::+dcm-gap-length+ nil)
+
+(defparameter %dcmtk::+dcm-gate-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-gate-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-gated-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-description+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-id+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-number+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-general-accessory-type+ nil)
+
+(defparameter %dcmtk::+dcm-general-machine-verification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-flag+ nil)
+
+(defparameter %dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-probability-value+ nil)
+
+(defparameter %dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-value+ nil)
+
+(defparameter %dcmtk::+dcm-generalized-defect-sensitivity-deviation-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-generator-id+ nil)
+
+(defparameter %dcmtk::+dcm-generator-power+ nil)
+
+(defparameter %dcmtk::+dcm-generic-group-length+ nil)
+
+(defparameter %dcmtk::+dcm-genetic-modifications-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-genetic-modifications-description+ nil)
+
+(defparameter %dcmtk::+dcm-genetic-modifications-nomenclature+ nil)
+
+(defparameter %dcmtk::+dcm-genetic-modifications-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-geometric-maximum-distortion+ nil)
+
+(defparameter %dcmtk::+dcm-geometrical-properties+ nil)
+
+(defparameter %dcmtk::+dcm-geometry-for-display+ nil)
+
+(defparameter %dcmtk::+dcm-geometry-of-k-space-traversal+ nil)
+
+(defparameter %dcmtk::+dcm-global-crop+ nil)
+
+(defparameter %dcmtk::+dcm-global-cropping-specification-index+ nil)
+
+(defparameter %dcmtk::+dcm-global-deviation-from-normal+ nil)
+
+(defparameter %dcmtk::+dcm-global-deviation-probability+ nil)
+
+(defparameter %dcmtk::+dcm-global-deviation-probability-normals-flag+ nil)
+
+(defparameter %dcmtk::+dcm-global-deviation-probability-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-gradient-echo-train-length+ nil)
+
+(defparameter %dcmtk::+dcm-gradient-output+ nil)
+
+(defparameter %dcmtk::+dcm-gradient-output-type+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-annotation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-annotation-units+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-coordinates-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-data+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-filled+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-group-description+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-group-id+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-group-label+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer-description+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer-order+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer-recommended-display-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer-recommended-display-grayscale-value+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-layer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-object-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-graphic-type+ nil)
+
+(defparameter %dcmtk::+dcm-green-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-green-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-grid+ nil)
+
+(defparameter %dcmtk::+dcm-grid-absorbing-material+ nil)
+
+(defparameter %dcmtk::+dcm-grid-aspect-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-grid-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-grid-focal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-grid-frame-offset-vector+ nil)
+
+(defparameter %dcmtk::+dcm-grid-id+ nil)
+
+(defparameter %dcmtk::+dcm-grid-period+ nil)
+
+(defparameter %dcmtk::+dcm-grid-pitch+ nil)
+
+(defparameter %dcmtk::+dcm-grid-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-grid-spacing-material+ nil)
+
+(defparameter %dcmtk::+dcm-grid-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-group-of-patients-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-hl7document-effective-time+ nil)
+
+(defparameter %dcmtk::+dcm-hl7document-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-hl7instance-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-hl7structured-document-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-contour-pen-number+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-document+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-document-id+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-document-label+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-document-scaling+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-document-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-pen-description+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-pen-label+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-pen-number+ nil)
+
+(defparameter %dcmtk::+dcm-hpgl-pen-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-half-value-layer+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-creation-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-creator+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-description+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-level+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-name+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-user-group-name+ nil)
+
+(defparameter %dcmtk::+dcm-hanging-protocol-user-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-head-fixation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-head-fixation-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-heart-rate+ nil)
+
+(defparameter %dcmtk::+dcm-high-bit+ nil)
+
+(defparameter %dcmtk::+dcm-high-dose-technique-type+ nil)
+
+(defparameter %dcmtk::+dcm-high-energy-detectors+ nil)
+
+(defparameter %dcmtk::+dcm-high-rr-value+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-bin-width+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-data+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-explanation+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-first-bin-value+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-last-bin-value+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-number-of-bins+ nil)
+
+(defparameter %dcmtk::+dcm-histogram-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-home-community-id+ nil)
+
+(defparameter %dcmtk::+dcm-horizontal-alignment+ nil)
+
+(defparameter %dcmtk::+dcm-horizontal-field-of-view+ nil)
+
+(defparameter %dcmtk::+dcm-horizontal-offset-of-sensor+ nil)
+
+(defparameter %dcmtk::+dcm-horizontal-prism-base+ nil)
+
+(defparameter %dcmtk::+dcm-horizontal-prism-power+ nil)
+
+(defparameter %dcmtk::+dcm-human-performer-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-human-performer-name+ nil)
+
+(defparameter %dcmtk::+dcm-human-performer-organization+ nil)
+
+(defparameter %dcmtk::+dcm-humidity+ nil)
+
+(defparameter %dcmtk::+dcm-icc-profile+ nil)
+
+(defparameter %dcmtk::+dcm-iol-formula-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-iol-formula-detail+ nil)
+
+(defparameter %dcmtk::+dcm-iol-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-iol-power+ nil)
+
+(defparameter %dcmtk::+dcm-iol-power-for-exact-emmetropia+ nil)
+
+(defparameter %dcmtk::+dcm-iol-power-for-exact-target-refraction+ nil)
+
+(defparameter %dcmtk::+dcm-iol-power-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-iso-speed+ nil)
+
+(defparameter %dcmtk::+dcm-iso-speed-latitudeyyy+ nil)
+
+(defparameter %dcmtk::+dcm-iso-speed-latitudezzz+ nil)
+
+(defparameter %dcmtk::+dcm-ivus-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-ivus-gated-rate+ nil)
+
+(defparameter %dcmtk::+dcm-ivus-pullback-rate+ nil)
+
+(defparameter %dcmtk::+dcm-ivus-pullback-start-frame-number+ nil)
+
+(defparameter %dcmtk::+dcm-ivus-pullback-stop-frame-number+ nil)
+
+(defparameter %dcmtk::+dcm-icon-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-identical-documents-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-identifier-type-code+ nil)
+
+(defparameter %dcmtk::+dcm-identifying-private-elements+ nil)
+
+(defparameter %dcmtk::+dcm-illegal-group-length+ nil)
+
+(defparameter %dcmtk::+dcm-illegal-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-illumination+ nil)
+
+(defparameter %dcmtk::+dcm-illumination-bandwidth+ nil)
+
+(defparameter %dcmtk::+dcm-illumination-color-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-illumination-power+ nil)
+
+(defparameter %dcmtk::+dcm-illumination-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-illumination-wave-length+ nil)
+
+(defparameter %dcmtk::+dcm-illuminator-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-and-fluoroscopy-area-dose-product+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-large-scroll-amount+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-large-scroll-type+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-layout-type+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-number+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-overlap-priority+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-position+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-scroll-direction+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-small-scroll-amount+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-small-scroll-type+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-synchronization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-tile-horizontal-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-image-box-tile-vertical-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-image-boxes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-center-point-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-comments+ nil)
+
+(defparameter %dcmtk::+dcm-image-data-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-display-format+ nil)
+
+(defparameter %dcmtk::+dcm-image-filter+ nil)
+
+(defparameter %dcmtk::+dcm-image-filter-description+ nil)
+
+(defparameter %dcmtk::+dcm-image-frame-origin+ nil)
+
+(defparameter %dcmtk::+dcm-image-horizontal-flip+ nil)
+
+(defparameter %dcmtk::+dcm-image-id+ nil)
+
+(defparameter %dcmtk::+dcm-image-index+ nil)
+
+(defparameter %dcmtk::+dcm-image-laterality+ nil)
+
+(defparameter %dcmtk::+dcm-image-orientation-patient+ nil)
+
+(defparameter %dcmtk::+dcm-image-orientation-slide+ nil)
+
+(defparameter %dcmtk::+dcm-image-orientation-volume+ nil)
+
+(defparameter %dcmtk::+dcm-image-path-filter-pass-band+ nil)
+
+(defparameter %dcmtk::+dcm-image-path-filter-pass-through-wavelength+ nil)
+
+(defparameter %dcmtk::+dcm-image-path-filter-type-stack-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-plane-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-image-position-patient+ nil)
+
+(defparameter %dcmtk::+dcm-image-position-volume+ nil)
+
+(defparameter %dcmtk::+dcm-image-processing-applied+ nil)
+
+(defparameter %dcmtk::+dcm-image-quality-indicator-material+ nil)
+
+(defparameter %dcmtk::+dcm-image-quality-indicator-size+ nil)
+
+(defparameter %dcmtk::+dcm-image-quality-indicator-type+ nil)
+
+(defparameter %dcmtk::+dcm-image-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-image-scale-representation+ nil)
+
+(defparameter %dcmtk::+dcm-image-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-image-set-number+ nil)
+
+(defparameter %dcmtk::+dcm-image-set-selector-category+ nil)
+
+(defparameter %dcmtk::+dcm-image-set-selector-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-set-selector-usage-flag+ nil)
+
+(defparameter %dcmtk::+dcm-image-sets-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-image-to-equipment-mapping-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-image-trigger-delay+ nil)
+
+(defparameter %dcmtk::+dcm-image-type+ nil)
+
+(defparameter %dcmtk::+dcm-image-volume-geometry+ nil)
+
+(defparameter %dcmtk::+dcm-imaged-nucleus+ nil)
+
+(defparameter %dcmtk::+dcm-imaged-volume-depth+ nil)
+
+(defparameter %dcmtk::+dcm-imaged-volume-height+ nil)
+
+(defparameter %dcmtk::+dcm-imaged-volume-width+ nil)
+
+(defparameter %dcmtk::+dcm-imager-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-images-in-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-imaging-device-specific-acquisition-parameters+ nil)
+
+(defparameter %dcmtk::+dcm-imaging-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-imaging-service-request-comments+ nil)
+
+(defparameter %dcmtk::+dcm-immersion-media+ nil)
+
+(defparameter %dcmtk::+dcm-impedance-measurement-current-type+ nil)
+
+(defparameter %dcmtk::+dcm-impedance-measurement-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-impedance-measurement-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-impedance-value+ nil)
+
+(defparameter %dcmtk::+dcm-implant-assembly-template-issuer+ nil)
+
+(defparameter %dcmtk::+dcm-implant-assembly-template-name+ nil)
+
+(defparameter %dcmtk::+dcm-implant-assembly-template-target-anatomy-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-assembly-template-type+ nil)
+
+(defparameter %dcmtk::+dcm-implant-assembly-template-version+ nil)
+
+(defparameter %dcmtk::+dcm-implant-name+ nil)
+
+(defparameter %dcmtk::+dcm-implant-part-number+ nil)
+
+(defparameter %dcmtk::+dcm-implant-regulatory-disapproval-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-size+ nil)
+
+(defparameter %dcmtk::+dcm-implant-target-anatomy-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template3d-model-surface-number+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-description+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-issuer+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-member-id+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-member-matching2d-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-members-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-name+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-target-anatomy-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-variation-dimension-name+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-variation-dimension-rank+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-variation-dimension-rank-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-variation-dimension-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-group-version+ nil)
+
+(defparameter %dcmtk::+dcm-implant-template-version+ nil)
+
+(defparameter %dcmtk::+dcm-implant-type+ nil)
+
+(defparameter %dcmtk::+dcm-implant-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-implementation-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-implementation-version-name+ nil)
+
+(defparameter %dcmtk::+dcm-in-concatenation-number+ nil)
+
+(defparameter %dcmtk::+dcm-in-concatenation-total-number+ nil)
+
+(defparameter %dcmtk::+dcm-in-plane-phase-encoding-direction+ nil)
+
+(defparameter %dcmtk::+dcm-in-stack-position-number+ nil)
+
+(defparameter %dcmtk::+dcm-inbound-arrival-type+ nil)
+
+(defparameter %dcmtk::+dcm-incident-angle+ nil)
+
+(defparameter %dcmtk::+dcm-include-display-application+ nil)
+
+(defparameter %dcmtk::+dcm-include-non-dicom-objects+ nil)
+
+(defparameter %dcmtk::+dcm-includes-imaging-subject+ nil)
+
+(defparameter %dcmtk::+dcm-includes-information+ nil)
+
+(defparameter %dcmtk::+dcm-index-normals-flag+ nil)
+
+(defparameter %dcmtk::+dcm-index-probability+ nil)
+
+(defparameter %dcmtk::+dcm-index-probability-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-indication-description+ nil)
+
+(defparameter %dcmtk::+dcm-indication-disposition+ nil)
+
+(defparameter %dcmtk::+dcm-indication-label+ nil)
+
+(defparameter %dcmtk::+dcm-indication-number+ nil)
+
+(defparameter %dcmtk::+dcm-indication-physical-property-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-indication-roi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-indication-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-indication-type+ nil)
+
+(defparameter %dcmtk::+dcm-information-from-manufacturer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-information-issue-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-information-summary+ nil)
+
+(defparameter %dcmtk::+dcm-initial-cine-run-state+ nil)
+
+(defparameter %dcmtk::+dcm-inner-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-input-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-input-readiness-state+ nil)
+
+(defparameter %dcmtk::+dcm-input-sequence-position-index+ nil)
+
+(defparameter %dcmtk::+dcm-inspection-selection-criteria+ nil)
+
+(defparameter %dcmtk::+dcm-instance-availability+ nil)
+
+(defparameter %dcmtk::+dcm-instance-coercion-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-instance-creation-date+ nil)
+
+(defparameter %dcmtk::+dcm-instance-creation-time+ nil)
+
+(defparameter %dcmtk::+dcm-instance-creator-uid+ nil)
+
+(defparameter %dcmtk::+dcm-instance-level-referenced-performed-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-instance-number+ nil)
+
+(defparameter %dcmtk::+dcm-instance-origin-status+ nil)
+
+(defparameter %dcmtk::+dcm-institution-address+ nil)
+
+(defparameter %dcmtk::+dcm-institution-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-institution-name+ nil)
+
+(defparameter %dcmtk::+dcm-institutional-department-name+ nil)
+
+(defparameter %dcmtk::+dcm-institutional-department-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-description+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-index+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-performance-comment+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-performed-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-performed-flag+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-instruction-text+ nil)
+
+(defparameter %dcmtk::+dcm-intended-delivery-duration+ nil)
+
+(defparameter %dcmtk::+dcm-intended-fraction-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-intended-number-of-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-intended-phase-end-date+ nil)
+
+(defparameter %dcmtk::+dcm-intended-phase-start-date+ nil)
+
+(defparameter %dcmtk::+dcm-intended-rt-treatment-phase-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intended-recipients-of-results-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intended-start-day-of-week+ nil)
+
+(defparameter %dcmtk::+dcm-intensifier-active-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-intensifier-active-shape+ nil)
+
+(defparameter %dcmtk::+dcm-intensifier-size+ nil)
+
+(defparameter %dcmtk::+dcm-inter-marker-distance+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-description+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-origin-description+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-originating-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-resolution-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-resolution-user-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-interlock-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intermediate-pupillary-distance+ nil)
+
+(defparameter %dcmtk::+dcm-internal-detector-frame-time+ nil)
+
+(defparameter %dcmtk::+dcm-internal-use-tag+ nil)
+
+(defparameter %dcmtk::+dcm-international-route-segment+ nil)
+
+(defparameter %dcmtk::+dcm-interoperability-index+ nil)
+
+(defparameter %dcmtk::+dcm-interoperability-version+ nil)
+
+(defparameter %dcmtk::+dcm-interpolation-type+ nil)
+
+(defparameter %dcmtk::+dcm-intervals-acquired+ nil)
+
+(defparameter %dcmtk::+dcm-intervals-rejected+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-description+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-dose+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-name+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-drug-stop-time+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intervention-status+ nil)
+
+(defparameter %dcmtk::+dcm-intra-ocular-pressure+ nil)
+
+(defparameter %dcmtk::+dcm-intraocular-lens-calculations-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intraocular-lens-calculations-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intravascular-frame-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intravascular-longitudinal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-intravascular-oct-frame-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-intravascular-oct-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-inversion-recovery+ nil)
+
+(defparameter %dcmtk::+dcm-inversion-time+ nil)
+
+(defparameter %dcmtk::+dcm-inversion-times+ nil)
+
+(defparameter %dcmtk::+dcm-ion-beam-limiting-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-beam-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-block-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-control-point-delivery-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-control-point-verification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-machine-verification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-range-compensator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-tolerance-table-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-wedge-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ion-wedge-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-irradiation-event-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-irradiation-event-uid+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-position+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-reference-system-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-beam-limiting-device-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-block-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-compensator-distances+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-compensator-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-general-accessory-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-lateral-spreading-device-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-range-modulator-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-range-shifter-distance+ nil)
+
+(defparameter %dcmtk::+dcm-isocenter-to-wedge-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-issue-date-of-imaging-service-request+ nil)
+
+(defparameter %dcmtk::+dcm-issue-time-of-imaging-service-request+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-accession-number-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-admission-id-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-patient-id+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-patient-id-qualifiers-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-service-episode-id-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-the-container-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-issuer-of-the-specimen-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-italic+ nil)
+
+(defparameter %dcmtk::+dcm-item+ nil)
+
+(defparameter %dcmtk::+dcm-item-delimitation-item+ nil)
+
+(defparameter %dcmtk::+dcm-item-delimitation-item-tag+ nil)
+
+(defparameter %dcmtk::+dcm-item-number+ nil)
+
+(defparameter %dcmtk::+dcm-item-tag+ nil)
+
+(defparameter %dcmtk::+dcm-iterative-reconstruction-method+ nil)
+
+(defparameter %dcmtk::+dcm-itinerary-id+ nil)
+
+(defparameter %dcmtk::+dcm-itinerary-id-assigning-authority+ nil)
+
+(defparameter %dcmtk::+dcm-itinerary-id-type+ nil)
+
+(defparameter %dcmtk::+dcm-k-space-filtering+ nil)
+
+(defparameter %dcmtk::+dcm-kvp+ nil)
+
+(defparameter %dcmtk::+dcm-kv-used-in-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-keratoconus-prediction-index+ nil)
+
+(defparameter %dcmtk::+dcm-keratometer-index+ nil)
+
+(defparameter %dcmtk::+dcm-keratometric-axis+ nil)
+
+(defparameter %dcmtk::+dcm-keratometric-power+ nil)
+
+(defparameter %dcmtk::+dcm-keratometry-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-keratometry-measurement-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-keratometry-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-linac-energy+ nil)
+
+(defparameter %dcmtk::+dcm-linac-output+ nil)
+
+(defparameter %dcmtk::+dcm-lut-data+ nil)
+
+(defparameter %dcmtk::+dcm-lut-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-lut-explanation+ nil)
+
+(defparameter %dcmtk::+dcm-lut-frame-range+ nil)
+
+(defparameter %dcmtk::+dcm-lut-function+ nil)
+
+(defparameter %dcmtk::+dcm-lut-label+ nil)
+
+(defparameter %dcmtk::+dcm-label-style-selection+ nil)
+
+(defparameter %dcmtk::+dcm-label-text+ nil)
+
+(defparameter %dcmtk::+dcm-label-using-information-extracted-from-instances+ nil)
+
+(defparameter %dcmtk::+dcm-language-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-largest-image-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-largest-pixel-value-in-series+ nil)
+
+(defparameter %dcmtk::+dcm-last-menstrual-date+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-number+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-setting+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-lateral-spreading-device-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-laterality+ nil)
+
+(defparameter %dcmtk::+dcm-leaf-jaw-positions+ nil)
+
+(defparameter %dcmtk::+dcm-leaf-position-boundaries+ nil)
+
+(defparameter %dcmtk::+dcm-left-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-left-lens-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lens-constant-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lens-description+ nil)
+
+(defparameter %dcmtk::+dcm-lens-make+ nil)
+
+(defparameter %dcmtk::+dcm-lens-model+ nil)
+
+(defparameter %dcmtk::+dcm-lens-segment-type+ nil)
+
+(defparameter %dcmtk::+dcm-lens-serial-number+ nil)
+
+(defparameter %dcmtk::+dcm-lens-specification+ nil)
+
+(defparameter %dcmtk::+dcm-lens-status-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lens-status-description+ nil)
+
+(defparameter %dcmtk::+dcm-lens-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-lens-thickness-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lenses-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-lesion-number+ nil)
+
+(defparameter %dcmtk::+dcm-light-direction+ nil)
+
+(defparameter %dcmtk::+dcm-light-path-filter-pass-band+ nil)
+
+(defparameter %dcmtk::+dcm-light-path-filter-pass-through-wavelength+ nil)
+
+(defparameter %dcmtk::+dcm-light-path-filter-type-stack-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-light-source+ nil)
+
+(defparameter %dcmtk::+dcm-light-source-polarization+ nil)
+
+(defparameter %dcmtk::+dcm-line-dashing-style+ nil)
+
+(defparameter %dcmtk::+dcm-line-pattern+ nil)
+
+(defparameter %dcmtk::+dcm-line-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-line-style-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-line-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-list-of-mime-types+ nil)
+
+(defparameter %dcmtk::+dcm-local-deviation-probability-normals-flag+ nil)
+
+(defparameter %dcmtk::+dcm-local-namespace-entity-id+ nil)
+
+(defparameter %dcmtk::+dcm-localized-deviation-from-normal+ nil)
+
+(defparameter %dcmtk::+dcm-localized-deviation-probability+ nil)
+
+(defparameter %dcmtk::+dcm-localized-deviation-probability-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-localizing-cursor-position+ nil)
+
+(defparameter %dcmtk::+dcm-location-of-measured-beam-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-long-code-value+ nil)
+
+(defparameter %dcmtk::+dcm-long-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-long-edge-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-long-primitive-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-long-triangle-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-long-vertex-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-longitudinal-temporal-event-type+ nil)
+
+(defparameter %dcmtk::+dcm-longitudinal-temporal-information-modified+ nil)
+
+(defparameter %dcmtk::+dcm-longitudinal-temporal-offset-from-event+ nil)
+
+(defparameter %dcmtk::+dcm-lossy-image-compression+ nil)
+
+(defparameter %dcmtk::+dcm-lossy-image-compression-method+ nil)
+
+(defparameter %dcmtk::+dcm-lossy-image-compression-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-low-energy-detectors+ nil)
+
+(defparameter %dcmtk::+dcm-low-rr-value+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-characteristics-id+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-response-description+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-response-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-result-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-uniformity-result-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-luminance-value+ nil)
+
+(defparameter %dcmtk::+dcm-mac+ nil)
+
+(defparameter %dcmtk::+dcm-mac-algorithm+ nil)
+
+(defparameter %dcmtk::+dcm-mac-calculation-transfer-syntax-uid+ nil)
+
+(defparameter %dcmtk::+dcm-macid-number+ nil)
+
+(defparameter %dcmtk::+dcm-mac-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ma-used-in-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-maxdictfields+ 6)
+
+(defparameter %dcmtk::+dcm-maxdictlinesize+ 2048)
+
+(defparameter %dcmtk::+dcm-mime-type-of-encapsulated-document+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-thickness-type+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-top-left-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-view-height+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-view-height-direction+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-view-width+ nil)
+
+(defparameter %dcmtk::+dcm-mpr-view-width-direction+ nil)
+
+(defparameter %dcmtk::+dcm-mr-acquisition-frequency-encoding-steps+ nil)
+
+(defparameter %dcmtk::+dcm-mr-acquisition-phase-encoding-steps-in-plane+ nil)
+
+(defparameter %dcmtk::+dcm-mr-acquisition-phase-encoding-steps-out-of-plane+ nil)
+
+(defparameter %dcmtk::+dcm-mr-acquisition-type+ nil)
+
+(defparameter %dcmtk::+dcm-mr-arterial-spin-labeling-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-averages-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-diffusion-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-echo-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mrfov-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-image-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-imaging-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-metabolite-map-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-receive-coil-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-spatial-saturation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-spectroscopy-acquisition-type+ nil)
+
+(defparameter %dcmtk::+dcm-mr-spectroscopy-fov-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-spectroscopy-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-timing-and-related-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-transmit-coil-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mr-velocity-encoding-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-machine-specific-treatment-termination-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-magic+ "DICM")
+
+(defparameter %dcmtk::+dcm-magic-len+ 4)
+
+(defparameter %dcmtk::+dcm-magnetic-field-strength+ nil)
+
+(defparameter %dcmtk::+dcm-magnetization-transfer+ nil)
+
+(defparameter %dcmtk::+dcm-magnification-type+ nil)
+
+(defparameter %dcmtk::+dcm-main-lobe-angle+ nil)
+
+(defparameter %dcmtk::+dcm-main-roof-angle+ nil)
+
+(defparameter %dcmtk::+dcm-major-ticks-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-maker-note+ nil)
+
+(defparameter %dcmtk::+dcm-mandatory-component-type+ nil)
+
+(defparameter %dcmtk::+dcm-manifold+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer-device-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer-device-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer-model-name+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer-model-version+ nil)
+
+(defparameter %dcmtk::+dcm-manufacturer-related-model-group+ nil)
+
+(defparameter %dcmtk::+dcm-mapped-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-mapping-resource+ nil)
+
+(defparameter %dcmtk::+dcm-mapping-resource-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mapping-resource-name+ nil)
+
+(defparameter %dcmtk::+dcm-mapping-resource-uid+ nil)
+
+(defparameter %dcmtk::+dcm-mask-frame-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-mask-operation+ nil)
+
+(defparameter %dcmtk::+dcm-mask-operation-explanation+ nil)
+
+(defparameter %dcmtk::+dcm-mask-selection-mode+ nil)
+
+(defparameter %dcmtk::+dcm-mask-sub-pixel-shift+ nil)
+
+(defparameter %dcmtk::+dcm-mask-subtraction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mask-visibility-percentage+ nil)
+
+(defparameter %dcmtk::+dcm-mass+ nil)
+
+(defparameter %dcmtk::+dcm-material-attenuation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-material-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-material-grade+ nil)
+
+(defparameter %dcmtk::+dcm-material-id+ nil)
+
+(defparameter %dcmtk::+dcm-material-isolation-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-material-notes+ nil)
+
+(defparameter %dcmtk::+dcm-material-pipe-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-material-properties-description+ nil)
+
+(defparameter %dcmtk::+dcm-material-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-materials-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-degree-of-freedom-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-id+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-mating-feature-sets-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-matrix-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-matrix-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-max-aperture-value+ nil)
+
+(defparameter %dcmtk::+dcm-max-density+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-across-scan-distortion+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-along-scan-distortion+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-collated-films+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-corneal-curvature+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-corneal-curvature-location+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-corneal-curvature-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-depth-distortion+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-fractional-value+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-memory-allocation+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-nominal-energy+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-number-of-interval-days+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-point-distance+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-stimulus-luminance+ nil)
+
+(defparameter %dcmtk::+dcm-maximum-stored-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-mean-point-distance+ nil)
+
+(defparameter %dcmtk::+dcm-measured-ap-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-measured-bandwidth+ nil)
+
+(defparameter %dcmtk::+dcm-measured-beam-dimension-a+ nil)
+
+(defparameter %dcmtk::+dcm-measured-beam-dimension-b+ nil)
+
+(defparameter %dcmtk::+dcm-measured-center-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-measured-characteristics+ nil)
+
+(defparameter %dcmtk::+dcm-measured-dose-description+ nil)
+
+(defparameter %dcmtk::+dcm-measured-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-measured-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measured-dose-type+ nil)
+
+(defparameter %dcmtk::+dcm-measured-dose-value+ nil)
+
+(defparameter %dcmtk::+dcm-measured-lateral-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-measured-meterset-to-dose-mapping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measured-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-equipment-type+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-functions+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-laterality+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-pattern-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-units-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measurement-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-measuring-units-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mechanical-index+ nil)
+
+(defparameter %dcmtk::+dcm-media-disposition+ nil)
+
+(defparameter %dcmtk::+dcm-media-installed-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-media-storage-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-media-storage-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-medical-alerts+ nil)
+
+(defparameter %dcmtk::+dcm-medium-type+ nil)
+
+(defparameter %dcmtk::+dcm-memory-allocation+ nil)
+
+(defparameter %dcmtk::+dcm-memory-bit-depth+ nil)
+
+(defparameter %dcmtk::+dcm-message-id+ nil)
+
+(defparameter %dcmtk::+dcm-message-id-being-responded-to+ nil)
+
+(defparameter %dcmtk::+dcm-metabolite-map-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-metabolite-map-description+ nil)
+
+(defparameter %dcmtk::+dcm-metering-mode+ nil)
+
+(defparameter %dcmtk::+dcm-meterset-exposure+ nil)
+
+(defparameter %dcmtk::+dcm-meterset-rate+ nil)
+
+(defparameter %dcmtk::+dcm-meterset-rate-delivered+ nil)
+
+(defparameter %dcmtk::+dcm-meterset-rate-set+ nil)
+
+(defparameter %dcmtk::+dcm-meterset-to-dose-mapping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mid-slab-position+ nil)
+
+(defparameter %dcmtk::+dcm-military-rank+ nil)
+
+(defparameter %dcmtk::+dcm-min-density+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-hours-between-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-keratometric-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-nominal-energy+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-number-of-interval-days+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-sensitivity-value+ nil)
+
+(defparameter %dcmtk::+dcm-minimum-stored-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-modalities-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-modality+ nil)
+
+(defparameter %dcmtk::+dcm-modality-lut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-modality-lut-type+ nil)
+
+(defparameter %dcmtk::+dcm-mode-of-percutaneous-access-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-model-group-uid+ nil)
+
+(defparameter %dcmtk::+dcm-model-mirroring+ nil)
+
+(defparameter %dcmtk::+dcm-model-modification+ nil)
+
+(defparameter %dcmtk::+dcm-model-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-model-usage-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-modifiable-constraint-flag+ nil)
+
+(defparameter %dcmtk::+dcm-modified-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-modifying-system+ nil)
+
+(defparameter %dcmtk::+dcm-modulated-scan-mode-type+ nil)
+
+(defparameter %dcmtk::+dcm-modulation-type+ nil)
+
+(defparameter %dcmtk::+dcm-monoenergetic-energy-equivalent+ nil)
+
+(defparameter %dcmtk::+dcm-most-recent-treatment-date+ nil)
+
+(defparameter %dcmtk::+dcm-motion-synchronization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-move-destination+ nil)
+
+(defparameter %dcmtk::+dcm-move-originator-application-entity-title+ nil)
+
+(defparameter %dcmtk::+dcm-move-originator-message-id+ nil)
+
+(defparameter %dcmtk::+dcm-multi-coil-configuration+ nil)
+
+(defparameter %dcmtk::+dcm-multi-coil-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multi-coil-element-name+ nil)
+
+(defparameter %dcmtk::+dcm-multi-coil-element-used+ nil)
+
+(defparameter %dcmtk::+dcm-multi-frame-presentation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multi-frame-source-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-multi-planar-excitation+ nil)
+
+(defparameter %dcmtk::+dcm-multi-planar-reconstruction-style+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-acquisition-description+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-path-index+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-path-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ct-processing-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ctx-ray-detector-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-ctx-ray-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-detector-type+ nil)
+
+(defparameter %dcmtk::+dcm-multienergy-source-technique+ nil)
+
+(defparameter %dcmtk::+dcm-multiple-component-approval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-multiple-spin-echo+ nil)
+
+(defparameter %dcmtk::+dcm-multiplex-group-label+ nil)
+
+(defparameter %dcmtk::+dcm-multiplex-group-time-offset+ nil)
+
+(defparameter %dcmtk::+dcm-multiplex-group-uid+ nil)
+
+(defparameter %dcmtk::+dcm-multiplexed-audio-channels-description-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mydriatic-agent-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mydriatic-agent-concentration+ nil)
+
+(defparameter %dcmtk::+dcm-mydriatic-agent-concentration-units-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-mydriatic-agent-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ntp-source-address+ nil)
+
+(defparameter %dcmtk::+dcm-name-of-physicians-reading-study+ nil)
+
+(defparameter %dcmtk::+dcm-names-of-intended-recipients-of-results+ nil)
+
+(defparameter %dcmtk::+dcm-navigation-display-set+ nil)
+
+(defparameter %dcmtk::+dcm-navigation-indicator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-near-pupillary-distance+ nil)
+
+(defparameter %dcmtk::+dcm-negative-catch-trials-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-beam-angle+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-beam-energy+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-beam-energy-unit+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-cardiac-trigger-delay-time+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-cardiac-trigger-time-prior-to-r-peak+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-energy+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-interval+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-max-energy+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-min-energy+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-percentage-of-cardiac-phase+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-percentage-of-respiratory-phase+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-prior-dose+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-range-modulated-region-depths+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-range-modulation-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-respiratory-trigger-delay-time+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-scanned-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-nominal-screen-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-non-uniform-radial-sampling-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-nonconforming-data-element-value+ nil)
+
+(defparameter %dcmtk::+dcm-nonconforming-modified-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-nonidentifying-private-elements+ nil)
+
+(defparameter %dcmtk::+dcm-normalization-point+ nil)
+
+(defparameter %dcmtk::+dcm-notch-filter-bandwidth+ nil)
+
+(defparameter %dcmtk::+dcm-notch-filter-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-notification-from-manufacturer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-numbe-of-table-columns+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-alarm-objects+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-assessment-observations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-averages+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-beams+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-block-slab-items+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-blocks+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-boli+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-boluses+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-brachy-application-setups+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-compensators+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-completed-suboperations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-contour-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-control-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-copies+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-detectors+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-display-subsystems+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-elements+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-energy-windows+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-event-timers+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-failed-suboperations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-films+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-focal-planes+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-fraction-pattern-digits-per-day+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-fractions-delivered+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-fractions-planned+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames-in-overlay+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames-in-phase+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames-in-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames-integrated+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-frames-used-for-integration+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-general-accessories+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-graphic-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-horizontal-pixels+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-interval-fractions+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-iterations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-k-space-trajectories+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-lateral-spreading-devices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-leaf-jaw-pairs+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-luminance-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-map-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-optical-paths+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-padded-a-lines+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-paintings+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-parallel-rt-beam-delimiters+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-patient-related-instances+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-patient-related-series+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-patient-related-studies+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-patient-support-devices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-phase-encoding-steps+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-phases+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-polygonal-vertices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-priors-referenced+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-pulses+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rr-intervals+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rt-accessory-holders+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rt-beam-limiting-device-openings+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rt-beam-limiting-devices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rt-control-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-radiation-generation-modes+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-range-modulators+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-range-shifters+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-remaining-suboperations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-rotations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-scan-spot-positions+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-screens+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-series-related-instances+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-slices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-stages+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-study-related-instances+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-study-related-series+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-subsets+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-surface-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-surfaces+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-table-break-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-table-entries+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-table-rows+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-temporal-positions+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-time-slices+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-time-slots+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-tomosynthesis-source-images+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-total-objects+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-triggers-in-phase+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-vectors+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-vertical-pixels+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-views-in-stage+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-visual-stimuli+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-volumetric-curve-points+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-warning-suboperations+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-waveform-channels+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-waveform-samples+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-wedge-positions+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-wedges+ nil)
+
+(defparameter %dcmtk::+dcm-number-of-zero-fills+ nil)
+
+(defparameter %dcmtk::+dcm-numberof-bscans-per-frame+ nil)
+
+(defparameter %dcmtk::+dcm-numeric-value+ nil)
+
+(defparameter %dcmtk::+dcm-numeric-value-qualifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-oct-acquisition-domain+ nil)
+
+(defparameter %dcmtk::+dcm-oct-bscan-analysis-acquisition-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-oct-focal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-oct-optical-center-wavelength+ nil)
+
+(defparameter %dcmtk::+dcm-octz-offset-applied+ nil)
+
+(defparameter %dcmtk::+dcm-octz-offset-correction+ nil)
+
+(defparameter %dcmtk::+dcm-oecf-column-names+ nil)
+
+(defparameter %dcmtk::+dcm-oecf-columns+ nil)
+
+(defparameter %dcmtk::+dcm-oecf-rows+ nil)
+
+(defparameter %dcmtk::+dcm-oecf-values+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-owner-creation-time+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-owner-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-owner-type+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-size+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-type+ nil)
+
+(defparameter %dcmtk::+dcm-ooi-type-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-object-pixel-spacing-in-center-of-beam+ nil)
+
+(defparameter %dcmtk::+dcm-object-thickness-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-objective-lens-numerical-aperture+ nil)
+
+(defparameter %dcmtk::+dcm-objective-lens-power+ nil)
+
+(defparameter %dcmtk::+dcm-oblique-cropping-plane-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-observation-basis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-observation-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-observation-description+ nil)
+
+(defparameter %dcmtk::+dcm-observation-number+ nil)
+
+(defparameter %dcmtk::+dcm-observation-significance+ nil)
+
+(defparameter %dcmtk::+dcm-observation-uid+ nil)
+
+(defparameter %dcmtk::+dcm-observer-type+ nil)
+
+(defparameter %dcmtk::+dcm-occupation+ nil)
+
+(defparameter %dcmtk::+dcm-offending-element+ nil)
+
+(defparameter %dcmtk::+dcm-offset-direction+ nil)
+
+(defparameter %dcmtk::+dcm-offset-distance+ nil)
+
+(defparameter %dcmtk::+dcm-offset-of-referenced-lower-level-directory-entity+ nil)
+
+(defparameter %dcmtk::+dcm-offset-of-the-first-directory-record-of-the-root-directory-entity+ nil)
+
+(defparameter %dcmtk::+dcm-offset-of-the-last-directory-record-of-the-root-directory-entity+ nil)
+
+(defparameter %dcmtk::+dcm-offset-of-the-next-directory-record+ nil)
+
+(defparameter %dcmtk::+dcm-omitted-application-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-omitted-beam-task-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-omitted-channel-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-operating-mode+ nil)
+
+(defparameter %dcmtk::+dcm-operating-mode-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-operating-mode-type+ nil)
+
+(defparameter %dcmtk::+dcm-operator-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-operators-name+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-anatomic-reference-point-x-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-anatomic-reference-point-y-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-data-source-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-data-source-description+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurement-modified+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-length-summation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-segment-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-segmental-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-total-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-measurements-type+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-method+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-quality-metric-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-selection-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-length-velocity+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-measurements-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-measurements-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-axial-measurements-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-en-face-image-quality-rating-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-fov+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-frame-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-image-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-image-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-image-type-description+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-mapping-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-patient-clinical-information-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-patient-clinical-information-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-thickness-map-quality-rating-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-thickness-map-quality-threshold-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-thickness-map-threshold-quality-rating+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-thickness-map-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-thickness-mapping-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-ultrasound-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ophthalmic-volumetric-properties-flag+ nil)
+
+(defparameter %dcmtk::+dcm-optical-magnification-factor+ nil)
+
+(defparameter %dcmtk::+dcm-optical-ophthalmic-axial-length-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-optical-path-description+ nil)
+
+(defparameter %dcmtk::+dcm-optical-path-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-optical-path-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-optical-path-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-optical-selected-ophthalmic-axial-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-optical-transmittance+ nil)
+
+(defparameter %dcmtk::+dcm-optotype+ nil)
+
+(defparameter %dcmtk::+dcm-optotype-detailed-definition+ nil)
+
+(defparameter %dcmtk::+dcm-optotype-presentation+ nil)
+
+(defparameter %dcmtk::+dcm-order-callback-phone-number+ nil)
+
+(defparameter %dcmtk::+dcm-order-callback-telecom-information+ nil)
+
+(defparameter %dcmtk::+dcm-order-entered-by+ nil)
+
+(defparameter %dcmtk::+dcm-order-enterer-location+ nil)
+
+(defparameter %dcmtk::+dcm-order-filler-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-order-placer-identifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-organ-at-risk-full-volume-dose+ nil)
+
+(defparameter %dcmtk::+dcm-organ-at-risk-limit-dose+ nil)
+
+(defparameter %dcmtk::+dcm-organ-at-risk-maximum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-organ-at-risk-overdose-volume-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-organ-dose+ nil)
+
+(defparameter %dcmtk::+dcm-organ-exposed+ nil)
+
+(defparameter %dcmtk::+dcm-organizational-role-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-original-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-original-implant-assembly-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-original-implant-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-original-specialized-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-originating-sop-instance-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-originator+ nil)
+
+(defparameter %dcmtk::+dcm-other-approval-status+ nil)
+
+(defparameter %dcmtk::+dcm-other-failures-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-other-magnification-types-available+ nil)
+
+(defparameter %dcmtk::+dcm-other-media-available-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-other-patient-i-ds-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-other-patient-names+ nil)
+
+(defparameter %dcmtk::+dcm-other-pupillary-distance+ nil)
+
+(defparameter %dcmtk::+dcm-other-secondary-approval-status+ nil)
+
+(defparameter %dcmtk::+dcm-other-smoothing-types-available+ nil)
+
+(defparameter %dcmtk::+dcm-outer-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-outline-left-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-outline-lower-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-outline-right-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-outline-shape-type+ nil)
+
+(defparameter %dcmtk::+dcm-outline-upper-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-output-destination-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-output-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-output-power+ nil)
+
+(defparameter %dcmtk::+dcm-overall-template-spatial-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-activation-layer+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-bit-position+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-bits-allocated+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-columns+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-data+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-description+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-label+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-origin+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-rows+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-subtype+ nil)
+
+(defparameter %dcmtk::+dcm-overlay-type+ nil)
+
+(defparameter %dcmtk::+dcm-overridden-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-override-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-override-parameter-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-override-reason+ nil)
+
+(defparameter %dcmtk::+dcm-override-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-oversampling-phase+ nil)
+
+(defparameter %dcmtk::+dcm-owner-id+ nil)
+
+(defparameter %dcmtk::+dcm-pet-detector-motion-details-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-frame-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-frame-correction-factors-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-reconstruction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pet-table-dynamics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-prcs-to-rcs-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-pto-location-description+ nil)
+
+(defparameter %dcmtk::+dcm-pto-region-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pto-representation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pvc-rejection+ nil)
+
+(defparameter %dcmtk::+dcm-paddle-description+ nil)
+
+(defparameter %dcmtk::+dcm-page-number-vector+ nil)
+
+(defparameter %dcmtk::+dcm-palette-color-lookup-table-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-palette-color-lookup-table-uid+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-acquisition-technique+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-boundaries+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-device-orientation-label-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-leaf-mounting-side+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-opening-mode+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-rt-beam-delimiter-positions+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-reduction-factor-in-plane+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-reduction-factor-out-of-plane+ nil)
+
+(defparameter %dcmtk::+dcm-parallel-reduction-factor-second-in-plane+ nil)
+
+(defparameter %dcmtk::+dcm-parameter-item-index+ nil)
+
+(defparameter %dcmtk::+dcm-parameter-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-parameter-sequence-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-parameter-value-number+ nil)
+
+(defparameter %dcmtk::+dcm-parameters-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-parametric-map-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-partial-data-display-handling+ nil)
+
+(defparameter %dcmtk::+dcm-partial-fourier+ nil)
+
+(defparameter %dcmtk::+dcm-partial-fourier-direction+ nil)
+
+(defparameter %dcmtk::+dcm-partial-view+ nil)
+
+(defparameter %dcmtk::+dcm-partial-view-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-partial-view-description+ nil)
+
+(defparameter %dcmtk::+dcm-participant-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-participation-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-participation-type+ nil)
+
+(defparameter %dcmtk::+dcm-patient-additional-position+ nil)
+
+(defparameter %dcmtk::+dcm-patient-address+ nil)
+
+(defparameter %dcmtk::+dcm-patient-age+ nil)
+
+(defparameter %dcmtk::+dcm-patient-alternative-calendar+ nil)
+
+(defparameter %dcmtk::+dcm-patient-birth-date+ nil)
+
+(defparameter %dcmtk::+dcm-patient-birth-date-in-alternative-calendar+ nil)
+
+(defparameter %dcmtk::+dcm-patient-birth-name+ nil)
+
+(defparameter %dcmtk::+dcm-patient-birth-time+ nil)
+
+(defparameter %dcmtk::+dcm-patient-body-mass-index+ nil)
+
+(defparameter %dcmtk::+dcm-patient-breed-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-breed-description+ nil)
+
+(defparameter %dcmtk::+dcm-patient-clinical-trial-participation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-comments+ nil)
+
+(defparameter %dcmtk::+dcm-patient-death-date-in-alternative-calendar+ nil)
+
+(defparameter %dcmtk::+dcm-patient-equipment-relationship-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-eye-movement-command-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-eye-movement-commanded+ nil)
+
+(defparameter %dcmtk::+dcm-patient-frame-of-reference-source+ nil)
+
+(defparameter %dcmtk::+dcm-patient-gantry-relationship-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-id+ nil)
+
+(defparameter %dcmtk::+dcm-patient-identity-removed+ nil)
+
+(defparameter %dcmtk::+dcm-patient-institution-residence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-insurance-plan-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-location-coordinates-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-location-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-mother-birth-name+ nil)
+
+(defparameter %dcmtk::+dcm-patient-motion-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-patient-name+ nil)
+
+(defparameter %dcmtk::+dcm-patient-not-properly-fixated-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-patient-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-patient-orientation-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-orientation-in-frame-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-orientation-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-physiological-state-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-physiological-state-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-position+ nil)
+
+(defparameter %dcmtk::+dcm-patient-positioning-instruction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-primary-language-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-primary-language-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-reliability-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-patient-religious-preference+ nil)
+
+(defparameter %dcmtk::+dcm-patient-setup-label+ nil)
+
+(defparameter %dcmtk::+dcm-patient-setup-number+ nil)
+
+(defparameter %dcmtk::+dcm-patient-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-setup-uid+ nil)
+
+(defparameter %dcmtk::+dcm-patient-sex+ nil)
+
+(defparameter %dcmtk::+dcm-patient-sex-neutered+ nil)
+
+(defparameter %dcmtk::+dcm-patient-size+ nil)
+
+(defparameter %dcmtk::+dcm-patient-size-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-species-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-species-description+ nil)
+
+(defparameter %dcmtk::+dcm-patient-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-state+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-accessory-code+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-adjusted-angle+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-angle+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-devices-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-id+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-device-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-device-tolerance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-parameter-order-index+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-specification-method+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-tolerance-order-index+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-position-tolerance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-patient-support-type+ nil)
+
+(defparameter %dcmtk::+dcm-patient-telecom-information+ nil)
+
+(defparameter %dcmtk::+dcm-patient-telephone-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-patient-transport-arrangements+ nil)
+
+(defparameter %dcmtk::+dcm-patient-treatment-orientation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-patient-weight+ nil)
+
+(defparameter %dcmtk::+dcm-pattern-off-color-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-pattern-off-opacity+ nil)
+
+(defparameter %dcmtk::+dcm-pattern-on-color-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-pattern-on-opacity+ nil)
+
+(defparameter %dcmtk::+dcm-pause-between-frames+ nil)
+
+(defparameter %dcmtk::+dcm-per-frame-functional-groups-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-per-projection-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-percent-phase-field-of-view+ nil)
+
+(defparameter %dcmtk::+dcm-percent-sampling+ nil)
+
+(defparameter %dcmtk::+dcm-performed-location+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-description+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-discontinuation-reason-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-end-date+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-end-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-end-time+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-id+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-start-date+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-start-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-step-status+ nil)
+
+(defparameter %dcmtk::+dcm-performed-procedure-type-description+ nil)
+
+(defparameter %dcmtk::+dcm-performed-processing-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-protocol-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-protocol-type+ nil)
+
+(defparameter %dcmtk::+dcm-performed-series-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-station-ae-title+ nil)
+
+(defparameter %dcmtk::+dcm-performed-station-class-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-station-geographic-location-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-station-name+ nil)
+
+(defparameter %dcmtk::+dcm-performed-station-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performed-workitem-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performing-physician-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-performing-physician-name+ nil)
+
+(defparameter %dcmtk::+dcm-person-address+ nil)
+
+(defparameter %dcmtk::+dcm-person-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-person-name+ nil)
+
+(defparameter %dcmtk::+dcm-person-telecom-information+ nil)
+
+(defparameter %dcmtk::+dcm-person-telephone-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-pertinent-documents-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pertinent-other-evidence-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pertinent-resources-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pertinent-sop-classes-in-series+ nil)
+
+(defparameter %dcmtk::+dcm-pertinent-sop-classes-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-phantom-type+ nil)
+
+(defparameter %dcmtk::+dcm-phase-contrast+ nil)
+
+(defparameter %dcmtk::+dcm-phase-delay+ nil)
+
+(defparameter %dcmtk::+dcm-phase-description+ nil)
+
+(defparameter %dcmtk::+dcm-phase-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-phase-vector+ nil)
+
+(defparameter %dcmtk::+dcm-phosphor-type+ nil)
+
+(defparameter %dcmtk::+dcm-photographic-exposure-index+ nil)
+
+(defparameter %dcmtk::+dcm-photographic-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-photometric-interpretation+ nil)
+
+(defparameter %dcmtk::+dcm-photon-energy+ nil)
+
+(defparameter %dcmtk::+dcm-phototimer-setting+ nil)
+
+(defparameter %dcmtk::+dcm-physical-delta-x+ nil)
+
+(defparameter %dcmtk::+dcm-physical-delta-y+ nil)
+
+(defparameter %dcmtk::+dcm-physical-detector-size+ nil)
+
+(defparameter %dcmtk::+dcm-physical-units-x-direction+ nil)
+
+(defparameter %dcmtk::+dcm-physical-units-y-direction+ nil)
+
+(defparameter %dcmtk::+dcm-physicians-of-record+ nil)
+
+(defparameter %dcmtk::+dcm-physicians-of-record-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-physicians-reading-study-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-aspect-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-bandwidth+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-data-type+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-mask+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-organization+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-physical-units+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-range-start+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-component-range-stop+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-data+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-data-area-origin-relative-to-fov+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-data-area-rotation-angle-relative-to-fov+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-data-provider-url+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-intensity-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-intensity-relationship-lut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-intensity-relationship-sign+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-measures-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-origin-interpretation+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-padding-range-limit+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-padding-value+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-presentation+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-representation+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-sequence-tag+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-shift-frame-range+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-shift-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-spacing-calibration-description+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-spacing-calibration-type+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-value-mapping-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-value-mapping-explanation+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-value-mapping-to-coded-concept-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pixel-value-transformation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-placer-order-number-imaging-service-request+ nil)
+
+(defparameter %dcmtk::+dcm-plan-intent+ nil)
+
+(defparameter %dcmtk::+dcm-planar-configuration+ nil)
+
+(defparameter %dcmtk::+dcm-plane+ nil)
+
+(defparameter %dcmtk::+dcm-plane-identification+ nil)
+
+(defparameter %dcmtk::+dcm-plane-normal+ nil)
+
+(defparameter %dcmtk::+dcm-plane-orientation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-plane-orientation-volume-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-plane-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-plane-position-slide-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-plane-position-volume-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planes-in-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-planned-verification-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planning-input-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-description+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-id+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-line-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-plane-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-planning-landmark-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-plate-id+ nil)
+
+(defparameter %dcmtk::+dcm-plate-type+ nil)
+
+(defparameter %dcmtk::+dcm-point-coordinates-data+ nil)
+
+(defparameter %dcmtk::+dcm-point-position-accuracy+ nil)
+
+(defparameter %dcmtk::+dcm-points-bounding-box-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-polarity+ nil)
+
+(defparameter %dcmtk::+dcm-position-measuring-device-used+ nil)
+
+(defparameter %dcmtk::+dcm-position-of-isocenter-projection+ nil)
+
+(defparameter %dcmtk::+dcm-position-reference-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-isocenter-detector-rotation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-isocenter-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-isocenter-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-motion+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-primary-angle-direction+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-primary-angle-increment+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-secondary-angle-increment+ nil)
+
+(defparameter %dcmtk::+dcm-positioner-type+ nil)
+
+(defparameter %dcmtk::+dcm-positioning-landmark-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-positioning-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-positive-catch-trials-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-post-deformation-matrix-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-potential-diagnostic-tasks+ nil)
+
+(defparameter %dcmtk::+dcm-potential-reasons-for-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-potential-reasons-for-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-potential-requested-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-potential-scheduled-protocol-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-potential-threat-object-id+ nil)
+
+(defparameter %dcmtk::+dcm-powerline-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-pre-amplifier-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pre-amplifier-notes+ nil)
+
+(defparameter %dcmtk::+dcm-pre-amplifier-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pre-deformation-matrix-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pre-medication+ nil)
+
+(defparameter %dcmtk::+dcm-pre-selected-for-implantation+ nil)
+
+(defparameter %dcmtk::+dcm-preamble-len+ 128)
+
+(defparameter %dcmtk::+dcm-predecessor-documents-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-predecessor-protocol-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-predecessor-structure-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-predicted-refractive-error+ nil)
+
+(defparameter %dcmtk::+dcm-predicted-toric-error-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-preferred-playback-sequencing+ nil)
+
+(defparameter %dcmtk::+dcm-pregnancy-status+ nil)
+
+(defparameter %dcmtk::+dcm-preliminary-flag+ nil)
+
+(defparameter %dcmtk::+dcm-prescription-description+ nil)
+
+(defparameter %dcmtk::+dcm-prescription-notes+ nil)
+
+(defparameter %dcmtk::+dcm-prescription-notes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-animation-style+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-creation-date+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-creation-time+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-display-collection-uid+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-group-number+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-input-type+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-intent-type+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-lut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-lut-shape+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-pixel-aspect-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-pixel-magnification-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-sequence-collection-uid+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-sequence-position-index+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-size-mode+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-state-classification-component-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-presentation-state-compositor-component-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-presented-visual-stimuli-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-preserve-composite-instances-after-media-creation+ nil)
+
+(defparameter %dcmtk::+dcm-pressure+ nil)
+
+(defparameter %dcmtk::+dcm-primary-anatomic-structure-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-primary-anatomic-structure-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-primary-chromaticities+ nil)
+
+(defparameter %dcmtk::+dcm-primary-dose-value-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-primary-dosimeter-unit+ nil)
+
+(defparameter %dcmtk::+dcm-primary-fluence-mode-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-primary-positioner-increment+ nil)
+
+(defparameter %dcmtk::+dcm-primary-positioner-increment-sign+ nil)
+
+(defparameter %dcmtk::+dcm-primary-positioner-scan-arc+ nil)
+
+(defparameter %dcmtk::+dcm-primary-positioner-scan-start-angle+ nil)
+
+(defparameter %dcmtk::+dcm-primary-prompts-counts-accumulated+ nil)
+
+(defparameter %dcmtk::+dcm-print-priority+ nil)
+
+(defparameter %dcmtk::+dcm-printer-configuration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-printer-name+ nil)
+
+(defparameter %dcmtk::+dcm-printer-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-printer-resolution-id+ nil)
+
+(defparameter %dcmtk::+dcm-printer-status+ nil)
+
+(defparameter %dcmtk::+dcm-printer-status-info+ nil)
+
+(defparameter %dcmtk::+dcm-printing-bit-depth+ nil)
+
+(defparameter %dcmtk::+dcm-prior-treatment-dose-description+ nil)
+
+(defparameter %dcmtk::+dcm-prior-treatment-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-priority+ nil)
+
+(defparameter %dcmtk::+dcm-prism-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-private-creator-reference+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-description+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-encoding+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-keyword+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-name+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-number-of-items+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-value-multiplicity+ nil)
+
+(defparameter %dcmtk::+dcm-private-data-element-value-representation+ nil)
+
+(defparameter %dcmtk::+dcm-private-group-length+ nil)
+
+(defparameter %dcmtk::+dcm-private-group-reference+ nil)
+
+(defparameter %dcmtk::+dcm-private-information+ nil)
+
+(defparameter %dcmtk::+dcm-private-information-creator-uid+ nil)
+
+(defparameter %dcmtk::+dcm-private-record-uid+ nil)
+
+(defparameter %dcmtk::+dcm-probe-center-location-x+ nil)
+
+(defparameter %dcmtk::+dcm-probe-center-location-z+ nil)
+
+(defparameter %dcmtk::+dcm-probe-drive-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-probe-drive-notes+ nil)
+
+(defparameter %dcmtk::+dcm-probe-drive-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-probe-inductance+ nil)
+
+(defparameter %dcmtk::+dcm-probe-orientation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-probe-resistance+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-creation-date+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-expiration-date+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-last-modified-date+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-cancellation-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-communications-uri-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-discontinuation-reason-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-label+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-progress+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-progress-description+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-progress-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-progress-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-step-state+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-procedure-version+ nil)
+
+(defparameter %dcmtk::+dcm-processing-function+ nil)
+
+(defparameter %dcmtk::+dcm-product-description+ nil)
+
+(defparameter %dcmtk::+dcm-product-expiration-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-product-lot-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-product-name+ nil)
+
+(defparameter %dcmtk::+dcm-product-package-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-product-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-product-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-projection-eponymous-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-projection-pixel-calibration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-property-label+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-context-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-defined-patient-position+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-design-rationale+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-element-characteristics-summary+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-element-name+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-element-number+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-element-purpose+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-name+ nil)
+
+(defparameter %dcmtk::+dcm-protocol-planning-information+ nil)
+
+(defparameter %dcmtk::+dcm-pseudo-color-palette-instance-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pseudo-color-type+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-number+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-repetition-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-repetition-interval+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-sequence-name+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-specific-brachy-control-point-delivered-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pulse-width+ nil)
+
+(defparameter %dcmtk::+dcm-pulser-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pulser-notes+ nil)
+
+(defparameter %dcmtk::+dcm-pulser-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-pulser-type+ nil)
+
+(defparameter %dcmtk::+dcm-pupil-centroid-x-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-pupil-centroid-y-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-pupil-dilated+ nil)
+
+(defparameter %dcmtk::+dcm-pupil-size+ nil)
+
+(defparameter %dcmtk::+dcm-purpose-of-reference-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-qa-results-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-qr-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-quadrature-receive-coil+ nil)
+
+(defparameter %dcmtk::+dcm-quality-control-image+ nil)
+
+(defparameter %dcmtk::+dcm-quality-control-subject+ nil)
+
+(defparameter %dcmtk::+dcm-quality-control-subject-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-quality-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-quantified-defect+ nil)
+
+(defparameter %dcmtk::+dcm-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-quantity-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-quantity-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-query-retrieve-level+ nil)
+
+(defparameter %dcmtk::+dcm-query-retrieve-view+ nil)
+
+(defparameter %dcmtk::+dcm-retired-acquisition-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-acquisitions-in-series+ nil)
+
+(defparameter %dcmtk::+dcm-retired-acquisitions-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-retired-adaptive-map-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-add-gray-scale+ nil)
+
+(defparameter %dcmtk::+dcm-retired-additional-rtroi-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-address-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-algorithm-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-algorithm-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-approach-direction-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-location-of-examining-instrument-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-location-of-examining-instrument-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-perspective-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-perspective-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-portal-of-entrance-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-structure+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-structure-space-or-region-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-structure-space-or-region-modifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-anatomic-structure-space-or-region-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-angle-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-angular-position+ nil)
+
+(defparameter %dcmtk::+dcm-retired-annotation-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-annotation-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-arbitrary+ nil)
+
+(defparameter %dcmtk::+dcm-retired-audio-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-audio-sample-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-audio-sample-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-audio-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-average-beam-dose-point-depth+ nil)
+
+(defparameter %dcmtk::+dcm-retired-average-beam-dose-point-equivalent-depth+ nil)
+
+(defparameter %dcmtk::+dcm-retired-average-beam-dose-point-ssd+ nil)
+
+(defparameter %dcmtk::+dcm-retired-axis-labels+ nil)
+
+(defparameter %dcmtk::+dcm-retired-axis-units+ nil)
+
+(defparameter %dcmtk::+dcm-retired-beam-dose-specification-point+ nil)
+
+(defparameter %dcmtk::+dcm-retired-beam-order-index-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-bi-plane-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-bibliographic-citation-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-bits-for-code-word+ nil)
+
+(defparameter %dcmtk::+dcm-retired-bits-grouped+ nil)
+
+(defparameter %dcmtk::+dcm-retired-block-columns+ nil)
+
+(defparameter %dcmtk::+dcm-retired-block-rows+ nil)
+
+(defparameter %dcmtk::+dcm-retired-blocked-pixels+ nil)
+
+(defparameter %dcmtk::+dcm-retired-borders+ nil)
+
+(defparameter %dcmtk::+dcm-retired-bulk-motion-status+ nil)
+
+(defparameter %dcmtk::+dcm-retired-cad-file-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-chemical-shift-maximum-integration-limit-in-hz+ nil)
+
+(defparameter %dcmtk::+dcm-retired-chemical-shift-minimum-integration-limit-in-hz+ nil)
+
+(defparameter %dcmtk::+dcm-retired-code-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-code-number-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-code-table-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coefficient-coding+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coefficient-coding-pointers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coefficients-sddn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coefficients-sdhn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coefficients-sdvn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-collation-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-color-image-printing-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-column-overlap+ nil)
+
+(defparameter %dcmtk::+dcm-retired-columns-for-nth-order-coefficients+ nil)
+
+(defparameter %dcmtk::+dcm-retired-command-length-to-end+ nil)
+
+(defparameter %dcmtk::+dcm-retired-command-magnification-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-command-recognition-code+ nil)
+
+(defparameter %dcmtk::+dcm-retired-component-reference-system+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compositing-method+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-code+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-originator+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-recognition-code+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-compression-step-pointers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coordinate-start-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coordinate-step-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coordinate-system-axis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-coordinates-set-geometric-type-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-copies+ nil)
+
+(defparameter %dcmtk::+dcm-retired-counts-included+ nil)
+
+(defparameter %dcmtk::+dcm-retired-current-observer-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-activation-layer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-data-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-range+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-referenced-overlay-group+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-referenced-overlay-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-curve-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-dct-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-data-block+ nil)
+
+(defparameter %dcmtk::+dcm-retired-data-block-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-data-set-subtype+ nil)
+
+(defparameter %dcmtk::+dcm-retired-data-set-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-data-value-representation+ nil)
+
+(defparameter %dcmtk::+dcm-retired-date-of-document-or-verbal-transaction-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-dead-time-correction-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-details-of-coefficients+ nil)
+
+(defparameter %dcmtk::+dcm-retired-dialog-receiver+ nil)
+
+(defparameter %dcmtk::+dcm-retired-discharge-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-discharge-diagnosis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-discharge-diagnosis-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-discharge-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-display-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-displayed-area-bottom-right-hand-corner-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-displayed-area-top-left-hand-corner-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-distance-source-to-support+ nil)
+
+(defparameter %dcmtk::+dcm-retired-distribution-address+ nil)
+
+(defparameter %dcmtk::+dcm-retired-distribution-name+ nil)
+
+(defparameter %dcmtk::+dcm-retired-document-author-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-document-author-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-document-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-documenting-observer-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-documenting-organization-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-doppler-sample-volume-x-position-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-doppler-sample-volume-y-position-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-double-exposure-field-delta-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-double-exposure-meterset-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-dynamic-range+ nil)
+
+(defparameter %dcmtk::+dcm-retired-edge-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-retired-end-message-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-energy-window-centerline+ nil)
+
+(defparameter %dcmtk::+dcm-retired-energy-window-total-width+ nil)
+
+(defparameter %dcmtk::+dcm-retired-equivalent-cda-document-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-erase+ nil)
+
+(defparameter %dcmtk::+dcm-retired-escape-triplet+ nil)
+
+(defparameter %dcmtk::+dcm-retired-exposure-dose-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-filler-order-number-imaging-service-request-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-filler-order-number-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-retired-film-box-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-find-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-flag-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-group-recording-date-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-group-recording-time-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-group-uid-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-findings-source-category-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-frame-of-reference-relationship-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-frame-of-reference-transformation-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-general-purpose-performed-procedure-step-status+ nil)
+
+(defparameter %dcmtk::+dcm-retired-general-purpose-scheduled-procedure-step-priority+ nil)
+
+(defparameter %dcmtk::+dcm-retired-general-purpose-scheduled-procedure-step-status+ nil)
+
+(defparameter %dcmtk::+dcm-retired-graphic-layer-recommended-display-rgb-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-gray-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-gray-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-retired-gray-scale+ nil)
+
+(defparameter %dcmtk::+dcm-retired-hardcopy-creation-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-hardcopy-device-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-hardcopy-device-manufacturer-model-name+ nil)
+
+(defparameter %dcmtk::+dcm-retired-hardcopy-device-software-version+ nil)
+
+(defparameter %dcmtk::+dcm-retired-huffman-table-size+ nil)
+
+(defparameter %dcmtk::+dcm-retired-huffman-table-triplet+ nil)
+
+(defparameter %dcmtk::+dcm-retired-identification-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-identifying-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-box-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-box-presentation-lut-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-data-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-dimensions+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-geometry-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-overlay-box-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-overlay-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-position+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-presentation-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-rotation-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-transformation-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-retired-image-translation-vector+ nil)
+
+(defparameter %dcmtk::+dcm-retired-images-in-series+ nil)
+
+(defparameter %dcmtk::+dcm-retired-images-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-retired-impressions+ nil)
+
+(defparameter %dcmtk::+dcm-retired-initiator+ nil)
+
+(defparameter %dcmtk::+dcm-retired-input-availability-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-insurance-plan-identification+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-approval-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-approval-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-approver-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-author+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-diagnosis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-diagnosis-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-id-issuer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-recorded-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-recorded-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-recorder+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-status-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-text+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-transcriber+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-transcription-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-transcription-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interpretation-type-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-interval-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-isotope-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-issuer-of-admission-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-issuer-of-service-episode-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-lut-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-language-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-blue-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-blue-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-green-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-green-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-palette-color-lookup-table-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-red-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-large-red-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-retired-largest-image-pixel-value-in-plane+ nil)
+
+(defparameter %dcmtk::+dcm-retired-largest-monochrome-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-largest-valid-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-length-to-end+ nil)
+
+(defparameter %dcmtk::+dcm-retired-lens-constant-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-lossy-image-compression-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-mrdr-directory-record-offset+ nil)
+
+(defparameter %dcmtk::+dcm-retired-magnify-to-number-of-columns+ nil)
+
+(defparameter %dcmtk::+dcm-retired-manipulated-image+ nil)
+
+(defparameter %dcmtk::+dcm-retired-mask-pointers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-masking-image+ nil)
+
+(defparameter %dcmtk::+dcm-retired-material-properties-file-format-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-maximum-coordinate-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-measurement-automation-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-measurement-precision-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-medical-record-locator+ nil)
+
+(defparameter %dcmtk::+dcm-retired-message-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-minimum-coordinate-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modified-image-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modified-image-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modified-image-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modified-image-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modifying-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-modifying-device-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-multiple-copies-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-network-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-non-dicom-output-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-normal-reverse+ nil)
+
+(defparameter %dcmtk::+dcm-retired-normalization-factor-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-nuclear-medicine-series-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-channels+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-matches+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-points+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-references+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-samples+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-tables+ nil)
+
+(defparameter %dcmtk::+dcm-retired-number-of-transform-steps+ nil)
+
+(defparameter %dcmtk::+dcm-retired-object-binary-identifier-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-object-directory-binary-identifier-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-category-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-date-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-subject-class-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-subject-context-flag-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-subject-type-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-subject-uid-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observation-time-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-observer-context-flag-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-on-axis-background-anatomic-structure-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-ophthalmic-axial-length-acquisition-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-ophthalmic-axial-length-quality-metric-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-ophthalmic-axial-length-quality-metric-type-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-original-image-identification+ nil)
+
+(defparameter %dcmtk::+dcm-retired-original-image-identification-nomenclature+ nil)
+
+(defparameter %dcmtk::+dcm-retired-original-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-other-patient-i-ds+ nil)
+
+(defparameter %dcmtk::+dcm-retired-other-study-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-background-density+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-bits-for-code-word+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-bits-grouped+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-code-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-code-table-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-compression-code+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-compression-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-compression-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-compression-originator+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-compression-step-pointers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-descriptor-blue+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-descriptor-gray+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-descriptor-green+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-descriptor-red+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-foreground-density+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-magnification-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-mode+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-number-of-tables+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-or-image-magnification+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-pixel-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-plane-origin+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-planes+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-repeat-interval+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-smoothing-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlay-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlays+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlays-blue+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlays-gray+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlays-green+ nil)
+
+(defparameter %dcmtk::+dcm-retired-overlays-red+ nil)
+
+(defparameter %dcmtk::+dcm-retired-page-position-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-parallel-reduction-factor-in-plane-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-performed-processing-applications-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-perimeter-table+ nil)
+
+(defparameter %dcmtk::+dcm-retired-perimeter-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-phase-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-physician-approving-interpretation+ nil)
+
+(defparameter %dcmtk::+dcm-retired-pixel-coordinates-set-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-pixel-spacing-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-placer-order-number-imaging-service-request-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-placer-order-number-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-retired-planes+ nil)
+
+(defparameter %dcmtk::+dcm-retired-postprocessing-function+ nil)
+
+(defparameter %dcmtk::+dcm-retired-predictor-columns+ nil)
+
+(defparameter %dcmtk::+dcm-retired-predictor-constants+ nil)
+
+(defparameter %dcmtk::+dcm-retired-predictor-rows+ nil)
+
+(defparameter %dcmtk::+dcm-retired-presentation-lut-content-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-presentation-lut-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-primitive-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-retired-print+ nil)
+
+(defparameter %dcmtk::+dcm-retired-print-job-description-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-print-job-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-print-management-capabilities-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-print-queue-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-printer-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-procedure-context-flag-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-procedure-context-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-procedure-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-procedure-step-relationship-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-proposed-study-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-queue-status+ nil)
+
+(defparameter %dcmtk::+dcm-retired-radionuclide+ nil)
+
+(defparameter %dcmtk::+dcm-retired-reason-for-study+ nil)
+
+(defparameter %dcmtk::+dcm-retired-reason-for-the-imaging-service-request+ nil)
+
+(defparameter %dcmtk::+dcm-retired-receiver+ nil)
+
+(defparameter %dcmtk::+dcm-retired-recognition-code+ nil)
+
+(defparameter %dcmtk::+dcm-retired-reference+ nil)
+
+(defparameter %dcmtk::+dcm-retired-reference-to-recorded-sound+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-accession-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-curve-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-findings-group-uid-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-frame-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-general-purpose-scheduled-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-general-purpose-scheduled-procedure-step-transaction-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-image-box-sequence-retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-image-overlay-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-interpretation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-object-observation-class-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-observation-class-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-observation-uid-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-overlay-plane-groups+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-overlay-plane-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-overlay-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-print-job-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-print-job-sequence-pull-stored-print+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-results-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-stored-print-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-referenced-voilut-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-related-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retired-related-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-relationship-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-relationship-type-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-relevant-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-repeat-interval+ nil)
+
+(defparameter %dcmtk::+dcm-retired-report-detail-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-report-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-report-production-status-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-report-status-comment-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-report-status-id-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-requested-procedure-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-requested-subsequent-workitem-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-response-sequence-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-resulting-general-purpose-performed-procedure-steps-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-results-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-results-distribution-list-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-results-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-results-id-issuer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-rotation-offset+ nil)
+
+(defparameter %dcmtk::+dcm-retired-row-overlap+ nil)
+
+(defparameter %dcmtk::+dcm-retired-rows-for-nth-order-coefficients+ nil)
+
+(defparameter %dcmtk::+dcm-retired-run-length-triplet+ nil)
+
+(defparameter %dcmtk::+dcm-retired-sample-rate+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-admission-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-admission-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-discharge-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-discharge-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-patient-institution-residence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-processing-applications-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-location-ae-title+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-start-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-stop-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-scheduled-study-stop-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-sequence-of-compressed-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-sequencing-indicator-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-series-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-retired-shift-table-size+ nil)
+
+(defparameter %dcmtk::+dcm-retired-shift-table-triplet+ nil)
+
+(defparameter %dcmtk::+dcm-retired-slide-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-retired-smallest-image-pixel-value-in-plane+ nil)
+
+(defparameter %dcmtk::+dcm-retired-smallest-valid-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-retired-source-image-i-ds+ nil)
+
+(defparameter %dcmtk::+dcm-retired-specimen-accession-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-specimen-description-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-specimen-description-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-specimen-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-arrival-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-arrival-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-completion-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-completion-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-component-status-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-id-issuer+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-priority-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-read-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-read-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-status-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-verified-date+ nil)
+
+(defparameter %dcmtk::+dcm-retired-study-verified-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-tm-line-position-x0retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-tm-line-position-x1retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-tm-line-position-y0retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-tm-line-position-y1retired+ nil)
+
+(defparameter %dcmtk::+dcm-retired-telephone-number-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-template-extension-creator-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retired-template-extension-flag+ nil)
+
+(defparameter %dcmtk::+dcm-retired-template-extension-organization-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retired-template-local-version+ nil)
+
+(defparameter %dcmtk::+dcm-retired-template-version+ nil)
+
+(defparameter %dcmtk::+dcm-retired-terminal-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-text-comments+ nil)
+
+(defparameter %dcmtk::+dcm-retired-text-format-id+ nil)
+
+(defparameter %dcmtk::+dcm-retired-therapy-description+ nil)
+
+(defparameter %dcmtk::+dcm-retired-therapy-type+ nil)
+
+(defparameter %dcmtk::+dcm-retired-threshold-density+ nil)
+
+(defparameter %dcmtk::+dcm-retired-time-of-document-creation-or-verbal-transaction-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-time-slot-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-topic-author+ nil)
+
+(defparameter %dcmtk::+dcm-retired-topic-keywords+ nil)
+
+(defparameter %dcmtk::+dcm-retired-topic-subject+ nil)
+
+(defparameter %dcmtk::+dcm-retired-topic-title+ nil)
+
+(defparameter %dcmtk::+dcm-retired-total-gain+ nil)
+
+(defparameter %dcmtk::+dcm-retired-total-number-of-exposures+ nil)
+
+(defparameter %dcmtk::+dcm-retired-total-time+ nil)
+
+(defparameter %dcmtk::+dcm-retired-total-time-of-fluoroscopy+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-orientation-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-orientation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-position+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-position-modifier-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transducer-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transform-label+ nil)
+
+(defparameter %dcmtk::+dcm-retired-transform-version-number+ nil)
+
+(defparameter %dcmtk::+dcm-retired-triangle-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-retired-type-of-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-uniform-resource-locator-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-upper-lower-pixel-values+ nil)
+
+(defparameter %dcmtk::+dcm-retired-urgency-or-priority-alerts-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-variable-coefficients-sddn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-variable-coefficients-sdhn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-variable-coefficients-sdvn+ nil)
+
+(defparameter %dcmtk::+dcm-retired-variable-next-data-group+ nil)
+
+(defparameter %dcmtk::+dcm-retired-variable-pixel-data+ nil)
+
+(defparameter %dcmtk::+dcm-retired-verbal-source-identifier-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-verbal-source-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-vertex-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-retired-vital-stain-code-sequence-trial+ nil)
+
+(defparameter %dcmtk::+dcm-retired-zonal-map+ nil)
+
+(defparameter %dcmtk::+dcm-retired-zonal-map-format+ nil)
+
+(defparameter %dcmtk::+dcm-retired-zonal-map-location+ nil)
+
+(defparameter %dcmtk::+dcm-retired-zonal-map-number-format+ nil)
+
+(defparameter %dcmtk::+dcm-rf-echo-train-length+ nil)
+
+(defparameter %dcmtk::+dcm-rgba-transfer-function-description+ nil)
+
+(defparameter %dcmtk::+dcm-rgblut-transfer-function+ nil)
+
+(defparameter %dcmtk::+dcm-roi-area+ nil)
+
+(defparameter %dcmtk::+dcm-roi-contour-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-roi-derivation-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-roi-description+ nil)
+
+(defparameter %dcmtk::+dcm-roi-display-color+ nil)
+
+(defparameter %dcmtk::+dcm-roi-elemental-composition-atomic-mass-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-roi-elemental-composition-atomic-number+ nil)
+
+(defparameter %dcmtk::+dcm-roi-elemental-composition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-roi-generation-algorithm+ nil)
+
+(defparameter %dcmtk::+dcm-roi-generation-description+ nil)
+
+(defparameter %dcmtk::+dcm-roi-interpreter+ nil)
+
+(defparameter %dcmtk::+dcm-roi-mean+ nil)
+
+(defparameter %dcmtk::+dcm-roi-name+ nil)
+
+(defparameter %dcmtk::+dcm-roi-number+ nil)
+
+(defparameter %dcmtk::+dcm-roi-observation-description+ nil)
+
+(defparameter %dcmtk::+dcm-roi-observation-label+ nil)
+
+(defparameter %dcmtk::+dcm-roi-physical-properties-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-roi-physical-property+ nil)
+
+(defparameter %dcmtk::+dcm-roi-physical-property-value+ nil)
+
+(defparameter %dcmtk::+dcm-roi-standard-deviation+ nil)
+
+(defparameter %dcmtk::+dcm-roi-volume+ nil)
+
+(defparameter %dcmtk::+dcm-rr-interval-time-nominal+ nil)
+
+(defparameter %dcmtk::+dcm-rr-interval-vector+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-device-slot-id+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-slot-distance+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-slot-existence-flag+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-slot-id+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-slot-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-holder-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-rt-accessory-slot-distance+ nil)
+
+(defparameter %dcmtk::+dcm-rt-anatomic-prescription-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-delimiter-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-angle+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-distal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-offset+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-opening-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-proximal-distance+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-limiting-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-rt-beam-modifier-definition-distance+ nil)
+
+(defparameter %dcmtk::+dcm-rt-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-rt-device-distance-reference-location-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-diagnosis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-dose-roi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-description+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-label+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-name+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-plane+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-position+ nil)
+
+(defparameter %dcmtk::+dcm-rt-image-sid+ nil)
+
+(defparameter %dcmtk::+dcm-rt-physician-intent-index+ nil)
+
+(defparameter %dcmtk::+dcm-rt-physician-intent-input-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-physician-intent-narrative+ nil)
+
+(defparameter %dcmtk::+dcm-rt-physician-intent-predecessor-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-physician-intent-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-date+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-description+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-geometry+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-label+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-name+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-rt-plan-time+ nil)
+
+(defparameter %dcmtk::+dcm-rt-prescription-index+ nil)
+
+(defparameter %dcmtk::+dcm-rt-prescription-label+ nil)
+
+(defparameter %dcmtk::+dcm-rt-prescription-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-protocol-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rtroi-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rtroi-interpreted-type+ nil)
+
+(defparameter %dcmtk::+dcm-rtroi-observations-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rtroi-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-physical-and-geometric-content-detail-flag+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-salvage-record-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-set-delivery-number+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-set-intent+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-set-usage+ nil)
+
+(defparameter %dcmtk::+dcm-rt-radiation-usage+ nil)
+
+(defparameter %dcmtk::+dcm-rt-record-flag+ nil)
+
+(defparameter %dcmtk::+dcm-rt-referenced-series-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-referenced-study-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-related-roi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-segment-annotation-index+ nil)
+
+(defparameter %dcmtk::+dcm-rt-segment-annotation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-tolerance-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-rt-tolerance-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-approach-label+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-fraction-completion-status+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-intent-type+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-phase-index+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-phase-intent-presence-flag+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-phase-interval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-phase-uid+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-source-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-technique-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-termination-reason-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rt-treatment-termination-status+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-communication-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-communication-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-flow-actual-frame-duration+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-flow-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-flow-rtp-sampling-rate+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-meta-information-version+ nil)
+
+(defparameter %dcmtk::+dcm-rtv-source-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-r-wave-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-r-wave-time-vector+ nil)
+
+(defparameter %dcmtk::+dcm-radial-position+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-atomic-number+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-block-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-block-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-compensator-milling-tool-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-effective-wedge-angle+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-wedge-angle+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-beam-wedge-thin-edge-distance+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-charge-state+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-device-configuration-and-commissioning-key-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-central-axis-displacement+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-identification-index+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-identification-label+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-in-vivo-measurement-label+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-measurement-point-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-source-to-external-contour-distance+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-source-to-skin-distance+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-value+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dose-values-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-dosimeter-unit-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-fluence-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-generation-mode-description+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-generation-mode-index+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-generation-mode-label+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-generation-mode-machine-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-generation-mode-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-machine-name+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-machine-sad+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-machine-ssd+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-mass-number+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-mode+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-setting+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-source-axis-distance+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-source-coordinate-system-pitch-angle+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-source-coordinate-system-roll-angle+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-source-coordinate-system-yaw-angle+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-type+ nil)
+
+(defparameter %dcmtk::+dcm-radiation-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiobiological-dose-effect-flag+ nil)
+
+(defparameter %dcmtk::+dcm-radiobiological-dose-effect-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radionuclide-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radionuclide-half-life+ nil)
+
+(defparameter %dcmtk::+dcm-radionuclide-positron-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-radionuclide-total-dose+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-administration-event-uid+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-agent-number+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-route+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-specific-activity+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-start-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-stop-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-stop-time+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-usage-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-radiopharmaceutical-volume+ nil)
+
+(defparameter %dcmtk::+dcm-radiotherapy-treatment-type+ nil)
+
+(defparameter %dcmtk::+dcm-radius-along-wedge+ nil)
+
+(defparameter %dcmtk::+dcm-radius-of-circular-collimator+ nil)
+
+(defparameter %dcmtk::+dcm-radius-of-circular-exposure-control-sensing-region+ nil)
+
+(defparameter %dcmtk::+dcm-radius-of-circular-shutter+ nil)
+
+(defparameter %dcmtk::+dcm-radius-of-curvature+ nil)
+
+(defparameter %dcmtk::+dcm-randoms-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-randoms-correction-method+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-description+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-gating-start-value+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-gating-start-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-gating-stop-value+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-gating-stop-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-id+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-number+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-range-modulator-type+ nil)
+
+(defparameter %dcmtk::+dcm-range-of-freedom+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-description+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-id+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-number+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-setting+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-type+ nil)
+
+(defparameter %dcmtk::+dcm-range-shifter-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-ranging-depth+ nil)
+
+(defparameter %dcmtk::+dcm-rational-denominator-value+ nil)
+
+(defparameter %dcmtk::+dcm-rational-numerator-value+ nil)
+
+(defparameter %dcmtk::+dcm-raw-data-handling+ nil)
+
+(defparameter %dcmtk::+dcm-real-time-bulk-data-flow-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-first-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-intercept+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-lut-data+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-last-value-mapped+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-mapping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-real-world-value-slope+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-cancellation+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-channel-omission+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-channel-omission-description+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-omission+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-omission-description+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-performed-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-requested-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-superseding+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-the-attribute-modification+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-the-requested-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-visit+ nil)
+
+(defparameter %dcmtk::+dcm-reason-for-visit-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receive-coil-manufacturer-name+ nil)
+
+(defparameter %dcmtk::+dcm-receive-coil-name+ nil)
+
+(defparameter %dcmtk::+dcm-receive-coil-type+ nil)
+
+(defparameter %dcmtk::+dcm-receive-probe-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receive-transducer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receive-transducer-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receiver-equipment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receiver-notes+ nil)
+
+(defparameter %dcmtk::+dcm-receiver-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-receiving-ae+ nil)
+
+(defparameter %dcmtk::+dcm-receiving-application-entity-title+ nil)
+
+(defparameter %dcmtk::+dcm-receiving-presentation-address+ nil)
+
+(defparameter %dcmtk::+dcm-recognizable-visual-features+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-absent-pixel-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-animation-rate+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-default-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-display-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-display-cie-lab-value-list+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-display-frame-rate+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-display-frame-rate-in-float+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-display-grayscale-value+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-exposure-index+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-line-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-point-radius+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-presentation-opacity+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-presentation-type+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-rotation-point+ nil)
+
+(defparameter %dcmtk::+dcm-recommended-viewing-mode+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-algorithm+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-angle+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-description+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-end-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-field-of-view+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-index+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-method+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-pixel-spacing+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-protocol-element-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-protocol-element-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-start-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-target-center-location-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-target-center-patient+ nil)
+
+(defparameter %dcmtk::+dcm-reconstruction-type+ nil)
+
+(defparameter %dcmtk::+dcm-record-in-use-flag+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-block-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-brachy-accessory-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-channel-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-channel-shield-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-compensator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-lateral-spreading-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-rt-control-point-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-range-modulator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-range-shifter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-snout-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-source-applicator-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-recorded-wedge-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rectification-type+ nil)
+
+(defparameter %dcmtk::+dcm-rectifier-smoothing+ nil)
+
+(defparameter %dcmtk::+dcm-rectilinear-phase-encode-reordering+ nil)
+
+(defparameter %dcmtk::+dcm-red-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-red-palette-color-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-reference-air-kerma-rate+ nil)
+
+(defparameter %dcmtk::+dcm-reference-basis-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reference-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-reference-display-sets+ nil)
+
+(defparameter %dcmtk::+dcm-reference-dose-definition+ nil)
+
+(defparameter %dcmtk::+dcm-reference-dose-point-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-reference-dose-type+ nil)
+
+(defparameter %dcmtk::+dcm-reference-geometry-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reference-image-number+ nil)
+
+(defparameter %dcmtk::+dcm-reference-location-description+ nil)
+
+(defparameter %dcmtk::+dcm-reference-location-label+ nil)
+
+(defparameter %dcmtk::+dcm-reference-pixel-physical-value-x+ nil)
+
+(defparameter %dcmtk::+dcm-reference-pixel-physical-value-y+ nil)
+
+(defparameter %dcmtk::+dcm-reference-pixel-x0+ nil)
+
+(defparameter %dcmtk::+dcm-reference-pixel-y0+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-assertion-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-basic-annotation-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-beam-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-beam-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-block-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-bolus-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-brachy-accessory-device-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-brachy-application-setup-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-brachy-application-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-calculated-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-calculated-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-channel-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-channel-shield-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-color-palette-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-comparison-sop-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-compensator-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-conceptual-volume-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-content-item+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-content-item-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-defined-device-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-defined-protocol-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-device-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-digital-signature-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-direct-segment-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dose-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dose-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dosimetric-objective-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-dosimetric-objectives-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-expected-in-vivo-measurement-value-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-fiducial-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-fiducials-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-file-id+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-film-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-film-session-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-first-frame-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-fraction-group-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-fraction-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-fraction-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-frame-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-frame-of-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-hpgl-document-id+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-image-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-image-evidence-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-image-navigation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-image-real-world-value-mapping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-implant-template-group-member-id+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-lateral-spreading-device-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-measured-dose-reference-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-measured-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-non-image-composite-sop-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-ophthalmic-axial-length-measurement-qc-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-ophthalmic-axial-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-other-plane-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-pto-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-parent-rt-prescription-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-path-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-patient-alias-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-patient-photo-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-patient-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-patient-setup-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-performed-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-performed-protocol-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-presentation-lut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-presentation-state-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-roi-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-accessory-holder-device-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-patient-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-physician-intent-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-physician-intent-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-plan-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-prescription-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-prescription-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-radiation-record-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-radiation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-radiation-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-treatment-phase-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-rt-treatment-phase-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-radiation-dose-identification-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-radiation-generation-mode-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-radiation-rt-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-range-modulator-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-range-shifter-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-raw-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-real-world-value-mapping-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-reference-image-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-reference-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-refractive-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-related-general-sop-class-uid-in-file+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-request-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-class-uid-in-file+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-instance-mac-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-instance-uid-in-file+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sop-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-sample-positions+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-segment-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-segment-reference-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-series-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-setup-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-source-applicator-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-source-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-spatial-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-start-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-stereometric-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-stop-control-point-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-storage-media-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-structure-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-structured-context-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-study-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-surface-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-surface-mesh-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-surface-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-surface-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-tdr-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-target-luminance-characteristics-id+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-texture-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-time-offsets+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-tolerance-table-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-transfer-syntax-uid-in-file+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-treatment-position-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-treatment-record-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-verification-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-visit-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-waveform-channels+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-waveform-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-wedge-number+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-x-ray-detector-index+ nil)
+
+(defparameter %dcmtk::+dcm-referenced-x-ray-source-index+ nil)
+
+(defparameter %dcmtk::+dcm-referring-physician-address+ nil)
+
+(defparameter %dcmtk::+dcm-referring-physician-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-referring-physician-name+ nil)
+
+(defparameter %dcmtk::+dcm-referring-physician-telephone-numbers+ nil)
+
+(defparameter %dcmtk::+dcm-reflected-ambient-light+ nil)
+
+(defparameter %dcmtk::+dcm-reformatting-interval+ nil)
+
+(defparameter %dcmtk::+dcm-reformatting-operation-initial-view-direction+ nil)
+
+(defparameter %dcmtk::+dcm-reformatting-operation-type+ nil)
+
+(defparameter %dcmtk::+dcm-reformatting-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-error-before-refractive-surgery-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-index-applied+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-index-of-aqueous-humor+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-index-of-cornea+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-parameters-used-on-patient-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-power+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-procedure-occurred+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-state-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-refractive-surgery-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-region-data-type+ nil)
+
+(defparameter %dcmtk::+dcm-region-flags+ nil)
+
+(defparameter %dcmtk::+dcm-region-location-max-x1+ nil)
+
+(defparameter %dcmtk::+dcm-region-location-max-y1+ nil)
+
+(defparameter %dcmtk::+dcm-region-location-min-x0+ nil)
+
+(defparameter %dcmtk::+dcm-region-location-min-y0+ nil)
+
+(defparameter %dcmtk::+dcm-region-of-residence+ nil)
+
+(defparameter %dcmtk::+dcm-region-pixel-shift-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-region-spatial-format+ nil)
+
+(defparameter %dcmtk::+dcm-registered-localizer-bottom-right-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-registered-localizer-top-left-hand-corner+ nil)
+
+(defparameter %dcmtk::+dcm-registered-localizer-units+ nil)
+
+(defparameter %dcmtk::+dcm-registration-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-registration-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-registration-to-localizer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-registration-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-related-assertion-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-related-general-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-related-rtroi-observations-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-related-rt-treatment-phase-index+ nil)
+
+(defparameter %dcmtk::+dcm-related-reference-rt-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-related-segment-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-related-series-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-relationship-type+ nil)
+
+(defparameter %dcmtk::+dcm-relative-elevation+ nil)
+
+(defparameter %dcmtk::+dcm-relative-image-position-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-relative-opacity+ nil)
+
+(defparameter %dcmtk::+dcm-relative-time+ nil)
+
+(defparameter %dcmtk::+dcm-relative-time-units+ nil)
+
+(defparameter %dcmtk::+dcm-relative-uri-reference-within-encapsulated-document+ nil)
+
+(defparameter %dcmtk::+dcm-relative-x-ray-exposure+ nil)
+
+(defparameter %dcmtk::+dcm-relevant-opt-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-render-field-of-view+ nil)
+
+(defparameter %dcmtk::+dcm-render-projection+ nil)
+
+(defparameter %dcmtk::+dcm-rendered-image-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rendering-method+ nil)
+
+(defparameter %dcmtk::+dcm-repair-id+ nil)
+
+(defparameter %dcmtk::+dcm-repeat-fraction-cycle-length+ nil)
+
+(defparameter %dcmtk::+dcm-repetition-time+ nil)
+
+(defparameter %dcmtk::+dcm-replaced-implant-assembly-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-replaced-implant-template-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-replaced-implant-template-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-replaced-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-reported-values-origin+ nil)
+
+(defparameter %dcmtk::+dcm-reporting-priority+ nil)
+
+(defparameter %dcmtk::+dcm-repository-unique-id+ nil)
+
+(defparameter %dcmtk::+dcm-representative-frame-number+ nil)
+
+(defparameter %dcmtk::+dcm-reprojection-method+ nil)
+
+(defparameter %dcmtk::+dcm-request-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-request-priority+ nil)
+
+(defparameter %dcmtk::+dcm-requested-contrast-agent+ nil)
+
+(defparameter %dcmtk::+dcm-requested-decimate-crop-behavior+ nil)
+
+(defparameter %dcmtk::+dcm-requested-image-size+ nil)
+
+(defparameter %dcmtk::+dcm-requested-image-size-flag+ nil)
+
+(defparameter %dcmtk::+dcm-requested-media-application-profile+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-comments+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-description+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-id+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-location+ nil)
+
+(defparameter %dcmtk::+dcm-requested-procedure-priority+ nil)
+
+(defparameter %dcmtk::+dcm-requested-resolution-id+ nil)
+
+(defparameter %dcmtk::+dcm-requested-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-requested-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-requested-series-description+ nil)
+
+(defparameter %dcmtk::+dcm-requesting-ae+ nil)
+
+(defparameter %dcmtk::+dcm-requesting-physician+ nil)
+
+(defparameter %dcmtk::+dcm-requesting-physician-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-requesting-service+ nil)
+
+(defparameter %dcmtk::+dcm-requesting-service-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rescale-intercept+ nil)
+
+(defparameter %dcmtk::+dcm-rescale-slope+ nil)
+
+(defparameter %dcmtk::+dcm-rescale-type+ nil)
+
+(defparameter %dcmtk::+dcm-residual-syringe-counts+ nil)
+
+(defparameter %dcmtk::+dcm-resonant-nucleus+ nil)
+
+(defparameter %dcmtk::+dcm-resource-description+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-cycle-position+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-interval-time+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-motion-compensation-technique+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-motion-compensation-technique-description+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-signal-source+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-signal-source-id+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-synchronization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-trigger-delay-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-respiratory-trigger-type+ nil)
+
+(defparameter %dcmtk::+dcm-responsible-group-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-responsible-organization+ nil)
+
+(defparameter %dcmtk::+dcm-responsible-person+ nil)
+
+(defparameter %dcmtk::+dcm-responsible-person-role+ nil)
+
+(defparameter %dcmtk::+dcm-results-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retest-sensitivity-value+ nil)
+
+(defparameter %dcmtk::+dcm-retest-stimulus-seen+ nil)
+
+(defparameter %dcmtk::+dcm-retinal-thickness-definition-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-retrieve-ae-title+ nil)
+
+(defparameter %dcmtk::+dcm-retrieve-location-uid+ nil)
+
+(defparameter %dcmtk::+dcm-retrieve-uri+ nil)
+
+(defparameter %dcmtk::+dcm-retrieve-url+ nil)
+
+(defparameter %dcmtk::+dcm-review-date+ nil)
+
+(defparameter %dcmtk::+dcm-review-time+ nil)
+
+(defparameter %dcmtk::+dcm-reviewer-name+ nil)
+
+(defparameter %dcmtk::+dcm-revolution-time+ nil)
+
+(defparameter %dcmtk::+dcm-right-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-right-lens-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-robotic-base-location-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-robotic-node-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-robotic-path-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-robotic-path-node-set-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-of-scanned-film+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-point+ nil)
+
+(defparameter %dcmtk::+dcm-rotation-vector+ nil)
+
+(defparameter %dcmtk::+dcm-route-id+ nil)
+
+(defparameter %dcmtk::+dcm-route-id-assigning-authority+ nil)
+
+(defparameter %dcmtk::+dcm-route-of-admissions+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-end-location-id+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-end-time+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-id+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-location-id-type+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-start-location-id+ nil)
+
+(defparameter %dcmtk::+dcm-route-segment-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-row-position-in-total-image-pixel-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-rows+ nil)
+
+(defparameter %dcmtk::+dcm-sar+ nil)
+
+(defparameter %dcmtk::+dcm-scp-status+ nil)
+
+(defparameter %dcmtk::+dcm-snr-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-sop-authorization-comment+ nil)
+
+(defparameter %dcmtk::+dcm-sop-authorization-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-sop-class-uid+ nil)
+
+(defparameter %dcmtk::+dcm-sop-classes-in-study+ nil)
+
+(defparameter %dcmtk::+dcm-sop-classes-supported+ nil)
+
+(defparameter %dcmtk::+dcm-sop-instance-status+ nil)
+
+(defparameter %dcmtk::+dcm-sop-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-sop-instance-uid-of-concatenation-source+ nil)
+
+(defparameter %dcmtk::+dcm-stowrs-storage-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-suv-type+ nil)
+
+(defparameter %dcmtk::+dcm-safe-position-exit-date+ nil)
+
+(defparameter %dcmtk::+dcm-safe-position-exit-time+ nil)
+
+(defparameter %dcmtk::+dcm-safe-position-return-date+ nil)
+
+(defparameter %dcmtk::+dcm-safe-position-return-time+ nil)
+
+(defparameter %dcmtk::+dcm-samples-per-pixel+ nil)
+
+(defparameter %dcmtk::+dcm-samples-per-pixel-used+ nil)
+
+(defparameter %dcmtk::+dcm-sampling-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-sampling-step-size+ nil)
+
+(defparameter %dcmtk::+dcm-saturation+ nil)
+
+(defparameter %dcmtk::+dcm-saturation-recovery+ nil)
+
+(defparameter %dcmtk::+dcm-scan-arc+ nil)
+
+(defparameter %dcmtk::+dcm-scan-length+ nil)
+
+(defparameter %dcmtk::+dcm-scan-mode+ nil)
+
+(defparameter %dcmtk::+dcm-scan-options+ nil)
+
+(defparameter %dcmtk::+dcm-scan-pattern-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scan-procedure+ nil)
+
+(defparameter %dcmtk::+dcm-scan-progression-direction+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-meterset-weights+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-metersets-delivered+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-position-map+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-prescribed-indices+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-reordered+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-reordering-allowed+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-sizes-delivered+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-time-offset+ nil)
+
+(defparameter %dcmtk::+dcm-scan-spot-tune-id+ nil)
+
+(defparameter %dcmtk::+dcm-scan-type+ nil)
+
+(defparameter %dcmtk::+dcm-scan-velocity+ nil)
+
+(defparameter %dcmtk::+dcm-scanner-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scanning-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scanning-spot-size+ nil)
+
+(defparameter %dcmtk::+dcm-scatter-corrected+ nil)
+
+(defparameter %dcmtk::+dcm-scatter-correction-method+ nil)
+
+(defparameter %dcmtk::+dcm-scatter-fraction-factor+ nil)
+
+(defparameter %dcmtk::+dcm-scene-capture-type+ nil)
+
+(defparameter %dcmtk::+dcm-scene-type+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-human-performers-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-performing-physician-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-performing-physician-name+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-description+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-end-date+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-end-time+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-expiration-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-id+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-location+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-modification-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-priority+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-start-date+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-start-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-start-time+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-procedure-step-status+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-processing-parameters-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-protocol-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-specimen-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-station-ae-title+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-station-class-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-station-geographic-location-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-station-name+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-station-name-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-step-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-scheduled-workitem-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-screen-minimum-color-bit-depth+ nil)
+
+(defparameter %dcmtk::+dcm-screen-minimum-grayscale-bit-depth+ nil)
+
+(defparameter %dcmtk::+dcm-screening-baseline-measured+ nil)
+
+(defparameter %dcmtk::+dcm-screening-baseline-measured-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-screening-baseline-type+ nil)
+
+(defparameter %dcmtk::+dcm-screening-baseline-value+ nil)
+
+(defparameter %dcmtk::+dcm-screening-test-mode-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-seam-line-index+ nil)
+
+(defparameter %dcmtk::+dcm-seam-line-location+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-approval-status+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-capture-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-capture-device-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-capture-device-manufacturer-model-name+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-capture-device-software-versions+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-counts-accumulated+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-counts-type+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-inspection-method-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-positioner-increment+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-positioner-increment-sign+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-positioner-scan-arc+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-positioner-scan-start-angle+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-review-date+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-review-time+ nil)
+
+(defparameter %dcmtk::+dcm-secondary-reviewer-name+ nil)
+
+(defparameter %dcmtk::+dcm-segment-algorithm-name+ nil)
+
+(defparameter %dcmtk::+dcm-segment-algorithm-type+ nil)
+
+(defparameter %dcmtk::+dcm-segment-annotation-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-annotation-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-annotation-type-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-characteristics-precedence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-description+ nil)
+
+(defparameter %dcmtk::+dcm-segment-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-label+ nil)
+
+(defparameter %dcmtk::+dcm-segment-number+ nil)
+
+(defparameter %dcmtk::+dcm-segment-reference-index+ nil)
+
+(defparameter %dcmtk::+dcm-segment-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-surface-generation-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segment-surface-source-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmentation-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmentation-creation-template-label+ nil)
+
+(defparameter %dcmtk::+dcm-segmentation-fractional-type+ nil)
+
+(defparameter %dcmtk::+dcm-segmentation-template-uid+ nil)
+
+(defparameter %dcmtk::+dcm-segmentation-type+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-alpha-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-blue-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-green-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-k-space-traversal+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-property-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-property-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-property-type-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-rt-accessory-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-segmented-red-palette-color-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-segments-overlap+ nil)
+
+(defparameter %dcmtk::+dcm-selected-segmental-ophthalmic-axial-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-selected-total-ophthalmic-axial-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ae-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-as-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-at-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-attribute+ nil)
+
+(defparameter %dcmtk::+dcm-selector-attribute-keyword+ nil)
+
+(defparameter %dcmtk::+dcm-selector-attribute-name+ nil)
+
+(defparameter %dcmtk::+dcm-selector-attribute-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-selector-attribute-vr+ nil)
+
+(defparameter %dcmtk::+dcm-selector-cs-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-code-sequence-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-da-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ds-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-dt-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-fd-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-fl-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-is-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-lo-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-lt-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ob-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-od-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-of-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ol-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ov-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ow-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-pn-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sh-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sl-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ss-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-st-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sv-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sequence-pointer+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sequence-pointer-items+ nil)
+
+(defparameter %dcmtk::+dcm-selector-sequence-pointer-private-creator+ nil)
+
+(defparameter %dcmtk::+dcm-selector-tm-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-uc-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ui-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ul-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-un-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ur-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-us-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-ut-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-uv-value+ nil)
+
+(defparameter %dcmtk::+dcm-selector-value-number+ nil)
+
+(defparameter %dcmtk::+dcm-self-timer-mode+ nil)
+
+(defparameter %dcmtk::+dcm-sending-application-entity-title+ nil)
+
+(defparameter %dcmtk::+dcm-sending-presentation-address+ nil)
+
+(defparameter %dcmtk::+dcm-sensing-method+ nil)
+
+(defparameter %dcmtk::+dcm-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-sensitivity-calibrated+ nil)
+
+(defparameter %dcmtk::+dcm-sensitivity-type+ nil)
+
+(defparameter %dcmtk::+dcm-sensitivity-value+ nil)
+
+(defparameter %dcmtk::+dcm-sensor-name+ nil)
+
+(defparameter %dcmtk::+dcm-sensor-temperature+ nil)
+
+(defparameter %dcmtk::+dcm-sequence-delimitation-item+ nil)
+
+(defparameter %dcmtk::+dcm-sequence-delimitation-item-tag+ nil)
+
+(defparameter %dcmtk::+dcm-sequence-name+ nil)
+
+(defparameter %dcmtk::+dcm-sequence-of-ultrasound-regions+ nil)
+
+(defparameter %dcmtk::+dcm-sequence-variant+ nil)
+
+(defparameter %dcmtk::+dcm-series-date+ nil)
+
+(defparameter %dcmtk::+dcm-series-description+ nil)
+
+(defparameter %dcmtk::+dcm-series-description-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-series-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-series-number+ nil)
+
+(defparameter %dcmtk::+dcm-series-time+ nil)
+
+(defparameter %dcmtk::+dcm-series-type+ nil)
+
+(defparameter %dcmtk::+dcm-service-episode-description+ nil)
+
+(defparameter %dcmtk::+dcm-service-episode-id+ nil)
+
+(defparameter %dcmtk::+dcm-settling-phase-frame+ nil)
+
+(defparameter %dcmtk::+dcm-setup-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-setup-device-label+ nil)
+
+(defparameter %dcmtk::+dcm-setup-device-parameter+ nil)
+
+(defparameter %dcmtk::+dcm-setup-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-setup-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-setup-image-comment+ nil)
+
+(defparameter %dcmtk::+dcm-setup-reference-description+ nil)
+
+(defparameter %dcmtk::+dcm-setup-technique+ nil)
+
+(defparameter %dcmtk::+dcm-setup-technique-description+ nil)
+
+(defparameter %dcmtk::+dcm-shading-style+ nil)
+
+(defparameter %dcmtk::+dcm-shadow-color-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-shadow-offset-x+ nil)
+
+(defparameter %dcmtk::+dcm-shadow-offset-y+ nil)
+
+(defparameter %dcmtk::+dcm-shadow-opacity+ nil)
+
+(defparameter %dcmtk::+dcm-shadow-style+ nil)
+
+(defparameter %dcmtk::+dcm-shape-type+ nil)
+
+(defparameter %dcmtk::+dcm-shared-functional-groups-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-sharpness+ nil)
+
+(defparameter %dcmtk::+dcm-shielding-device-description+ nil)
+
+(defparameter %dcmtk::+dcm-shielding-device-label+ nil)
+
+(defparameter %dcmtk::+dcm-shielding-device-position+ nil)
+
+(defparameter %dcmtk::+dcm-shielding-device-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-shielding-device-type+ nil)
+
+(defparameter %dcmtk::+dcm-shininess+ nil)
+
+(defparameter %dcmtk::+dcm-short-term-fluctuation+ nil)
+
+(defparameter %dcmtk::+dcm-short-term-fluctuation-calculated+ nil)
+
+(defparameter %dcmtk::+dcm-short-term-fluctuation-probability+ nil)
+
+(defparameter %dcmtk::+dcm-short-term-fluctuation-probability-calculated+ nil)
+
+(defparameter %dcmtk::+dcm-shot-duration-time+ nil)
+
+(defparameter %dcmtk::+dcm-shot-offset-time+ nil)
+
+(defparameter %dcmtk::+dcm-show-acquisition-techniques-flag+ nil)
+
+(defparameter %dcmtk::+dcm-show-graphic-annotation-flag+ nil)
+
+(defparameter %dcmtk::+dcm-show-grayscale-inverted+ nil)
+
+(defparameter %dcmtk::+dcm-show-image-true-size-flag+ nil)
+
+(defparameter %dcmtk::+dcm-show-patient-demographics-flag+ nil)
+
+(defparameter %dcmtk::+dcm-show-tick-label+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-left-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-lower-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-overlay-group+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-presentation-color-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-presentation-value+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-right-vertical-edge+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-shape+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-speed-value+ nil)
+
+(defparameter %dcmtk::+dcm-shutter-upper-horizontal-edge+ nil)
+
+(defparameter %dcmtk::+dcm-signal-domain-columns+ nil)
+
+(defparameter %dcmtk::+dcm-signal-domain-rows+ nil)
+
+(defparameter %dcmtk::+dcm-signal-to-noise-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-signature+ nil)
+
+(defparameter %dcmtk::+dcm-simple-frame-list+ nil)
+
+(defparameter %dcmtk::+dcm-simulated-keratometric-cylinder-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-single-collimation-width+ nil)
+
+(defparameter %dcmtk::+dcm-skip-beats+ nil)
+
+(defparameter %dcmtk::+dcm-skip-frame-range-flag+ nil)
+
+(defparameter %dcmtk::+dcm-slab-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-slab-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-slice-location+ nil)
+
+(defparameter %dcmtk::+dcm-slice-location-vector+ nil)
+
+(defparameter %dcmtk::+dcm-slice-progression-direction+ nil)
+
+(defparameter %dcmtk::+dcm-slice-sensitivity-factor+ nil)
+
+(defparameter %dcmtk::+dcm-slice-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-slice-vector+ nil)
+
+(defparameter %dcmtk::+dcm-smallest-image-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-smallest-pixel-value-in-series+ nil)
+
+(defparameter %dcmtk::+dcm-smoking-status+ nil)
+
+(defparameter %dcmtk::+dcm-smoothing-type+ nil)
+
+(defparameter %dcmtk::+dcm-snout-id+ nil)
+
+(defparameter %dcmtk::+dcm-snout-position+ nil)
+
+(defparameter %dcmtk::+dcm-snout-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-snout-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-soft-tissue-focus-thermal-index+ nil)
+
+(defparameter %dcmtk::+dcm-soft-tissue-surface-thermal-index+ nil)
+
+(defparameter %dcmtk::+dcm-soft-tissue-thermal-index+ nil)
+
+(defparameter %dcmtk::+dcm-softcopy-voilut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-software-versions+ nil)
+
+(defparameter %dcmtk::+dcm-sort-by-category+ nil)
+
+(defparameter %dcmtk::+dcm-sorting-direction+ nil)
+
+(defparameter %dcmtk::+dcm-sorting-operations-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-sound-path-length+ nil)
+
+(defparameter %dcmtk::+dcm-source-acquisition-beam-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-acquisition-protocol-element-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-application-entity-title+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-id+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-length+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-name+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-step-size+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-tip-length+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-type+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-wall-nominal-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-source-applicator-wall-nominal-transmission+ nil)
+
+(defparameter %dcmtk::+dcm-source-axis-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-conceptual-volume-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-conceptual-volume-uid+ nil)
+
+(defparameter %dcmtk::+dcm-source-description+ nil)
+
+(defparameter %dcmtk::+dcm-source-encapsulation-nominal-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-source-encapsulation-nominal-transmission+ nil)
+
+(defparameter %dcmtk::+dcm-source-end-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-source-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-source-hanging-protocol-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-source-image-corneal-processed-data-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-image-evidence-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-image-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-instance-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-irradiation-event-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-isotope-half-life+ nil)
+
+(defparameter %dcmtk::+dcm-source-isotope-name+ nil)
+
+(defparameter %dcmtk::+dcm-source-manufacturer+ nil)
+
+(defparameter %dcmtk::+dcm-source-model-id+ nil)
+
+(defparameter %dcmtk::+dcm-source-movement-type+ nil)
+
+(defparameter %dcmtk::+dcm-source-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-anterior-chamber-depth-data-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-cornea-measurement-data-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-corneal-size-data-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-lens-thickness-data-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-ophthalmic-axial-length-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-previous-values+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-refractive-measurements-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-of-refractive-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-source-patient-group-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-position+ nil)
+
+(defparameter %dcmtk::+dcm-source-presentation-address+ nil)
+
+(defparameter %dcmtk::+dcm-source-reconstruction-protocol-element-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-roll-angle+ nil)
+
+(defparameter %dcmtk::+dcm-source-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-source-serial-number+ nil)
+
+(defparameter %dcmtk::+dcm-source-start-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-source-strength+ nil)
+
+(defparameter %dcmtk::+dcm-source-strength-reference-date+ nil)
+
+(defparameter %dcmtk::+dcm-source-strength-reference-time+ nil)
+
+(defparameter %dcmtk::+dcm-source-strength-units+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-applicator-mounting-position-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-beam-limiting-device-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-block-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-compensator-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-compensator-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-external-contour-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-general-accessory-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-patient-surface-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-reference-object-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-surface-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-to-wedge-tray-distance+ nil)
+
+(defparameter %dcmtk::+dcm-source-type+ nil)
+
+(defparameter %dcmtk::+dcm-source-waveform-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-spacing-between-slices+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-frequency-response-column-names+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-frequency-response-columns+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-frequency-response-rows+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-frequency-response-values+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-locations-preserved+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-presaturation+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-spatial-transform-of-dose+ nil)
+
+(defparameter %dcmtk::+dcm-special-needs+ nil)
+
+(defparameter %dcmtk::+dcm-specific-absorption-rate-definition+ nil)
+
+(defparameter %dcmtk::+dcm-specific-absorption-rate-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specific-absorption-rate-value+ nil)
+
+(defparameter %dcmtk::+dcm-specific-character-set+ nil)
+
+(defparameter %dcmtk::+dcm-specific-character-set-of-file-set-descriptor-file+ nil)
+
+(defparameter %dcmtk::+dcm-specification-selection-guidance+ nil)
+
+(defparameter %dcmtk::+dcm-specified-channel-total-time+ nil)
+
+(defparameter %dcmtk::+dcm-specified-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-specified-number-of-pulses+ nil)
+
+(defparameter %dcmtk::+dcm-specified-primary-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-specified-pulse-repetition-interval+ nil)
+
+(defparameter %dcmtk::+dcm-specified-secondary-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-specified-treatment-time+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-description-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-detailed-description+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-label-in-image+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-localization-content-item-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-preparation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-preparation-step-content-item-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-short-description+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-specimen-uid+ nil)
+
+(defparameter %dcmtk::+dcm-spectral-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-spectral-width+ nil)
+
+(defparameter %dcmtk::+dcm-spectrally-selected-excitation+ nil)
+
+(defparameter %dcmtk::+dcm-spectrally-selected-suppression+ nil)
+
+(defparameter %dcmtk::+dcm-spectroscopy-acquisition-data-columns+ nil)
+
+(defparameter %dcmtk::+dcm-spectroscopy-acquisition-out-of-plane-phase-steps+ nil)
+
+(defparameter %dcmtk::+dcm-spectroscopy-acquisition-phase-columns+ nil)
+
+(defparameter %dcmtk::+dcm-spectroscopy-acquisition-phase-rows+ nil)
+
+(defparameter %dcmtk::+dcm-spectroscopy-data+ nil)
+
+(defparameter %dcmtk::+dcm-specular-reflection-intensity+ nil)
+
+(defparameter %dcmtk::+dcm-sphere-power+ nil)
+
+(defparameter %dcmtk::+dcm-spherical-lens-power+ nil)
+
+(defparameter %dcmtk::+dcm-spiral-pitch-factor+ nil)
+
+(defparameter %dcmtk::+dcm-spoiling+ nil)
+
+(defparameter %dcmtk::+dcm-stack-id+ nil)
+
+(defparameter %dcmtk::+dcm-stage-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-stage-name+ nil)
+
+(defparameter %dcmtk::+dcm-stage-number+ nil)
+
+(defparameter %dcmtk::+dcm-standard-output-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-start-acquisition-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-start-angle+ nil)
+
+(defparameter %dcmtk::+dcm-start-cardiac-trigger-count-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-start-cumulative-meterset-weight+ nil)
+
+(defparameter %dcmtk::+dcm-start-cumulative-time-weight+ nil)
+
+(defparameter %dcmtk::+dcm-start-density-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-start-meterset+ nil)
+
+(defparameter %dcmtk::+dcm-start-relative-density-difference-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-start-respiratory-trigger-count-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-start-trim+ nil)
+
+(defparameter %dcmtk::+dcm-starting-meterset-value-known-flag+ nil)
+
+(defparameter %dcmtk::+dcm-starting-respiratory-amplitude+ nil)
+
+(defparameter %dcmtk::+dcm-starting-respiratory-phase+ nil)
+
+(defparameter %dcmtk::+dcm-station-ae-title+ nil)
+
+(defparameter %dcmtk::+dcm-station-name+ nil)
+
+(defparameter %dcmtk::+dcm-status+ nil)
+
+(defparameter %dcmtk::+dcm-steady-state-pulse-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-steep-corneal-axis-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-steep-keratometric-axis-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-steering-angle+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-baseline-angle+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-baseline-displacement+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-horizontal-pixel-offset+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-pairs-present+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-pairs-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-stereo-vertical-pixel-offset+ nil)
+
+(defparameter %dcmtk::+dcm-stimuli-retesting-quantity+ nil)
+
+(defparameter %dcmtk::+dcm-stimulus-area+ nil)
+
+(defparameter %dcmtk::+dcm-stimulus-color-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-stimulus-presentation-time+ nil)
+
+(defparameter %dcmtk::+dcm-stimulus-results+ nil)
+
+(defparameter %dcmtk::+dcm-stop-trim+ nil)
+
+(defparameter %dcmtk::+dcm-storage-media-file-set-id+ nil)
+
+(defparameter %dcmtk::+dcm-storage-media-file-set-uid+ nil)
+
+(defparameter %dcmtk::+dcm-storage-protocol-element-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-storage-protocol-element-specification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-storage-url+ nil)
+
+(defparameter %dcmtk::+dcm-stored-value-color-range-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-strain-additional-information+ nil)
+
+(defparameter %dcmtk::+dcm-strain-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-strain-description+ nil)
+
+(defparameter %dcmtk::+dcm-strain-nomenclature+ nil)
+
+(defparameter %dcmtk::+dcm-strain-source+ nil)
+
+(defparameter %dcmtk::+dcm-strain-source-registry-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-strain-stock-number+ nil)
+
+(defparameter %dcmtk::+dcm-strain-stock-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-date+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-description+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-name+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-roi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-structure-set-time+ nil)
+
+(defparameter %dcmtk::+dcm-structured-constraint-observation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-structured-display-background-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-structured-display-image-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-structured-display-text-box-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-studies-containing-other-referenced-instances-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-study-date+ nil)
+
+(defparameter %dcmtk::+dcm-study-description+ nil)
+
+(defparameter %dcmtk::+dcm-study-id+ nil)
+
+(defparameter %dcmtk::+dcm-study-instance-uid+ nil)
+
+(defparameter %dcmtk::+dcm-study-time+ nil)
+
+(defparameter %dcmtk::+dcm-subject-area+ nil)
+
+(defparameter %dcmtk::+dcm-subject-distance+ nil)
+
+(defparameter %dcmtk::+dcm-subject-distance-range+ nil)
+
+(defparameter %dcmtk::+dcm-subject-location+ nil)
+
+(defparameter %dcmtk::+dcm-subject-relative-position-in-image+ nil)
+
+(defparameter %dcmtk::+dcm-subjective-refraction-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-subjective-refraction-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-subscription-list-status+ nil)
+
+(defparameter %dcmtk::+dcm-substance-administration-approval+ nil)
+
+(defparameter %dcmtk::+dcm-substance-administration-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-substance-administration-device-id+ nil)
+
+(defparameter %dcmtk::+dcm-substance-administration-notes+ nil)
+
+(defparameter %dcmtk::+dcm-substance-administration-parameter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-subtraction-item-id+ nil)
+
+(defparameter %dcmtk::+dcm-supported-image-display-formats-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-asymmetry-index+ nil)
+
+(defparameter %dcmtk::+dcm-surface-comments+ nil)
+
+(defparameter %dcmtk::+dcm-surface-count+ nil)
+
+(defparameter %dcmtk::+dcm-surface-entry-point+ nil)
+
+(defparameter %dcmtk::+dcm-surface-mesh-primitives-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-mesh-z-pixel-offset+ nil)
+
+(defparameter %dcmtk::+dcm-surface-model-description-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-model-label+ nil)
+
+(defparameter %dcmtk::+dcm-surface-model-scaling-factor+ nil)
+
+(defparameter %dcmtk::+dcm-surface-number+ nil)
+
+(defparameter %dcmtk::+dcm-surface-point-color-cie-lab-value-data+ nil)
+
+(defparameter %dcmtk::+dcm-surface-point-presentation-value-data+ nil)
+
+(defparameter %dcmtk::+dcm-surface-points-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-points-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-processing+ nil)
+
+(defparameter %dcmtk::+dcm-surface-processing-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-processing-description+ nil)
+
+(defparameter %dcmtk::+dcm-surface-processing-ratio+ nil)
+
+(defparameter %dcmtk::+dcm-surface-regularity-index+ nil)
+
+(defparameter %dcmtk::+dcm-surface-scan-acquisition-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-scan-mode-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surface-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-surgical-technique+ nil)
+
+(defparameter %dcmtk::+dcm-surgically-induced-astigmatism-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-switching-phase-nominal-duration+ nil)
+
+(defparameter %dcmtk::+dcm-switching-phase-number+ nil)
+
+(defparameter %dcmtk::+dcm-switching-phase-transition-duration+ nil)
+
+(defparameter %dcmtk::+dcm-swivel-range+ nil)
+
+(defparameter %dcmtk::+dcm-synchronization-channel+ nil)
+
+(defparameter %dcmtk::+dcm-synchronization-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-synchronization-trigger+ nil)
+
+(defparameter %dcmtk::+dcm-synchronized-image-box-list+ nil)
+
+(defparameter %dcmtk::+dcm-synchronized-scrolling-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-syringe-counts+ nil)
+
+(defparameter %dcmtk::+dcm-system-status+ nil)
+
+(defparameter %dcmtk::+dcm-system-status-comment+ nil)
+
+(defparameter %dcmtk::+dcm-t2preparation+ nil)
+
+(defparameter %dcmtk::+dcm-tdr-type+ nil)
+
+(defparameter %dcmtk::+dcm-tid-offset+ nil)
+
+(defparameter %dcmtk::+dcm-tip-type+ nil)
+
+(defparameter %dcmtk::+dcm-tm-line-position-x0+ nil)
+
+(defparameter %dcmtk::+dcm-tm-line-position-x1+ nil)
+
+(defparameter %dcmtk::+dcm-tm-line-position-y0+ nil)
+
+(defparameter %dcmtk::+dcm-tm-line-position-y1+ nil)
+
+(defparameter %dcmtk::+dcm-table-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-column-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-table-column-number+ nil)
+
+(defparameter %dcmtk::+dcm-table-cradle-tilt-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-feed-per-rotation+ nil)
+
+(defparameter %dcmtk::+dcm-table-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-table-head-tilt-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-height+ nil)
+
+(defparameter %dcmtk::+dcm-table-horizontal-rotation-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-lateral-increment+ nil)
+
+(defparameter %dcmtk::+dcm-table-longitudinal-increment+ nil)
+
+(defparameter %dcmtk::+dcm-table-motion+ nil)
+
+(defparameter %dcmtk::+dcm-table-of-parameter-values+ nil)
+
+(defparameter %dcmtk::+dcm-table-of-pixel-values+ nil)
+
+(defparameter %dcmtk::+dcm-table-of-x-break-points+ nil)
+
+(defparameter %dcmtk::+dcm-table-of-y-break-points+ nil)
+
+(defparameter %dcmtk::+dcm-table-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-table-row-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-table-row-number+ nil)
+
+(defparameter %dcmtk::+dcm-table-speed+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-eccentric-adjusted-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-eccentric-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-eccentric-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-eccentric-axis-distance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-eccentric-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-lateral-adjusted-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-lateral-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-lateral-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-lateral-setup-displacement+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-longitudinal-adjusted-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-longitudinal-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-longitudinal-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-longitudinal-setup-displacement+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-pitch-adjusted-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-pitch-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-pitch-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-pitch-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-roll-adjusted-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-roll-angle+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-roll-angle-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-roll-rotation-direction+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-vertical-adjusted-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-vertical-position+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-vertical-position-tolerance+ nil)
+
+(defparameter %dcmtk::+dcm-table-top-vertical-setup-displacement+ nil)
+
+(defparameter %dcmtk::+dcm-table-traverse+ nil)
+
+(defparameter %dcmtk::+dcm-table-type+ nil)
+
+(defparameter %dcmtk::+dcm-table-vertical-increment+ nil)
+
+(defparameter %dcmtk::+dcm-table-x-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-table-y-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-table-z-position-to-isocenter+ nil)
+
+(defparameter %dcmtk::+dcm-tabulated-values-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tag-angle-first-axis+ nil)
+
+(defparameter %dcmtk::+dcm-tag-angle-second-axis+ nil)
+
+(defparameter %dcmtk::+dcm-tag-spacing-first-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-tag-spacing-second-dimension+ nil)
+
+(defparameter %dcmtk::+dcm-tag-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-tagging+ nil)
+
+(defparameter %dcmtk::+dcm-tagging-delay+ nil)
+
+(defparameter %dcmtk::+dcm-tangential-power+ nil)
+
+(defparameter %dcmtk::+dcm-target-exposure-index+ nil)
+
+(defparameter %dcmtk::+dcm-target-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-target-label+ nil)
+
+(defparameter %dcmtk::+dcm-target-luminance-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-target-material-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-target-maximum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-target-maximum-luminance+ nil)
+
+(defparameter %dcmtk::+dcm-target-minimum-dose+ nil)
+
+(defparameter %dcmtk::+dcm-target-minimum-luminance+ nil)
+
+(defparameter %dcmtk::+dcm-target-position-reference-indicator+ nil)
+
+(defparameter %dcmtk::+dcm-target-prescription-dose+ nil)
+
+(defparameter %dcmtk::+dcm-target-refraction+ nil)
+
+(defparameter %dcmtk::+dcm-target-uid+ nil)
+
+(defparameter %dcmtk::+dcm-target-underdose-volume-fraction+ nil)
+
+(defparameter %dcmtk::+dcm-teletherapy-radiation-type+ nil)
+
+(defparameter %dcmtk::+dcm-temperature+ nil)
+
+(defparameter %dcmtk::+dcm-template-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-template-name+ nil)
+
+(defparameter %dcmtk::+dcm-template-number+ nil)
+
+(defparameter %dcmtk::+dcm-template-type+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-position-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-position-index+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-position-time-offset+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-range-type+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-relationship-interval-anchor+ nil)
+
+(defparameter %dcmtk::+dcm-temporal-resolution+ nil)
+
+(defparameter %dcmtk::+dcm-termination-cardiac-trigger-count-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-termination-counts-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-termination-density-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-termination-relative-density-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-termination-respiratory-trigger-count-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-termination-time-threshold+ nil)
+
+(defparameter %dcmtk::+dcm-test-image-validation+ nil)
+
+(defparameter %dcmtk::+dcm-test-pattern-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-test-point-normals-data-flag+ nil)
+
+(defparameter %dcmtk::+dcm-test-point-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-test-result+ nil)
+
+(defparameter %dcmtk::+dcm-test-result-comment+ nil)
+
+(defparameter %dcmtk::+dcm-text-color-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-text-object-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-text-string+ nil)
+
+(defparameter %dcmtk::+dcm-text-style-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-text-value+ nil)
+
+(defparameter %dcmtk::+dcm-texture-label+ nil)
+
+(defparameter %dcmtk::+dcm-therapeutic-role-category-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-therapeutic-role-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-threat-category+ nil)
+
+(defparameter %dcmtk::+dcm-threat-category-description+ nil)
+
+(defparameter %dcmtk::+dcm-threat-detection-algorithm-and-version+ nil)
+
+(defparameter %dcmtk::+dcm-threat-roi-base+ nil)
+
+(defparameter %dcmtk::+dcm-threat-roi-bitmap+ nil)
+
+(defparameter %dcmtk::+dcm-threat-roi-extents+ nil)
+
+(defparameter %dcmtk::+dcm-threat-roi-voxel-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-threat-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-degree-of-freedom-axis+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-implant-template-group-member-matching-axes+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-implant-template-group-member-matching-point+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-line-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-mating-axes+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-mating-point+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-plane-normal+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-plane-origin+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-point-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-three-d-rendering-type+ nil)
+
+(defparameter %dcmtk::+dcm-threshold-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-threshold-type+ nil)
+
+(defparameter %dcmtk::+dcm-threshold-value+ nil)
+
+(defparameter %dcmtk::+dcm-threshold-value-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tick-alignment+ nil)
+
+(defparameter %dcmtk::+dcm-tick-label+ nil)
+
+(defparameter %dcmtk::+dcm-tick-label-alignment+ nil)
+
+(defparameter %dcmtk::+dcm-tick-position+ nil)
+
+(defparameter %dcmtk::+dcm-time+ nil)
+
+(defparameter %dcmtk::+dcm-time-based-image-sets-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-time-distribution-protocol+ nil)
+
+(defparameter %dcmtk::+dcm-time-domain-filtering+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-flight-contrast+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-flight-information-used+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-frame-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-gain-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-last-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-last-detector-calibration+ nil)
+
+(defparameter %dcmtk::+dcm-time-of-secondary-capture+ nil)
+
+(defparameter %dcmtk::+dcm-time-range+ nil)
+
+(defparameter %dcmtk::+dcm-time-series-blending+ nil)
+
+(defparameter %dcmtk::+dcm-time-slice-vector+ nil)
+
+(defparameter %dcmtk::+dcm-time-slot-information-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-time-slot-time+ nil)
+
+(defparameter %dcmtk::+dcm-time-slot-vector+ nil)
+
+(defparameter %dcmtk::+dcm-time-source+ nil)
+
+(defparameter %dcmtk::+dcm-timezone-offset-from-utc+ nil)
+
+(defparameter %dcmtk::+dcm-tissue-heterogeneity-correction+ nil)
+
+(defparameter %dcmtk::+dcm-tolerance-table-label+ nil)
+
+(defparameter %dcmtk::+dcm-tolerance-table-number+ nil)
+
+(defparameter %dcmtk::+dcm-tolerance-table-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tolerance-value+ nil)
+
+(defparameter %dcmtk::+dcm-tomo-angle+ nil)
+
+(defparameter %dcmtk::+dcm-tomo-class+ nil)
+
+(defparameter %dcmtk::+dcm-tomo-layer-height+ nil)
+
+(defparameter %dcmtk::+dcm-tomo-time+ nil)
+
+(defparameter %dcmtk::+dcm-tomo-type+ nil)
+
+(defparameter %dcmtk::+dcm-tomotherapeutic-control-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tomotherapeutic-leaf-initial-closed-durations+ nil)
+
+(defparameter %dcmtk::+dcm-tomotherapeutic-leaf-open-durations+ nil)
+
+(defparameter %dcmtk::+dcm-top-left-hand-corner-of-localizer-area+ nil)
+
+(defparameter %dcmtk::+dcm-toric-iol-power-for-exact-emmetropia-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-toric-iol-power-for-exact-target-refraction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-toric-iol-power-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-total-aperture+ nil)
+
+(defparameter %dcmtk::+dcm-total-block-tray-factor+ nil)
+
+(defparameter %dcmtk::+dcm-total-block-tray-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-total-collimation-width+ nil)
+
+(defparameter %dcmtk::+dcm-total-compensator-tray-factor+ nil)
+
+(defparameter %dcmtk::+dcm-total-compensator-tray-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-total-number-of-pieces-of-media-created+ nil)
+
+(defparameter %dcmtk::+dcm-total-pixel-matrix-columns+ nil)
+
+(defparameter %dcmtk::+dcm-total-pixel-matrix-focal-planes+ nil)
+
+(defparameter %dcmtk::+dcm-total-pixel-matrix-origin-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-total-pixel-matrix-rows+ nil)
+
+(defparameter %dcmtk::+dcm-total-processing-time+ nil)
+
+(defparameter %dcmtk::+dcm-total-reference-air-kerma+ nil)
+
+(defparameter %dcmtk::+dcm-total-wedge-tray-water-equivalent-thickness+ nil)
+
+(defparameter %dcmtk::+dcm-track-point-index-list+ nil)
+
+(defparameter %dcmtk::+dcm-track-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-anatomical-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-description+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-label+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-number+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-track-set-statistics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-track-statistics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tracking-algorithm-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-tracking-id+ nil)
+
+(defparameter %dcmtk::+dcm-tracking-uid+ nil)
+
+(defparameter %dcmtk::+dcm-transaction-uid+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-application-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-beam-steering-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-data+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-geometry-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-scan-pattern-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transducer-type+ nil)
+
+(defparameter %dcmtk::+dcm-transfer-syntax-uid+ nil)
+
+(defparameter %dcmtk::+dcm-transfer-tube-length+ nil)
+
+(defparameter %dcmtk::+dcm-transfer-tube-number+ nil)
+
+(defparameter %dcmtk::+dcm-transform-description+ nil)
+
+(defparameter %dcmtk::+dcm-transform-number-of-axes+ nil)
+
+(defparameter %dcmtk::+dcm-transform-order-of-axes+ nil)
+
+(defparameter %dcmtk::+dcm-transformation-algorithm-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transformation-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transformed-axis-units+ nil)
+
+(defparameter %dcmtk::+dcm-translation-rate-x+ nil)
+
+(defparameter %dcmtk::+dcm-translation-rate-y+ nil)
+
+(defparameter %dcmtk::+dcm-transmit-coil-manufacturer-name+ nil)
+
+(defparameter %dcmtk::+dcm-transmit-coil-name+ nil)
+
+(defparameter %dcmtk::+dcm-transmit-coil-type+ nil)
+
+(defparameter %dcmtk::+dcm-transmit-transducer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transmit-transducer-settings-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-transmitter-frequency+ nil)
+
+(defparameter %dcmtk::+dcm-transport-classification+ nil)
+
+(defparameter %dcmtk::+dcm-transverse-detector-separation+ nil)
+
+(defparameter %dcmtk::+dcm-transverse-mash+ nil)
+
+(defparameter %dcmtk::+dcm-tray-accessory-code+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-control-point-date+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-control-point-time+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-date+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-delivery-continuation-flag+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-delivery-type+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-device-identification-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-machine-name+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-machine-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-machine-special-mode-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-position-group-label+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-position-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-position-group-uid+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-position-index+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-protocols+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-record-content-origin+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-session-application-setup-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-session-beam-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-session-ion-beam-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-session-uid+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-site+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-site-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-site-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-sites+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-status-comment+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-summary-calculated-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-summary-measured-dose-reference-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-technique-notes+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-termination-code+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-termination-description+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-termination-status+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-time+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-time-limit+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-attribute-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-category+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-cause-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-description+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-identification+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-tolerance-violation-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-treatment-verification-status+ nil)
+
+(defparameter %dcmtk::+dcm-triangle-fan-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-triangle-strip-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-sample-position+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-source-or-type+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-time+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-time-offset+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-vector+ nil)
+
+(defparameter %dcmtk::+dcm-trigger-window+ nil)
+
+(defparameter %dcmtk::+dcm-trim+ nil)
+
+(defparameter %dcmtk::+dcm-tube-angle+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-degree-of-freedom-axis+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-degree-of-freedom-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-implant-template-group-member-matching-axes+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-implant-template-group-member-matching-point+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-line-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-line-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-mating-axes+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-mating-feature-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-mating-point+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-plane-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-plane-intersection+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-point-coordinates+ nil)
+
+(defparameter %dcmtk::+dcm-two-d-point-coordinates-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-two-dimensional-to-three-dimensional-map-data+ nil)
+
+(defparameter %dcmtk::+dcm-two-dimensional-to-three-dimensional-map-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-detector-motion+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-filters+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-instances+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-optical-correction+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-patient-id+ nil)
+
+(defparameter %dcmtk::+dcm-type-of-synchronization+ nil)
+
+(defparameter %dcmtk::+dcm-udi-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-uid+ nil)
+
+(defparameter %dcmtk::+dcm-urn-code-value+ nil)
+
+(defparameter %dcmtk::+dcm-us-image-description-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-uv-mapping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-u-value-data+ nil)
+
+(defparameter %dcmtk::+dcm-ultrasound-acquisition-geometry+ nil)
+
+(defparameter %dcmtk::+dcm-ultrasound-color-data-present+ nil)
+
+(defparameter %dcmtk::+dcm-ultrasound-ophthalmic-axial-length-measurements-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-ultrasound-selected-ophthalmic-axial-length-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-unassigned-per-frame-converted-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-unassigned-shared-converted-attributes-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-undefined-tag-key+ nil)
+
+(defparameter %dcmtk::+dcm-underlined+ nil)
+
+(defparameter %dcmtk::+dcm-unformatted-text-value+ nil)
+
+(defparameter %dcmtk::+dcm-unified-procedure-step-list-status+ nil)
+
+(defparameter %dcmtk::+dcm-unified-procedure-step-performed-procedure-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-unique-device-identifier+ nil)
+
+(defparameter %dcmtk::+dcm-units+ nil)
+
+(defparameter %dcmtk::+dcm-universal-entity-id+ nil)
+
+(defparameter %dcmtk::+dcm-universal-entity-id-type+ nil)
+
+(defparameter %dcmtk::+dcm-unspecified-laterality-lens-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-used-fiducials-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-used-segments-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-user-content-label+ nil)
+
+(defparameter %dcmtk::+dcm-user-content-long-label+ nil)
+
+(defparameter %dcmtk::+dcm-user-selected-gain-y+ nil)
+
+(defparameter %dcmtk::+dcm-user-selected-offset-x+ nil)
+
+(defparameter %dcmtk::+dcm-user-selected-offset-y+ nil)
+
+(defparameter %dcmtk::+dcm-user-selected-phase+ nil)
+
+(defparameter %dcmtk::+dcm-voilut-function+ nil)
+
+(defparameter %dcmtk::+dcm-voilut-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-voi-type+ nil)
+
+(defparameter %dcmtk::+dcm-v-value-data+ nil)
+
+(defparameter %dcmtk::+dcm-value-type+ nil)
+
+(defparameter %dcmtk::+dcm-variable-flip-angle-flag+ nil)
+
+(defparameter %dcmtk::+dcm-vector-accuracy+ nil)
+
+(defparameter %dcmtk::+dcm-vector-coordinate-data+ nil)
+
+(defparameter %dcmtk::+dcm-vector-dimensionality+ nil)
+
+(defparameter %dcmtk::+dcm-vector-grid-data+ nil)
+
+(defparameter %dcmtk::+dcm-velocity-encoding-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-velocity-encoding-direction+ nil)
+
+(defparameter %dcmtk::+dcm-velocity-encoding-maximum-value+ nil)
+
+(defparameter %dcmtk::+dcm-velocity-encoding-minimum-value+ nil)
+
+(defparameter %dcmtk::+dcm-velocity-of-sound+ nil)
+
+(defparameter %dcmtk::+dcm-verification-date-time+ nil)
+
+(defparameter %dcmtk::+dcm-verification-flag+ nil)
+
+(defparameter %dcmtk::+dcm-verification-image-timing+ nil)
+
+(defparameter %dcmtk::+dcm-verifying-observer-identification-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-verifying-observer-name+ nil)
+
+(defparameter %dcmtk::+dcm-verifying-observer-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-verifying-organization+ nil)
+
+(defparameter %dcmtk::+dcm-vertical-alignment+ nil)
+
+(defparameter %dcmtk::+dcm-vertical-offset-of-sensor+ nil)
+
+(defparameter %dcmtk::+dcm-vertical-prism-base+ nil)
+
+(defparameter %dcmtk::+dcm-vertical-prism-power+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-outline-of-pupil+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-polygonal-collimator+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-polygonal-exposure-control-sensing-region+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-polygonal-outline+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-polygonal-shutter+ nil)
+
+(defparameter %dcmtk::+dcm-vertices-of-the-region+ nil)
+
+(defparameter %dcmtk::+dcm-video-image-format-acquired+ nil)
+
+(defparameter %dcmtk::+dcm-view-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-view-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-view-name+ nil)
+
+(defparameter %dcmtk::+dcm-view-number+ nil)
+
+(defparameter %dcmtk::+dcm-view-orientation-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-view-orientation-modifier-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-view-position+ nil)
+
+(defparameter %dcmtk::+dcm-viewing-distance+ nil)
+
+(defparameter %dcmtk::+dcm-viewing-distance-type+ nil)
+
+(defparameter %dcmtk::+dcm-viewpoint-look-at-point+ nil)
+
+(defparameter %dcmtk::+dcm-viewpoint-position+ nil)
+
+(defparameter %dcmtk::+dcm-viewpoint-up-direction+ nil)
+
+(defparameter %dcmtk::+dcm-virtual-source-axis-distances+ nil)
+
+(defparameter %dcmtk::+dcm-visit-comments+ nil)
+
+(defparameter %dcmtk::+dcm-visit-status-id+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-both-eyes-open-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-left-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-measurement-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-modifiers+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-right-eye-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-acuity-type-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-evaluation-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-evaluation-result-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-evaluation-test-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-catch-trial-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-global-results-index-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-horizontal-extent+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-mean-sensitivity+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-shape+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-duration+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-normals-flag+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-point-normals-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-point-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-point-x-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-point-y-coordinate+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-test-reliability-global-index-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-visual-field-vertical-extent+ nil)
+
+(defparameter %dcmtk::+dcm-vitreous-status-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-vitreous-status-description+ nil)
+
+(defparameter %dcmtk::+dcm-volume-based-calculation-technique+ nil)
+
+(defparameter %dcmtk::+dcm-volume-cropping-method+ nil)
+
+(defparameter %dcmtk::+dcm-volume-cropping-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volume-frame-of-reference-uid+ nil)
+
+(defparameter %dcmtk::+dcm-volume-localization-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volume-localization-technique+ nil)
+
+(defparameter %dcmtk::+dcm-volume-of-pto+ nil)
+
+(defparameter %dcmtk::+dcm-volume-stream-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volume-to-table-mapping-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-volume-to-transducer-mapping-matrix+ nil)
+
+(defparameter %dcmtk::+dcm-volume-to-transducer-relationship+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-annotation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-curve-points+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-curve-up-directions+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-input-annotation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-input-index+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-input-number+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-input-set-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-input-set-uid+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-presentation-state-input-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-volumetric-properties+ nil)
+
+(defparameter %dcmtk::+dcm-wadors-retrieval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wado-retrieval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-warning-reason+ nil)
+
+(defparameter %dcmtk::+dcm-water-depth+ nil)
+
+(defparameter %dcmtk::+dcm-water-equivalent-diameter+ nil)
+
+(defparameter %dcmtk::+dcm-water-equivalent-diameter-calculation-method-code-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-water-reference-acquisition+ nil)
+
+(defparameter %dcmtk::+dcm-water-referenced-phase-correction+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-annotation-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-bits-allocated+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-bits-stored+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-channel-number+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-data+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-data-display-scale+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-display-background-cie-lab-value+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-originality+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-padding-value+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-presentation-group-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-sample-interpretation+ nil)
+
+(defparameter %dcmtk::+dcm-waveform-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-angle+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-angle-float+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-chamfer-height+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-curve+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-definition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-description+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-element1position+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-factor+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-front-gap+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-front-height+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-id+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-in-contact-length+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-in-contact-width+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-manufacturer-name+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-material+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-material-velocity+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-model-number+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-name+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-number+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-offset-x+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-offset-y+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-offset-z+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-orientation+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-origin-offset-x+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-position+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-position-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-rear-height+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-roof-angle+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-thin-edge-position+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-time-delay+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-total-height+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-total-length+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-total-width+ nil)
+
+(defparameter %dcmtk::+dcm-wedge-type+ nil)
+
+(defparameter %dcmtk::+dcm-weekday-fraction-pattern-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-weighting-lookup-table-data+ nil)
+
+(defparameter %dcmtk::+dcm-weighting-lookup-table-descriptor+ nil)
+
+(defparameter %dcmtk::+dcm-weighting-transfer-function-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-white-balance+ nil)
+
+(defparameter %dcmtk::+dcm-white-point+ nil)
+
+(defparameter %dcmtk::+dcm-white-point-flag+ nil)
+
+(defparameter %dcmtk::+dcm-whole-body-technique+ nil)
+
+(defparameter %dcmtk::+dcm-whole-slide-microscopy-image-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wide-field-ophthalmic-photography-quality-rating-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wide-field-ophthalmic-photography-quality-threshold-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-wide-field-ophthalmic-photography-threshold-quality-rating+ nil)
+
+(defparameter %dcmtk::+dcm-window-center+ nil)
+
+(defparameter %dcmtk::+dcm-window-center-width-explanation+ nil)
+
+(defparameter %dcmtk::+dcm-window-width+ nil)
+
+(defparameter %dcmtk::+dcm-worklist-label+ nil)
+
+(defparameter %dcmtk::+dcm-xaxrf-frame-characteristics-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-coordinates-center-pixel-view-angle+ nil)
+
+(defparameter %dcmtk::+dcm-xds-retrieval-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-xds-storage-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-focus-center+ nil)
+
+(defparameter %dcmtk::+dcm-x-offset-in-slide-coordinate-system+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray3d-acquisition-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray3d-frame-type-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray3d-reconstruction-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-acquisition-dose-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-detector-id+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-detector-index+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-detector-label+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-filter-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-geometry-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-grid-sequence+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-image-receptor-angle+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-image-receptor-translation+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-mass-attenuation-coefficient+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-output+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-receptor-type+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-source-id+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-source-index+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-source-isocenter-primary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-source-isocenter-secondary-angle+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-tube-current+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-tube-current-inm-a+ nil)
+
+(defparameter %dcmtk::+dcm-x-ray-tube-current-inu-a+ nil)
+
+(defparameter %dcmtk::+dcm-y-coordinates-center-pixel-view-angle+ nil)
+
+(defparameter %dcmtk::+dcm-y-focus-center+ nil)
+
+(defparameter %dcmtk::+dcm-y-offset-in-slide-coordinate-system+ nil)
+
+(defparameter %dcmtk::+dcm-z-effective+ nil)
+
+(defparameter %dcmtk::+dcm-z-offset-in-slide-coordinate-system+ nil)
+
+(defparameter %dcmtk::+dcm-zero-velocity-pixel-value+ nil)
+
+(defparameter %dcmtk::+dcm-zoom-center+ nil)
+
+(defparameter %dcmtk::+dcm-zoom-factor+ nil)
+
+(defparameter %dcmtk::+dcm-d-bdt+ nil)
+
 (defparameter %dcmtk::+dcm-tag-error-tag-name+ "Unknown Tag & Data")
 
 (defparameter %dcmtk::+dcm-variable-vm+ -1)
+
+(defparameter %dcmtk::+of-string-stream-ends+ "")
+
+(define-symbol-macro
+  %dcmtk::*dcm-dcmdata-logger*
+  (let ((%dcmtk::ptr
+         (cffi:foreign-symbol-pointer "DCM_dcmdataLogger")))
+    (when %dcmtk::ptr (cffi:mem-ref %dcmtk::ptr '%dcmtk::of-logger))))
 
 (cffi:defcenum (%dcmtk::dcm-dict-range-restriction :unsigned-int)
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicent.h:42:6"
@@ -17,11 +9881,15 @@
                (:file-stream-factory 0)
                (:temp-file-stream-factory 1))
 
-(iffi:deficlass (%dcmtk::dcm-age-string :size-reporter
-                 "__claw_sizeof_DcmAgeString" :alignment-reporter
-                 "__claw_alignof_DcmAgeString" :constructor
-                 %dcmtk::dcm-age-string :destructor
-                 %dcmtk::~dcm-age-string)
+(iffi:deficlass (%dcmtk::dcm-age-string
+                  :size-reporter
+                  "__claw_sizeof_DcmAgeString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmAgeString"
+                  :constructor
+                  %dcmtk::dcm-age-string
+                  :destructor
+                  %dcmtk::~dcm-age-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvras.h:33:28")
 
@@ -34,9 +9902,13 @@
               (%dcmtk::old (:pointer %dcmtk::dcm-age-string)))
 
 (iffi:deficlass (%dcmtk::dcm-tag :size-reporter
-                 "__claw_sizeof_DcmTag" :alignment-reporter
-                 "__claw_alignof_DcmTag" :constructor %dcmtk::dcm-tag
-                 :destructor %dcmtk::~dcm-tag)
+                                 "__claw_sizeof_DcmTag"
+                                 :alignment-reporter
+                                 "__claw_alignof_DcmTag"
+                                 :constructor
+                                 %dcmtk::dcm-tag
+                                 :destructor
+                                 %dcmtk::~dcm-tag)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctag.h:56:28")
 
@@ -54,14 +9926,24 @@
               (%dcmtk::len %dcmtk::uint32))
 
 (iffi:deficlass (%dcmtk::of-condition :size-reporter
-                 "__claw_sizeof_OFCondition" :alignment-reporter
-                 "__claw_alignof_OFCondition")
+                                      "__claw_sizeof_OFCondition"
+                                      :alignment-reporter
+                                      "__claw_alignof_OFCondition"
+                                      :constructor
+                                      %dcmtk::of-condition
+                                      :destructor
+                                      %dcmtk::~of-condition)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:166:26")
 
 (iffi:deficlass (%dcmtk::of-string :size-reporter
-                 "__claw_sizeof_OFString" :alignment-reporter
-                 "__claw_alignof_OFString")
+                                   "__claw_sizeof_OFString"
+                                   :alignment-reporter
+                                   "__claw_alignof_OFString"
+                                   :constructor
+                                   %dcmtk::of-string
+                                   :destructor
+                                   %dcmtk::~of-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:80:26")
 
@@ -126,12 +10008,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-age-string)))
 
-(iffi:deficlass (%dcmtk::dcm-application-entity :size-reporter
-                 "__claw_sizeof_DcmApplicationEntity"
-                 :alignment-reporter
-                 "__claw_alignof_DcmApplicationEntity" :constructor
-                 %dcmtk::dcm-application-entity :destructor
-                 %dcmtk::~dcm-application-entity)
+(iffi:deficlass (%dcmtk::dcm-application-entity
+                  :size-reporter
+                  "__claw_sizeof_DcmApplicationEntity"
+                  :alignment-reporter
+                  "__claw_alignof_DcmApplicationEntity"
+                  :constructor
+                  %dcmtk::dcm-application-entity
+                  :destructor
+                  %dcmtk::~dcm-application-entity)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrae.h:33:28")
 
@@ -235,11 +10120,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-application-entity)))
 
-(iffi:deficlass (%dcmtk::dcm-attribute-tag :size-reporter
-                 "__claw_sizeof_DcmAttributeTag" :alignment-reporter
-                 "__claw_alignof_DcmAttributeTag" :constructor
-                 %dcmtk::dcm-attribute-tag :destructor
-                 %dcmtk::~dcm-attribute-tag)
+(iffi:deficlass (%dcmtk::dcm-attribute-tag
+                  :size-reporter
+                  "__claw_sizeof_DcmAttributeTag"
+                  :alignment-reporter
+                  "__claw_alignof_DcmAttributeTag"
+                  :constructor
+                  %dcmtk::dcm-attribute-tag
+                  :destructor
+                  %dcmtk::~dcm-attribute-tag)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrat.h:36:28")
 
@@ -330,10 +10219,13 @@
               (%dcmtk::normalize %dcmtk::of-bool))
 
 (iffi:deficlass (%dcmtk::dcm-tag-key :size-reporter
-                 "__claw_sizeof_DcmTagKey" :alignment-reporter
-                 "__claw_alignof_DcmTagKey" :constructor
-                 %dcmtk::dcm-tag-key :destructor
-                 %dcmtk::~dcm-tag-key)
+                                     "__claw_sizeof_DcmTagKey"
+                                     :alignment-reporter
+                                     "__claw_alignof_DcmTagKey"
+                                     :constructor
+                                     %dcmtk::dcm-tag-key
+                                     :destructor
+                                     %dcmtk::~dcm-tag-key)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dctagkey.h:40:28")
 
@@ -499,11 +10391,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-attribute-tag)))
 
-(iffi:deficlass (%dcmtk::dcm-byte-string :size-reporter
-                 "__claw_sizeof_DcmByteString" :alignment-reporter
-                 "__claw_alignof_DcmByteString" :constructor
-                 %dcmtk::dcm-byte-string :destructor
-                 %dcmtk::~dcm-byte-string)
+(iffi:deficlass (%dcmtk::dcm-byte-string
+                  :size-reporter
+                  "__claw_sizeof_DcmByteString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmByteString"
+                  :constructor
+                  %dcmtk::dcm-byte-string
+                  :destructor
+                  %dcmtk::~dcm-byte-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcbytstr.h:54:28")
 
@@ -855,11 +10751,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-byte-string)))
 
-(iffi:deficlass (%dcmtk::dcm-char-string :size-reporter
-                 "__claw_sizeof_DcmCharString" :alignment-reporter
-                 "__claw_alignof_DcmCharString" :constructor
-                 %dcmtk::dcm-char-string :destructor
-                 %dcmtk::~dcm-char-string)
+(iffi:deficlass (%dcmtk::dcm-char-string
+                  :size-reporter
+                  "__claw_sizeof_DcmCharString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmCharString"
+                  :constructor
+                  %dcmtk::dcm-char-string
+                  :destructor
+                  %dcmtk::~dcm-char-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcchrstr.h:48:28")
 
@@ -982,11 +10882,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-char-string)))
 
-(iffi:deficlass (%dcmtk::dcm-code-string :size-reporter
-                 "__claw_sizeof_DcmCodeString" :alignment-reporter
-                 "__claw_alignof_DcmCodeString" :constructor
-                 %dcmtk::dcm-code-string :destructor
-                 %dcmtk::~dcm-code-string)
+(iffi:deficlass (%dcmtk::dcm-code-string
+                  :size-reporter
+                  "__claw_sizeof_DcmCodeString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmCodeString"
+                  :constructor
+                  %dcmtk::dcm-code-string
+                  :destructor
+                  %dcmtk::~dcm-code-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrcs.h:33:28")
 
@@ -1155,12 +11059,15 @@
               (%dcmtk::buf (:pointer :void))
               (%dcmtk::buflen %dcmtk::offile-off-t))
 
-(iffi:deficlass (%dcmtk::dcm-data-dictionary :size-reporter
-                 "__claw_sizeof_DcmDataDictionary"
-                 :alignment-reporter
-                 "__claw_alignof_DcmDataDictionary" :constructor
-                 %dcmtk::dcm-data-dictionary :destructor
-                 %dcmtk::~dcm-data-dictionary)
+(iffi:deficlass (%dcmtk::dcm-data-dictionary
+                  :size-reporter
+                  "__claw_sizeof_DcmDataDictionary"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDataDictionary"
+                  :constructor
+                  %dcmtk::dcm-data-dictionary
+                  :destructor
+                  %dcmtk::~dcm-data-dictionary)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdict.h:55:28")
 
@@ -1173,11 +11080,15 @@
               (%dcmtk::load-builtin %dcmtk::of-bool)
               (%dcmtk::load-external %dcmtk::of-bool))
 
-(iffi:deficlass (%dcmtk::dcm-dict-entry :size-reporter
-                 "__claw_sizeof_DcmDictEntry" :alignment-reporter
-                 "__claw_alignof_DcmDictEntry" :constructor
-                 %dcmtk::dcm-dict-entry :destructor
-                 %dcmtk::~dcm-dict-entry)
+(iffi:deficlass (%dcmtk::dcm-dict-entry
+                  :size-reporter
+                  "__claw_sizeof_DcmDictEntry"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDictEntry"
+                  :constructor
+                  %dcmtk::dcm-dict-entry
+                  :destructor
+                  %dcmtk::~dcm-dict-entry)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicent.h:58:28")
 
@@ -1228,12 +11139,15 @@
               (%dcmtk::file-name :string)
               (%dcmtk::error-if-absent %dcmtk::of-bool))
 
-(iffi:deficlass (%dcmtk::dcm-hash-dict-iterator :size-reporter
-                 "__claw_sizeof_DcmHashDictIterator"
-                 :alignment-reporter
-                 "__claw_alignof_DcmHashDictIterator" :constructor
-                 %dcmtk::dcm-hash-dict-iterator :destructor
-                 %dcmtk::~dcm-hash-dict-iterator)
+(iffi:deficlass (%dcmtk::dcm-hash-dict-iterator
+                  :size-reporter
+                  "__claw_sizeof_DcmHashDictIterator"
+                  :alignment-reporter
+                  "__claw_alignof_DcmHashDictIterator"
+                  :constructor
+                  %dcmtk::dcm-hash-dict-iterator
+                  :destructor
+                  %dcmtk::~dcm-hash-dict-iterator)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dchashdi.h:115:28")
 
@@ -1293,10 +11207,11 @@
               (%dcmtk::load-builtin %dcmtk::of-bool)
               (%dcmtk::load-external %dcmtk::of-bool))
 
-(iffi:deficlass (%dcmtk::of-iterator<dcm-dict-entry*> :size-reporter
-                 "__claw_sizeof_OFIterator_DcmDictEntry__"
-                 :alignment-reporter
-                 "__claw_alignof_OFIterator_DcmDictEntry__")
+(iffi:deficlass (%dcmtk::of-iterator<dcm-dict-entry*>
+                  :size-reporter
+                  "__claw_sizeof_OFIterator_DcmDictEntry__"
+                  :alignment-reporter
+                  "__claw_alignof_OFIterator_DcmDictEntry__")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/oflist.h:169:7")
 
@@ -1330,10 +11245,13 @@
                (:pointer %dcmtk::dcm-data-dictionary)))
 
 (iffi:deficlass (%dcmtk::dcm-dataset :size-reporter
-                 "__claw_sizeof_DcmDataset" :alignment-reporter
-                 "__claw_alignof_DcmDataset" :constructor
-                 %dcmtk::dcm-dataset :destructor
-                 %dcmtk::~dcm-dataset)
+                                     "__claw_sizeof_DcmDataset"
+                                     :alignment-reporter
+                                     "__claw_alignof_DcmDataset"
+                                     :constructor
+                                     %dcmtk::dcm-dataset
+                                     :destructor
+                                     %dcmtk::~dcm-dataset)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdatset.h:40:28")
 
@@ -1433,8 +11351,13 @@
                (:pointer %dcmtk::dcm-representation-parameter)))
 
 (iffi:deficlass (%dcmtk::of-filename :size-reporter
-                 "__claw_sizeof_OFFilename" :alignment-reporter
-                 "__claw_alignof_OFFilename")
+                                     "__claw_sizeof_OFFilename"
+                                     :alignment-reporter
+                                     "__claw_alignof_OFFilename"
+                                     :constructor
+                                     %dcmtk::of-filename
+                                     :destructor
+                                     %dcmtk::~of-filename)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:124:26")
 
@@ -1644,9 +11567,13 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dataset)))
 
 (iffi:deficlass (%dcmtk::dcm-date :size-reporter
-                 "__claw_sizeof_DcmDate" :alignment-reporter
-                 "__claw_alignof_DcmDate" :constructor
-                 %dcmtk::dcm-date :destructor %dcmtk::~dcm-date)
+                                  "__claw_sizeof_DcmDate"
+                                  :alignment-reporter
+                                  "__claw_alignof_DcmDate"
+                                  :constructor
+                                  %dcmtk::dcm-date
+                                  :destructor
+                                  %dcmtk::~dcm-date)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrda.h:33:28")
 
@@ -1733,8 +11660,9 @@
               (%dcmtk::dicom-date (:pointer %dcmtk::of-string)))
 
 (iffi:deficlass (%dcmtk::of-date :size-reporter
-                 "__claw_sizeof_OFDate" :alignment-reporter
-                 "__claw_alignof_OFDate")
+                                 "__claw_sizeof_OFDate"
+                                 :alignment-reporter
+                                 "__claw_alignof_OFDate")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofdate.h:44:26")
 
@@ -1867,11 +11795,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrda.h:54:13"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-date)))
 
-(iffi:deficlass (%dcmtk::dcm-date-time :size-reporter
-                 "__claw_sizeof_DcmDateTime" :alignment-reporter
-                 "__claw_alignof_DcmDateTime" :constructor
-                 %dcmtk::dcm-date-time :destructor
-                 %dcmtk::~dcm-date-time)
+(iffi:deficlass (%dcmtk::dcm-date-time
+                  :size-reporter
+                  "__claw_sizeof_DcmDateTime"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDateTime"
+                  :constructor
+                  %dcmtk::dcm-date-time
+                  :destructor
+                  %dcmtk::~dcm-date-time)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrdt.h:33:28")
 
@@ -1943,8 +11875,9 @@
               (%dcmtk::time-zone %dcmtk::of-bool))
 
 (iffi:deficlass (%dcmtk::of-date-time :size-reporter
-                 "__claw_sizeof_OFDateTime" :alignment-reporter
-                 "__claw_alignof_OFDateTime")
+                                      "__claw_sizeof_OFDateTime"
+                                      :alignment-reporter
+                                      "__claw_alignof_OFDateTime")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofdatime.h:42:26")
 
@@ -2082,11 +12015,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrdt.h:54:13"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-date-time)))
 
-(iffi:deficlass (%dcmtk::dcm-decimal-string :size-reporter
-                 "__claw_sizeof_DcmDecimalString" :alignment-reporter
-                 "__claw_alignof_DcmDecimalString" :constructor
-                 %dcmtk::dcm-decimal-string :destructor
-                 %dcmtk::~dcm-decimal-string)
+(iffi:deficlass (%dcmtk::dcm-decimal-string
+                  :size-reporter
+                  "__claw_sizeof_DcmDecimalString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDecimalString"
+                  :constructor
+                  %dcmtk::dcm-decimal-string
+                  :destructor
+                  %dcmtk::~dcm-decimal-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrds.h:37:28")
 
@@ -2253,11 +12190,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-decimal-string)))
 
-(iffi:deficlass (%dcmtk::dcm-dicom-dir :size-reporter
-                 "__claw_sizeof_DcmDicomDir" :alignment-reporter
-                 "__claw_alignof_DcmDicomDir" :constructor
-                 %dcmtk::dcm-dicom-dir :destructor
-                 %dcmtk::~dcm-dicom-dir)
+(iffi:deficlass (%dcmtk::dcm-dicom-dir
+                  :size-reporter
+                  "__claw_sizeof_DcmDicomDir"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDicomDir"
+                  :constructor
+                  %dcmtk::dcm-dicom-dir
+                  :destructor
+                  %dcmtk::~dcm-dicom-dir)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicdir.h:52:28")
 
@@ -2281,11 +12222,15 @@
                (:pointer %dcmtk::of-condition))
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dicom-dir)))
 
-(iffi:deficlass (%dcmtk::dcm-file-format :size-reporter
-                 "__claw_sizeof_DcmFileFormat" :alignment-reporter
-                 "__claw_alignof_DcmFileFormat" :constructor
-                 %dcmtk::dcm-file-format :destructor
-                 %dcmtk::~dcm-file-format)
+(iffi:deficlass (%dcmtk::dcm-file-format
+                  :size-reporter
+                  "__claw_sizeof_DcmFileFormat"
+                  :alignment-reporter
+                  "__claw_alignof_DcmFileFormat"
+                  :constructor
+                  %dcmtk::dcm-file-format
+                  :destructor
+                  %dcmtk::~dcm-file-format)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcfilefo.h:42:28")
 
@@ -2301,12 +12246,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicdir.h:94:31"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dicom-dir)))
 
-(iffi:deficlass (%dcmtk::dcm-sequence-of-items :size-reporter
-                 "__claw_sizeof_DcmSequenceOfItems"
-                 :alignment-reporter
-                 "__claw_alignof_DcmSequenceOfItems" :constructor
-                 %dcmtk::dcm-sequence-of-items :destructor
-                 %dcmtk::~dcm-sequence-of-items)
+(iffi:deficlass (%dcmtk::dcm-sequence-of-items
+                  :size-reporter
+                  "__claw_sizeof_DcmSequenceOfItems"
+                  :alignment-reporter
+                  "__claw_alignof_DcmSequenceOfItems"
+                  :constructor
+                  %dcmtk::dcm-sequence-of-items
+                  :destructor
+                  %dcmtk::~dcm-sequence-of-items)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcsequen.h:43:28")
 
@@ -2316,12 +12264,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdicdir.h:100:33"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-dicom-dir)))
 
-(iffi:deficlass (%dcmtk::dcm-directory-record :size-reporter
-                 "__claw_sizeof_DcmDirectoryRecord"
-                 :alignment-reporter
-                 "__claw_alignof_DcmDirectoryRecord" :constructor
-                 %dcmtk::dcm-directory-record :destructor
-                 %dcmtk::~dcm-directory-record)
+(iffi:deficlass (%dcmtk::dcm-directory-record
+                  :size-reporter
+                  "__claw_sizeof_DcmDirectoryRecord"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDirectoryRecord"
+                  :constructor
+                  %dcmtk::dcm-directory-record
+                  :destructor
+                  %dcmtk::~dcm-directory-record)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcdirrec.h:139:28")
 
@@ -2388,10 +12339,14 @@
                (:pointer %dcmtk::dcm-dict-entry))
               (%dcmtk::e (:pointer %dcmtk::dcm-dict-entry)))
 
-(iffi:deficlass (%dcmtk::dcm-vr :size-reporter "__claw_sizeof_DcmVR"
-                 :alignment-reporter "__claw_alignof_DcmVR"
-                 :constructor %dcmtk::dcm-vr :destructor
-                 %dcmtk::~dcm-vr)
+(iffi:deficlass (%dcmtk::dcm-vr :size-reporter
+                                "__claw_sizeof_DcmVR"
+                                :alignment-reporter
+                                "__claw_alignof_DcmVR"
+                                :constructor
+                                %dcmtk::dcm-vr
+                                :destructor
+                                %dcmtk::~dcm-vr)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvr.h:282:28")
 
@@ -2654,11 +12609,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-dict-entry)))
 
-(iffi:deficlass (%dcmtk::dcm-dict-entry-list :size-reporter
-                 "__claw_sizeof_DcmDictEntryList" :alignment-reporter
-                 "__claw_alignof_DcmDictEntryList" :constructor
-                 %dcmtk::dcm-dict-entry-list :destructor
-                 %dcmtk::~dcm-dict-entry-list)
+(iffi:deficlass (%dcmtk::dcm-dict-entry-list
+                  :size-reporter
+                  "__claw_sizeof_DcmDictEntryList"
+                  :alignment-reporter
+                  "__claw_alignof_DcmDictEntryList"
+                  :constructor
+                  %dcmtk::dcm-dict-entry-list
+                  :destructor
+                  %dcmtk::~dcm-dict-entry-list)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dchashdi.h:39:28")
 
@@ -3136,9 +13095,13 @@
               (%dcmtk::num :unsigned-long))
 
 (iffi:deficlass (%dcmtk::dcm-stack :size-reporter
-                 "__claw_sizeof_DcmStack" :alignment-reporter
-                 "__claw_alignof_DcmStack" :constructor
-                 %dcmtk::dcm-stack :destructor %dcmtk::~dcm-stack)
+                                   "__claw_sizeof_DcmStack"
+                                   :alignment-reporter
+                                   "__claw_alignof_DcmStack"
+                                   :constructor
+                                   %dcmtk::dcm-stack
+                                   :destructor
+                                   %dcmtk::~dcm-stack)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcstack.h:71:28")
 
@@ -3341,9 +13304,13 @@
               (%dcmtk::len %dcmtk::size-t))
 
 (iffi:deficlass (%dcmtk::dcm-item :size-reporter
-                 "__claw_sizeof_DcmItem" :alignment-reporter
-                 "__claw_alignof_DcmItem" :constructor
-                 %dcmtk::dcm-item :destructor %dcmtk::~dcm-item)
+                                  "__claw_sizeof_DcmItem"
+                                  :alignment-reporter
+                                  "__claw_alignof_DcmItem"
+                                  :constructor
+                                  %dcmtk::dcm-item
+                                  :destructor
+                                  %dcmtk::~dcm-item)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcitem.h:46:28")
 
@@ -4093,11 +14060,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-file-format)))
 
-(iffi:deficlass (%dcmtk::dcm-meta-info :size-reporter
-                 "__claw_sizeof_DcmMetaInfo" :alignment-reporter
-                 "__claw_alignof_DcmMetaInfo" :constructor
-                 %dcmtk::dcm-meta-info :destructor
-                 %dcmtk::~dcm-meta-info)
+(iffi:deficlass (%dcmtk::dcm-meta-info
+                  :size-reporter
+                  "__claw_sizeof_DcmMetaInfo"
+                  :alignment-reporter
+                  "__claw_alignof_DcmMetaInfo"
+                  :constructor
+                  %dcmtk::dcm-meta-info
+                  :destructor
+                  %dcmtk::~dcm-meta-info)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcmetinf.h:49:28")
 
@@ -4371,12 +14342,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-file-format)))
 
-(iffi:deficlass (%dcmtk::dcm-floating-point-double :size-reporter
-                 "__claw_sizeof_DcmFloatingPointDouble"
-                 :alignment-reporter
-                 "__claw_alignof_DcmFloatingPointDouble" :constructor
-                 %dcmtk::dcm-floating-point-double :destructor
-                 %dcmtk::~dcm-floating-point-double)
+(iffi:deficlass (%dcmtk::dcm-floating-point-double
+                  :size-reporter
+                  "__claw_sizeof_DcmFloatingPointDouble"
+                  :alignment-reporter
+                  "__claw_alignof_DcmFloatingPointDouble"
+                  :constructor
+                  %dcmtk::dcm-floating-point-double
+                  :destructor
+                  %dcmtk::~dcm-floating-point-double)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrfd.h:36:28")
 
@@ -4582,12 +14556,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-floating-point-double)))
 
-(iffi:deficlass (%dcmtk::dcm-floating-point-single :size-reporter
-                 "__claw_sizeof_DcmFloatingPointSingle"
-                 :alignment-reporter
-                 "__claw_alignof_DcmFloatingPointSingle" :constructor
-                 %dcmtk::dcm-floating-point-single :destructor
-                 %dcmtk::~dcm-floating-point-single)
+(iffi:deficlass (%dcmtk::dcm-floating-point-single
+                  :size-reporter
+                  "__claw_sizeof_DcmFloatingPointSingle"
+                  :alignment-reporter
+                  "__claw_alignof_DcmFloatingPointSingle"
+                  :constructor
+                  %dcmtk::dcm-floating-point-single
+                  :destructor
+                  %dcmtk::~dcm-floating-point-single)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrfl.h:35:28")
 
@@ -4793,11 +14770,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-floating-point-single)))
 
-(iffi:deficlass (%dcmtk::dcm-hash-dict :size-reporter
-                 "__claw_sizeof_DcmHashDict" :alignment-reporter
-                 "__claw_alignof_DcmHashDict" :constructor
-                 %dcmtk::dcm-hash-dict :destructor
-                 %dcmtk::~dcm-hash-dict)
+(iffi:deficlass (%dcmtk::dcm-hash-dict
+                  :size-reporter
+                  "__claw_sizeof_DcmHashDict"
+                  :alignment-reporter
+                  "__claw_alignof_DcmHashDict"
+                  :constructor
+                  %dcmtk::dcm-hash-dict
+                  :destructor
+                  %dcmtk::~dcm-hash-dict)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dchashdi.h:192:28")
 
@@ -5078,11 +15059,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-input-stream-factory)))
 
-(iffi:deficlass (%dcmtk::dcm-integer-string :size-reporter
-                 "__claw_sizeof_DcmIntegerString" :alignment-reporter
-                 "__claw_alignof_DcmIntegerString" :constructor
-                 %dcmtk::dcm-integer-string :destructor
-                 %dcmtk::~dcm-integer-string)
+(iffi:deficlass (%dcmtk::dcm-integer-string
+                  :size-reporter
+                  "__claw_sizeof_DcmIntegerString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmIntegerString"
+                  :constructor
+                  %dcmtk::dcm-integer-string
+                  :destructor
+                  %dcmtk::~dcm-integer-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvris.h:36:28")
 
@@ -6213,9 +16198,13 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-item)))
 
 (iffi:deficlass (%dcmtk::dcm-list :size-reporter
-                 "__claw_sizeof_DcmList" :alignment-reporter
-                 "__claw_alignof_DcmList" :constructor
-                 %dcmtk::dcm-list :destructor %dcmtk::~dcm-list)
+                                  "__claw_sizeof_DcmList"
+                                  :alignment-reporter
+                                  "__claw_alignof_DcmList"
+                                  :constructor
+                                  %dcmtk::dcm-list
+                                  :destructor
+                                  %dcmtk::~dcm-list)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:98:28")
 
@@ -6310,11 +16299,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:105:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-list)))
 
-(iffi:deficlass (%dcmtk::dcm-list-node :size-reporter
-                 "__claw_sizeof_DcmListNode" :alignment-reporter
-                 "__claw_alignof_DcmListNode" :constructor
-                 %dcmtk::dcm-list-node :destructor
-                 %dcmtk::~dcm-list-node)
+(iffi:deficlass (%dcmtk::dcm-list-node
+                  :size-reporter
+                  "__claw_sizeof_DcmListNode"
+                  :alignment-reporter
+                  "__claw_alignof_DcmListNode"
+                  :constructor
+                  %dcmtk::dcm-list-node
+                  :destructor
+                  %dcmtk::~dcm-list-node)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:40:28")
 
@@ -6335,11 +16328,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dclist.h:50:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-list-node)))
 
-(iffi:deficlass (%dcmtk::dcm-long-string :size-reporter
-                 "__claw_sizeof_DcmLongString" :alignment-reporter
-                 "__claw_alignof_DcmLongString" :constructor
-                 %dcmtk::dcm-long-string :destructor
-                 %dcmtk::~dcm-long-string)
+(iffi:deficlass (%dcmtk::dcm-long-string
+                  :size-reporter
+                  "__claw_sizeof_DcmLongString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmLongString"
+                  :constructor
+                  %dcmtk::dcm-long-string
+                  :destructor
+                  %dcmtk::~dcm-long-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlo.h:36:28")
 
@@ -6435,11 +16432,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-long-string)))
 
-(iffi:deficlass (%dcmtk::dcm-long-text :size-reporter
-                 "__claw_sizeof_DcmLongText" :alignment-reporter
-                 "__claw_alignof_DcmLongText" :constructor
-                 %dcmtk::dcm-long-text :destructor
-                 %dcmtk::~dcm-long-text)
+(iffi:deficlass (%dcmtk::dcm-long-text
+                  :size-reporter
+                  "__claw_sizeof_DcmLongText"
+                  :alignment-reporter
+                  "__claw_alignof_DcmLongText"
+                  :constructor
+                  %dcmtk::dcm-long-text
+                  :destructor
+                  %dcmtk::~dcm-long-text)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrlt.h:32:28")
 
@@ -7031,12 +17032,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-object+print-helper)))
 
-(iffi:deficlass (%dcmtk::dcm-other64bit-very-long :size-reporter
-                 "__claw_sizeof_DcmOther64bitVeryLong"
-                 :alignment-reporter
-                 "__claw_alignof_DcmOther64bitVeryLong" :constructor
-                 %dcmtk::dcm-other64bit-very-long :destructor
-                 %dcmtk::~dcm-other64bit-very-long)
+(iffi:deficlass (%dcmtk::dcm-other64bit-very-long
+                  :size-reporter
+                  "__claw_sizeof_DcmOther64bitVeryLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOther64bitVeryLong"
+                  :constructor
+                  %dcmtk::dcm-other64bit-very-long
+                  :destructor
+                  %dcmtk::~dcm-other64bit-very-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrov.h:37:28")
 
@@ -7142,12 +17146,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other64bit-very-long)))
 
-(iffi:deficlass (%dcmtk::dcm-other-byte-other-word :size-reporter
-                 "__claw_sizeof_DcmOtherByteOtherWord"
-                 :alignment-reporter
-                 "__claw_alignof_DcmOtherByteOtherWord" :constructor
-                 %dcmtk::dcm-other-byte-other-word :destructor
-                 %dcmtk::~dcm-other-byte-other-word)
+(iffi:deficlass (%dcmtk::dcm-other-byte-other-word
+                  :size-reporter
+                  "__claw_sizeof_DcmOtherByteOtherWord"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOtherByteOtherWord"
+                  :constructor
+                  %dcmtk::dcm-other-byte-other-word
+                  :destructor
+                  %dcmtk::~dcm-other-byte-other-word)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrobow.h:38:28")
 
@@ -7446,11 +17453,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-byte-other-word)))
 
-(iffi:deficlass (%dcmtk::dcm-other-double :size-reporter
-                 "__claw_sizeof_DcmOtherDouble" :alignment-reporter
-                 "__claw_alignof_DcmOtherDouble" :constructor
-                 %dcmtk::dcm-other-double :destructor
-                 %dcmtk::~dcm-other-double)
+(iffi:deficlass (%dcmtk::dcm-other-double
+                  :size-reporter
+                  "__claw_sizeof_DcmOtherDouble"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOtherDouble"
+                  :constructor
+                  %dcmtk::dcm-other-double
+                  :destructor
+                  %dcmtk::~dcm-other-double)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrod.h:37:28")
 
@@ -7553,11 +17564,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-double)))
 
-(iffi:deficlass (%dcmtk::dcm-other-float :size-reporter
-                 "__claw_sizeof_DcmOtherFloat" :alignment-reporter
-                 "__claw_alignof_DcmOtherFloat" :constructor
-                 %dcmtk::dcm-other-float :destructor
-                 %dcmtk::~dcm-other-float)
+(iffi:deficlass (%dcmtk::dcm-other-float
+                  :size-reporter
+                  "__claw_sizeof_DcmOtherFloat"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOtherFloat"
+                  :constructor
+                  %dcmtk::dcm-other-float
+                  :destructor
+                  %dcmtk::~dcm-other-float)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrof.h:37:28")
 
@@ -7660,11 +17675,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-other-float)))
 
-(iffi:deficlass (%dcmtk::dcm-other-long :size-reporter
-                 "__claw_sizeof_DcmOtherLong" :alignment-reporter
-                 "__claw_alignof_DcmOtherLong" :constructor
-                 %dcmtk::dcm-other-long :destructor
-                 %dcmtk::~dcm-other-long)
+(iffi:deficlass (%dcmtk::dcm-other-long
+                  :size-reporter
+                  "__claw_sizeof_DcmOtherLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOtherLong"
+                  :constructor
+                  %dcmtk::dcm-other-long
+                  :destructor
+                  %dcmtk::~dcm-other-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrol.h:37:28")
 
@@ -7849,11 +17868,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-output-stream)))
 
-(iffi:deficlass (%dcmtk::dcm-overlay-data :size-reporter
-                 "__claw_sizeof_DcmOverlayData" :alignment-reporter
-                 "__claw_alignof_DcmOverlayData" :constructor
-                 %dcmtk::dcm-overlay-data :destructor
-                 %dcmtk::~dcm-overlay-data)
+(iffi:deficlass (%dcmtk::dcm-overlay-data
+                  :size-reporter
+                  "__claw_sizeof_DcmOverlayData"
+                  :alignment-reporter
+                  "__claw_alignof_DcmOverlayData"
+                  :constructor
+                  %dcmtk::dcm-overlay-data
+                  :destructor
+                  %dcmtk::~dcm-overlay-data)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcovlay.h:30:28")
 
@@ -7905,11 +17928,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-overlay-data)))
 
-(iffi:deficlass (%dcmtk::dcm-person-name :size-reporter
-                 "__claw_sizeof_DcmPersonName" :alignment-reporter
-                 "__claw_alignof_DcmPersonName" :constructor
-                 %dcmtk::dcm-person-name :destructor
-                 %dcmtk::~dcm-person-name)
+(iffi:deficlass (%dcmtk::dcm-person-name
+                  :size-reporter
+                  "__claw_sizeof_DcmPersonName"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPersonName"
+                  :constructor
+                  %dcmtk::dcm-person-name
+                  :destructor
+                  %dcmtk::~dcm-person-name)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrpn.h:36:28")
 
@@ -8118,11 +18145,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-person-name)))
 
-(iffi:deficlass (%dcmtk::dcm-pixel-data :size-reporter
-                 "__claw_sizeof_DcmPixelData" :alignment-reporter
-                 "__claw_alignof_DcmPixelData" :constructor
-                 %dcmtk::dcm-pixel-data :destructor
-                 %dcmtk::~dcm-pixel-data)
+(iffi:deficlass (%dcmtk::dcm-pixel-data
+                  :size-reporter
+                  "__claw_sizeof_DcmPixelData"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPixelData"
+                  :constructor
+                  %dcmtk::dcm-pixel-data
+                  :destructor
+                  %dcmtk::~dcm-pixel-data)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:146:28")
 
@@ -8267,11 +18298,15 @@
               (%dcmtk::decompressed-color-model
                (:pointer %dcmtk::of-string)))
 
-(iffi:deficlass (%dcmtk::dcm-pixel-sequence :size-reporter
-                 "__claw_sizeof_DcmPixelSequence" :alignment-reporter
-                 "__claw_alignof_DcmPixelSequence" :constructor
-                 %dcmtk::dcm-pixel-sequence :destructor
-                 %dcmtk::~dcm-pixel-sequence)
+(iffi:deficlass (%dcmtk::dcm-pixel-sequence
+                  :size-reporter
+                  "__claw_sizeof_DcmPixelSequence"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPixelSequence"
+                  :constructor
+                  %dcmtk::dcm-pixel-sequence
+                  :destructor
+                  %dcmtk::~dcm-pixel-sequence)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixseq.h:53:28")
 
@@ -8682,10 +18717,11 @@
                (:pointer %dcmtk::dcm-pixel-sequence))
               (%dcmtk::item (:pointer %dcmtk::dcm-pixel-item)))
 
-(iffi:deficlass (%dcmtk::of-list<unsigned+int> :size-reporter
-                 "__claw_sizeof_OFList_unsigned_int_"
-                 :alignment-reporter
-                 "__claw_alignof_OFList_unsigned_int_")
+(iffi:deficlass (%dcmtk::of-list<unsigned+int>
+                  :size-reporter
+                  "__claw_sizeof_OFList_unsigned_int_"
+                  :alignment-reporter
+                  "__claw_alignof_OFList_unsigned_int_")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/oflist.h:302:7")
 
@@ -8753,11 +18789,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-pixel-sequence)))
 
-(iffi:deficlass (%dcmtk::dcm-polymorph-obow :size-reporter
-                 "__claw_sizeof_DcmPolymorphOBOW" :alignment-reporter
-                 "__claw_alignof_DcmPolymorphOBOW" :constructor
-                 %dcmtk::dcm-polymorph-obow :destructor
-                 %dcmtk::~dcm-polymorph-obow)
+(iffi:deficlass (%dcmtk::dcm-polymorph-obow
+                  :size-reporter
+                  "__claw_sizeof_DcmPolymorphOBOW"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPolymorphOBOW"
+                  :constructor
+                  %dcmtk::dcm-polymorph-obow
+                  :destructor
+                  %dcmtk::~dcm-polymorph-obow)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrpobw.h:34:28")
 
@@ -8937,12 +18977,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-polymorph-obow)))
 
-(iffi:deficlass (%dcmtk::dcm-private-tag-cache :size-reporter
-                 "__claw_sizeof_DcmPrivateTagCache"
-                 :alignment-reporter
-                 "__claw_alignof_DcmPrivateTagCache" :constructor
-                 %dcmtk::dcm-private-tag-cache :destructor
-                 %dcmtk::~dcm-private-tag-cache)
+(iffi:deficlass (%dcmtk::dcm-private-tag-cache
+                  :size-reporter
+                  "__claw_sizeof_DcmPrivateTagCache"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPrivateTagCache"
+                  :constructor
+                  %dcmtk::dcm-private-tag-cache
+                  :destructor
+                  %dcmtk::~dcm-private-tag-cache)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpcache.h:78:28")
 
@@ -8983,12 +19026,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-private-tag-cache)))
 
-(iffi:deficlass (%dcmtk::dcm-private-tag-cache-entry :size-reporter
-                 "__claw_sizeof_DcmPrivateTagCacheEntry"
-                 :alignment-reporter
-                 "__claw_alignof_DcmPrivateTagCacheEntry"
-                 :constructor %dcmtk::dcm-private-tag-cache-entry
-                 :destructor %dcmtk::~dcm-private-tag-cache-entry)
+(iffi:deficlass (%dcmtk::dcm-private-tag-cache-entry
+                  :size-reporter
+                  "__claw_sizeof_DcmPrivateTagCacheEntry"
+                  :alignment-reporter
+                  "__claw_alignof_DcmPrivateTagCacheEntry"
+                  :constructor
+                  %dcmtk::dcm-private-tag-cache-entry
+                  :destructor
+                  %dcmtk::~dcm-private-tag-cache-entry)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpcache.h:35:28")
 
@@ -9523,11 +19569,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-sequence-of-items)))
 
-(iffi:deficlass (%dcmtk::dcm-short-string :size-reporter
-                 "__claw_sizeof_DcmShortString" :alignment-reporter
-                 "__claw_alignof_DcmShortString" :constructor
-                 %dcmtk::dcm-short-string :destructor
-                 %dcmtk::~dcm-short-string)
+(iffi:deficlass (%dcmtk::dcm-short-string
+                  :size-reporter
+                  "__claw_sizeof_DcmShortString"
+                  :alignment-reporter
+                  "__claw_alignof_DcmShortString"
+                  :constructor
+                  %dcmtk::dcm-short-string
+                  :destructor
+                  %dcmtk::~dcm-short-string)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsh.h:37:28")
 
@@ -9623,11 +19673,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-short-string)))
 
-(iffi:deficlass (%dcmtk::dcm-short-text :size-reporter
-                 "__claw_sizeof_DcmShortText" :alignment-reporter
-                 "__claw_alignof_DcmShortText" :constructor
-                 %dcmtk::dcm-short-text :destructor
-                 %dcmtk::~dcm-short-text)
+(iffi:deficlass (%dcmtk::dcm-short-text
+                  :size-reporter
+                  "__claw_sizeof_DcmShortText"
+                  :alignment-reporter
+                  "__claw_alignof_DcmShortText"
+                  :constructor
+                  %dcmtk::dcm-short-text
+                  :destructor
+                  %dcmtk::~dcm-short-text)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrst.h:33:28")
 
@@ -9736,12 +19790,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-short-text)))
 
-(iffi:deficlass (%dcmtk::dcm-signed64bit-very-long :size-reporter
-                 "__claw_sizeof_DcmSigned64bitVeryLong"
-                 :alignment-reporter
-                 "__claw_alignof_DcmSigned64bitVeryLong" :constructor
-                 %dcmtk::dcm-signed64bit-very-long :destructor
-                 %dcmtk::~dcm-signed64bit-very-long)
+(iffi:deficlass (%dcmtk::dcm-signed64bit-very-long
+                  :size-reporter
+                  "__claw_sizeof_DcmSigned64bitVeryLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmSigned64bitVeryLong"
+                  :constructor
+                  %dcmtk::dcm-signed64bit-very-long
+                  :destructor
+                  %dcmtk::~dcm-signed64bit-very-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsv.h:33:28")
 
@@ -9938,11 +19995,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-signed64bit-very-long)))
 
-(iffi:deficlass (%dcmtk::dcm-signed-long :size-reporter
-                 "__claw_sizeof_DcmSignedLong" :alignment-reporter
-                 "__claw_alignof_DcmSignedLong" :constructor
-                 %dcmtk::dcm-signed-long :destructor
-                 %dcmtk::~dcm-signed-long)
+(iffi:deficlass (%dcmtk::dcm-signed-long
+                  :size-reporter
+                  "__claw_sizeof_DcmSignedLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmSignedLong"
+                  :constructor
+                  %dcmtk::dcm-signed-long
+                  :destructor
+                  %dcmtk::~dcm-signed-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrsl.h:33:28")
 
@@ -10132,11 +20193,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-signed-long)))
 
-(iffi:deficlass (%dcmtk::dcm-signed-short :size-reporter
-                 "__claw_sizeof_DcmSignedShort" :alignment-reporter
-                 "__claw_alignof_DcmSignedShort" :constructor
-                 %dcmtk::dcm-signed-short :destructor
-                 %dcmtk::~dcm-signed-short)
+(iffi:deficlass (%dcmtk::dcm-signed-short
+                  :size-reporter
+                  "__claw_sizeof_DcmSignedShort"
+                  :alignment-reporter
+                  "__claw_alignof_DcmSignedShort"
+                  :constructor
+                  %dcmtk::dcm-signed-short
+                  :destructor
+                  %dcmtk::~dcm-signed-short)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrss.h:33:28")
 
@@ -10403,11 +20468,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcstack.h:84:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-stack)))
 
-(iffi:deficlass (%dcmtk::dcm-stack-node :size-reporter
-                 "__claw_sizeof_DcmStackNode" :alignment-reporter
-                 "__claw_alignof_DcmStackNode" :constructor
-                 %dcmtk::dcm-stack-node :destructor
-                 %dcmtk::~dcm-stack-node)
+(iffi:deficlass (%dcmtk::dcm-stack-node
+                  :size-reporter
+                  "__claw_sizeof_DcmStackNode"
+                  :alignment-reporter
+                  "__claw_alignof_DcmStackNode"
+                  :constructor
+                  %dcmtk::dcm-stack-node
+                  :destructor
+                  %dcmtk::~dcm-stack-node)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcstack.h:34:28")
 
@@ -10739,9 +20808,13 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-tag-key)))
 
 (iffi:deficlass (%dcmtk::dcm-time :size-reporter
-                 "__claw_sizeof_DcmTime" :alignment-reporter
-                 "__claw_alignof_DcmTime" :constructor
-                 %dcmtk::dcm-time :destructor %dcmtk::~dcm-time)
+                                  "__claw_sizeof_DcmTime"
+                                  :alignment-reporter
+                                  "__claw_alignof_DcmTime"
+                                  :constructor
+                                  %dcmtk::dcm-time
+                                  :destructor
+                                  %dcmtk::~dcm-time)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrtm.h:34:28")
 
@@ -10819,8 +20892,9 @@
               (%dcmtk::fraction %dcmtk::of-bool))
 
 (iffi:deficlass (%dcmtk::of-time :size-reporter
-                 "__claw_sizeof_OFTime" :alignment-reporter
-                 "__claw_alignof_OFTime")
+                                 "__claw_sizeof_OFTime"
+                                 :alignment-reporter
+                                 "__claw_alignof_OFTime")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/oftime.h:49:26")
 
@@ -11005,12 +21079,15 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrtm.h:55:13"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-time)))
 
-(iffi:deficlass (%dcmtk::dcm-unique-identifier :size-reporter
-                 "__claw_sizeof_DcmUniqueIdentifier"
-                 :alignment-reporter
-                 "__claw_alignof_DcmUniqueIdentifier" :constructor
-                 %dcmtk::dcm-unique-identifier :destructor
-                 %dcmtk::~dcm-unique-identifier)
+(iffi:deficlass (%dcmtk::dcm-unique-identifier
+                  :size-reporter
+                  "__claw_sizeof_DcmUniqueIdentifier"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUniqueIdentifier"
+                  :constructor
+                  %dcmtk::dcm-unique-identifier
+                  :destructor
+                  %dcmtk::~dcm-unique-identifier)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrui.h:32:28")
 
@@ -11129,14 +21206,14 @@
                (:pointer %dcmtk::dcm-unique-identifier)))
 
 (iffi:deficlass (%dcmtk::dcm-universal-resource-identifier-or-locator
-                 :size-reporter
-                 "__claw_sizeof_DcmUniversalResourceIdentifierOrLocator"
-                 :alignment-reporter
-                 "__claw_alignof_DcmUniversalResourceIdentifierOrLocator"
-                 :constructor
-                 %dcmtk::dcm-universal-resource-identifier-or-locator
-                 :destructor
-                 %dcmtk::~dcm-universal-resource-identifier-or-locator)
+                  :size-reporter
+                  "__claw_sizeof_DcmUniversalResourceIdentifierOrLocator"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUniversalResourceIdentifierOrLocator"
+                  :constructor
+                  %dcmtk::dcm-universal-resource-identifier-or-locator
+                  :destructor
+                  %dcmtk::~dcm-universal-resource-identifier-or-locator)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrur.h:35:28")
 
@@ -11283,12 +21360,15 @@
                (:pointer
                 %dcmtk::dcm-universal-resource-identifier-or-locator)))
 
-(iffi:deficlass (%dcmtk::dcm-unlimited-characters :size-reporter
-                 "__claw_sizeof_DcmUnlimitedCharacters"
-                 :alignment-reporter
-                 "__claw_alignof_DcmUnlimitedCharacters" :constructor
-                 %dcmtk::dcm-unlimited-characters :destructor
-                 %dcmtk::~dcm-unlimited-characters)
+(iffi:deficlass (%dcmtk::dcm-unlimited-characters
+                  :size-reporter
+                  "__claw_sizeof_DcmUnlimitedCharacters"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnlimitedCharacters"
+                  :constructor
+                  %dcmtk::dcm-unlimited-characters
+                  :destructor
+                  %dcmtk::~dcm-unlimited-characters)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvruc.h:34:28")
 
@@ -11376,11 +21456,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unlimited-characters)))
 
-(iffi:deficlass (%dcmtk::dcm-unlimited-text :size-reporter
-                 "__claw_sizeof_DcmUnlimitedText" :alignment-reporter
-                 "__claw_alignof_DcmUnlimitedText" :constructor
-                 %dcmtk::dcm-unlimited-text :destructor
-                 %dcmtk::~dcm-unlimited-text)
+(iffi:deficlass (%dcmtk::dcm-unlimited-text
+                  :size-reporter
+                  "__claw_sizeof_DcmUnlimitedText"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnlimitedText"
+                  :constructor
+                  %dcmtk::dcm-unlimited-text
+                  :destructor
+                  %dcmtk::~dcm-unlimited-text)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrut.h:34:28")
 
@@ -11490,12 +21574,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unlimited-text)))
 
-(iffi:deficlass (%dcmtk::dcm-unsigned64bit-very-long :size-reporter
-                 "__claw_sizeof_DcmUnsigned64bitVeryLong"
-                 :alignment-reporter
-                 "__claw_alignof_DcmUnsigned64bitVeryLong"
-                 :constructor %dcmtk::dcm-unsigned64bit-very-long
-                 :destructor %dcmtk::~dcm-unsigned64bit-very-long)
+(iffi:deficlass (%dcmtk::dcm-unsigned64bit-very-long
+                  :size-reporter
+                  "__claw_sizeof_DcmUnsigned64bitVeryLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnsigned64bitVeryLong"
+                  :constructor
+                  %dcmtk::dcm-unsigned64bit-very-long
+                  :destructor
+                  %dcmtk::~dcm-unsigned64bit-very-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvruv.h:32:28")
 
@@ -11692,11 +21779,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned64bit-very-long)))
 
-(iffi:deficlass (%dcmtk::dcm-unsigned-long :size-reporter
-                 "__claw_sizeof_DcmUnsignedLong" :alignment-reporter
-                 "__claw_alignof_DcmUnsignedLong" :constructor
-                 %dcmtk::dcm-unsigned-long :destructor
-                 %dcmtk::~dcm-unsigned-long)
+(iffi:deficlass (%dcmtk::dcm-unsigned-long
+                  :size-reporter
+                  "__claw_sizeof_DcmUnsignedLong"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnsignedLong"
+                  :constructor
+                  %dcmtk::dcm-unsigned-long
+                  :destructor
+                  %dcmtk::~dcm-unsigned-long)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrul.h:33:28")
 
@@ -11887,12 +21978,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned-long)))
 
-(iffi:deficlass (%dcmtk::dcm-unsigned-long-offset :size-reporter
-                 "__claw_sizeof_DcmUnsignedLongOffset"
-                 :alignment-reporter
-                 "__claw_alignof_DcmUnsignedLongOffset" :constructor
-                 %dcmtk::dcm-unsigned-long-offset :destructor
-                 %dcmtk::~dcm-unsigned-long-offset)
+(iffi:deficlass (%dcmtk::dcm-unsigned-long-offset
+                  :size-reporter
+                  "__claw_sizeof_DcmUnsignedLongOffset"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnsignedLongOffset"
+                  :constructor
+                  %dcmtk::dcm-unsigned-long-offset
+                  :destructor
+                  %dcmtk::~dcm-unsigned-long-offset)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrulup.h:35:28")
 
@@ -11980,11 +22074,15 @@
               (%dcmtk::%%claw-this-
                (:pointer %dcmtk::dcm-unsigned-long-offset)))
 
-(iffi:deficlass (%dcmtk::dcm-unsigned-short :size-reporter
-                 "__claw_sizeof_DcmUnsignedShort" :alignment-reporter
-                 "__claw_alignof_DcmUnsignedShort" :constructor
-                 %dcmtk::dcm-unsigned-short :destructor
-                 %dcmtk::~dcm-unsigned-short)
+(iffi:deficlass (%dcmtk::dcm-unsigned-short
+                  :size-reporter
+                  "__claw_sizeof_DcmUnsignedShort"
+                  :alignment-reporter
+                  "__claw_alignof_DcmUnsignedShort"
+                  :constructor
+                  %dcmtk::dcm-unsigned-short
+                  :destructor
+                  %dcmtk::~dcm-unsigned-short)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcvrus.h:33:28")
 
@@ -12303,9 +22401,13 @@
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-vr)))
 
 (iffi:deficlass (%dcmtk::dcm-xfer :size-reporter
-                 "__claw_sizeof_DcmXfer" :alignment-reporter
-                 "__claw_alignof_DcmXfer" :constructor
-                 %dcmtk::dcm-xfer :destructor %dcmtk::~dcm-xfer)
+                                  "__claw_sizeof_DcmXfer"
+                                  :alignment-reporter
+                                  "__claw_alignof_DcmXfer"
+                                  :constructor
+                                  %dcmtk::dcm-xfer
+                                  :destructor
+                                  %dcmtk::~dcm-xfer)
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:177:28")
 
@@ -12454,6 +22556,831 @@
               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:194:5"
               (%dcmtk::%%claw-this- (:pointer %dcmtk::dcm-xfer)))
 
+(iffi:defifun ("__claw__ZN11OFConditionC1ERKS_" %dcmtk::of-condition)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:206:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition)))
+
+(iffi:defistruct (%dcmtk::of-condition-const
+                   :size-reporter
+                   "__claw_sizeof_OFConditionConst"
+                   :alignment-reporter
+                   "__claw_alignof_OFConditionConst"
+                   :constructor
+                   %dcmtk::of-condition-const
+                   :destructor
+                   %dcmtk::~of-condition-const)
+                 nil
+                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:64:27")
+
+(iffi:defifun ("__claw__ZN11OFConditionC1ERK16OFConditionConst"
+               %dcmtk::of-condition)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:197:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::a-const (:pointer %dcmtk::of-condition-const)))
+
+(cffi:defcenum (%dcmtk::of-status :unsigned-int)
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:46:6"
+               (:ok 0)
+               (:error 1)
+               (:failure 2))
+
+(iffi:defifun ("__claw__ZN11OFConditionC1Ett8OFStatusPKc"
+               %dcmtk::of-condition)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:177:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::a-module :unsigned-short)
+              (%dcmtk::a-code :unsigned-short)
+              (%dcmtk::a-status %dcmtk::of-status)
+              (%dcmtk::a-text :string))
+
+(iffi:defifun ("__claw__ZNK11OFCondition3badEv" %dcmtk::bad
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:305:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition4codeEv" %dcmtk::code
+               :non-mutating t)
+              :unsigned-short
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:262:25"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition9conditionEv"
+               %dcmtk::condition :non-mutating t)
+              (:pointer %dcmtk::of-condition-const)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:288:34"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition4goodEv" %dcmtk::good
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:296:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition6moduleEv" %dcmtk::module
+               :non-mutating t)
+              :unsigned-short
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:252:25"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFConditionneERKS_" %dcmtk::operator!=
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:344:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZN11OFConditionaSERKS_" %dcmtk::operator=)
+              (:pointer %dcmtk::of-condition)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:230:16"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFConditioneqERKS_" %dcmtk::operator==
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:334:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition6statusEv" %dcmtk::status
+               :non-mutating t)
+              %dcmtk::of-status
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:270:19"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK11OFCondition4textEv" %dcmtk::text
+               :non-mutating t)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:280:22"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZN11OFConditionD1Ev" %dcmtk::~of-condition)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:218:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-condition)))
+
+(iffi:defifun ("__claw__ZNK16OFConditionConstneERKS_"
+               %dcmtk::operator!= :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:94:17"
+              (%dcmtk::%%claw-this-
+               (:pointer %dcmtk::of-condition-const))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition-const)))
+
+(iffi:defifun ("__claw__ZNK16OFConditionConsteqERKS_"
+               %dcmtk::operator== :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofcond.h:84:17"
+              (%dcmtk::%%claw-this-
+               (:pointer %dcmtk::of-condition-const))
+              (%dcmtk::arg (:pointer %dcmtk::of-condition-const)))
+
+(iffi:defifun ("__claw_cE3AE40SE40OFConditionConst_claw_ctor"
+               %dcmtk::of-condition-const)
+              :void
+              "::"
+              (%dcmtk::%%claw-this-
+               (:pointer %dcmtk::of-condition-const)))
+
+(iffi:defifun ("__claw_cE3AE40SE40OFConditionConst_claw_dtor"
+               %dcmtk::~of-condition-const)
+              :void
+              "::"
+              (%dcmtk::%%claw-this-
+               (:pointer %dcmtk::of-condition-const)))
+
+(iffi:defifun ("__claw__ZN10OFFilenameC1Ev" %dcmtk::of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:129:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN10OFFilenameC1ERKS_" %dcmtk::of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:172:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::arg (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN10OFFilenameC1ERK8OFStringb"
+               %dcmtk::of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:144:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::filename (:pointer %dcmtk::of-string))
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:deficlass (%dcmtk::o-fpath :size-reporter nil
+                 :alignment-reporter nil)
+                nil
+                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:117:7")
+
+(iffi:defifun ("__claw__ZN10OFFilenameC1ERK6OFpathb"
+               %dcmtk::of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:153:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::path (:pointer %dcmtk::o-fpath))
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:defifun ("__claw__ZN10OFFilenameC1EPKcb" %dcmtk::of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:136:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::filename :string)
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:defifun ("__claw__ZN10OFFilename5clearEv" %dcmtk::clear)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:186:8"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZNK10OFFilename14getCharPointerEv"
+               %dcmtk::get-char-pointer :non-mutating t)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:214:22"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZNK10OFFilename7isEmptyEv" %dcmtk::is-empty
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:197:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN10OFFilenameaSERKS_" %dcmtk::operator=)
+              (:pointer %dcmtk::of-filename)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:182:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::arg (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN10OFFilename3setERK8OFStringb" %dcmtk::set)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:245:8"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::filename (:pointer %dcmtk::of-string))
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:defifun ("__claw__ZN10OFFilename3setERK6OFpathb" %dcmtk::set)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:254:8"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::path (:pointer %dcmtk::o-fpath))
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:defifun ("__claw__ZN10OFFilename3setEPKcb" %dcmtk::set)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:237:8"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::filename :string)
+              (%dcmtk::convert %dcmtk::of-bool))
+
+(iffi:defifun ("__claw__ZN10OFFilename4swapERS_" %dcmtk::swap)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:192:8"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename))
+              (%dcmtk::arg (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZNK10OFFilename13usesWideCharsEv"
+               %dcmtk::uses-wide-chars :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:202:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN10OFFilenameD1Ev" %dcmtk::~of-filename)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/offile.h:176:3"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-filename)))
+
+(iffi:defifun ("__claw__ZN8OFStringC1Ev" %dcmtk::of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:93:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFStringC1ERKS_mm" %dcmtk::of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:104:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFStringC1EPKc" %dcmtk::of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:120:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFStringC1EPKcm" %dcmtk::of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:114:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFStringC1Emc" %dcmtk::of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:127:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::rep %dcmtk::size-t)
+              (%dcmtk::c :char))
+
+(iffi:defifun ("__claw__ZN8OFString6appendERKS_mm" %dcmtk::append)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:178:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6appendEPKc" %dcmtk::append)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:191:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFString6appendEPKcm" %dcmtk::append)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:185:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6appendEmc" %dcmtk::append)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:198:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::rep %dcmtk::size-t)
+              (%dcmtk::c :char))
+
+(iffi:defifun ("__claw__ZN8OFString6assignERKS_" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:215:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFString6assignERKS_mm" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:209:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6assignEPKc" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:235:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFString6assignEPKcS1_" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:229:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::e :string))
+
+(iffi:defifun ("__claw__ZN8OFString6assignEPKcm" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:222:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6assignEmc" %dcmtk::assign)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:242:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::rep %dcmtk::size-t)
+              (%dcmtk::c :char))
+
+(iffi:defifun ("__claw__ZN8OFString2atEm" %dcmtk::at)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:355:11"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString2atEm" %dcmtk::at :non-mutating
+               t)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:343:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defitype %dcmtk::of-string+iterator
+               :string
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:819:25")
+
+(iffi:defifun ("__claw__ZNK8OFString5beginEv" %dcmtk::begin
+               :non-mutating t)
+              %dcmtk::of-string+iterator
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:827:14"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString5c_strEv" %dcmtk::c-str
+               :non-mutating t)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:393:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString8capacityEv" %dcmtk::capacity
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:443:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFString5clearEv" %dcmtk::clear)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:458:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString7compareERKS_" %dcmtk::compare
+               :non-mutating t)
+              :int
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:508:9"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString7compareEPKc" %dcmtk::compare
+               :non-mutating t)
+              :int
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:535:9"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZNK8OFString7compareEmmRKS_" %dcmtk::compare
+               :non-mutating t)
+              :int
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:517:9"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos1 %dcmtk::size-t)
+              (%dcmtk::n1 %dcmtk::size-t)
+              (%dcmtk::str (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString7compareEmmRKS_mm"
+               %dcmtk::compare :non-mutating t)
+              :int
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:528:9"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos1 %dcmtk::size-t)
+              (%dcmtk::n1 %dcmtk::size-t)
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos2 %dcmtk::size-t)
+              (%dcmtk::n2 %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString7compareEmmPKcm" %dcmtk::compare
+               :non-mutating t)
+              :int
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:545:9"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos1 %dcmtk::size-t)
+              (%dcmtk::n1 %dcmtk::size-t)
+              (%dcmtk::s :string)
+              (%dcmtk::n2 %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4copyEPcmm" %dcmtk::copy
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:483:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::n %dcmtk::size-t)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4dataEv" %dcmtk::data
+               :non-mutating t)
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:405:17"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString5emptyEv" %dcmtk::empty
+               :non-mutating t)
+              %dcmtk::of-bool
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:428:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString3endEv" %dcmtk::end :non-mutating
+               t)
+              %dcmtk::of-string+iterator
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:832:14"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFString5eraseEmm" %dcmtk::erase)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:288:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4findERKS_m" %dcmtk::find
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:556:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4findEPKcm" %dcmtk::find
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:579:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4findEPKcmm" %dcmtk::find
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:568:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4findEcm" %dcmtk::find
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:590:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString17find_first_not_ofERKS_m"
+               %dcmtk::find-first-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:731:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString17find_first_not_ofEPKcm"
+               %dcmtk::find-first-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:752:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString17find_first_not_ofEPKcmm"
+               %dcmtk::find-first-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:742:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString17find_first_not_ofEcm"
+               %dcmtk::find-first-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:762:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::c :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString13find_first_ofERKS_m"
+               %dcmtk::find-first-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:646:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString13find_first_ofEPKcm"
+               %dcmtk::find-first-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:669:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString13find_first_ofEPKcmm"
+               %dcmtk::find-first-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:658:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString13find_first_ofEcm"
+               %dcmtk::find-first-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:680:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString16find_last_not_ofERKS_m"
+               %dcmtk::find-last-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:773:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString16find_last_not_ofEPKcm"
+               %dcmtk::find-last-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:796:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString16find_last_not_ofEPKcmm"
+               %dcmtk::find-last-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:785:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString16find_last_not_ofEcm"
+               %dcmtk::find-last-not-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:807:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::c :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString12find_last_ofERKS_m"
+               %dcmtk::find-last-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:690:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString12find_last_ofEPKcm"
+               %dcmtk::find-last-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:711:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString12find_last_ofEPKcmm"
+               %dcmtk::find-last-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:701:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString12find_last_ofEcm"
+               %dcmtk::find-last-of :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:721:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6insertEmRKS_mm" %dcmtk::insert)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:254:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos1 %dcmtk::size-t)
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos2 %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6insertEmPKc" %dcmtk::insert)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:272:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFString6insertEmPKcm" %dcmtk::insert)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:264:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::s :string)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6insertEmmc" %dcmtk::insert)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:281:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::rep %dcmtk::size-t)
+              (%dcmtk::c :char))
+
+(iffi:defifun ("__claw__ZNK8OFString6lengthEv" %dcmtk::length
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:420:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString8max_sizeEv" %dcmtk::max-size
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:451:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFStringpLERKS_" %dcmtk::operator+=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:155:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::rhs (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFStringpLEPKc" %dcmtk::operator+=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:161:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFStringpLEc" %dcmtk::operator+=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:167:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :char))
+
+(iffi:defifun ("__claw__ZN8OFStringaSERKS_" %dcmtk::operator=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:137:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::rhs (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFStringaSEPKc" %dcmtk::operator=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:143:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFStringaSEc" %dcmtk::operator=)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:149:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s :char))
+
+(iffi:defifun ("__claw__ZN8OFStringixEm" %dcmtk::operator[])
+              :string
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:382:11"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFStringixEm" %dcmtk::operator[]
+               :non-mutating t)
+              :char
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:366:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString7replaceEmmRKS_mm"
+               %dcmtk::replace)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:305:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos1 %dcmtk::size-t)
+              (%dcmtk::n1 %dcmtk::size-t)
+              (%dcmtk::str (:pointer %dcmtk::of-string))
+              (%dcmtk::pos2 %dcmtk::size-t)
+              (%dcmtk::n2 %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString7replaceEmmPKc" %dcmtk::replace)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:325:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t)
+              (%dcmtk::s :string))
+
+(iffi:defifun ("__claw__ZN8OFString7replaceEmmPKcm" %dcmtk::replace)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:316:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t)
+              (%dcmtk::s :string)
+              (%dcmtk::n2 %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString7replaceEmmmc" %dcmtk::replace)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:335:15"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t)
+              (%dcmtk::rep %dcmtk::size-t)
+              (%dcmtk::s :char))
+
+(iffi:defifun ("__claw__ZN8OFString7reserveEm" %dcmtk::reserve)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:471:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::res-arg %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString6resizeEmc" %dcmtk::resize)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:438:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::n %dcmtk::size-t)
+              (%dcmtk::c :char))
+
+(iffi:defifun ("__claw__ZNK8OFString5rfindERKS_m" %dcmtk::rfind
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:601:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString5rfindEPKcm" %dcmtk::rfind
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:624:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :string)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString5rfindEPKcmm" %dcmtk::rfind
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:613:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :string)
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString5rfindEcm" %dcmtk::rfind
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:635:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pattern :char)
+              (%dcmtk::pos %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZNK8OFString4sizeEv" %dcmtk::size
+               :non-mutating t)
+              %dcmtk::size-t
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:411:12"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZNK8OFString6substrEmm" %dcmtk::substr
+               :non-mutating t)
+              (:pointer %dcmtk::of-string)
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:490:14"
+              (%dcmtk::%%claw-result- (:pointer %dcmtk::of-string))
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::pos %dcmtk::size-t)
+              (%dcmtk::n %dcmtk::size-t))
+
+(iffi:defifun ("__claw__ZN8OFString4swapERS_" %dcmtk::swap)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:496:10"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string))
+              (%dcmtk::s (:pointer %dcmtk::of-string)))
+
+(iffi:defifun ("__claw__ZN8OFStringD1Ev" %dcmtk::~of-string)
+              :void
+              "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:131:5"
+              (%dcmtk::%%claw-this- (:pointer %dcmtk::of-string)))
+
 (cffi:defcenum (%dcmtk::|C:@EA@E-JPEG-ENCAPSULATED| :unsigned-int)
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:151:9"
                (:not-encapsulated 0)
@@ -12485,10 +23412,10 @@
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcxfer.h:147:3")
 
 (iffi:deficlass (%dcmtk::of-list<dcm-representation-entry*>
-                 :size-reporter
-                 "__claw_sizeof_OFList_DcmRepresentationEntry__"
-                 :alignment-reporter
-                 "__claw_alignof_OFList_DcmRepresentationEntry__")
+                  :size-reporter
+                  "__claw_sizeof_OFList_DcmRepresentationEntry__"
+                  :alignment-reporter
+                  "__claw_alignof_OFList_DcmRepresentationEntry__")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/oflist.h:302:7")
 
@@ -12497,10 +23424,10 @@
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:127:42")
 
 (iffi:deficlass (%dcmtk::of-iterator<dcm-representation-entry*>
-                 :size-reporter
-                 "__claw_sizeof_OFIterator_DcmRepresentationEntry__"
-                 :alignment-reporter
-                 "__claw_alignof_OFIterator_DcmRepresentationEntry__")
+                  :size-reporter
+                  "__claw_sizeof_OFIterator_DcmRepresentationEntry__"
+                  :alignment-reporter
+                  "__claw_alignof_OFIterator_DcmRepresentationEntry__")
                 nil
                 "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/oflist.h:169:7")
 
@@ -12512,646 +23439,6646 @@
                %dcmtk::of-iterator<dcm-representation-entry*>
                "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/dcmdata/include/dcmtk/dcmdata/dcpixel.h:130:50")
 
+(iffi:deficlass (%dcmtk::std+basic-stringstream<char+std+char-traits<char>+std+allocator<char>>
+                 :size-reporter
+                 "__claw_sizeof_std_basic_stringstream_char_std_char_traits_char__std_allocator_char__"
+                 :alignment-reporter
+                 "__claw_alignof_std_basic_stringstream_char_std_char_traits_char__std_allocator_char__")
+                nil
+                "/usr/include/c++/v1/sstream:865:28")
+
+(iffi:defitype %dcmtk::of-string-stream
+               %dcmtk::std+basic-stringstream<char+std+char-traits<char>+std+allocator<char>>
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstream.h:92:36")
+
+(iffi:defitype %dcmtk::of-string+const-iterator
+               :string
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:822:22")
+
+(iffi:defitype %dcmtk::of-string+size-type
+               :unsigned-long
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:810:20")
+
+(iffi:defitype %dcmtk::of-string+value-type
+               :char
+               "/home/borodust/devel/repo/cl-dcmtk/src/lib/dcmtk/ofstd/include/dcmtk/ofstd/ofstring.h:813:18")
+
 (eval-when (:load-toplevel :compile-toplevel :execute)
-  (export '%dcmtk::~dcm-char-string "%DCMTK")
-  (export '%dcmtk::get-delimiter-chars "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-time "%DCMTK")
-  (export '%dcmtk::e-transfer-syntax "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-LIST-POS| "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned64bit-very-long "%DCMTK")
-  (export '%dcmtk::get-number-of-values "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-VR-TYPE| "%DCMTK")
-  (export '%dcmtk::pop "%DCMTK")
-  (export '%dcmtk::set-current-date "%DCMTK")
-  (export '%dcmtk::new-factory "%DCMTK")
-  (export '%dcmtk::write "%DCMTK")
-  (export '%dcmtk::lookup-v-rin-dictionary "%DCMTK")
-  (export '%dcmtk::dcm-specific-character-set "%DCMTK")
-  (export '%dcmtk::get-xfer-name "%DCMTK")
-  (export '%dcmtk::e-grp-len-encoding "%DCMTK")
-  (export '%dcmtk::get-valid-vr-name "%DCMTK")
-  (export '%dcmtk::~dcm-code-string "%DCMTK")
-  (export '%dcmtk::number-of-repeating-tag-entries "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-date-time "%DCMTK")
-  (export '%dcmtk::mark "%DCMTK")
-  (export '%dcmtk::dcm-code-string+check-string-value "%DCMTK")
-  (export '%dcmtk::of-time "%DCMTK")
-  (export '%dcmtk::find-and-get-of-string "%DCMTK")
-  (export '%dcmtk::find-and-delete-element "%DCMTK")
-  (export '%dcmtk::~dcm-unique-identifier "%DCMTK")
-  (export '%dcmtk::put-and-insert-float32 "%DCMTK")
-  (export '%dcmtk::transfer-end "%DCMTK")
-  (export '%dcmtk::dcm-pixel-sequence "%DCMTK")
-  (export '%dcmtk::putback "%DCMTK")
-  (export '%dcmtk::~dcm-unlimited-text "%DCMTK")
-  (export '%dcmtk::get-x-tag "%DCMTK")
-  (export '%dcmtk::empty "%DCMTK")
-  (export '%dcmtk::card-sub "%DCMTK")
-  (export '%dcmtk::dcm-item+new-dicom-element "%DCMTK")
-  (export '%dcmtk::find-and-delete-sequence-item "%DCMTK")
-  (export '%dcmtk::~dcm-data-dictionary "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-dicom-date-time-from-of-date-time
+  (export '%dcmtk::+dcm-gantry-pitch-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-conventional-control-point-verification-sequence+
           "%DCMTK")
-  (export '%dcmtk::get-real-length "%DCMTK")
-  (export '%dcmtk::dcm-date+get-dicom-date-from-of-date "%DCMTK")
-  (export '%dcmtk::clear-sub "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint8array "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint16 "%DCMTK")
-  (export '%dcmtk::get-iso-formatted-date "%DCMTK")
-  (export '%dcmtk::ident "%DCMTK")
-  (export '%dcmtk::~dcm-stack "%DCMTK")
-  (export '%dcmtk::~dcm-xfer "%DCMTK")
-  (export '%dcmtk::dcm-date-time+check-string-value "%DCMTK")
-  (export '%dcmtk::set-current-time "%DCMTK")
-  (export '%dcmtk::of-bool "%DCMTK")
-  (export '%dcmtk::dcm-input-stream "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-SEARCH-MODE| "%DCMTK")
-  (export '%dcmtk::get-partial-value "%DCMTK")
-  (export '%dcmtk::dcm-overlay-data "%DCMTK")
-  (export '%dcmtk::get-string "%DCMTK")
-  (export '%dcmtk::convert-character-set "%DCMTK")
-  (export '%dcmtk::dcm-long-text+check-string-value "%DCMTK")
-  (export '%dcmtk::contains "%DCMTK")
-  (export '%dcmtk::push "%DCMTK")
-  (export '%dcmtk::set-of-date "%DCMTK")
-  (export '%dcmtk::dcm-private-tag-cache "%DCMTK")
-  (export '%dcmtk::create-uint16array "%DCMTK")
-  (export '%dcmtk::set-upper "%DCMTK")
-  (export '%dcmtk::e-dir-rec-type "%DCMTK")
-  (export '%dcmtk::dcm-write-cache "%DCMTK")
-  (export '%dcmtk::dcm-time+get-current-time "%DCMTK")
-  (export '%dcmtk::~dcm-file-format "%DCMTK")
-  (export '%dcmtk::dcm-universal-resource-identifier-or-locator
+  (export '%dcmtk::+dcm-multi-coil-element-used+ "%DCMTK")
+  (export '%dcmtk::+dcm-approval-status+ "%DCMTK")
+  (export '%dcmtk::put-float32array "%DCMTK")
+  (export '%dcmtk::+dcm-gps-measure-mode+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-TRANSFER-SYNTAX| "%DCMTK")
+  (export '%dcmtk::+dcm-screening-baseline-measured-sequence+
           "%DCMTK")
-  (export '%dcmtk::get-byte-order "%DCMTK")
-  (export '%dcmtk::get-uncompressed-frame "%DCMTK")
-  (export '%dcmtk::remove-invalid-groups "%DCMTK")
-  (export '%dcmtk::good "%DCMTK")
-  (export '%dcmtk::dcm-date+check "%DCMTK")
-  (export '%dcmtk::remove "%DCMTK")
-  (export '%dcmtk::is-lossy "%DCMTK")
-  (export '%dcmtk::float64 "%DCMTK")
-  (export '%dcmtk::set-g-tag "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-PADDING-ENCODING| "%DCMTK")
-  (export '%dcmtk::find-and-get-float32 "%DCMTK")
-  (export '%dcmtk::dcm-char-string "%DCMTK")
-  (export '%dcmtk::is-lossless "%DCMTK")
-  (export '%dcmtk::compute-group-length-and-padding "%DCMTK")
-  (export '%dcmtk::put-uint8array "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-component-group "%DCMTK")
-  (export '%dcmtk::set-of-time "%DCMTK")
-  (export '%dcmtk::is-standard "%DCMTK")
-  (export '%dcmtk::find-and-get-sint32 "%DCMTK")
-  (export '%dcmtk::dcm-decimal-string+check-string-value "%DCMTK")
-  (export '%dcmtk::dcm-representation-list-const-iterator "%DCMTK")
-  (export '%dcmtk::of-iterator<dcm-representation-entry*> "%DCMTK")
-  (export '%dcmtk::contains-unknown-vr "%DCMTK")
-  (export '%dcmtk::skip "%DCMTK")
-  (export '%dcmtk::is-private-creator-for "%DCMTK")
-  (export '%dcmtk::is-big-endian "%DCMTK")
-  (export '%dcmtk::uint32 "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list "%DCMTK")
-  (export '%dcmtk::error "%DCMTK")
-  (export '%dcmtk::change-xfer "%DCMTK")
-  (export '%dcmtk::dcm-short-string+check-string-value "%DCMTK")
-  (export '%dcmtk::set "%DCMTK")
-  (export '%dcmtk::get-parent "%DCMTK")
-  (export '%dcmtk::dcm-age-string "%DCMTK")
-  (export '%dcmtk::~dcm-short-string "%DCMTK")
-  (export '%dcmtk::put-uint16 "%DCMTK")
-  (export '%dcmtk::dcm-dicom-dir "%DCMTK")
-  (export '%dcmtk::~dcm-attribute-tag "%DCMTK")
-  (export '%dcmtk::dcm-other-float "%DCMTK")
-  (export '%dcmtk::dcm-polymorph-obow "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-BYTE-ORDER| "%DCMTK")
-  (export '%dcmtk::create-uint8array "%DCMTK")
-  (export '%dcmtk::is-affected-by-specific-character-set "%DCMTK")
-  (export '%dcmtk::load-dictionary "%DCMTK")
+  (export '%dcmtk::+dcm-film-session-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-measurements-left-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-presentation-comments+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-channel-shield-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-printer-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-depth-value-averaging-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rt-beam-limiting-device-openings+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-evaluator-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-slice-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-lo-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-oecf-column-names+ "%DCMTK")
+  (export '%dcmtk::+dcm-radionuclide-half-life+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-row-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-device-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-planes+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-patient-photo-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-protocol-element-specification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-coordinating-center-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-average-beam-dose-point-depth+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-sites+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-human-performer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dose-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-reconstruction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-start-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-mean-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-creation-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-spiral-pitch-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-creator-version-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-subject-area+ "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-level+ "%DCMTK")
+  (export '%dcmtk::+dcm-active-source-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-variable-next-data-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-transmission-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-reference-point-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radius-of-circular-exposure-control-sensing-region+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-phase-interval-sequence+
+          "%DCMTK")
+  (export '%dcmtk::is-length-in-char "%DCMTK")
+  (export '%dcmtk::+dcm-source-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-physical-property-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-phase-contrast+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer-device-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-source-isocenter-primary-angle+
+          "%DCMTK")
+  (export '%dcmtk::dcm-object+print-helper "%DCMTK")
+  (export '%dcmtk::+dcm-modifying-system+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-other-plane-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-occurrence-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-relationship-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-verbal-source-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-doppler-correction-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensing-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-show-tick-label+ "%DCMTK")
   (export '%dcmtk::get-uint16 "%DCMTK")
-  (export '%dcmtk::transfer-init "%DCMTK")
-  (export '%dcmtk::find-and-get-elements "%DCMTK")
-  (export '%dcmtk::tag-exists-with-value "%DCMTK")
-  (export '%dcmtk::find-and-get-sint64 "%DCMTK")
-  (export '%dcmtk::dcm-object "%DCMTK")
-  (export '%dcmtk::get-read-mode "%DCMTK")
-  (export '%dcmtk::dcm-date-time "%DCMTK")
-  (export '%dcmtk::get-jpeg-process8bit "%DCMTK")
-  (export '%dcmtk::get-referenced-mrdr "%DCMTK")
-  (export '%dcmtk::size "%DCMTK")
-  (export '%dcmtk::uint64 "%DCMTK")
-  (export '%dcmtk::dcm-short-text "%DCMTK")
-  (export '%dcmtk::set-private-creator "%DCMTK")
-  (export '%dcmtk::repeating-begin "%DCMTK")
-  (export '%dcmtk::get "%DCMTK")
-  (export '%dcmtk::is-private "%DCMTK")
-  (export '%dcmtk::get-jpeg-process12bit "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list-iterator "%DCMTK")
-  (export '%dcmtk::set-element "%DCMTK")
-  (export '%dcmtk::put "%DCMTK")
-  (export '%dcmtk::get-input-stream "%DCMTK")
-  (export '%dcmtk::compact-elements "%DCMTK")
-  (export '%dcmtk::create-uint64array "%DCMTK")
-  (export '%dcmtk::reload-dictionaries "%DCMTK")
-  (export '%dcmtk::next-sub "%DCMTK")
-  (export '%dcmtk::create-float64array "%DCMTK")
-  (export '%dcmtk::is-retired "%DCMTK")
-  (export '%dcmtk::dcm-floating-point-double "%DCMTK")
-  (export '%dcmtk::dcm-unique-identifier+check-string-value "%DCMTK")
-  (export '%dcmtk::get-and-remove-dataset "%DCMTK")
-  (export '%dcmtk::get-decompressed-color-model "%DCMTK")
-  (export '%dcmtk::operator>= "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry-list-const-iterator "%DCMTK")
-  (export '%dcmtk::~dcm-other-double "%DCMTK")
-  (export '%dcmtk::put-of-string-array "%DCMTK")
-  (export '%dcmtk::elem "%DCMTK")
-  (export '%dcmtk::write-json-ext "%DCMTK")
-  (export '%dcmtk::insert-item "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-long "%DCMTK")
-  (export '%dcmtk::get-group-range-restriction "%DCMTK")
-  (export '%dcmtk::create-value-from-temp-file "%DCMTK")
-  (export '%dcmtk::~dcm-dataset "%DCMTK")
-  (export '%dcmtk::update-cache "%DCMTK")
-  (export '%dcmtk::is-variable-range-vm "%DCMTK")
-  (export '%dcmtk::of-list<unsigned+int> "%DCMTK")
-  (export '%dcmtk::dcm-input-stream-factory-type "%DCMTK")
-  (export '%dcmtk::is-private-reservation "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-formatted-name-from-components
-          "%DCMTK")
-  (export '%dcmtk::is-implicit-vr "%DCMTK")
-  (export '%dcmtk::dcm-tag "%DCMTK")
-  (export '%dcmtk::find "%DCMTK")
-  (export '%dcmtk::get-current-representation-key "%DCMTK")
-  (export '%dcmtk::set-vr "%DCMTK")
-  (export '%dcmtk::put-and-insert-tag-key "%DCMTK")
-  (export '%dcmtk::is-fixed-range-vm "%DCMTK")
-  (export '%dcmtk::get-tag-val "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-long-offset "%DCMTK")
-  (export '%dcmtk::get-element "%DCMTK")
-  (export '%dcmtk::subset "%DCMTK")
-  (export '%dcmtk::get-key "%DCMTK")
-  (export '%dcmtk::dcm-vr "%DCMTK")
-  (export '%dcmtk::search "%DCMTK")
-  (export '%dcmtk::is-little-endian "%DCMTK")
-  (export '%dcmtk::e-jpeg-encapsulated "%DCMTK")
-  (export '%dcmtk::set-element-range-restriction "%DCMTK")
-  (export '%dcmtk::dcm-time "%DCMTK")
-  (export '%dcmtk::delete-sub-and-purge-file "%DCMTK")
-  (export '%dcmtk::choose-representation "%DCMTK")
-  (export '%dcmtk::~dcm-age-string "%DCMTK")
-  (export '%dcmtk::valid "%DCMTK")
-  (export '%dcmtk::e-transfer-state "%DCMTK")
-  (export '%dcmtk::put-sint16 "%DCMTK")
-  (export '%dcmtk::dcm-offset-list "%DCMTK")
-  (export '%dcmtk::dcm-code-string+check-vr "%DCMTK")
-  (export '%dcmtk::~dcm-decimal-string "%DCMTK")
-  (export '%dcmtk::dcm-date+get-of-date-from-string "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-string-from-name-components
-          "%DCMTK")
-  (export '%dcmtk::~dcm-tag-key "%DCMTK")
-  (export '%dcmtk::get-tag "%DCMTK")
-  (export '%dcmtk::~dcm-signed-long "%DCMTK")
+  (export '%dcmtk::+dcm-certified-timestamp+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-along-scan-distortion+ "%DCMTK")
+  (export '%dcmtk::find-or-create-sequence-item "%DCMTK")
+  (export '%dcmtk::dcm-char-string "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-tables+ "%DCMTK")
+  (export '%dcmtk::+dcm-leaf-position-boundaries+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-annotation-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-stimulus-luminance+ "%DCMTK")
   (export '%dcmtk::std+ostream "%DCMTK")
-  (export '%dcmtk::set-current-representation-parameter "%DCMTK")
-  (export '%dcmtk::e-storage-sop-class-type "%DCMTK")
-  (export '%dcmtk::dcm-output-filter "%DCMTK")
-  (export '%dcmtk::dcm-file-format "%DCMTK")
-  (export '%dcmtk::of-filename "%DCMTK")
-  (export '%dcmtk::assign-to-mrdr "%DCMTK")
-  (export '%dcmtk::detach-value-field "%DCMTK")
-  (export '%dcmtk::dcm-stack "%DCMTK")
-  (export '%dcmtk::~dcm-other64bit-very-long "%DCMTK")
-  (export '%dcmtk::number-of-skeleton-entries "%DCMTK")
-  (export '%dcmtk::dcm-private-tag-cache-entry "%DCMTK")
-  (export '%dcmtk::write-json "%DCMTK")
-  (export '%dcmtk::operator* "%DCMTK")
-  (export '%dcmtk::put-uint32array "%DCMTK")
-  (export '%dcmtk::is-repeating-group "%DCMTK")
-  (export '%dcmtk::~dcm-other-float "%DCMTK")
-  (export '%dcmtk::contains-extended-characters "%DCMTK")
-  (export '%dcmtk::dcm-long-string+check-string-value "%DCMTK")
-  (export '%dcmtk::dcm-dict-range-restriction "%DCMTK")
-  (export '%dcmtk::verify "%DCMTK")
-  (export '%dcmtk::put-float64 "%DCMTK")
-  (export '%dcmtk::get-xfer "%DCMTK")
-  (export '%dcmtk::check-value "%DCMTK")
-  (export '%dcmtk::e-stream-compression "%DCMTK")
-  (export '%dcmtk::get-dataset "%DCMTK")
-  (export '%dcmtk::uint16 "%DCMTK")
-  (export '%dcmtk::value "%DCMTK")
-  (export '%dcmtk::next-in-container "%DCMTK")
-  (export '%dcmtk::set-records-origin-file "%DCMTK")
-  (export '%dcmtk::get-records-origin-file "%DCMTK")
-  (export '%dcmtk::validate-meta-info "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-FILE-WRITE-MODE| "%DCMTK")
-  (export '%dcmtk::dcm-hash-dict "%DCMTK")
-  (export '%dcmtk::size-t "%DCMTK")
-  (export '%dcmtk::dcm-list "%DCMTK")
-  (export '%dcmtk::get-formatted-name "%DCMTK")
-  (export '%dcmtk::find-and-get-long-int "%DCMTK")
-  (export '%dcmtk::get-uncompressed-frame-size "%DCMTK")
-  (export '%dcmtk::get-of-string-array "%DCMTK")
-  (export '%dcmtk::put-float64array "%DCMTK")
-  (export '%dcmtk::dcm-element "%DCMTK")
-  (export '%dcmtk::dcm-producer "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint16 "%DCMTK")
-  (export '%dcmtk::get-float32 "%DCMTK")
-  (export '%dcmtk::print-helper "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-JPEG-ENCAPSULATED| "%DCMTK")
-  (export '%dcmtk::dcm-pixel-item "%DCMTK")
-  (export '%dcmtk::put-sint32array "%DCMTK")
-  (export '%dcmtk::is-universal-match "%DCMTK")
-  (export '%dcmtk::dcm-time+check-string-value "%DCMTK")
-  (export '%dcmtk::get-current-xfer "%DCMTK")
-  (export '%dcmtk::dcm-stack-node "%DCMTK")
-  (export '%dcmtk::std+basic-ostream<char> "%DCMTK")
-  (export '%dcmtk::store-compressed-frame "%DCMTK")
-  (export '%dcmtk::dcm-unsigned-short "%DCMTK")
-  (export '%dcmtk::~dcm-stack-node "%DCMTK")
-  (export '%dcmtk::dcm-tag+find-tag-from-name "%DCMTK")
-  (export '%dcmtk::put-uint32 "%DCMTK")
-  (export '%dcmtk::dcm-code-string "%DCMTK")
-  (export '%dcmtk::dcm-time+get-dicom-time-from-of-time "%DCMTK")
-  (export '%dcmtk::put-float32 "%DCMTK")
-  (export '%dcmtk::find-and-get-sequence-item "%DCMTK")
-  (export '%dcmtk::create-float32array "%DCMTK")
-  (export '%dcmtk::dcmobj- "%DCMTK")
-  (export '%dcmtk::dcm-list-node "%DCMTK")
-  (export '%dcmtk::remove-all-but-current-representations "%DCMTK")
-  (export '%dcmtk::float32 "%DCMTK")
-  (export '%dcmtk::combination-matches "%DCMTK")
-  (export '%dcmtk::put-and-insert-of-string-array "%DCMTK")
-  (export '%dcmtk::get-meta-info "%DCMTK")
-  (export '%dcmtk::put-sint64array "%DCMTK")
-  (export '%dcmtk::is-for-internal-use-only "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-TRANSFER-STATE| "%DCMTK")
-  (export '%dcmtk::insert-sub "%DCMTK")
-  (export '%dcmtk::~dcm-long-string "%DCMTK")
-  (export '%dcmtk::put-tag-val "%DCMTK")
-  (export '%dcmtk::get-uint32array "%DCMTK")
-  (export '%dcmtk::get-vr "%DCMTK")
-  (export '%dcmtk::tag-exists "%DCMTK")
-  (export '%dcmtk::insert-at-current-pos "%DCMTK")
-  (export '%dcmtk::of-date-time "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-text+check-string-value "%DCMTK")
-  (export '%dcmtk::put-sint64 "%DCMTK")
-  (export '%dcmtk::get-max-value-length "%DCMTK")
-  (export '%dcmtk::set-read-mode "%DCMTK")
-  (export '%dcmtk::is-encapsulated "%DCMTK")
-  (export '%dcmtk::~dcm-hash-dict-iterator "%DCMTK")
-  (export '%dcmtk::get-root-record "%DCMTK")
-  (export '%dcmtk::+dcm-variable-vm+ "%DCMTK")
-  (export '%dcmtk::is-not-encapsulated "%DCMTK")
-  (export '%dcmtk::dcm-other-long "%DCMTK")
-  (export '%dcmtk::~dcm-date "%DCMTK")
-  (export '%dcmtk::uses-extended-length-encoding "%DCMTK")
-  (export '%dcmtk::get-float64 "%DCMTK")
-  (export '%dcmtk::find-and-get-uint8array "%DCMTK")
-  (export '%dcmtk::dcm-element+get-value-from-string "%DCMTK")
-  (export '%dcmtk::match-or-create-mrdr "%DCMTK")
-  (export '%dcmtk::of-condition "%DCMTK")
-  (export '%dcmtk::get-uint16array "%DCMTK")
-  (export '%dcmtk::get-xfer-id "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-STORAGE-SOP-CLASS-TYPE| "%DCMTK")
-  (export '%dcmtk::of-date "%DCMTK")
-  (export '%dcmtk::clone "%DCMTK")
-  (export '%dcmtk::is-explicit-vr "%DCMTK")
-  (export '%dcmtk::~dcm-dict-entry "%DCMTK")
-  (export '%dcmtk::get-root-item "%DCMTK")
-  (export '%dcmtk::get-float64array "%DCMTK")
-  (export '%dcmtk::card "%DCMTK")
-  (export '%dcmtk::top "%DCMTK")
-  (export '%dcmtk::is-signable "%DCMTK")
-  (export '%dcmtk::put-string "%DCMTK")
-  (export '%dcmtk::insert "%DCMTK")
-  (export '%dcmtk::normal-end "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-characters+check-string-value
+  (export '%dcmtk::+dcm-requested-procedure-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-annotation-type-code-sequence+
           "%DCMTK")
-  (export '%dcmtk::~dcm-item "%DCMTK")
-  (export '%dcmtk::get-g-tag "%DCMTK")
-  (export '%dcmtk::dcm-directory-record "%DCMTK")
-  (export '%dcmtk::e-search-mode "%DCMTK")
-  (export '%dcmtk::~dcm-byte-string "%DCMTK")
-  (export '%dcmtk::find-and-get-uint32 "%DCMTK")
-  (export '%dcmtk::set-of-date-time "%DCMTK")
-  (export '%dcmtk::is-unknown-vr "%DCMTK")
-  (export '%dcmtk::~dcm-long-text "%DCMTK")
-  (export '%dcmtk::put-of-string-at-pos "%DCMTK")
-  (export '%dcmtk::~dcm-hash-dict "%DCMTK")
-  (export '%dcmtk::install-compression-filter "%DCMTK")
-  (export '%dcmtk::~dcm-signed-short "%DCMTK")
-  (export '%dcmtk::~dcm-integer-string "%DCMTK")
-  (export '%dcmtk::~dcm-other-long "%DCMTK")
-  (export '%dcmtk::dcm-date+check-string-value "%DCMTK")
-  (export '%dcmtk::get-vm-min "%DCMTK")
-  (export '%dcmtk::get-sint32 "%DCMTK")
-  (export '%dcmtk::to-string "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-range-shifter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer-recommended-display-grayscale-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-emmetropic-magnification+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-pulse-control-point-delivered-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transform-number-of-axes+ "%DCMTK")
+  (export '%dcmtk::+dcm-decomposition-material-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-defined-patient-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-consent-for-clinical-trial-use-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-alpha-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coefficients-sdhn+ "%DCMTK")
+  (export '%dcmtk::+dcm-media-storage-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::find-and-get-uint32array "%DCMTK")
+  (export '%dcmtk::+dcm-iso-speed-latitudeyyy+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-assembly-template-target-anatomy-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ct-table-dynamics-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-text+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-control-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-source-to-detector+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-observation-class-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-information-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-color-palette-instance-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-shielding-device-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-rt-treatment-phase-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-imaging-service-request-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-metabolite-map-code-sequence+ "%DCMTK")
+  (export '%dcmtk::get-max-value-length "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-environment-spatial-position+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-document-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-value-transformation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-presentation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-depths-of-focus+ "%DCMTK")
+  (export '%dcmtk::get-float64array "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-compensator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-position-patient+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-structure+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-path-identifier+ "%DCMTK")
+  (export '%dcmtk::isa-string "%DCMTK")
+  (export '%dcmtk::get-number-of-values "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-phase-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-service-episode-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-thickness-used-in-gain-calibration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ivus-pullback-stop-frame-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-dose-description+ "%DCMTK")
+  (export '%dcmtk::is-variable-range-vm "%DCMTK")
+  (export '%dcmtk::+dcm-region-pixel-shift-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ending-respiratory-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-synchronized-scrolling-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-settings-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-right-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-state+ "%DCMTK")
+  (export '%dcmtk::dcm-json-format "%DCMTK")
+  (export '%dcmtk::+dcm-foveal-sensitivity-measured+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-index-values+ "%DCMTK")
+  (export '%dcmtk::match-or-create-mrdr "%DCMTK")
+  (export '%dcmtk::+dcm-segment-annotation-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mask-selection-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-arterial-spin-labeling-contrast+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-specimen-description-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-confirmation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-value-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-block-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-bibliographic-citation-trial+
+          "%DCMTK")
+  (export '%dcmtk::dcm-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-private-information-creator-uid+ "%DCMTK")
+  (export '%dcmtk::update-cache "%DCMTK")
+  (export '%dcmtk::+dcm-grid-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-verifying-observer-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-sex+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-procedure-step-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-additional-inspection-method-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-radiation-set-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlays-blue+ "%DCMTK")
+  (export '%dcmtk::+dcm-focal-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-front-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-bold+ "%DCMTK")
+  (export '%dcmtk::+dcm-robotic-base-location-indicator+ "%DCMTK")
+  (export '%dcmtk::+dcm-mode-of-percutaneous-access-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-incident-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-sending-application-entity-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-prcs-to-rcs-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-parameter-sequence-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-set-consistency-flag+ "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry "%DCMTK")
+  (export '%dcmtk::+dcm-material-grade+ "%DCMTK")
+  (export '%dcmtk::+dcm-dicom-media-retrieval-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-a-line-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-red-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::dcm-input-filter "%DCMTK")
+  (export '%dcmtk::+dcm-order-filler-identifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-processing-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-data-display-scale+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-in-contact-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-type-descriptor+ "%DCMTK")
+  (export '%dcmtk::+dcm-scene-capture-type+ "%DCMTK")
+  (export '%dcmtk::find-last-of "%DCMTK")
+  (export '%dcmtk::+dcm-two-dimensional-to-three-dimensional-map-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contour-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-outline-of-pupil+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-authorization-comment+ "%DCMTK")
+  (export '%dcmtk::of-string+value-type "%DCMTK")
+  (export '%dcmtk::+dcm-excluded-intervals-sequence+ "%DCMTK")
+  (export '%dcmtk::set-of-time "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-external-contour-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-topography-map-quality-evaluation+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-approval-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-planes+ "%DCMTK")
+  (export '%dcmtk::+dcm-ascan-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sample-positions+ "%DCMTK")
+  (export '%dcmtk::~print-helper "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-inspection-method-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-time-skew+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-member-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-planar-configuration+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-item-modifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-initial-cine-run-state+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-arc+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-path-assignment+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-slope+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-ap-dimension+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmentation-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-other-study-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-location-of-examining-instrument-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::get-records-origin-file "%DCMTK")
+  (export '%dcmtk::+dcm-repair-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-number-of-interval-days+ "%DCMTK")
+  (export '%dcmtk::+dcm-scatter-fraction-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-reason-for-the-imaging-service-request+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-additional-rtroi-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-illumination-wave-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-oct-focal-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-snout-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-time+get-time-zone-from-string "%DCMTK")
+  (export '%dcmtk::+dcm-mr-spectroscopy-fov-geometry-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-probe-center-location-z+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-recognition-code+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-intensity-relationship-sign+ "%DCMTK")
+  (export '%dcmtk::+dcm-triangle-strip-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-external-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-administration-route-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-original-image-identification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-current-frame-functional-groups-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-monoenergetic-energy-equivalent+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-right-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-intensity-relationship-lut-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-zonal-map-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-slab-sequence+ "%DCMTK")
+  (export '%dcmtk::of-condition "%DCMTK")
+  (export '%dcmtk::+dcm-film-consumption-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-synchronization-frame-of-reference-uid+
+          "%DCMTK")
+  (export '%dcmtk::get-of-string-array "%DCMTK")
+  (export '%dcmtk::read-until-tag "%DCMTK")
+  (export '%dcmtk::find-and-get-element "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-presentation-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-huffman-table-triplet+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-on-axis-background-anatomic-structure-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-event-elapsed-times+ "%DCMTK")
+  (export '%dcmtk::create-float64array "%DCMTK")
+  (export '%dcmtk::+dcm-source-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-sequence-collection-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-x-ray-detector-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-position-index+ "%DCMTK")
+  (export '%dcmtk::dcm-date+get-of-date-from-string "%DCMTK")
+  (export '%dcmtk::+dcm-velocity-encoding-acquisition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-acquisition-duration+ "%DCMTK")
+  (export '%dcmtk::uint64 "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-data-source-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-type-of-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-rt-accessory-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mr-spatial-saturation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-angular-view-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-parent-rt-prescription-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-performed-station-class-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-blending-weight-constant+ "%DCMTK")
+  (export '%dcmtk::+dcm-degree-of-dilation+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-track+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-rate-unit-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contributing-sources-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pause-between-frames+ "%DCMTK")
+  (export '%dcmtk::+dcm-palette-color-lookup-table-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-magic-len+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-hardcopy-device-software-version+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-focal-length-in35mm-film+ "%DCMTK")
+  (export '%dcmtk::combination-matches "%DCMTK")
+  (export '%dcmtk::+dcm-v-value-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-data-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-range-modulator-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-frame-of-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-physician-intent-sequence+ "%DCMTK")
   (export '%dcmtk::~dcm-universal-resource-identifier-or-locator
           "%DCMTK")
-  (export '%dcmtk::get-private-creator "%DCMTK")
-  (export '%dcmtk::get-length "%DCMTK")
-  (export '%dcmtk::dcm-short-text+check-string-value "%DCMTK")
-  (export '%dcmtk::e-list-pos "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint32 "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-name-components-from-string
-          "%DCMTK")
-  (export '%dcmtk::~dcm-unlimited-characters "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint16array "%DCMTK")
-  (export '%dcmtk::of-iterator<dcm-dict-entry*> "%DCMTK")
-  (export '%dcmtk::put-and-insert-float64 "%DCMTK")
-  (export '%dcmtk::~dcm-vr "%DCMTK")
-  (export '%dcmtk::tell "%DCMTK")
-  (export '%dcmtk::of-list<dcm-representation-entry*> "%DCMTK")
-  (export '%dcmtk::~dcm-time "%DCMTK")
-  (export '%dcmtk::avail "%DCMTK")
-  (export '%dcmtk::operator< "%DCMTK")
-  (export '%dcmtk::~dcm-floating-point-single "%DCMTK")
-  (export '%dcmtk::dcm-dict-entry "%DCMTK")
-  (export '%dcmtk::update-original-xfer "%DCMTK")
-  (export '%dcmtk::get-value-width "%DCMTK")
-  (export '%dcmtk::find-and-get-sequence "%DCMTK")
-  (export '%dcmtk::get-uint64 "%DCMTK")
-  (export '%dcmtk::dcm-consumer "%DCMTK")
-  (export '%dcmtk::create-uint32array "%DCMTK")
-  (export '%dcmtk::get-dir-file-format "%DCMTK")
-  (export '%dcmtk::get-sint64 "%DCMTK")
-  (export '%dcmtk::put-float32array "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-TRANSFER-SYNTAX| "%DCMTK")
-  (export '%dcmtk::dcm-integer-string "%DCMTK")
-  (export '%dcmtk::dcm-signed-short "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-iso-formatted-date-time-from-string
-          "%DCMTK")
-  (export '%dcmtk::insert-sequence-item "%DCMTK")
-  (export '%dcmtk::operator== "%DCMTK")
-  (export '%dcmtk::find-and-get-float64array "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-GRP-LEN-ENCODING| "%DCMTK")
-  (export '%dcmtk::~dcm-dict-entry-list "%DCMTK")
-  (export '%dcmtk::load-all-data-into-memory "%DCMTK")
-  (export '%dcmtk::~dcm-floating-point-double "%DCMTK")
-  (export '%dcmtk::find-and-get-uint32array "%DCMTK")
-  (export '%dcmtk::get-sint32array "%DCMTK")
-  (export '%dcmtk::dcm-object+print-helper "%DCMTK")
-  (export '%dcmtk::uint8 "%DCMTK")
-  (export '%dcmtk::put-float64prec "%DCMTK")
-  (export '%dcmtk::get-uint8array "%DCMTK")
-  (export '%dcmtk::read "%DCMTK")
-  (export '%dcmtk::put-uint64 "%DCMTK")
-  (export '%dcmtk::calc-element-length "%DCMTK")
-  (export '%dcmtk::dcm-other-double "%DCMTK")
-  (export '%dcmtk::get-vr-name "%DCMTK")
-  (export '%dcmtk::dcm-sequence-of-items "%DCMTK")
-  (export '%dcmtk::insert-empty-element "%DCMTK")
-  (export '%dcmtk::dcm-meta-info "%DCMTK")
-  (export '%dcmtk::write-xml "%DCMTK")
-  (export '%dcmtk::operator!= "%DCMTK")
-  (export '%dcmtk::is-leaf "%DCMTK")
-  (export '%dcmtk::~dcm-list-node "%DCMTK")
-  (export '%dcmtk::print "%DCMTK")
-  (export '%dcmtk::seek-to "%DCMTK")
-  (export '%dcmtk::~dcm-private-tag-cache-entry "%DCMTK")
-  (export '%dcmtk::sint64 "%DCMTK")
-  (export '%dcmtk::convert-to-utf8 "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-long-offset "%DCMTK")
-  (export '%dcmtk::can-choose-representation "%DCMTK")
-  (export '%dcmtk::~dcm-other-byte-other-word "%DCMTK")
-  (export '%dcmtk::get-sint16 "%DCMTK")
-  (export '%dcmtk::dcm-representation-parameter "%DCMTK")
-  (export '%dcmtk::supports-undefined-length "%DCMTK")
-  (export '%dcmtk::flush "%DCMTK")
-  (export '%dcmtk::~dcm-person-name "%DCMTK")
-  (export '%dcmtk::get-float64vector "%DCMTK")
-  (export '%dcmtk::is-fixed-single-vm "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint32array "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-FILE-READ-MODE| "%DCMTK")
-  (export '%dcmtk::is-length-in-char "%DCMTK")
-  (export '%dcmtk::check-for-specific-character-set "%DCMTK")
-  (export '%dcmtk::dcm-age-string+check-string-value "%DCMTK")
-  (export '%dcmtk::get-of-string "%DCMTK")
-  (export '%dcmtk::dcm-codec-list "%DCMTK")
-  (export '%dcmtk::get-element-range-restriction "%DCMTK")
-  (export '%dcmtk::add-entry "%DCMTK")
-  (export '%dcmtk::dcm-unique-identifier "%DCMTK")
-  (export '%dcmtk::dcm-application-entity+check-string-value
-          "%DCMTK")
-  (export '%dcmtk::dcm-hash-dict-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-text-value+ "%DCMTK")
   (export '%dcmtk::has-valid-group "%DCMTK")
-  (export '%dcmtk::dcm-floating-point-single "%DCMTK")
-  (export '%dcmtk::get-original-xfer "%DCMTK")
-  (export '%dcmtk::e-encoding-type "%DCMTK")
-  (export '%dcmtk::set-current-date-time "%DCMTK")
-  (export '%dcmtk::e-file-read-mode "%DCMTK")
-  (export '%dcmtk::put-sint16array "%DCMTK")
-  (export '%dcmtk::is-repeating-element "%DCMTK")
-  (export '%dcmtk::put-uint16array "%DCMTK")
-  (export '%dcmtk::get-sub "%DCMTK")
-  (export '%dcmtk::is-empty "%DCMTK")
-  (export '%dcmtk::find-entry "%DCMTK")
-  (export '%dcmtk::dcm-integer-string+check-string-value "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-long "%DCMTK")
-  (export '%dcmtk::next-object "%DCMTK")
-  (export '%dcmtk::operator<= "%DCMTK")
-  (export '%dcmtk::get-float32array "%DCMTK")
-  (export '%dcmtk::dcm-date-time+check "%DCMTK")
-  (export '%dcmtk::~print-helper "%DCMTK")
-  (export '%dcmtk::normal-begin "%DCMTK")
-  (export '%dcmtk::is-flushed "%DCMTK")
-  (export '%dcmtk::dcm-pixel-data "%DCMTK")
-  (export '%dcmtk::has-representation "%DCMTK")
-  (export '%dcmtk::create "%DCMTK")
-  (export '%dcmtk::find-and-get-uint16array "%DCMTK")
-  (export '%dcmtk::prepend "%DCMTK")
-  (export '%dcmtk::set-upper-group "%DCMTK")
-  (export '%dcmtk::of-string "%DCMTK")
-  (export '%dcmtk::dcm-long-text "%DCMTK")
-  (export '%dcmtk::find-and-get-sint16 "%DCMTK")
-  (export '%dcmtk::compare "%DCMTK")
-  (export '%dcmtk::~dcm-dicom-dir "%DCMTK")
-  (export '%dcmtk::~dcm-unsigned-short "%DCMTK")
-  (export '%dcmtk::load-summary "%DCMTK")
-  (export '%dcmtk::find-and-get-float64 "%DCMTK")
-  (export '%dcmtk::set-upper-element "%DCMTK")
-  (export '%dcmtk::number-of-normal-tag-entries "%DCMTK")
-  (export '%dcmtk::dcm-signed-long "%DCMTK")
-  (export '%dcmtk::dcm-byte-string+e-string-mode "%DCMTK")
-  (export '%dcmtk::find-and-get-of-string-array "%DCMTK")
-  (export '%dcmtk::push-back "%DCMTK")
-  (export '%dcmtk::begin "%DCMTK")
-  (export '%dcmtk::dcm-unsigned64bit-very-long "%DCMTK")
-  (export '%dcmtk::compact "%DCMTK")
-  (export '%dcmtk::put-and-insert-float64array "%DCMTK")
-  (export '%dcmtk::set-group "%DCMTK")
-  (export '%dcmtk::write-signature-format "%DCMTK")
-  (export '%dcmtk::get-uint64array "%DCMTK")
-  (export '%dcmtk::dcm-byte-string "%DCMTK")
-  (export '%dcmtk::dcm-input-stream-factory "%DCMTK")
-  (export '%dcmtk::dcm-decimal-string "%DCMTK")
-  (export '%dcmtk::dcm-codec "%DCMTK")
-  (export '%dcmtk::is-nested "%DCMTK")
-  (export '%dcmtk::find-and-get-sint16array "%DCMTK")
-  (export '%dcmtk::dcm-file-cache "%DCMTK")
-  (export '%dcmtk::get-encapsulated-representation "%DCMTK")
-  (export '%dcmtk::dcm-person-name+get-formatted-name-from-string
-          "%DCMTK")
-  (export '%dcmtk::find-or-create-sequence-item "%DCMTK")
-  (export '%dcmtk::isa-string "%DCMTK")
-  (export '%dcmtk::get-of-time "%DCMTK")
-  (export '%dcmtk::put-sint32 "%DCMTK")
-  (export '%dcmtk::dcm-date+get-iso-formatted-date-from-string
-          "%DCMTK")
-  (export '%dcmtk::~dcm-list "%DCMTK")
-  (export '%dcmtk::dcm-time+check "%DCMTK")
-  (export '%dcmtk::is-referenced "%DCMTK")
-  (export '%dcmtk::dcm-item "%DCMTK")
-  (export '%dcmtk::get-tag-name "%DCMTK")
-  (export '%dcmtk::find-and-get-uint64 "%DCMTK")
-  (export '%dcmtk::get-stream-compression "%DCMTK")
-  (export '%dcmtk::dcm-other64bit-very-long "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-DIR-REC-TYPE| "%DCMTK")
-  (export '%dcmtk::~dcm-meta-info "%DCMTK")
-  (export '%dcmtk::~dcm-polymorph-obow "%DCMTK")
-  (export '%dcmtk::~dcm-output-stream "%DCMTK")
-  (export '%dcmtk::dcm-tag-key "%DCMTK")
-  (export '%dcmtk::match-filename "%DCMTK")
-  (export '%dcmtk::~dcm-pixel-data "%DCMTK")
-  (export '%dcmtk::put-and-insert-sint32 "%DCMTK")
-  (export '%dcmtk::get-uint32 "%DCMTK")
-  (export '%dcmtk::dcm-representation-list-iterator "%DCMTK")
-  (export '%dcmtk::dcm-attribute-tag+check-string-value "%DCMTK")
-  (export '%dcmtk::remove-representation "%DCMTK")
-  (export '%dcmtk::put-and-insert-string "%DCMTK")
-  (export '%dcmtk::put-name-components "%DCMTK")
-  (export '%dcmtk::private-creator-match "%DCMTK")
-  (export '%dcmtk::~dcm-short-text "%DCMTK")
-  (export '%dcmtk::find-and-insert-copy-of-element "%DCMTK")
-  (export '%dcmtk::get-upper-group "%DCMTK")
-  (export '%dcmtk::get-vm "%DCMTK")
-  (export '%dcmtk::dcm-universal-resource-identifier-or-locator+check-string-value
-          "%DCMTK")
-  (export '%dcmtk::operator= "%DCMTK")
-  (export '%dcmtk::get-sint16array "%DCMTK")
-  (export '%dcmtk::operator> "%DCMTK")
-  (export '%dcmtk::insert-sub-at-current-pos "%DCMTK")
-  (export '%dcmtk::dcm-date-time+get-current-date-time "%DCMTK")
-  (export '%dcmtk::get-min-value-length "%DCMTK")
-  (export '%dcmtk::insert-and-replace "%DCMTK")
-  (export '%dcmtk::get-record-type "%DCMTK")
-  (export '%dcmtk::eos "%DCMTK")
-  (export '%dcmtk::find-and-get-float32array "%DCMTK")
-  (export '%dcmtk::status "%DCMTK")
-  (export '%dcmtk::~dcm-sequence-of-items "%DCMTK")
-  (export '%dcmtk::dcm-signed64bit-very-long "%DCMTK")
-  (export '%dcmtk::dcm-element+determine-vm "%DCMTK")
-  (export '%dcmtk::dcm-application-entity "%DCMTK")
-  (export '%dcmtk::dcm-representation-entry "%DCMTK")
-  (export '%dcmtk::find-private-creator "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-STREAM-COMPRESSION| "%DCMTK")
-  (export '%dcmtk::dcm-time+get-time-zone-from-string "%DCMTK")
-  (export '%dcmtk::get-of-date-time "%DCMTK")
-  (export '%dcmtk::~dcm-date-time "%DCMTK")
-  (export '%dcmtk::dcm-time+get-of-time-from-string "%DCMTK")
-  (export '%dcmtk::find-and-get-sint64array "%DCMTK")
-  (export '%dcmtk::find-and-get-uint16 "%DCMTK")
-  (export '%dcmtk::is-dictionary-loaded "%DCMTK")
-  (export '%dcmtk::get-sint64array "%DCMTK")
-  (export '%dcmtk::put-uint64array "%DCMTK")
-  (export '%dcmtk::get-of-date "%DCMTK")
-  (export '%dcmtk::value-loaded "%DCMTK")
-  (export '%dcmtk::dcm-data-dictionary "%DCMTK")
-  (export '%dcmtk::set-non-encapsulation-flag "%DCMTK")
-  (export '%dcmtk::matches "%DCMTK")
-  (export '%dcmtk::find-and-get-uint64array "%DCMTK")
-  (export '%dcmtk::~dcm-directory-record "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-characters "%DCMTK")
-  (export '%dcmtk::get-next-record "%DCMTK")
-  (export '%dcmtk::get-upper-key "%DCMTK")
-  (export '%dcmtk::e-file-write-mode "%DCMTK")
-  (export '%dcmtk::assign-to-sop-file "%DCMTK")
-  (export '%dcmtk::dcm-date+get-current-date "%DCMTK")
-  (export '%dcmtk::remove-sub "%DCMTK")
-  (export '%dcmtk::remove-all-but-original-representations "%DCMTK")
-  (export '%dcmtk::dcm-attribute-tag "%DCMTK")
-  (export '%dcmtk::dcm-person-name+check-string-value "%DCMTK")
-  (export '%dcmtk::sint16 "%DCMTK")
-  (export '%dcmtk::|C:@EA@E-ENCODING-TYPE| "%DCMTK")
-  (export '%dcmtk::dcm-other-byte-other-word "%DCMTK")
-  (export '%dcmtk::get-group "%DCMTK")
-  (export '%dcmtk::get-pixel-data-byte-order "%DCMTK")
-  (export '%dcmtk::dcm-dataset "%DCMTK")
-  (export '%dcmtk::dcm-representation-list "%DCMTK")
-  (export '%dcmtk::get-standard-version "%DCMTK")
-  (export '%dcmtk::sint32 "%DCMTK")
-  (export '%dcmtk::~dcm-signed64bit-very-long "%DCMTK")
-  (export '%dcmtk::remove-original-representation "%DCMTK")
-  (export '%dcmtk::end "%DCMTK")
-  (export '%dcmtk::get-vm-max "%DCMTK")
-  (export '%dcmtk::dcm-date "%DCMTK")
-  (export '%dcmtk::dcm-item+new-dicom-element-with-vr "%DCMTK")
-  (export '%dcmtk::+dcm-tag-error-tag-name+ "%DCMTK")
-  (export '%dcmtk::get-mrdr-sequence "%DCMTK")
-  (export '%dcmtk::get-name-components "%DCMTK")
-  (export '%dcmtk::e-vr-type "%DCMTK")
-  (export '%dcmtk::dcm-element+scan-value "%DCMTK")
-  (export '%dcmtk::dcm-short-string "%DCMTK")
-  (export '%dcmtk::dcm-input-filter "%DCMTK")
-  (export '%dcmtk::hash "%DCMTK")
-  (export '%dcmtk::dcm-long-string "%DCMTK")
-  (export '%dcmtk::set-eq "%DCMTK")
-  (export '%dcmtk::dcm-person-name "%DCMTK")
+  (export '%dcmtk::+dcm-volume-cropping-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-operation-explanation+ "%DCMTK")
   (export '%dcmtk::load-file-until-tag "%DCMTK")
-  (export '%dcmtk::put-original-representation "%DCMTK")
-  (export '%dcmtk::seek "%DCMTK")
+  (export '%dcmtk::+dcm-surgically-induced-astigmatism-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-product-expiration-date-time+ "%DCMTK")
+  (export '%dcmtk::dcm-floating-point-single "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-range-modulated-region-depths+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-flow-rtp-sampling-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-percentage-of-cardiac-phase+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-relationship-type-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-container-identifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-location-coordinates-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-storage-url+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-largest-pixel-value-in-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-study-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-performing-physician-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-identification-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-acquisitions-in-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-region-flags+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-descriptor-red+ "%DCMTK")
+  (export '%dcmtk::get-uint64array "%DCMTK")
+  (export '%dcmtk::+dcm-grid-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-definition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-stop-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-detector-motion+ "%DCMTK")
+  (export '%dcmtk::+dcm-internal-use-tag+ "%DCMTK")
+  (export '%dcmtk::+dcm-images-in-acquisition+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-slab-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-velocity+ "%DCMTK")
+  (export '%dcmtk::+dcm-autorefraction-right-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-direct-segment-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-focal-planes+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-location-id-type+ "%DCMTK")
+  (export '%dcmtk::is-universal-match "%DCMTK")
+  (export '%dcmtk::+dcm-powerline-frequency+ "%DCMTK")
+  (export '%dcmtk::bad "%DCMTK")
+  (export '%dcmtk::dcm-person-name "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-delivery-continuation-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-roi-observation-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-used-fiducials-sequence+ "%DCMTK")
+  (export '%dcmtk::get-read-mode "%DCMTK")
+  (export '%dcmtk::find-and-get-uint16 "%DCMTK")
+  (export '%dcmtk::+dcm-meterset-rate-set+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-test-result+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-motion-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-memory-bit-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-meterset-exposure+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lut-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-failed-suboperations+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-source-to-entrance+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-column-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-document+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer-device-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray3d-acquisition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pattern-off-opacity+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-mesh-z-pixel-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-optical-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-organ-at-risk-full-volume-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-nominal-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-target-prescription-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-modifier-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-fov+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-right-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-start-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-location-of-measured-beam-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-water-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-baseline-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-repetition-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-group-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retinal-thickness-definition-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-first-treatment-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-metering-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-alarm-decision-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-skip-beats+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-nuclear-medicine-series-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-motion+ "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-localized-deviation-from-normal-probability-calculated+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-device-order-index+ "%DCMTK")
+  (export '%dcmtk::set-vr "%DCMTK")
+  (export '%dcmtk::+dcm-image-position-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-planes-in-acquisition+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-acquisition-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-decay-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-author+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-flow-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-function-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-atd-assessment-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-detector-slew+ "%DCMTK")
+  (export '%dcmtk::get-byte-order "%DCMTK")
+  (export '%dcmtk::+dcm-reference-pixel-physical-value-x+ "%DCMTK")
+  (export '%dcmtk::~dcm-dict-entry "%DCMTK")
+  (export '%dcmtk::+dcm-allergies+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-relevant-information-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-related-general-sop-class-uid-in-file+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-structure-space-or-region-modifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-action-type-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dosimeter-unit-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-source-to-patient+ "%DCMTK")
+  (export '%dcmtk::dcm-long-text+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-exclusive-component-type+ "%DCMTK")
+  (export '%dcmtk::get-jpeg-process12bit "%DCMTK")
+  (export '%dcmtk::+dcm-subject-distance-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-pixel-matrix-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-position-modifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-multiple-copies-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomo-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-mapping-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ctx-ray-detector-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-film-destination+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-float-pixel-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-block-tray-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coordinate-step-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-vector-accuracy+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-read-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-end-cumulative-meterset-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-subscription-list-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-grid-scaling+ "%DCMTK")
+  (export '%dcmtk::find-and-insert-copy-of-element "%DCMTK")
+  (export '%dcmtk::insert-at-current-pos "%DCMTK")
+  (export '%dcmtk::+dcm-printer-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-control-point-sequence+ "%DCMTK")
+  (export '%dcmtk::eos "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-sensitivity-correction-factor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-point-coordinates+ "%DCMTK")
+  (export '%dcmtk::put-uint64array "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-time-inu-s+ "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-keratometric-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-preserve-composite-instances-after-media-creation+
+          "%DCMTK")
+  (export '%dcmtk::sint64 "%DCMTK")
+  (export '%dcmtk::+dcm-application-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-damping+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-code-sequence-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-service-episode-id-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-protocol-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-representation-sequence+ "%DCMTK")
+  (export '%dcmtk::remove "%DCMTK")
+  (export '%dcmtk::+dcm-carrier-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-horizontal-extent+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-statistics-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-directory-record "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-slices+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-triggers-in-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-override-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-line-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-viewing-mode+ "%DCMTK")
+  (export '%dcmtk::~dcm-tag "%DCMTK")
+  (export '%dcmtk::+dcm-empty-image-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-warning-reason+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-patient-clinical-information-left-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-session-application-setup-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-relationship-interval-anchor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mr-metabolite-map-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-matrix-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-element-dimension-b+ "%DCMTK")
+  (export '%dcmtk::+dcm-assertion-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlays-green+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-salvage-record-control-point-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-start-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-start-control-point-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contrast+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-presentation-group-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-identifier-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-control-point-delivery-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-red-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-basic-grayscale-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-frequency-response-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-plane-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-interoperability-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-reviewer-name+ "%DCMTK")
+  (export '%dcmtk::set-current-time "%DCMTK")
+  (export '%dcmtk::+dcm-retired-borders+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-input-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-volume-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-temperature-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rational-numerator-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-selected-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-longitudinal-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-pulses+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fluence-map-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-concept-name-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-counts-accumulated+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-dimension-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-selected-offset-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-capture-device-software-versions+
+          "%DCMTK")
+  (export '%dcmtk::dcm-sequence-of-items "%DCMTK")
+  (export '%dcmtk::+dcm-date-of-secondary-capture+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-origin-interpretation+ "%DCMTK")
+  (export '%dcmtk::putback "%DCMTK")
+  (export '%dcmtk::+dcm-scanner-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-quality-metric-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-deidentification-action+ "%DCMTK")
+  (export '%dcmtk::dcm-input-stream-factory-type "%DCMTK")
+  (export '%dcmtk::+dcm-final-cumulative-time-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-coverage-of-k-space+ "%DCMTK")
+  (export '%dcmtk::dcm-age-string "%DCMTK")
+  (export '%dcmtk::find "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-range-modulators+ "%DCMTK")
+  (export '%dcmtk::+dcm-constraint-violation-condition+ "%DCMTK")
+  (export '%dcmtk::remove-original-representation "%DCMTK")
+  (export '%dcmtk::+dcm-tdr-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-multiplex-group-time-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-total-time-of-fluoroscopy+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-method-algorithm-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-vitreous-status-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-name-of-physicians-reading-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-beam-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ma-used-in-gain-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-area-tlhc-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-digital-zoom-ratio+ "%DCMTK")
   (export '%dcmtk::transfer-state "%DCMTK")
-  (export '%dcmtk::can-write-xfer "%DCMTK")
-  (export '%dcmtk::of-vector<double> "%DCMTK")
-  (export '%dcmtk::get-e-tag "%DCMTK")
-  (export '%dcmtk::delete-all-elements "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-channel-number+ "%DCMTK")
+  (export '%dcmtk::size "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-overlay-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-total-block-tray-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-condenser-lens-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-data-area-origin-relative-to-fov+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compound-graphic-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coordinates-set-geometric-type-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-smoothing-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-element-pitch-a+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-cause-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-human-performers-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rr-interval-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-boli+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-pertinent-sop-classes-in-study+ "%DCMTK")
+  (export '%dcmtk::length "%DCMTK")
+  (export '%dcmtk::+dcm-generic-group-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-modality-lut-sequence+ "%DCMTK")
+  (export '%dcmtk::put-uint16 "%DCMTK")
+  (export '%dcmtk::+dcm-component-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-flow-compensation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-other-patient-i-ds+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ol-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-corneal-curvature-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-size-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-geometric-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-eccentric-axis-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-creator-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-focus-center+ "%DCMTK")
+  (export '%dcmtk::+dcm-animation-step-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-soft-tissue-surface-thermal-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-luminance-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-manufacturing-procedure+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-detector-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-language-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-include-non-dicom-objects+ "%DCMTK")
+  (export '%dcmtk::+dcm-bscan-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-threshold-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-implant-template-group-member-matching-point+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-doppler-sample-volume-y-position-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-presentation-state-sequence+
+          "%DCMTK")
+  (export '%dcmtk::print-helper "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-channel-shield-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-other-long "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-inu-as+ "%DCMTK")
+  (export '%dcmtk::+dcm-conventional-machine-verification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-steady-state-pulse-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pet-frame-correction-factors-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transfer-tube-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-names-of-intended-recipients-of-results+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-catheter-direction-of-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-results-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-qr-measurements-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-crusher-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-beam-dose-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-transformed-axis-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-failed-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-tag-key "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-gain-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-c-arm-photon-electron-control-point-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-mass-attenuation-coefficient+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-equipment-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-approval-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-continuation-start-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-distribution-protocol+ "%DCMTK")
+  (export '%dcmtk::dcm-hash-dict-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-flash-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-storage-protocol-element-specification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-icon-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-data-set-mapping+ "%DCMTK")
+  (export '%dcmtk::of-filename "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-program+ "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-short "%DCMTK")
+  (export '%dcmtk::+dcm-product-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-consent-for-distribution-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-command-magnification-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-sets-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-physical-property-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-front-gap+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-description+ "%DCMTK")
+  (export '%dcmtk::get-upper-element "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-phases+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-large-scroll-amount+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-source-image-i-ds+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-secondary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-threshold-value+ "%DCMTK")
+  (export '%dcmtk::set-records-origin-file "%DCMTK")
+  (export '%dcmtk::+dcm-table-z-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::put-original-representation "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-time-slices+ "%DCMTK")
+  (export '%dcmtk::+dcm-intravascular-oct-frame-content-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-bin-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-synchronized-image-box-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-anomaly-locator-indicator+ "%DCMTK")
+  (export '%dcmtk::+dcm-service-episode-description+ "%DCMTK")
+  (export '%dcmtk::e-storage-sop-class-type "%DCMTK")
+  (export '%dcmtk::dcm-age-string+check-string-value "%DCMTK")
+  (export '%dcmtk::get-vm-min "%DCMTK")
+  (export '%dcmtk::+dcm-channel-recommended-display-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-deformable-registration-grid-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-barcode-symbology+ "%DCMTK")
+  (export '%dcmtk::+dcm-command-data-set-type+ "%DCMTK")
+  (export '%dcmtk::get-float32 "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lut2transfer-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-img-direction-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-seam-line-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-consulting-physician-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-implant-template-group-member-matching-point+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-eccentric-rotation-direction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-primary-prompts-counts-accumulated+ "%DCMTK")
+  (export '%dcmtk::o-fpath "%DCMTK")
+  (export '%dcmtk::+dcm-participant-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-rotation-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-phase-intent-presence-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-outline-left-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-code-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-chair-head-frame-position-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-genetic-modifications-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-device-distance-reference-location-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-hl7instance-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-path-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-qa-results-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-palette-color-lookup-table-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-nominal-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-manufacturer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-region-location-max-x1+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-data-provider-url+ "%DCMTK")
+  (export '%dcmtk::dcm-attribute-tag+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-reference-system-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segmentation-template-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-vertical-pixels+ "%DCMTK")
+  (export '%dcmtk::+dcm-snout-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-aperture+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-filler-order-number-imaging-service-request-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-repeat-interval+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-data-set-subtype+ "%DCMTK")
+  (export '%dcmtk::+dcm-vector-dimensionality+ "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-user-group-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-polygonal-outline+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-float-pixel-padding-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-optical-paths+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-overlay-plane-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-modifier-definition-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scan-pattern-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-surface-mesh-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contributing-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-end-location-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-plane+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-fraction-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-bits-for-code-word+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-point-equivalent-depth+ "%DCMTK")
+  (export '%dcmtk::operator[] "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-block-columns+ "%DCMTK")
+  (export '%dcmtk::create "%DCMTK")
+  (export '%dcmtk::+dcm-reviewer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-recorded-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-admitting-diagnoses-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-air-kerma-rate+ "%DCMTK")
+  (export '%dcmtk::~of-string "%DCMTK")
+  (export '%dcmtk::+dcm-roi-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-abort-reason+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-position-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-actual-cardiac-trigger-delay-time+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sint16 "%DCMTK")
+  (export '%dcmtk::+dcm-surface-scan-mode-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-digital-signature-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-metersets-delivered+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-series-description+ "%DCMTK")
+  (export '%dcmtk::~dcm-signed-long "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-nominal-transmission+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-imaging-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-velocity-encoding-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-average-beam-dose-point-equivalent-depth+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-product-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-instance-level-referenced-performed-procedure-step-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-slot-existence-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-drive-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-radiation-generation-modes+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-image-corneal-processed-data-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component2referenced-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-creation-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-template-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lut2sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sequence-variant+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-beam-number+ "%DCMTK")
+  (export '%dcmtk::is-for-internal-use-only "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-description+ "%DCMTK")
+  (export '%dcmtk::is-repeating-element "%DCMTK")
+  (export '%dcmtk::+dcm-requested-decimate-crop-behavior+ "%DCMTK")
+  (export '%dcmtk::+dcm-specification-selection-guidance+ "%DCMTK")
+  (export '%dcmtk::+dcm-bscan-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-localized-deviation-probability-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-gray-scale+ "%DCMTK")
+  (export '%dcmtk::is-affected-by-specific-character-set "%DCMTK")
+  (export '%dcmtk::valid "%DCMTK")
+  (export '%dcmtk::module "%DCMTK")
+  (export '%dcmtk::get-root-record "%DCMTK")
+  (export '%dcmtk::+dcm-line-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer-sequence+ "%DCMTK")
+  (export '%dcmtk::get-char-pointer "%DCMTK")
+  (export '%dcmtk::+dcm-self-timer-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-collated-films+ "%DCMTK")
+  (export '%dcmtk::+dcm-octz-offset-applied+ "%DCMTK")
   (export '%dcmtk::dcm-element+check-vm "%DCMTK")
-  (export '%dcmtk::copy-from "%DCMTK")
-  (export '%dcmtk::get-file-offset "%DCMTK")
-  (export '%dcmtk::save-file "%DCMTK")
-  (export '%dcmtk::set-parent "%DCMTK")
-  (export '%dcmtk::find-and-get-element "%DCMTK")
-  (export '%dcmtk::append "%DCMTK")
-  (export '%dcmtk::is-repeating "%DCMTK")
-  (export '%dcmtk::operator++ "%DCMTK")
-  (export '%dcmtk::del "%DCMTK")
-  (export '%dcmtk::put-and-insert-uint16array "%DCMTK")
-  (export '%dcmtk::put-and-insert-float32array "%DCMTK")
-  (export '%dcmtk::get-item "%DCMTK")
-  (export '%dcmtk::e-byte-order "%DCMTK")
-  (export '%dcmtk::clear "%DCMTK")
-  (export '%dcmtk::get-uint8 "%DCMTK")
-  (export '%dcmtk::repeating-end "%DCMTK")
-  (export '%dcmtk::set-group-range-restriction "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-performed-procedure-step-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-reliability-indicator+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-edge-data-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-kvp+ "%DCMTK")
+  (export '%dcmtk::+dcm-verification-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-responsible-organization+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-left-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-coupling-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-magnify-to-number-of-columns+
+          "%DCMTK")
   (export '%dcmtk::dcm-date-time+get-of-date-time-from-string
           "%DCMTK")
-  (export '%dcmtk::get-original-representation-key "%DCMTK")
-  (export '%dcmtk::dcm-unlimited-text "%DCMTK")
-  (export '%dcmtk::~dcm-overlay-data "%DCMTK")
+  (export '%dcmtk::+dcm-source-application-entity-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-layout-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-protocol-element-sequence+
+          "%DCMTK")
+  (export '%dcmtk::update-original-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-beam-number+ "%DCMTK")
+  (export '%dcmtk::get-float32array "%DCMTK")
+  (export '%dcmtk::+dcm-unassigned-per-frame-converted-attributes-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-series-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-attenuation-correction-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-continuation-pulse-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-channel-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-flow-transfer-syntax-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-breed-registration-number+ "%DCMTK")
+  (export '%dcmtk::~dcm-file-format "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-component-group "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ow-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-current-requested-procedure-evidence-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-in-plane-phase-encoding-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-reference-air-kerma+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-name+ "%DCMTK")
+  (export '%dcmtk::get-string "%DCMTK")
+  (export '%dcmtk::+dcm-potential-scheduled-protocol-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-long-string "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-syringe-counts+ "%DCMTK")
+  (export '%dcmtk::+dcm-shadow-opacity+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-orientation-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-orientation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-global-deviation-probability-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-compensator-number+ "%DCMTK")
+  (export '%dcmtk::operator== "%DCMTK")
+  (export '%dcmtk::+dcm-setup-technique+ "%DCMTK")
+  (export '%dcmtk::*dcm-dcmdata-logger* "%DCMTK")
+  (export '%dcmtk::+dcm-axial-mash+ "%DCMTK")
+  (export '%dcmtk::get-x-tag "%DCMTK")
+  (export '%dcmtk::+dcm-facet-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-query-retrieve-view+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-patient-alias-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-measurement-device-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-line-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-source-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-font-name-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-setup-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-cancellation+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-index-private-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-longitude-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-performing-physician-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-optotype-presentation+ "%DCMTK")
+  (export '%dcmtk::+dcm-structured-display-image-box-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mr-diffusion-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-institutional-department-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scan-procedure+ "%DCMTK")
+  (export '%dcmtk::+dcm-institution-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-sequence+ "%DCMTK")
+  (export '%dcmtk::find-and-delete-sequence-item "%DCMTK")
+  (export '%dcmtk::+dcm-specific-absorption-rate-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mr-arterial-spin-labeling-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-dose-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-operating-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-communication-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-sizes-delivered+ "%DCMTK")
+  (export '%dcmtk::+dcm-default-magnification-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-projection-pixel-calibration-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-opening-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-false-negatives+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-source-applicator-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-alpha-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-points-bounding-box-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-screen-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-processing-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-code-table-location+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-medical-record-locator+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-tune-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-characteristics-precedence+ "%DCMTK")
+  (export '%dcmtk::+dcm-stimulus-results+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-radionuclide+ "%DCMTK")
+  (export '%dcmtk::+dcm-registered-localizer-bottom-right-hand-corner+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-detector-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-charge-state+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-wedge-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-polarity+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-waveform-samples+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-roi-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-stage-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-channel-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-pattern-on-color-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::dcm-integer-string+check-string-value "%DCMTK")
+  (export '%dcmtk::dcm-pixel-sequence "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-memory-allocation+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-orientation-patient+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-fraction-start-time+ "%DCMTK")
+  (export '%dcmtk::put-uint32array "%DCMTK")
+  (export '%dcmtk::+dcm-filter-high-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-iol-formula-detail+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-row-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-order-callback-phone-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-filled+ "%DCMTK")
+  (export '%dcmtk::+dcm-r-wave-time-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-flip-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-depth-of-scan-field+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-energy-windows+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-manufacturer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-zero-velocity-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-t2preparation+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-recipients-of-results-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-localizing-cursor-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-low-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-threshold-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-add-other-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-procedure-occurred+ "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-polygonal-exposure-control-sensing-region+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-format+ "%DCMTK")
+  (export '%dcmtk::set-of-date "%DCMTK")
+  (export '%dcmtk::find-and-get-sint64array "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-state+ "%DCMTK")
+  (export '%dcmtk::set-of-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-duration+ "%DCMTK")
+  (export '%dcmtk::get-pixel-data-byte-order "%DCMTK")
+  (export '%dcmtk::+dcm-source-reconstruction-protocol-element-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-target-center-location-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-procedure-context-flag-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-general-machine-verification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::create-value-from-temp-file "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-progress-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-comments-on-the-scheduled-procedure-step+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-float-pixel-padding-range-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-illumination+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-group-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-digital-signature-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-failures-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-dosimeter-unit+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-channel-total-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-genetic-modifications-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-effective-dose-calculation-method-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-nominal-range-modulated-region-depths+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-component1referenced-mating-feature-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coefficients-sdvn+ "%DCMTK")
+  (export '%dcmtk::+dcm-slice-location-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-subsets+ "%DCMTK")
+  (export '%dcmtk::+dcm-operating-mode-type+ "%DCMTK")
+  (export '%dcmtk::sint32 "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-protocol-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-lenses-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-data-set-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-normal-reverse+ "%DCMTK")
+  (export '%dcmtk::+dcm-representative-frame-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-impressions+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-general-purpose-scheduled-procedure-step-priority+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-notch-filter-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-calibration-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-consulting-physician-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-bolus-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames-used-for-integration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-hanging-protocol-sequence+ "%DCMTK")
+  (export '%dcmtk::insert-and-replace "%DCMTK")
+  (export '%dcmtk::+dcm-chair-head-frame-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-context+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-representation+ "%DCMTK")
+  (export '%dcmtk::+dcm-sequence-delimitation-item+ "%DCMTK")
+  (export '%dcmtk::+dcm-model-specification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-corneal-curvature-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-point-position-accuracy+ "%DCMTK")
+  (export '%dcmtk::+dcm-offset-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-equivalent-cda-document-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cropping-specification-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-pipe-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-regions-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-modified-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-fractions-planned+ "%DCMTK")
+  (export '%dcmtk::of-string+const-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-pseudo-color-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-depth-of-transverse-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-derivation-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-parallel-reduction-factor-in-plane-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-pattern+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-variation-dimension-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-geometry+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-content-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-flat-keratometric-axis-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray3d-reconstruction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-body-mass-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-spacing-first-dimension+ "%DCMTK")
+  (export '%dcmtk::+dcm-illumination-color-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-localization-content-item-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-acquisition-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-geometry-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-padding-value+ "%DCMTK")
+  (export '%dcmtk::find-and-get-long-int "%DCMTK")
+  (export '%dcmtk::+dcm-person-telecom-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-check+ "%DCMTK")
+  (export '%dcmtk::+dcm-mac-calculation-transfer-syntax-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cranial-thermal-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-switching-phase-nominal-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-mass+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-visit-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-curve-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-strength-reference-date+ "%DCMTK")
+  (export '%dcmtk::tell "%DCMTK")
+  (export '%dcmtk::+dcm-machine-specific-treatment-termination-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-test-point-normals-data-flag+ "%DCMTK")
+  (export '%dcmtk::dcm-hash-dict "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-reference-object-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-verification-control-point-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-heart-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-reduction-factor-in-plane+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-surgery-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-degree-of-freedom-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mydriatic-agent-concentration+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-control-point-time+ "%DCMTK")
+  (export '%dcmtk::clear-sub "%DCMTK")
+  (export '%dcmtk::+dcm-applicable-safety-standard-agency+ "%DCMTK")
+  (export '%dcmtk::+dcm-continuation-end-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-structure-space-or-region-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-angle+ "%DCMTK")
+  (export '%dcmtk::~dcm-decimal-string "%DCMTK")
+  (export '%dcmtk::+dcm-channel-source-sequence+ "%DCMTK")
+  (export '%dcmtk::get-record-type "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-compensator-milling-tool-diameter+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-point-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-support-y-position-to-isocenter+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-pixel-shift-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-based-relationship-interval-anchor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-crop+ "%DCMTK")
+  (export '%dcmtk::+dcm-fluence-mode-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-print-job-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-frame-of-reference-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-assertion-uid+ "%DCMTK")
+  (export '%dcmtk::set-current-representation-parameter "%DCMTK")
+  (export '%dcmtk::+dcm-spectral-sensitivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-dct-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-region-location-min-x0+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-of-admissions+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-aspect-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-output-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-alarm-decision+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-parameter-order-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-bits-allocated+ "%DCMTK")
+  (export '%dcmtk::install-compression-filter "%DCMTK")
+  (export '%dcmtk::+dcm-acceleration+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-not-properly-fixated-quantity+
+          "%DCMTK")
+  (export '%dcmtk::get-upper-key "%DCMTK")
+  (export '%dcmtk::+dcm-frame-anatomy-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-isocenter-secondary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-property-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-film-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-audio-type+ "%DCMTK")
+  (export '%dcmtk::card-sub "%DCMTK")
+  (export '%dcmtk::+dcm-objective-lens-numerical-aperture+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-surface-source-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-gradient-output-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-evaluator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-channel-omission-description+
+          "%DCMTK")
+  (export '%dcmtk::read "%DCMTK")
+  (export '%dcmtk::+dcm-reference-pixel-x0+ "%DCMTK")
+  (export '%dcmtk::+dcm-error-comment+ "%DCMTK")
+  (export '%dcmtk::is-standard "%DCMTK")
+  (export '%dcmtk::+dcm-visit-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-column-position-in-total-image-pixel-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-signal-domain-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-station-geographic-location-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-reference-time+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-current-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-patient-surface-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-starting-respiratory-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-termination-cardiac-trigger-count-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-region-spatial-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-largest-monochrome-pixel-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-station-ae-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomotherapeutic-leaf-initial-closed-durations+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-table-break-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-baseline-displacement+ "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-time+ "%DCMTK")
+  (export '%dcmtk::mark "%DCMTK")
+  (export '%dcmtk::+dcm-sequence-delimitation-item-tag+ "%DCMTK")
+  (export '%dcmtk::+dcm-safe-position-exit-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-completion-flag-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-observation-basis-code-sequence+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint16 "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-annotation-group-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-pen-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-abort-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-shift-frame-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-partial-fourier+ "%DCMTK")
+  (export '%dcmtk::+dcm-observer-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-issuer+ "%DCMTK")
+  (export '%dcmtk::+dcm-bolus-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-functional-group-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-variable-vm+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-time-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-control-point-delivered-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-subjective-refraction-left-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-tolerance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-studies-containing-other-referenced-instances-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-approach-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-observations-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-path-filter-type-stack-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-discharge-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-bulk-motion-compensation-technique+ "%DCMTK")
+  (export '%dcmtk::match-filename "%DCMTK")
+  (export '%dcmtk::+dcm-plan-intent+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-acquisition+ "%DCMTK")
+  (export '%dcmtk::+dcm-event-timer-names+ "%DCMTK")
+  (export '%dcmtk::+dcm-carrier-id-assigning-authority+ "%DCMTK")
+  (export '%dcmtk::+dcm-study-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-id-issuer+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-arrival-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-paddle-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-complex-image-component+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-based-image-sets-sequence+ "%DCMTK")
+  (export '%dcmtk::get-of-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-pairs-present+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-motion-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-stock-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-annotation-clipping+ "%DCMTK")
+  (export '%dcmtk::~dcm-unlimited-characters "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-group-recording-time-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-point-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-dt-value+ "%DCMTK")
+  (export '%dcmtk::dcm-long-text "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-gradient-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-wall-nominal-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-maximum-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-roi-voxel-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposures-on-detector-since-manufactured+
+          "%DCMTK")
+  (export '%dcmtk::can-choose-representation "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-accessory-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-potential-requested-procedure-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-xz+ "%DCMTK")
+  (export '%dcmtk::+dcm-settling-phase-frame+ "%DCMTK")
+  (export '%dcmtk::dcm-date+get-dicom-date-from-of-date "%DCMTK")
+  (export '%dcmtk::+dcm-target-maximum-luminance+ "%DCMTK")
+  (export '%dcmtk::+dcm-spherical-lens-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-combination-segment-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-number+ "%DCMTK")
+  (export '%dcmtk::dcm-stack-node "%DCMTK")
+  (export '%dcmtk::+dcm-mr-acquisition-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-documenting-organization-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-flow-identifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-magnification-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-point-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-source-isocenter-secondary-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-empty-image-box-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-reference-transformation-matrix-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-creation-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-circular-exposure-control-sensing-region+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-implant-assembly-template-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-graphic-layer-recommended-display-rgb-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-energy-window-centerline+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-pulse-repetition-interval+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-cad-file-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-processing-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::size-t "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-total-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-cardiac-trigger-delay-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-signal-source-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-illumination-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-false-positives-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-predictor-columns+ "%DCMTK")
+  (export '%dcmtk::value-loaded "%DCMTK")
+  (export '%dcmtk::+dcm-line-dashing-style+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-refractive-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-x-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-category-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-pupil-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-extraction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-bits-stored+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-speed-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-both-eyes-open-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-birth-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-set-descriptor-file-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-bearing+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-implant-template-group-member-matching-axes+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-uid+ "%DCMTK")
+  (export '%dcmtk::substr "%DCMTK")
+  (export '%dcmtk::+dcm-extended-code-meaning+ "%DCMTK")
+  (export '%dcmtk::+dcm-requesting-physician+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-ingredient-percent-by-volume+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-overlay-box-content-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-scroll-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-intravascular-longitudinal-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-component1referenced-mating-feature-set-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-depth-dose-parameters-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-arrival-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-speed-ref+ "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-characters+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-definition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-localized-deviation-probability+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-response-description+ "%DCMTK")
+  (export '%dcmtk::print "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-first-value-mapped+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-values-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dac-amplitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-double-exposure-meterset-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-beams+ "%DCMTK")
+  (export '%dcmtk::+dcm-ranging-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-observation-uid-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-encapsulation-nominal-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-concatenation-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-class-uid-in-file+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-synchronization-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-anterior-chamber-depth-data-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segmentation-creation-template-label+
+          "%DCMTK")
+  (export '%dcmtk::dcm-tag "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-start-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-sequence+ "%DCMTK")
+  (export '%dcmtk::delete-all-elements "%DCMTK")
+  (export '%dcmtk::get-decompressed-color-model "%DCMTK")
+  (export '%dcmtk::~dcm-unique-identifier "%DCMTK")
+  (export '%dcmtk::+dcm-physical-detector-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-modulation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-pre-selected-for-implantation+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-path-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-byte-string "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-texture-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-humidity+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-processing-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-procedure+ "%DCMTK")
+  (export '%dcmtk::dcm-code-string+check-vr "%DCMTK")
+  (export '%dcmtk::next-object "%DCMTK")
   (export '%dcmtk::~dcm-application-entity "%DCMTK")
-  (export '%dcmtk::get-dir-file-name "%DCMTK")
-  (export '%dcmtk::~dcm-tag "%DCMTK")
-  (export '%dcmtk::get-upper-element "%DCMTK")
-  (export '%dcmtk::find-and-get-uint8 "%DCMTK")
-  (export '%dcmtk::dcm-xfer "%DCMTK")
-  (export '%dcmtk::set-next-record "%DCMTK")
+  (export '%dcmtk::+dcm-cylinder-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-structured-display-background-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scanning-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-material-used-in-gain-calibration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-input-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-sex-neutered+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-atomic-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-pitch-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-isocenter-primary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-model-description-sequence+ "%DCMTK")
+  (export '%dcmtk::transfer-init "%DCMTK")
+  (export '%dcmtk::+dcm-dict-deftag-build-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-intensifier-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-current-modulation-id+ "%DCMTK")
+  (export '%dcmtk::dcm-time+check "%DCMTK")
+  (export '%dcmtk::+dcm-foveal-sensitivity+ "%DCMTK")
+  (export '%dcmtk::is-encapsulated "%DCMTK")
+  (export '%dcmtk::find-and-get-uint8array "%DCMTK")
+  (export '%dcmtk::+dcm-sorting-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-flag-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-constituent-conceptual-volume-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-saturation+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-intensity-relationship+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-page-position-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-urgency-or-priority-alerts-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-partial-view-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-arbitrary+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-measurements-device-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-set-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-screening-baseline-type+ "%DCMTK")
+  (export '%dcmtk::get-sub "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-anatomic-reference-point-y-coordinate+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-intended-number-of-fractions+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-brachy-application-setups+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-adjusted-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-property-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-beam-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-anterior-chamber-depth-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-sid+ "%DCMTK")
+  (export '%dcmtk::+dcm-dark-current-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-volume-to-transducer-mapping-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-processing-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-total-gain+ "%DCMTK")
+  (export '%dcmtk::+dcm-float-pixel-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-component-reference-system+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-organization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-spacing-between-slices+ "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-false-negatives-data-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-phosphor-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-variation-dimension-rank+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-primary-language-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-label+ "%DCMTK")
+  (export '%dcmtk::uint16 "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-angle-float+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-physician-intent-input-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-priority-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-spectroscopy-frame-type-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-unique-device-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-ultrasound-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-phase-start-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-vertical-prism-base+ "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-fixation-losses+ "%DCMTK")
+  (export '%dcmtk::create-uint8array "%DCMTK")
+  (export '%dcmtk::+dcm-tomotherapeutic-control-point-sequence+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-of-string-array "%DCMTK")
+  (export '%dcmtk::+dcm-replaced-implant-assembly-template-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-order-callback-telecom-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-structure-space-or-region-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-plane-position-volume-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-orientation-in-frame-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-region-data-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-longitudinal-increment+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-group-local-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-reflected-ambient-light+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-offset-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-box-content-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-cylinder-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-total-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-averages+ "%DCMTK")
+  (export '%dcmtk::dcm-person-name+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-asl-bolus-cutoff-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-global-deviation-probability-normals-flag+
+          "%DCMTK")
+  (export '%dcmtk::get-tag-name "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-dose-reference-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-maximum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-meterset-to-dose-mapping-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-fractions+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-phase-encoding-steps+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-position-reference-indicator+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-element-purpose+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-elements+ "%DCMTK")
+  (export '%dcmtk::+dcm-multiplex-group-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-display-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames-in-overlay+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-spectroscopy-acquisition-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-transducer-settings-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-views-in-stage+ "%DCMTK")
+  (export '%dcmtk::+dcm-contact-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-mating-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lut1transfer-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-group-summary-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-annotation-display-format-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-qa-results-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-scp-status+ "%DCMTK")
+  (export '%dcmtk::dcm-tag+find-tag-from-name "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-text+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-rate-set+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-wide-field-ophthalmic-photography-quality-rating-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-sequence-trial+ "%DCMTK")
+  (export '%dcmtk::~dcm-floating-point-double "%DCMTK")
+  (export '%dcmtk::+of-string-stream-ends+ "%DCMTK")
+  (export '%dcmtk::reserve "%DCMTK")
+  (export '%dcmtk::+dcm-purpose-of-reference-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-verifying-observer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-contribution-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-fraction-completion-status+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-roi-generation-algorithm+ "%DCMTK")
+  (export '%dcmtk::get-standard-version "%DCMTK")
+  (export '%dcmtk::+dcm-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-setting-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-quality-control-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer-model-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-set-selector-category+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-curve-up-directions+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-orientation-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-types-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-absolute-dosimetric-objective-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-group-recording-date-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-secondary-angle-increment+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-display-shutter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-general-accessory-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-procedure-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-stimulus-presentation-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-cassette-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-study-related-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-object-to-table-top+ "%DCMTK")
+  (export '%dcmtk::+dcm-window-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-index-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-transformation-algorithm-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-range-modulator-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-referring-physician-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-device-configuration-and-commissioning-key-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-cornea-measurement-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-time+get-dicom-time-from-of-time "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-stop-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-subject-reading-id+ "%DCMTK")
+  (export '%dcmtk::change-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-time-inms+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-specimen-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-discontinuation-reason-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-prescription-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-input-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-termination-respiratory-trigger-count-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interval-number+ "%DCMTK")
+  (export '%dcmtk::normal-begin "%DCMTK")
+  (export '%dcmtk::~dcm-byte-string "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-scan-pattern-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-point-estimated+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-phase-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-document-author-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::put-uint16array "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-short-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-compound-graphic-instance-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-gate-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-variable-pixel-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-requested-subsequent-workitem-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-secondary-capture+ "%DCMTK")
+  (export '%dcmtk::+dcm-digital-image-format-acquired+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-point-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-recognition-code+ "%DCMTK")
+  (export '%dcmtk::dcm-dict-range-restriction "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-palette-color-lookup-table-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selected-segmental-ophthalmic-axial-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ethnic-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-vital-stain-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-expected-in-vivo-measurement-value-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-tracking-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-frequency-response-column-names+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-index-of-aqueous-humor+ "%DCMTK")
+  (export '%dcmtk::+dcm-keratometry-left-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sequence-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-first-a-line-location+ "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-transform-order-of-axes+ "%DCMTK")
+  (export '%dcmtk::+dcm-parametric-map-frame-type-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-bit-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-presentation+ "%DCMTK")
+  (export '%dcmtk::+dcm-mapped-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-visit-status-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-vector-grid-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-potential-reasons-for-procedure+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-boundaries+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-component-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-other64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-xx+ "%DCMTK")
+  (export '%dcmtk::+dcm-override-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-path-filter-pass-through-wavelength+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-entrance-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-latitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-subtraction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-slice-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-absorbing-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-results-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-bridge-resistors+ "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-implant-template-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-wedge-tray-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-record-in-use-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-false-positives+ "%DCMTK")
+  (export '%dcmtk::set-upper "%DCMTK")
+  (export '%dcmtk::+dcm-roi-physical-properties-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-diagnosis-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-projection-eponymous-name-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-time-slot-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-screen-minimum-grayscale-bit-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-pertinent-documents-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-cumulative-meterset-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-column-angulation-patient+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-anatomic-structure-modifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-gating-stop-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calculation-comment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ivus-pullback-start-frame-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-red-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pattern-on-opacity+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-altitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-text-string+ "%DCMTK")
+  (export '%dcmtk::~dcm-person-name "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-registry+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-reference-to-displayed-coordinate-system-transformation-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-polygonal-vertices+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-identifier-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-stop-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-presaturation+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rr-intervals+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-left-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-omission+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-radiation-record-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-plane-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-position-group-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-normalization-point+ "%DCMTK")
+  (export '%dcmtk::put-float64prec "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-step-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-value-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-angle+ "%DCMTK")
+  (export '%dcmtk::dcm-representation-list "%DCMTK")
+  (export '%dcmtk::+dcm-pertinent-other-evidence-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-max-read-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-apex-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-show-grayscale-inverted+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-lut-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-raw-data-handling+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modified-image-description+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sint64 "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-film-session-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-code-string "%DCMTK")
+  (export '%dcmtk::+dcm-multi-coil-configuration+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-tray-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-delay+ "%DCMTK")
+  (export '%dcmtk::+dcm-certified-timestamp-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-volume-localization-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-state-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmentation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-of-pixel-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-administration-event-uid+
+          "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-STREAM-COMPRESSION| "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-brachy-application-setup-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-maker-note+ "%DCMTK")
+  (export '%dcmtk::+dcm-most-recent-treatment-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-tangential-power+ "%DCMTK")
+  (export '%dcmtk::~dcm-sequence-of-items "%DCMTK")
+  (export '%dcmtk::+dcm-pto-location-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-input-availability-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-discharge-diagnosis-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-acquisitions-in-study+ "%DCMTK")
+  (export '%dcmtk::compact-elements "%DCMTK")
+  (export '%dcmtk::+dcm-ethics-committee-approval-effectiveness-start-date+
+          "%DCMTK")
+  (export '%dcmtk::get-partial-value "%DCMTK")
+  (export '%dcmtk::+dcm-retired-doppler-sample-volume-x-position-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-brachy-accessory-device-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-right-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-descriptor-gray+ "%DCMTK")
+  (export '%dcmtk::+dcm-printer-status-info+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-upper-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-chemical-shift-minimum-integration-limit-in-hz+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-in-vivo-measurement-label+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-verification-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-spectral-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-selected-offset-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-channels+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-numbers-of-interest+ "%DCMTK")
+  (export '%dcmtk::+dcm-ending-respiratory-amplitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-parameter-value-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-conversion-source-attributes-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-scanned-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-genetic-modifications-nomenclature+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-display-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-collation-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-dimensional-to-three-dimensional-map-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dicos-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-registration-method-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-review-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-termination-time-threshold+ "%DCMTK")
+  (export '%dcmtk::~dcm-dict-entry-list "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-rr-interval-specified+ "%DCMTK")
+  (export '%dcmtk::put-sint64array "%DCMTK")
+  (export '%dcmtk::+dcm-reprojection-method+ "%DCMTK")
+  (export '%dcmtk::find-and-get-uint64array "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-referenced-overlay-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-reference-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-transform-translation-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-sound-path-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-dimensions+ "%DCMTK")
+  (export '%dcmtk::dcm-vr "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-device-processing-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-study-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-large-scroll-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-steering-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-override-parameter-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-mass-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-omission-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-bi-plane-acquisition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pet-frame-type-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-age-string "%DCMTK")
+  (export '%dcmtk::get-sint16 "%DCMTK")
+  (export '%dcmtk::+dcm-local-deviation-probability-normals-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-surface-entry-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiobiological-dose-effect-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-translation-rate-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-output+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-max-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-usage+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensor-temperature+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-dimensions-in-float+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-technique-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-conceptual-volume-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-current-configuration-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-brachy-accessory-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-warning-suboperations+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-assigning-jurisdiction-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-reordering-allowed+ "%DCMTK")
+  (export '%dcmtk::+dcm-evaluation-attempt+ "%DCMTK")
+  (export '%dcmtk::+dcm-lossy-image-compression-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-resolution-user-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-orientation-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-protocol-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-acquisition-details-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-by-operator+ "%DCMTK")
+  (export '%dcmtk::+dcm-intra-ocular-pressure+ "%DCMTK")
+  (export '%dcmtk::+dcm-shielding-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-uc-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-oct-optical-center-wavelength+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-pitch-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-mask-pointers+ "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-monitoring-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-randoms-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-display-cie-lab-value-list+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ion-control-point-verification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fill-pattern+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-y-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-diaphragm-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-sorting-operations-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-zoom-center+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-modification-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-site-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-chamfer-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-organ-at-risk-maximum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-stimuli-retesting-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-general-purpose-scheduled-procedure-step-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames-in-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-floating-point-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retest-stimulus-seen+ "%DCMTK")
+  (export '%dcmtk::+dcm-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rt-control-points+ "%DCMTK")
+  (export '%dcmtk::set-current-date "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-modifier-orientation-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-physician-intent-predecessor-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-measured-meterset-to-dose-mapping-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-display-grayscale-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-basic-color-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-verification-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-element-range-restriction "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint16array "%DCMTK")
+  (export '%dcmtk::+dcm-depth-spatial-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-verification-image-timing+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-structure-set-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-input-stream "%DCMTK")
+  (export '%dcmtk::+dcm-target-luminance-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cumulative-dose-reference-coefficient+
+          "%DCMTK")
+  (export '%dcmtk::dcm-pixel-data "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-machine-sad+ "%DCMTK")
+  (export '%dcmtk::+dcm-floating-point-values+ "%DCMTK")
+  (export '%dcmtk::dcm-element+scan-value "%DCMTK")
+  (export '%dcmtk::+dcm-retired-display-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-issue-time-of-imaging-service-request+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-date-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-end-acquisition-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-control-point-delivery-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-radiation-generation-mode-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-fraction-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-chemical-shift-maximum-integration-limit-inppm+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-volume-to-table-mapping-matrix+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-hl7structured-document-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-exclusion-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-abstract-prior-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-quality-indicator-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-a-line-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-transmit-coil-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-doppler-sample-volume-y-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-subject-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-machine-special-mode-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-data-collection-center-patient+ "%DCMTK")
+  (export '%dcmtk::+dcm-slice-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-overlap-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-attenuation-correction-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-media-storage-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-iterations+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-central-axis-displacement+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-normalization-dose-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-fiducials-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-undefined-tag-key+ "%DCMTK")
+  (export '%dcmtk::+dcm-substance-administration-approval+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-receiving-presentation-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-differential+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-shape+ "%DCMTK")
+  (export '%dcmtk::is-lossy "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-interval-fractions+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-run-length-triplet+ "%DCMTK")
+  (export '%dcmtk::+dcm-rescale-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-discharge-diagnosis-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::get-g-tag "%DCMTK")
+  (export '%dcmtk::find-last-not-of "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list "%DCMTK")
+  (export '%dcmtk::+dcm-retired-text-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-source-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-includes-imaging-subject+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-weighting-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-variation-dimension-rank-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-view-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-method-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-deidentification-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-viewing-distance-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-predictor-constants+ "%DCMTK")
+  (export '%dcmtk::+dcm-replaced-implant-template-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-shadow-offset-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-zonal-map-number-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-coordinates-center-pixel-view-angle+
+          "%DCMTK")
+  (export '%dcmtk::find-and-delete-element "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-time "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-warning-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-rf-echo-train-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-results-id-issuer+ "%DCMTK")
+  (export '%dcmtk::+dcm-pto-region-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-screening-test-mode-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-processing-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-generator-id+ "%DCMTK")
+  (export '%dcmtk::dcm-other-long "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-longitudinal-position-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-framing-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-ivus-gated-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-start-location-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dose-value-purpose+ "%DCMTK")
+  (export '%dcmtk::+dcm-tid-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-content-item+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-patient-institution-residence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-safe-position-return-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-transform-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-dose-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-route+ "%DCMTK")
+  (export '%dcmtk::dcm-universal-resource-identifier-or-locator
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-degree-of-freedom-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-primary-angle-vector+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-tag-key "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-roof-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-translation-rate-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-plane-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-approval-status-further-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-compression-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-pattern-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-nominal-energy+ "%DCMTK")
+  (export '%dcmtk::dcm-data-dictionary "%DCMTK")
+  (export '%dcmtk::+dcm-probe-inductance+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-parameter-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-fd-value+ "%DCMTK")
+  (export '%dcmtk::repeating-begin "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-pitch-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::get-element "%DCMTK")
+  (export '%dcmtk::+dcm-pseudo-color-palette-instance-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-equivalent-conceptual-volume-instance-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-vertical-pixel-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-session-uid+ "%DCMTK")
+  (export '%dcmtk::e-transfer-state "%DCMTK")
+  (export '%dcmtk::e-search-mode "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-box-bottom-right-hand-corner+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-safe-position-return-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-focal-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-implementation-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-info-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-exposure-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-identification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pet-detector-motion-details-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-count-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-number-of-pulses+ "%DCMTK")
+  (export '%dcmtk::+dcm-element-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-lut-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-weekday-fraction-pattern-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-code-string "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-value-representation+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-longitude-ref+ "%DCMTK")
+  (export '%dcmtk::dcm-element+determine-vm "%DCMTK")
+  (export '%dcmtk::+dcm-source-image-evidence-sequence+ "%DCMTK")
+  (export '%dcmtk::set-parent "%DCMTK")
+  (export '%dcmtk::+dcm-media-installed-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-application-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-selected-gain-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-definition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-axial-resolution+ "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-long "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-generation-mode-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-display-collection-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-setup-device-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-mapping-resource+ "%DCMTK")
+  (export '%dcmtk::+dcm-cumulative-meterset-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-navigation-display-set+ "%DCMTK")
+  (export '%dcmtk::+dcm-offset-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-imaged-volume-depth+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-tomo-layer-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-actual-environmental-conditions+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-content-long-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-pitch-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-bolus-cutoff-timing-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-tracking-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-synchronization-trigger+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-strength-units+ "%DCMTK")
+  (export '%dcmtk::remove-all-but-current-representations "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axis-description+ "%DCMTK")
+  (export '%dcmtk::of-status "%DCMTK")
+  (export '%dcmtk::+dcm-retired-data-block+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-group-extension-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-acquisition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-topography-mapping-normals-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-fiducial-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-padding-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-delay-law-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-verified-time+ "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-text "%DCMTK")
+  (export '%dcmtk::+dcm-echo-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-date-stamp+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-frame-averaging+ "%DCMTK")
+  (export '%dcmtk::+dcm-multi-coil-element-name+ "%DCMTK")
+  (export '%dcmtk::~dcm-other-byte-other-word "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-subject-class-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-date-time-of-last-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-event-time-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-seam-line-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-is-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-oversampling-phase+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-FILE-READ-MODE| "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-non-dicom-output-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-k-space-trajectories+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-expiration-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-admission-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-transform-rotation-and-scale-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-visual-evaluation-test-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-prior-treatment-dose-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-point-x-coordinate+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-edge-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-deidentification-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-status-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-last-menstrual-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-transmittance+ "%DCMTK")
+  (export '%dcmtk::transfer-end "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ae-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-input-sequence-position-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-signature+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-type-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-DIR-REC-TYPE| "%DCMTK")
+  (export '%dcmtk::+dcm-phase-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-background-illumination-color-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-primary-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-visit+ "%DCMTK")
+  (export '%dcmtk::+dcm-quadrature-receive-coil+ "%DCMTK")
+  (export '%dcmtk::+of-string-npos+ "%DCMTK")
+  (export '%dcmtk::+dcm-relevant-opt-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-procedure-step-relationship-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calcium-scoring-mass-factor-device+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-detector-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-repetition-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-content-description-sequence+
+          "%DCMTK")
+  (export '%dcmtk::contains "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-anatomy-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-threshold-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-parameter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-data+ "%DCMTK")
+  (export '%dcmtk::resize "%DCMTK")
+  (export '%dcmtk::+dcm-allow-lossy-compression+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-cradle-tilt-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-slab-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-requesting-ae+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-range-compensator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-inbound-arrival-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-acquisition-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-reference-point-coordinates-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-anatomic-prescription-sequence+ "%DCMTK")
+  (export '%dcmtk::is-not-encapsulated "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-waveform-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-ophthalmic-axial-length-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-stage-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-axis-of-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-group-reference+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-image-navigation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::text "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transform-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-failure-reason+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cassette-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-start-time+ "%DCMTK")
+  (export '%dcmtk::set-group-range-restriction "%DCMTK")
+  (export '%dcmtk::+dcm-entity-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-view-width-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-owner-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sphere-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-localized-deviation-from-normal-calculated+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-series-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-focus-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-meterset+ "%DCMTK")
+  (export '%dcmtk::get-parent-item "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observer-context-flag-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-actual-respiratory-trigger-delay-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-lossy-image-compression-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-basis-materials-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-request-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-make+ "%DCMTK")
+  (export '%dcmtk::dcm-decimal-string+check-string-value "%DCMTK")
+  (export '%dcmtk::dcm-item+new-dicom-element-with-vr "%DCMTK")
+  (export '%dcmtk::get-name-components "%DCMTK")
+  (export '%dcmtk::+dcm-source-start-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-high-dose-technique-type+ "%DCMTK")
+  (export '%dcmtk::number-of-normal-tag-entries "%DCMTK")
+  (export '%dcmtk::+dcm-functional-mr-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-dose+ "%DCMTK")
+  (export '%dcmtk::dcm-offset-list "%DCMTK")
+  (export '%dcmtk::+dcm-double-exposure-ordering+ "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-number-of-images+ "%DCMTK")
+  (export '%dcmtk::+dcm-point-coordinates-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-pre-medication+ "%DCMTK")
+  (export '%dcmtk::store-compressed-frame "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coefficients-sddn+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-defined-device-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-isocenter-secondary-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-strain-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-label+ "%DCMTK")
+  (export '%dcmtk::contains-unknown-vr "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-fixation-losses-data-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sl-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-robotic-path-node-set-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-maxdictfields+ "%DCMTK")
+  (export '%dcmtk::uint8 "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-source-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-review-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-document-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-degree-of-freedom-axis+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-comments-on-patient-performance-of-visual-field+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-performed-station-ae-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-input-readiness-state+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-meta-information-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-decomposition-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-source-to-external-contour-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-volume-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-end-cumulative-time-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-dose-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-line-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-attribute-vr+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template3d-model-surface-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-baseline-correction+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-TRANSFER-STATE| "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-treatment-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-cumulative-time-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-relative-opacity+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlays-gray+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-origin-timestamp+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-beam-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-dose-reference-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-target-luminance-characteristics-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-treatment-phase-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-frame-of-reference-transformation-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-physicians-reading-study-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-slice-sensitivity-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-interoperability-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-usage-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-secondary-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-shadow-color-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-mydriatic-agent-concentration-units-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-points+ "%DCMTK")
+  (export '%dcmtk::clone "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-wedges+ "%DCMTK")
+  (export '%dcmtk::+dcm-xds-retrieval-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-lateral-setup-displacement+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-treatment-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-include-display-application+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-lateral-spreading-device-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-start-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-start-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-fraction-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-positioner-increment+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-intent-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-combination-expression+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-abstract-prior-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-patient-support-devices+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-general-purpose-scheduled-procedure-step-status+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-responsible-group-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-laterality+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rectifier-smoothing+ "%DCMTK")
+  (export '%dcmtk::find-and-get-uint32 "%DCMTK")
+  (export '%dcmtk::+dcm-mr-modifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-cumulative-time-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-substance-administration-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-decoupling+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-protocol-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-increment-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-analyzed-area+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-motion-execution-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-surface-generation-algorithm-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::operator< "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-scrolling-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-circular-shutter+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-preparation-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-output-stream "%DCMTK")
+  (export '%dcmtk::+dcm-max-aperture-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-density-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-modality+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-context-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-print-job-sequence-pull-stored-print+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-manifold+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-voilut-box-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-length-to-end+ "%DCMTK")
+  (export '%dcmtk::+dcm-pregnancy-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-deviation-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-plate-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-thickness-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-roi-extents+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-source-polarization+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-velocity-encoding-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-patient-related-studies+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmentation-fractional-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-compensator-tray-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-instance-availability+ "%DCMTK")
+  (export '%dcmtk::copy-from "%DCMTK")
+  (export '%dcmtk::+dcm-identifier-type-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-creator-reference+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-annotation-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-status-summary-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reported-values-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-materials-code-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-stack-node "%DCMTK")
+  (export '%dcmtk::+dcm-implant-size+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-float32array "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-identification-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-software-versions+ "%DCMTK")
+  (export '%dcmtk::+dcm-longitudinal-temporal-event-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-enhanced-palette-color-lookup-table-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-identification-label+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-vertical-prism-power+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-GRP-LEN-ENCODING| "%DCMTK")
+  (export '%dcmtk::+dcm-volume-of-pto+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-subject-context-flag-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-supported-image-display-formats-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-filter-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-smoothing-types-available+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-interval-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-view-name+ "%DCMTK")
+  (export '%dcmtk::find-private-creator "%DCMTK")
+  (export '%dcmtk::+dcm-expiry-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-adaptive-map-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-find-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-receiver-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dac-time-points+ "%DCMTK")
+  (export '%dcmtk::get-uint16array "%DCMTK")
+  (export '%dcmtk::+dcm-lens-constant-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames+ "%DCMTK")
+  (export '%dcmtk::+dcm-ethics-committee-approval-effectiveness-end-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-axial-acceptance+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-tdr-instance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-presentation-group+ "%DCMTK")
+  (export '%dcmtk::dcm-other64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-current-patient-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-rgba-transfer-function-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-green-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-box-text-horizontal-justification+
+          "%DCMTK")
+  (export '%dcmtk::is-empty "%DCMTK")
+  (export '%dcmtk::+dcm-bolus-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-anterior-chamber-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-algorithm-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-angle-number+ "%DCMTK")
+  (export '%dcmtk::is-dictionary-loaded "%DCMTK")
+  (export '%dcmtk::+dcm-short-term-fluctuation-calculated+ "%DCMTK")
+  (export '%dcmtk::+dcm-line-style-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-breed-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-last-value-mapped+ "%DCMTK")
+  (export '%dcmtk::~dcm-signed64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-retired-pixel-coordinates-set-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-roi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-segment-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-weighting-lookup-table-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-source-registry-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-grid-spacing-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-pet-frame-acquisition-sequence+ "%DCMTK")
+  (export '%dcmtk::ident "%DCMTK")
+  (export '%dcmtk::+dcm-vertical-alignment+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-prescribed-indices+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-command-recognition-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-averages-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-modalities-in-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-end-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-equivalent-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-insurance-plan-identification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-page-number-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-generation-mode-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-locations-preserved+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-ingredient-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::erase "%DCMTK")
+  (export '%dcmtk::+dcm-sensor-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-contrast-agent+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-organization-uid+ "%DCMTK")
+  (export '%dcmtk::dcm-unique-identifier+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-date+ "%DCMTK")
+  (export '%dcmtk::~dcm-long-text "%DCMTK")
+  (export '%dcmtk::+dcm-quality-control-subject-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::remove-invalid-groups "%DCMTK")
+  (export '%dcmtk::+dcm-retired-double-exposure-field-delta-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-depth-distortion+ "%DCMTK")
+  (export '%dcmtk::+dcm-catch-trials-data-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-decimal-potential-visual-acuity+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-range-shifter-number+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint16 "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-interval+ "%DCMTK")
+  (export '%dcmtk::+dcm-segments-overlap+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-defined-protocol-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-range-modulator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-od-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-domain-filtering+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-command-length-to-end+ "%DCMTK")
+  (export '%dcmtk::+dcm-processing-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-source-to-data-collection-center+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-allow-media-splitting+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-image-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-channel-omission+ "%DCMTK")
+  (export '%dcmtk::+dcm-region-location-min-y0+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-images-in-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-shape-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-irradiation-event-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-non-uniform-radial-sampling-corrected+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-current-treatment-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-repeat-interval+ "%DCMTK")
+  (export '%dcmtk::+dcm-transverse-detector-separation+ "%DCMTK")
+  (export '%dcmtk::dcm-consumer "%DCMTK")
+  (export '%dcmtk::+dcm-encapsulated-document+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-scan-spot-positions+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-patient-related-instances+
+          "%DCMTK")
+  (export '%dcmtk::end "%DCMTK")
+  (export '%dcmtk::+dcm-plane-orientation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-default-printer-resolution-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-operator-identification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-general-accessory-distance+
+          "%DCMTK")
+  (export '%dcmtk::to-string "%DCMTK")
+  (export '%dcmtk::+dcm-probe-drive-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-contact-display-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-decay-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-index-pointer+ "%DCMTK")
+  (export '%dcmtk::insert-empty-element "%DCMTK")
+  (export '%dcmtk::+dcm-other-patient-names+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-target-anatomy-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-sint32 "%DCMTK")
+  (export '%dcmtk::+dcm-target-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-results-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-model-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-review-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-high-rr-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-offset-of-the-last-directory-record-of-the-root-directory-entity+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-position-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-roi-base+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-width+ "%DCMTK")
+  (export '%dcmtk::~dcm-short-text "%DCMTK")
+  (export '%dcmtk::+dcm-entity-long-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-eye-movement-commanded+ "%DCMTK")
+  (export '%dcmtk::+dcm-continuation-end-total-reference-air-kerma+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-grid+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-therapy-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-path-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-ambient-light-value-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-percent-sampling+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-huffman-table-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-transfer-syntax-uid-in-file+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-view-modifier-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-temporal-positions+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-secondary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-pto-representation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-hl7document-effective-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-dynamic-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-teletherapy-radiation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-bulk-motion-signal-source+ "%DCMTK")
+  (export '%dcmtk::is-fixed-range-vm "%DCMTK")
+  (export '%dcmtk::+dcm-component-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposures-on-plate+ "%DCMTK")
+  (export '%dcmtk::+dcm-dlp-notification-trigger+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-lateral-position-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-motion-synchronization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-specific-brachy-control-point-delivered-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-color-filter-array-pattern-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-counts-included+ "%DCMTK")
+  (export '%dcmtk::+dcm-probe-orientation-angle+ "%DCMTK")
+  (export '%dcmtk::card "%DCMTK")
+  (export '%dcmtk::+dcm-performed-protocol-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-authorization-equipment-certification-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-requested-resolution-id+ "%DCMTK")
+  (export '%dcmtk::dcm-dicom-dir "%DCMTK")
+  (export '%dcmtk::+dcm-angular-step+ "%DCMTK")
+  (export '%dcmtk::+dcm-tick-label-alignment+ "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-set-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-tm-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-route+ "%DCMTK")
+  (export '%dcmtk::+dcm-additional-screening-performed+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-setting+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-implant-present+ "%DCMTK")
+  (export '%dcmtk::+dcm-dac-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-related-segment-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-geometry-sequence+ "%DCMTK")
+  (export '%dcmtk::get-vr "%DCMTK")
+  (export '%dcmtk::dcm-long-string+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-strain-nomenclature+ "%DCMTK")
+  (export '%dcmtk::+dcm-underlined+ "%DCMTK")
+  (export '%dcmtk::+dcm-item-tag+ "%DCMTK")
+  (export '%dcmtk::+dcm-tagging+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-detector-tilt+ "%DCMTK")
+  (export '%dcmtk::put-of-string-array "%DCMTK")
+  (export '%dcmtk::dcm-item "%DCMTK")
+  (export '%dcmtk::+dcm-estimated-dose-saving+ "%DCMTK")
+  (export '%dcmtk::+dcm-author-observer-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-parameters-specification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gamma-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-total-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-coil-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-opt-print-value-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-sequence-position-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-termination-density-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-transfer-tube-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-original-implant-assembly-template-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-related-rtroi-observations-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-assigned-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-phototimer-setting+ "%DCMTK")
+  (export '%dcmtk::+dcm-order-placer-identifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-item-delimitation-item-tag+ "%DCMTK")
+  (export '%dcmtk::+dcm-matrix-registration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-method+ "%DCMTK")
+  (export '%dcmtk::create-uint16array "%DCMTK")
+  (export '%dcmtk::+dcm-selected-total-ophthalmic-axial-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cine-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-implant-template-group-member-matching-axes+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-source-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-verifying-observer-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-positioning-instruction-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-measured-beam-dimension-a+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-instance-uid-in-file+
+          "%DCMTK")
+  (export '%dcmtk::repeating-end "%DCMTK")
+  (export '%dcmtk::dcm-byte-string+e-string-mode "%DCMTK")
+  (export '%dcmtk::+dcm-selector-attribute-private-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-deidentification-action-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-observation-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensitivity-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-color-filter-array-pattern-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-cylinder-axis+ "%DCMTK")
+  (export '%dcmtk::find-entry "%DCMTK")
+  (export '%dcmtk::+dcm-patient-institution-residence+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retrieve-ae-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-evaluation-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-inversion-recovery+ "%DCMTK")
+  (export '%dcmtk::get-next-record "%DCMTK")
+  (export '%dcmtk::+dcm-source-isotope-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-performing-physician-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-roll-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-delivery-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-bscan-cycle-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-binning+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-series-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-decay-correction-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-fluence-mode-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-standard-output-sensitivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-substance-administration-parameter-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-localized-deviation-from-normal+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transport-classification+ "%DCMTK")
+  (export '%dcmtk::+dcm-imager-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-requester-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-lut-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-laterality+ "%DCMTK")
+  (export '%dcmtk::+dcm-destination-ae+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-spacing-second-dimension+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-vertical-adjusted-position+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-view-height-direction+ "%DCMTK")
+  (export '%dcmtk::error "%DCMTK")
+  (export '%dcmtk::operator<= "%DCMTK")
+  (export '%dcmtk::+dcm-echo-peak-position+ "%DCMTK")
+  (export '%dcmtk::get-uint32array "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-polygonal-shutter+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-control-point-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-document-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-auto-kvp-upper-bound+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-global-results-index-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radionuclide-positron-fraction+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-start-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-notes+ "%DCMTK")
+  (export '%dcmtk::e-stream-compression "%DCMTK")
+  (export '%dcmtk::+dcm-asl-technique-description+ "%DCMTK")
+  (export '%dcmtk::is-signable-tag "%DCMTK")
+  (export '%dcmtk::dcm-private-tag-cache "%DCMTK")
+  (export '%dcmtk::+dcm-constraint-violation-significance+ "%DCMTK")
+  (export '%dcmtk::convert-to-utf8 "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-eccentricity-index+ "%DCMTK")
+  (export '%dcmtk::dcm-time+get-current-time "%DCMTK")
+  (export '%dcmtk::+dcm-patient-identity-removed+ "%DCMTK")
+  (export '%dcmtk::+dcm-gradient-echo-train-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-coordinates-data-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-support-isocenter-primary-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-first-bin-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-template-local-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-across-scan-spatial-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-iterative-reconstruction-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-water-equivalent-diameter-calculation-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-minimum-coordinate-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-document-class-code-sequence+ "%DCMTK")
+  (export '%dcmtk::reload-dictionaries "%DCMTK")
+  (export '%dcmtk::+dcm-iol-power-for-exact-target-refraction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-template-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-beam-limiting-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-instance-uid-of-concatenation-source+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-applicable-safety-standard-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-trigger-delay-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-suv-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-mechanical-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-frame-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-ophthalmic-axial-length-quality-metric-type-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-exif-version+ "%DCMTK")
+  (export '%dcmtk::top "%DCMTK")
+  (export '%dcmtk::+dcm-planning-input-information-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-false-negatives-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-tolerance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-presented-visual-stimuli-data-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-pupil-dilated+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-triangle-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-ivus-pullback-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-angle+ "%DCMTK")
+  (export '%dcmtk::get-meta-info "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ur-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-functional-sync-pulse+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-wall-nominal-transmission+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-participation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-activation-layer+ "%DCMTK")
+  (export '%dcmtk::write-json-ext "%DCMTK")
+  (export '%dcmtk::+dcm-source-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurements-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-printing-bit-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-yy+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtroi-relationship+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-maximum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer-recommended-display-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-combination-description+
+          "%DCMTK")
+  (export '%dcmtk::get "%DCMTK")
+  (export '%dcmtk::+dcm-preliminary-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-across-scan-distortion+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-physician-intent-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coordinate-start-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-volume-geometry+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-pto-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-predecessor-protocol-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-slot-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-snout-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-interest-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-type-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-vertex-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-box-top-left-hand-corner+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-last-modified-date+ "%DCMTK")
+  (export '%dcmtk::float64 "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-label+ "%DCMTK")
+  (export '%dcmtk::set-upper-element "%DCMTK")
+  (export '%dcmtk::+dcm-scanning-spot-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-alpha-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-pixel-sequence "%DCMTK")
+  (export '%dcmtk::+dcm-photon-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-bits-grouped+ "%DCMTK")
+  (export '%dcmtk::+dcm-mac-parameters-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-horizontal-prism-base+ "%DCMTK")
+  (export '%dcmtk::+dcm-comments-on-the-performed-procedure-step+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-stored-value-color-range-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-focus-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-point-y-coordinate+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-uniform-resource-locator-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-instance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-estimated-radiographic-magnification-factor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-focal-spots+ "%DCMTK")
+  (export '%dcmtk::get-item "%DCMTK")
+  (export '%dcmtk::dcm-decimal-string "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-FILE-WRITE-MODE| "%DCMTK")
+  (export '%dcmtk::+dcm-keratometry-measurement-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-attached-contours+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-start-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-texture-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-location-ae-title+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-source-coordinate-system-yaw-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-reference-transformation-comment+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-breed-registry-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-reduction-factor-out-of-plane+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-vector-coordinate-data+ "%DCMTK")
+  (export '%dcmtk::dcm-element+get-value-from-string "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-end-location-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-slot-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomo-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-saturation-recovery+ "%DCMTK")
+  (export '%dcmtk::+dcm-requesting-service+ "%DCMTK")
+  (export '%dcmtk::+dcm-biopsy-target-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-floating-point-double "%DCMTK")
+  (export '%dcmtk::+dcm-unassigned-shared-converted-attributes-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-station-geographic-location-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::swap "%DCMTK")
+  (export '%dcmtk::+dcm-b1rms+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::is-retired "%DCMTK")
+  (export '%dcmtk::+dcm-patient-gantry-relationship-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-body-part-examined+ "%DCMTK")
+  (export '%dcmtk::+dcm-starting-meterset-value-known-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-mating-axes+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ui-value+ "%DCMTK")
+  (export '%dcmtk::get-vm "%DCMTK")
+  (export '%dcmtk::+dcm-window-center+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-display-background-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-date-of-gain-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-bscan-cycle-time-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-configuration-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-voilut-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-multi-coil-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-study-related-instances+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-context-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-copies+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-device-tolerance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-task-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames-in-phase+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-urn-code-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-wedge-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-correction-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-fractional-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-global-deviation-from-normal+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-alternate-identifier-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-device-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-task-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-reduction-factor-second-in-plane+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-synchronization-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-foveal-point-probability-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-relative-image-position-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-us-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-corrected-localized-deviation-from-normal-probability+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-shot-offset-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-functions+ "%DCMTK")
+  (export '%dcmtk::+dcm-iol-power-for-exact-emmetropia+ "%DCMTK")
+  (export '%dcmtk::+dcm-storage-protocol-element-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-presentation-group-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-set-usage+ "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-owner-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-unformatted-text-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-input-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-cardiac-trigger-time-prior-to-r-peak+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-xy+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-property-type-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-outline-shape-type+ "%DCMTK")
+  (export '%dcmtk::get-uncompressed-frame "%DCMTK")
+  (export '%dcmtk::+dcm-diameter-of-visibility+ "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-circular-outline+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-comparison-sop-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-gradient-output+ "%DCMTK")
+  (export '%dcmtk::+dcm-receiver-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-surface-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-group-extension-creator-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-series-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-probe-drive-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tick-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-pulse-repetition-interval+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retest-sensitivity-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-referenced-dose-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-report-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-displayed-z-value+ "%DCMTK")
+  (export '%dcmtk::dcm-date+get-current-date "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-bias-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-termination-relative-density-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-normalization-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-contour-pen-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-object-binary-identifier-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-application-maximum-repaint-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-machine-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-magnetic-field-strength+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-start-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-originator+ "%DCMTK")
+  (export '%dcmtk::+dcm-reformatting-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-serial-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-gain-correction-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-unsigned64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-brachy-application-setup-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-presentation-lut-content-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-implementation-version-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-functional-group-private-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-water-referenced-phase-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-physician-intent-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-data-source-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-axial-length-of-the-eye+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-tube-current-inu-a+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-network-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulser-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-patient-setup-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-disposition+ "%DCMTK")
+  (export '%dcmtk::+dcm-ctx-ray-details-sequence+ "%DCMTK")
+  (export '%dcmtk::get-original-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-test-pattern-code-sequence+ "%DCMTK")
+  (export '%dcmtk::sint16 "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-plan-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-receiving-ae+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-plane-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-name-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-admitting-diagnoses-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-pixel-y0+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-source-to-skin-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-total-pixel-matrix-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-end-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-assembly-template-issuer+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sint32array "%DCMTK")
+  (export '%dcmtk::+dcm-keratoconus-prediction-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-bandwidth+ "%DCMTK")
+  (export '%dcmtk::+dcm-top-left-hand-corner-of-localizer-area+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-originator+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-tube-current-inm-a+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtroi-observations-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquired-soundpath-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-revolution-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-count+ "%DCMTK")
+  (export '%dcmtk::is-unknown-vr "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-reference-transformation-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-death-date-in-alternative-calendar+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-topography-surface+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-station-class-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::assign "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-state-classification-component-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-capture-device-manufacturer-model-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-control-point-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-chemical-shift-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-site-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectroscopy-acquisition-out-of-plane-phase-steps+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-total-collimation-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-show-acquisition-techniques-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-beam-path-length-minimum+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-document-scaling+ "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-transform-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dose-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-total-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axis-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-meta-information-group-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-print+ "%DCMTK")
+  (export '%dcmtk::+dcm-relative-time-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-error-id+ "%DCMTK")
+  (export '%dcmtk::get-sint16array "%DCMTK")
+  (export '%dcmtk::get-valid-vr-name "%DCMTK")
+  (export '%dcmtk::+dcm-participation-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-range-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-other-double "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-horizontal-pixel-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-radiation-sequence+ "%DCMTK")
+  (export '%dcmtk::put-name-components "%DCMTK")
+  (export '%dcmtk::+dcm-observation-significance+ "%DCMTK")
+  (export '%dcmtk::+dcm-threshold-value-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-belt-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-substance-administration-device-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-combination-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-storage-media-file-set-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-viewpoint-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-test-result-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-frequency-response-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-processing-applied+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-algorithm-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axis-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-right-lens-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-blocked-pixels+ "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-data+ "%DCMTK")
+  (export '%dcmtk::is-signable "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-position-sequence+ "%DCMTK")
+  (export '%dcmtk::set-non-encapsulation-flag "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-is-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-add-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-reference-image-number+ "%DCMTK")
+  (export '%dcmtk::uint32 "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-short "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-group-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-coincidence-window-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-anatomic-reference-point-x-coordinate+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-material-velocity+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-planning-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-audio-sample-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-edge-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-tube-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-stop-time+ "%DCMTK")
+  (export '%dcmtk::contains-extended-characters "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-length-summation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-volumetric-curve-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-telephone-number-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-institutional-department-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-site-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-decimal-visual-acuity+ "%DCMTK")
+  (export '%dcmtk::+dcm-leaf-jaw-positions+ "%DCMTK")
+  (export '%dcmtk::+dcm-blue-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rr-interval-time-nominal+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-primary-language-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-red-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wide-field-ophthalmic-photography-threshold-quality-rating+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modified-image-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-sequencing-indicator-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-coil-manufacturer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-input-set-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-distribution-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-description+ "%DCMTK")
+  (export '%dcmtk::~dcm-private-tag-cache "%DCMTK")
+  (export '%dcmtk::+dcm-selector-da-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-predicted-refractive-error+ "%DCMTK")
+  (export '%dcmtk::+dcm-person-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-instance-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-shot-duration-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-gating-stop-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-longitudinal-setup-displacement+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-location-coordinates-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-completion-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-usage-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-affected-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-residual-syringe-counts+ "%DCMTK")
+  (export '%dcmtk::operator>= "%DCMTK")
+  (export '%dcmtk::+dcm-channel-delivery-continuation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-ingredient-opaque+ "%DCMTK")
+  (export '%dcmtk::+dcm-entrance-dose-derivation+ "%DCMTK")
+  (export '%dcmtk::+dcm-negative-catch-trials-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-lines-of-response-used+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-motion+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-eccentric-angle-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-intravascular-oct-frame-type-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-structure-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-img-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-excessive-false-positives-data-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-performed-flag+ "%DCMTK")
+  (export '%dcmtk::at "%DCMTK")
+  (export '%dcmtk::+dcm-reference-pixel-physical-value-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-admission-id-sequence+ "%DCMTK")
+  (export '%dcmtk::of-string+size-type "%DCMTK")
+  (export '%dcmtk::+dcm-retrieve-url+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-perimeter-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-subject-type-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-offending-element+ "%DCMTK")
+  (export '%dcmtk::float32 "%DCMTK")
+  (export '%dcmtk::+dcm-modulation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-fractions-delivered+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-ophthalmic-axial-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-measured-center-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-operation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-group-uid-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-hardcopy-device-manufacturer-model-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-performed-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-stock-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-user-content-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-object-pixel-spacing-in-center-of-beam+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-attribute-tag "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-position+ "%DCMTK")
+  (export '%dcmtk::find-and-get-of-string "%DCMTK")
+  (export '%dcmtk::+dcm-other-patient-i-ds-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-camera-owner-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-cornea-measurement-data-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-meaning+ "%DCMTK")
+  (export '%dcmtk::dcm-object "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-topography-map-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-devices-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-step-pointers+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ds-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-printer-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-smoothing-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-horizontal-flip+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-pupillary-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-block-tray-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-plane-identification+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-telephone-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-print-queue-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-mrdr-directory-record-offset+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-point-coordinates-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-stop-control-point-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-termination-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposed-area+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-communications-uri-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-relative-stopping-power-ratio+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-specific-character-set-of-file-set-descriptor-file+
+          "%DCMTK")
+  (export '%dcmtk::dcm-short-string+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-mating-feature-coordinates-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-number-of-axes+ "%DCMTK")
+  (export '%dcmtk::dcm-other-byte-other-word "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coordinate-system-axis-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-compensator-distances+ "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-setting+ "%DCMTK")
+  (export '%dcmtk::+dcm-event-type-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-scene-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-continuation-start-total-reference-air-kerma+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-uint16array "%DCMTK")
+  (export '%dcmtk::+dcm-show-image-true-size-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-treatment-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-motion-compensation-technique+
+          "%DCMTK")
+  (export '%dcmtk::load-summary "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-patient-id-qualifiers-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fixed-rt-beam-delimiter-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-message-id+ "%DCMTK")
+  (export '%dcmtk::put-sint32array "%DCMTK")
+  (export '%dcmtk::dcm-universal-resource-identifier-or-locator+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cropping-specification-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-blue-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-review-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-screen-minimum-color-bit-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-series-blending+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-general-accessories+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-method-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-capture-device-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-surface-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-a-lines-per-frame+ "%DCMTK")
+  (export '%dcmtk::+dcm-anchor-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-area-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure+ "%DCMTK")
+  (export '%dcmtk::+dcm-instance-coercion-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-pupillary-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-primary-angle-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-device-orientation-label-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-responsible-organization+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-horizontal-offset-of-sensor+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-total-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-stowrs-storage-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-confidentiality-constraint-on-patient-data-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segment-characteristics-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compression-pressure+ "%DCMTK")
+  (export '%dcmtk::+dcm-media-disposition+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-equipment-relationship-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-transcription-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fluence-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-resolution-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-reordered+ "%DCMTK")
+  (export '%dcmtk::+dcm-imaging-device-specific-acquisition-parameters+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-main-roof-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-slab-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulser-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radionuclide-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-specification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-meterset-rate-delivered+ "%DCMTK")
+  (export '%dcmtk::+dcm-echo-pulse-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-image-type-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-number+ "%DCMTK")
+  (export '%dcmtk::dcm-representation-list-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-photographic-exposure-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-sponsor-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-tolerance-table-sequence+ "%DCMTK")
+  (export '%dcmtk::compare "%DCMTK")
+  (export '%dcmtk::+dcm-verification-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-start-day-of-week+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-motion-observation-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-deformable-registration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-flight-information-used+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-time-point-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-transducer-sequence+ "%DCMTK")
+  (export '%dcmtk::put-string "%DCMTK")
+  (export '%dcmtk::+dcm-ctd-ivol-notification-trigger+ "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-polygonal-collimator+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-digital-signature-uid+ "%DCMTK")
+  (export '%dcmtk::has-representation "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-progress+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-elemental-composition-atomic-mass-fraction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-high-bit+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-control-point-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-product-package-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-shielding-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-object-observation-class-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-iol-power-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-frame-offset-vector+ "%DCMTK")
+  (export '%dcmtk::compute-group-length-and-padding "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-opening+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rt-accessory-holders+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-verification-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-blocks+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-specification-method+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-person-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::rfind "%DCMTK")
+  (export '%dcmtk::+dcm-human-performer-organization+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-group-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-image-sequence+ "%DCMTK")
+  (export '%dcmtk::is-private-reservation "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-segment-name-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-jpeg-process8bit "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-STORAGE-SOP-CLASS-TYPE| "%DCMTK")
+  (export '%dcmtk::+dcm-imaged-volume-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-instance-origin-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-flash-function-present+ "%DCMTK")
+  (export '%dcmtk::get-uncompressed-frame-size "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-image-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-foreground-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rotations+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-opening-mode+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-indication-roi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-additional-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-auto-kvp-lower-bound+ "%DCMTK")
+  (export '%dcmtk::normal-end "%DCMTK")
+  (export '%dcmtk::dcm-dict-entry-list-const-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-source-irradiation-event-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-local-namespace-entity-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-weighting-transfer-function-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-image-real-world-value-mapping-sequence+
+          "%DCMTK")
+  (export '%dcmtk::lookup-v-rin-dictionary "%DCMTK")
+  (export '%dcmtk::+dcm-photographic-sensitivity+ "%DCMTK")
+  (export '%dcmtk::dcm-unique-identifier "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-lateral-spreading-devices+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-replaced-procedure-step-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-opt-print-line-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-en-face-image-quality-rating-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-filter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-rectangle+ "%DCMTK")
+  (export '%dcmtk::+dcm-age-corrected-sensitivity-deviation-probability-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-point-source-to-external-contour-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-attenuation-correction-temporal-relationship+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-elements "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-yz+ "%DCMTK")
+  (export '%dcmtk::+dcm-move-originator-message-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-boluses+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-measurement-sequence+ "%DCMTK")
+  (export '%dcmtk::subset "%DCMTK")
+  (export '%dcmtk::+dcm-spectroscopy-acquisition-phase-columns+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-billing-item-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-audio-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-element-pitch-b+ "%DCMTK")
+  (export '%dcmtk::get-base-tag "%DCMTK")
+  (export '%dcmtk::+dcm-partial-view+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sint16array "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-smallest-valid-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-series-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-anchor-point-visibility+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-thickness-maximum+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiobiological-dose-effect-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-device-slot-id+ "%DCMTK")
+  (export '%dcmtk::write "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-hpgl-document-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-object-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-encrypted-content+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-wedge-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-smallest-image-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-measurements-right-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::class-name "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-device-parameter-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-date "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-display-frame-rate-in-float+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-modifiable-constraint-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-zonal-map+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-description-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-anode-target-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-specific-activity+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-robotic-path-control-point-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pet-reconstruction-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-constituent-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-signal-domain-columns+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-dicom-date-time-from-of-date-time
+          "%DCMTK")
+  (export '%dcmtk::+dcm-oecf-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-admission-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element+ "%DCMTK")
+  (export '%dcmtk::set-current-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-relative-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-measurement-automation-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-normals-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-css-font-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-magnification-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-ophthalmic-axial-length-measurement-qc-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-layer-order+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-snout-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-thickness-map-quality-rating-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-flash-return-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-probe-resistance+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-serial-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-accessory-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-plane-intersection+ "%DCMTK")
+  (export '%dcmtk::skip "%DCMTK")
+  (export '%dcmtk::+dcm-atd-assessment-probability+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-mating-axes+ "%DCMTK")
+  (export '%dcmtk::+dcm-toric-iol-power-for-exact-emmetropia-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-erase+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-strength-reference-time+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-float32 "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-setting+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-beam-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-primary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-extended-offset-table-lengths+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-gray-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-descriptor-blue+ "%DCMTK")
+  (export '%dcmtk::+dcm-registered-localizer-top-left-hand-corner+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-offset-z+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-energy-window-total-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-mapping-resource-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-thickness-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-interpolation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-creation-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-sampling-step-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-observation-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-viewing-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-horizontal-alignment+ "%DCMTK")
+  (export '%dcmtk::~dcm-signed-short "%DCMTK")
+  (export '%dcmtk::+dcm-effective-refractive-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-last-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-waveform-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-stages+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-annotation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-inversion-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-nonidentifying-private-elements+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-details-of-coefficients+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-thickness-mapping-normals-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-primary-angle+ "%DCMTK")
+  (export '%dcmtk::is-leaf "%DCMTK")
+  (export '%dcmtk::+dcm-mr-timing-and-related-parameters-sequence+
+          "%DCMTK")
   (export '%dcmtk::is-group-length "%DCMTK")
+  (export '%dcmtk::+dcm-retired-specimen-description-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-illegal-private-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-family-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-points-normals-sequence+ "%DCMTK")
+  (export '%dcmtk::of-condition-const "%DCMTK")
+  (export '%dcmtk::+dcm-continuity-of-content+ "%DCMTK")
+  (export '%dcmtk::+dcm-auto-kvp-selection-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-related-procedure-step-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-instance-creation-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-prescription-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-dose-scaling+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-characteristics+ "%DCMTK")
+  (export '%dcmtk::+dcm-parameter-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-false-negatives-estimate-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlays-red+ "%DCMTK")
+  (export '%dcmtk::+dcm-digital-signatures-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-flash-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-exposure-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-spacing-calibration-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-termination-status+ "%DCMTK")
+  (export '%dcmtk::dcm-application-entity+check-string-value
+          "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-originality+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-delivery-order-sequence+ "%DCMTK")
+  (export '%dcmtk::of-iterator<dcm-dict-entry*> "%DCMTK")
+  (export '%dcmtk::+dcm-view-position+ "%DCMTK")
+  (export '%dcmtk::set-upper-group "%DCMTK")
+  (export '%dcmtk::+dcm-ddl-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-area-limit-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-anisotropy-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-ci-exy-white-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-intravascular-frame-content-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-accession-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-assertion-expiration-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiotherapy-treatment-type+ "%DCMTK")
+  (export '%dcmtk::dcm-polymorph-obow "%DCMTK")
+  (export '%dcmtk::+dcm-sharpness+ "%DCMTK")
+  (export '%dcmtk::+dcm-variable-flip-angle-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ul-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-geometry-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-filler-order-number-procedure+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-patient-group-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-offset+ "%DCMTK")
+  (export '%dcmtk::set-element "%DCMTK")
+  (export '%dcmtk::+dcm-military-rank+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-time-bulk-data-flow-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-camera-angle-of-view+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-animation-style+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-session-beam-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-spacing-calibration-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rational-denominator-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-color-image-printing-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-label-using-information-extracted-from-instances+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-content-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-tm-line-position-x0+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-location-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-compensator-tray-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-active-source-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-roll-adjusted-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-modulated-scan-mode-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-registration-to-localizer-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-vitreous-status-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-constraint-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-source-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-geometry-for-display+ "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-instances+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-task-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-number-of-tables+ "%DCMTK")
+  (export '%dcmtk::code "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-red-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-property-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-diameter-of-circular-outline+ "%DCMTK")
+  (export '%dcmtk::+dcm-synchronization-channel+ "%DCMTK")
+  (export '%dcmtk::+dcm-plane-orientation-volume-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-input-stream-factory "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-applicator-mounting-position-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-volume-localization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-summary-measured-dose-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-physician-intent-sequence+
+          "%DCMTK")
+  (export '%dcmtk::push-back "%DCMTK")
+  (export '%dcmtk::+dcm-private-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-repeat-fraction-cycle-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-control-point-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-mydriatic-agent-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-manufacturer-model-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-pixel-data-properties-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-product-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-vertical-increment+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-frame-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-flow-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-generation-mode-machine-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-input-stream "%DCMTK")
+  (export '%dcmtk::get-float64vector "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-distal-depth-fraction+ "%DCMTK")
+  (export '%dcmtk::+dcm-flash-red-eye-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-vertical-setup-displacement+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-distance-source-to-support+ "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-text-color-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-measuring-units-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-state-input-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-specific-character-set "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-wedge-tray-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-exposure-field-delta+ "%DCMTK")
+  (export '%dcmtk::+dcm-affected-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-background-luminance+ "%DCMTK")
+  (export '%dcmtk::number-of-entries "%DCMTK")
+  (export '%dcmtk::+dcm-retired-dialog-receiver+ "%DCMTK")
+  (export '%dcmtk::set-private-creator "%DCMTK")
+  (export '%dcmtk::get-sint64array "%DCMTK")
+  (export '%dcmtk::+dcm-certificate-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-magic+ "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-creator+ "%DCMTK")
+  (export '%dcmtk::+dcm-aperture-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-series-related-instances+ "%DCMTK")
+  (export '%dcmtk::is-referenced "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-maximum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-print-job-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-last-bin-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-range-stop+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposures-on-detector-since-last-calibration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-displayed-area-selection-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-billing-supplies-and-devices-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-uv-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-dose-reference-dose-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transaction-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-chromaticities+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-originating-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-region-of-residence+ "%DCMTK")
+  (export '%dcmtk::+dcm-command-field+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-path-filter-pass-band+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-visibility-percentage+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-interpreter+ "%DCMTK")
+  (export '%dcmtk::+dcm-longitudinal-temporal-information-modified+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ut-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-resulting-general-purpose-performed-procedure-steps-sequence+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-integer-string "%DCMTK")
+  (export '%dcmtk::+dcm-xds-storage-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-blocking-constraint+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-presentation-lut-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-actual-human-performers-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-tolerance-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-stored-print-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-summary-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-zoom-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-velocity-encoding-minimum-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-eye-movement-command-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-message-id-being-responded-to+ "%DCMTK")
+  (export '%dcmtk::+dcm-referring-physician-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lut1sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-move-destination+ "%DCMTK")
+  (export '%dcmtk::+dcm-left-lens-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-compression-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-beam-limiting-device-distance+
+          "%DCMTK")
+  (export '%dcmtk::get-stream-compression "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-findings-group-uid-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calibration-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-modifiers+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-referenced-overlay-group+
+          "%DCMTK")
+  (export '%dcmtk::save-file "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-contrast+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-dose-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-source-modifiers-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-coupling-medium+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-slab-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-universal-entity-id+ "%DCMTK")
+  (export '%dcmtk::insert-item "%DCMTK")
+  (export '%dcmtk::get-current-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-pupil-centroid-x-coordinate+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-protocol-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-boarding-pass-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-label+ "%DCMTK")
+  (export '%dcmtk::get-value-width "%DCMTK")
+  (export '%dcmtk::get-tag "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-primary-angle-increment+ "%DCMTK")
+  (export '%dcmtk::+dcm-optotype-detailed-definition+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-sample-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-device-parameter+ "%DCMTK")
+  (export '%dcmtk::operator+= "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-effective-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-treatment-phase-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-thickness-map-quality-threshold-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-block-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-time-point-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-aperture-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-date-time+ "%DCMTK")
+  (export '%dcmtk::is-equivalent "%DCMTK")
+  (export '%dcmtk::get-real-length "%DCMTK")
+  (export '%dcmtk::+dcm-receiving-application-entity-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-flow-compensation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-patient-setup-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-display-calibration-result-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-indication-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-responsible-person+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-url-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-version-id+ "%DCMTK")
+  (export '%dcmtk::pop "%DCMTK")
+  (export '%dcmtk::push "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-patient-related-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-signal-to-noise-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-pixel-matrix-origin-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-physiological-state-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-unspecified-laterality-lens-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-threat-detection-algorithm-and-version+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-prescription-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-mapping-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-protocols+ "%DCMTK")
+  (export '%dcmtk::+dcm-axial-detector-dimension+ "%DCMTK")
+  (export '%dcmtk::detach-value-field "%DCMTK")
+  (export '%dcmtk::+dcm-table-speed+ "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-target-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-predictor-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-outline-upper-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-support-isocenter-secondary-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-localized-deviation-from-normal+ "%DCMTK")
+  (export '%dcmtk::avail "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coefficient-coding+ "%DCMTK")
+  (export '%dcmtk::+dcm-end-of-list-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-geometric-maximum-distortion+ "%DCMTK")
+  (export '%dcmtk::get-group-range-restriction "%DCMTK")
+  (export '%dcmtk::dcm-time "%DCMTK")
+  (export '%dcmtk::+dcm-lens-status-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-potential-reasons-for-procedure-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-text-format-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-element-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-meterset-weights+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-termination-condition-data+
+          "%DCMTK")
+  (export '%dcmtk::put-of-string-at-pos "%DCMTK")
+  (export '%dcmtk::~dcm-polymorph-obow "%DCMTK")
+  (export '%dcmtk::+dcm-dead-time-factor+ "%DCMTK")
+  (export '%dcmtk::set-read-mode "%DCMTK")
+  (export '%dcmtk::+dcm-offset-of-the-first-directory-record-of-the-root-directory-entity+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-bits-allocated+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-value-mapping-to-coded-concept-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-sample-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-field-of-view-horizontal-flip+ "%DCMTK")
+  (export '%dcmtk::+dcm-longitudinal-temporal-offset-from-event+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-position-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-slice-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-beam-limiting-device-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-current-fraction-number+ "%DCMTK")
+  (export '%dcmtk::~dcm-hash-dict-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-position-time-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-phase-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-image-overlay-box-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-characters "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-transcription-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-and-fluoroscopy-area-dose-product+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-configuration+ "%DCMTK")
+  (export '%dcmtk::+dcm-line-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-bits-grouped+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-index-applied+ "%DCMTK")
+  (export '%dcmtk::+dcm-stereo-pairs-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mask-sub-pixel-shift+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-refractive-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-exposure-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-geometry-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-event-timers+ "%DCMTK")
+  (export '%dcmtk::+dcm-object-thickness-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-priors-referenced+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-start-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-rotation-retired+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-standard-deviation+ "%DCMTK")
+  (export '%dcmtk::get-of-time "%DCMTK")
+  (export '%dcmtk::+dcm-date-of-last-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-first-order-phase-correction-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-attenuation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-operating-mode-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-area-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-verified-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-transform-of-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-encapsulated-document-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-administrator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-record-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-pertinent-sop-classes-in-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-verbal-source-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-delivery-duration-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-meterset-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-verifying-organization+ "%DCMTK")
+  (export '%dcmtk::+dcm-anatomic-structure-reference-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-oct-bscan-analysis-acquisition-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referring-physician-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-compression-step-pointers+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-label-style-selection+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-issuer-of-admission-id+ "%DCMTK")
+  (export '%dcmtk::get-uint64 "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-protocol-ethics-committee-approval-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-doppler-sample-volume-x-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-surfaces+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-opening-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-average-beam-dose-point-source-to-external-contour-distance+
+          "%DCMTK")
+  (export '%dcmtk::put-uint8array "%DCMTK")
+  (export '%dcmtk::get-xfer-id "%DCMTK")
+  (export '%dcmtk::+dcm-selector-st-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-positioner-increment+ "%DCMTK")
+  (export '%dcmtk::is-repeating "%DCMTK")
+  (export '%dcmtk::+dcm-channel-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-add-intermediate-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-notification-from-manufacturer-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-shape-fabrication-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-information-issue-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-mean-sensitivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-source-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-total-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-gps-track-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-echo-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-assembly-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervals-acquired+ "%DCMTK")
+  (export '%dcmtk::hash "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-lateral-spreading-device-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-number+ "%DCMTK")
+  (export '%dcmtk::load-dictionary "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-number+ "%DCMTK")
+  (export '%dcmtk::dcm-directory-record "%DCMTK")
+  (export '%dcmtk::+dcm-retired-hardcopy-creation-device-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-document-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-degree-of-freedom-axis+ "%DCMTK")
+  (export '%dcmtk::+dcm-item+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sh-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioning-landmark-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-temperature+ "%DCMTK")
+  (export '%dcmtk::+dcm-mid-slab-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-diagnosis-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-error-before-refractive-surgery-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-age-corrected-sensitivity-deviation-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-physicians-of-record+ "%DCMTK")
+  (export '%dcmtk::+dcm-person-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-films+ "%DCMTK")
+  (export '%dcmtk::+dcm-dac-sequence+ "%DCMTK")
+  (export '%dcmtk::get-and-remove-dataset "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-minimum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-color-filter-array-pattern-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-material-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-cardiac-trigger-count-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-distal-thickness-map+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-path-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-support-z-position-to-isocenter+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-icc-profile+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-pixel-aspect-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-responsible-person-role+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-end-location-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-fl-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-magnification-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-entity-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-alternate-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-average-pulse-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-data-set-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-anterior-chamber-depth-definition-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-orientation-slide+ "%DCMTK")
+  (export '%dcmtk::offile-off-t "%DCMTK")
+  (export '%dcmtk::+dcm-source-acquisition-beam-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-printer-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-longitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-matrix+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-synchronization+ "%DCMTK")
+  (export '%dcmtk::+dcm-output-destination-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-filter+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-the-requested-procedure+ "%DCMTK")
+  (export '%dcmtk::+dcm-inspection-selection-criteria+ "%DCMTK")
+  (export '%dcmtk::+dcm-z-effective+ "%DCMTK")
+  (export '%dcmtk::+dcm-operators-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-anchor-point-annotation-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-value-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-worklist-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvhroi-contribution-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-mean+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-patient-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-modality-lut-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-segment-annotation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-organizational-role-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulser-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-model-usage-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-roi-bitmap+ "%DCMTK")
+  (export '%dcmtk::get-encapsulated-representation "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-issuer-of-service-episode-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-member-matching2d-coordinates-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-impedance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-image-size+ "%DCMTK")
+  (export '%dcmtk::insert-sequence-item "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-requesting-physician-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-in-contact-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-altitude-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-status-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-pet-table-dynamics-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-url+ "%DCMTK")
+  (export '%dcmtk::+dcm-flat-corneal-axis-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-patient-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-map-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-wide-field-ophthalmic-photography-quality-threshold-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rescale-slope+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-pixel-data-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-overlay-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-tm-line-position-x0retired+ "%DCMTK")
+  (export '%dcmtk::+dcm-voi-type+ "%DCMTK")
+  (export '%dcmtk::insert "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lookup-table-descriptor+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-record-content-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-annotation-type-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-parameters-used-on-patient-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-extended-depth-of-field+ "%DCMTK")
+  (export '%dcmtk::next-sub "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-fluence-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-row-overlap+ "%DCMTK")
+  (export '%dcmtk::+dcm-stop-trim+ "%DCMTK")
+  (export '%dcmtk::+dcm-related-general-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-certificate-of-signer+ "%DCMTK")
+  (export '%dcmtk::+dcm-external-contour-entry-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-contribution-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-z-offset-in-slide-coordinate-system+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-spoiling+ "%DCMTK")
+  (export '%dcmtk::+dcm-echo-planar-pulse-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-element-physical-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-lut-frame-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-flow-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-y-focus-center+ "%DCMTK")
+  (export '%dcmtk::+dcm-institution-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-study-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-sensitivity-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-receiver-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-opt-print-attribute-name-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-entity-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dose-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-detector-parameters-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-gradient-direction-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-workitem-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dict-environment-variable+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-recorded-date+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-dead-time-correction-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-delimiter-geometry-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-threat-category+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-conceptual-volume-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-overlay-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-base-plane-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-probe-center-location-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-slot-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-document-author-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-false-positives-estimate+ "%DCMTK")
+  (export '%dcmtk::+dcm-physical-units-x-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-unified-procedure-step-list-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-acquisition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-pn-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-flow-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-prescription-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-direction+ "%DCMTK")
+  (export '%dcmtk::dcm-output-filter "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-roll-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-classes-supported+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-intent-type+ "%DCMTK")
+  (export '%dcmtk::find-first-not-of "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-background-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-itinerary-id-assigning-authority+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-data-type-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-water-reference-acquisition+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-float-pixel-padding-range-limit+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-calculation-comment-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-point-color-cie-lab-value-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-generator-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-location+ "%DCMTK")
+  (export '%dcmtk::copy "%DCMTK")
+  (export '%dcmtk::+dcm-aperture-elevation+ "%DCMTK")
+  (export '%dcmtk::e-file-read-mode "%DCMTK")
+  (export '%dcmtk::+dcm-channel-inner-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-documenting-observer-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-bits-for-code-word+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-minimum-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-eye+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-start-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-mime-type-of-encapsulated-document+ "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-name-components-from-string
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mr-image-frame-type-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-column-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-un-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-surgical-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-acquisition+ "%DCMTK")
+  (export '%dcmtk::+dcm-itinerary-id-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-author-identification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-physical-delta-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-per-projection-acquisition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-min-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-magnification-types-available+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dicom-storage-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-steep-keratometric-axis-sequence+ "%DCMTK")
+  (export '%dcmtk::set-g-tag "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-LIST-POS| "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-green-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-special-needs+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-column-overlap+ "%DCMTK")
+  (export '%dcmtk::+dcm-stimulus-color-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-strain-code-sequence+ "%DCMTK")
+  (export '%dcmtk::e-file-write-mode "%DCMTK")
+  (export '%dcmtk::+dcm-available-transfer-syntax-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-oecf-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-nominal-transmission+
+          "%DCMTK")
+  (export '%dcmtk::supports-undefined-length "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-segment-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-time-in-seconds+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-target-anatomy-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-report-detail-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-modification-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-camera-position-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-range-start+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffuse-reflection-intensity+ "%DCMTK")
+  (export '%dcmtk::is-little-endian "%DCMTK")
+  (export '%dcmtk::+dcm-plane-position-slide-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlays+ "%DCMTK")
+  (export '%dcmtk::+dcm-anatomic-region-modifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-unit-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component1referenced-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-model-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-block-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-stored-value-mapped+ "%DCMTK")
+  (export '%dcmtk::+dcm-transverse-mash+ "%DCMTK")
+  (export '%dcmtk::+dcm-definition-source-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-illumination-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurement-modified+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-prescription-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-frame-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-organ-exposed+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-procedure-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-query-retrieve-level+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-rate-delivered+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-plane-coordinates-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-screening-baseline-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-respiratory-trigger-count-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-additional-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-dose-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-radius-of-circular-collimator+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-study-stop-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-region-lower-horizontal-edge+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-line-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-related-rt-treatment-phase-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-occurrence-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-udi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-blind-spot-localized+ "%DCMTK")
+  (export '%dcmtk::dcm-representation-entry "%DCMTK")
+  (export '%dcmtk::+dcm-qa-results-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-procedure-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-template-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-encrypted-content-transfer-syntax-uid+
+          "%DCMTK")
+  (export '%dcmtk::get-uint8 "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::write-signature-format "%DCMTK")
+  (export '%dcmtk::is-fixed-single-vm "%DCMTK")
+  (export '%dcmtk::+dcm-calcium-scoring-mass-factor-patient+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-instance-mac-sequence+
+          "%DCMTK")
   (export '%dcmtk::dcm-time+get-iso-formatted-time-from-string
           "%DCMTK")
-  (export '%dcmtk::number-of-entries "%DCMTK")
-  (export '%dcmtk::read-until-tag "%DCMTK")
-  (export '%dcmtk::get-base-tag "%DCMTK")
-  (export '%dcmtk::~dcm-private-tag-cache "%DCMTK")
-  (export '%dcmtk::get-length-field "%DCMTK")
-  (export '%dcmtk::e-padding-encoding "%DCMTK")
-  (export '%dcmtk::is-equivalent "%DCMTK")
-  (export '%dcmtk::class-name "%DCMTK")
-  (export '%dcmtk::offile-off-t "%DCMTK")
-  (export '%dcmtk::dcm-json-format "%DCMTK")
-  (export '%dcmtk::is-signable-tag "%DCMTK")
-  (export '%dcmtk::find-and-get-sint32array "%DCMTK")
-  (export '%dcmtk::~dcm-pixel-sequence "%DCMTK")
-  (export '%dcmtk::find-and-get-string "%DCMTK")
-  (export '%dcmtk::dcm-output-stream "%DCMTK")
+  (export '%dcmtk::+dcm-wado-retrieval-sequence+ "%DCMTK")
+  (export '%dcmtk::write-xml "%DCMTK")
+  (export '%dcmtk::+dcm-retired-masking-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-image-receptor-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-motion-control-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-kv-used-in-gain-calibration+ "%DCMTK")
+  (export '%dcmtk::~dcm-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-gated-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compression-contact-area+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-active-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicable-frame-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-progress-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-transmit-coil-manufacturer-name+ "%DCMTK")
+  (export '%dcmtk::get-uint32 "%DCMTK")
+  (export '%dcmtk::+dcm-channel-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-attribute-keyword+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-ophthalmic-axial-length-quality-metric-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-image-receptor-translation+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-graphic-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-constituent-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-displayed-area-bottom-right-hand-corner+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-configuration-information-description+
+          "%DCMTK")
+  (export '%dcmtk::matches "%DCMTK")
+  (export '%dcmtk::+dcm-blending-lookup-table-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-geometrical-properties+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-model-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-origin-offset-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-milling-tool-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-genetic-modifications-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-shift-table-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-display-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-transcriber+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-approver-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-number-of-interval-days+ "%DCMTK")
+  (export '%dcmtk::+dcm-station-ae-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-numberof-bscans-per-frame+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-element-number+ "%DCMTK")
+  (export '%dcmtk::get-sint32array "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-frequency-response-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-pitch-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::dcm-signed64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-padded-a-lines+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-gap-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-y-offset-in-slide-coordinate-system+
+          "%DCMTK")
+  (export '%dcmtk::condition "%DCMTK")
+  (export '%dcmtk::+dcm-illegal-group-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-terminal-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-between-bscan-slabs+ "%DCMTK")
+  (export '%dcmtk::+dcm-substance-administration-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-ultrasound-selected-ophthalmic-axial-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-birth-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-pitch-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-dac-gain-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-termination-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-border-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-samples-per-pixel-used+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioning-method-code-sequence+ "%DCMTK")
   (export '%dcmtk::load-file "%DCMTK")
-  (export '%dcmtk::get-parent-item "%DCMTK"))
+  (export '%dcmtk::+dcm-brachy-application-setup-dose-specification-point+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-contributing-sop-instances-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-overlay-data "%DCMTK")
+  (export '%dcmtk::+dcm-ambient-reflection-intensity+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-wedge-tray-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::del "%DCMTK")
+  (export '%dcmtk::+dcm-high-energy-detectors+ "%DCMTK")
+  (export '%dcmtk::+dcm-switching-phase-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-printer-resolution-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-oblique-cropping-plane-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-completion-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-head-fixation-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-pre-amplifier-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-point-presentation-value-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray3d-frame-type-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-chemical-shift-minimum-integration-limit-inppm+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-light-azimuthal-angle-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-illumination-bandwidth+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-channel-total-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-input-annotation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-range-modulation-fractions+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-size-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-series-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-trigger-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-long-device-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-mesh-primitives-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mapping-resource-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-plane+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-lens-thickness-data-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-portal-of-entrance-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-default-smoothing-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-acquisition-phase-encoding-steps-out-of-plane+
+          "%DCMTK")
+  (export '%dcmtk::get-float64 "%DCMTK")
+  (export '%dcmtk::+dcm-dark-current-counts+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-options+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-thin-edge-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-preamble-len+ "%DCMTK")
+  (export '%dcmtk::+dcm-position-of-isocenter-projection+ "%DCMTK")
+  (export '%dcmtk::+dcm-approval-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-refraction+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-overlap+ "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-item-selector+ "%DCMTK")
+  (export '%dcmtk::+dcm-quantity-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-inversion-times+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-superseding+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-measurement-precision-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-data-set-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-time-slots+ "%DCMTK")
+  (export '%dcmtk::~dcm-pixel-data "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-reference+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-telecom-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-equivalent-conceptual-volumes-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-admitting-time+ "%DCMTK")
+  (export '%dcmtk::get-e-tag "%DCMTK")
+  (export '%dcmtk::+dcm-data-set-trailing-padding+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-axis+ "%DCMTK")
+  (export '%dcmtk::~dcm-item "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-presentation-lut-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-short-string "%DCMTK")
+  (export '%dcmtk::+dcm-display-window-label-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-iso-speed-latitudezzz+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-first-frame-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-padding-range-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-tm-line-position-y0retired+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-upper-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-index-normals-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-relative-x-ray-exposure+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component2referenced-mating-feature-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-xaxrf-frame-characteristics-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segment-algorithm-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-related-assertion-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-template-extension-creator-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-additional-drug-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-procedure-context-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-acquisition-comments+ "%DCMTK")
+  (export '%dcmtk::get-length "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-input-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-green-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::e-dir-rec-type "%DCMTK")
+  (export '%dcmtk::put-sint32 "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-b-value-zz+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-summary+ "%DCMTK")
+  (export '%dcmtk::dcm-codec-list "%DCMTK")
+  (export '%dcmtk::+dcm-transfer-syntax-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-lower-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-compression-force+ "%DCMTK")
+  (export '%dcmtk::+dcm-spatial-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-subject-relative-position-in-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dose-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-proposed-study-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-current-observer-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-screening-baseline-measured+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-set-anatomical-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-bits-mapped-to-color-lookup-table+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-receptor-plane-to-detector-housing+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-structured-display-text-box-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-repository-unique-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-spot-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-speed+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-positioner-increment-sign+ "%DCMTK")
+  (export '%dcmtk::+dcm-ivus-acquisition+ "%DCMTK")
+  (export '%dcmtk::dcm-producer "%DCMTK")
+  (export '%dcmtk::+dcm-source-axis-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-results-distribution-list-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-perspective-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-approach-direction-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-bad-pixel-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-instruction-performance-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-stimulus-area+ "%DCMTK")
+  (export '%dcmtk::dcm-other-double "%DCMTK")
+  (export '%dcmtk::+dcm-in-concatenation-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-medium-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-source-axis-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-frequency-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-wavefront+ "%DCMTK")
+  (export '%dcmtk::find-and-get-uint64 "%DCMTK")
+  (export '%dcmtk::+dcm-optotype+ "%DCMTK")
+  (export '%dcmtk::dcm-date+check "%DCMTK")
+  (export '%dcmtk::+dcm-patient-mother-birth-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-largest-image-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-chemical-shift-reference+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-vertex-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compositing-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-display-frame-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-bone-thermal-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-flow-actual-frame-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-planned-verification-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-x-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-conceptual-volume-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-grid-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-shift-table-triplet+ "%DCMTK")
+  (export '%dcmtk::+dcm-effective-bin-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-placer-order-number-imaging-service-request-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-file-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-normalization-factor-format+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-quality-control-subject+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-report-production-status-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-deletion-lock+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-set-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-approval-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-organ-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-equivalent-pupil-radius+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-map-datum+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-anatomic-structure-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-variable-coefficients-sddn+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-presentation-color-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::dcm-list "%DCMTK")
+  (export '%dcmtk::+dcm-setup-image-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-beam-steering-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-resource-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-machine-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-print-management-capabilities-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-mask+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer-related-model-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-tm-line-position-y1+ "%DCMTK")
+  (export '%dcmtk::+dcm-window-center-width-explanation+ "%DCMTK")
+  (export '%dcmtk::+dcm-breast-support-x-position-to-isocenter+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transformation-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ooi-owner-creation-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-compensator-tray-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-perimeter-table+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-slab-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-acquisition-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-predecessor-structure-set-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pet-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-isocenter-detector-rotation-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axis-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-instance-creator-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-group-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-id-assigning-authority+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-corneal-size-data-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-geometry-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-gating-start-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-stack "%DCMTK")
+  (export '%dcmtk::+dcm-intended-phase-end-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-activation-offset-from-exposure+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-conceptual-volume-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-undefined-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-global-cropping-specification-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-partial-fourier-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-order-enterer-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-barcode-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-oecf-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-point-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-render-field-of-view+ "%DCMTK")
+  (export '%dcmtk::put-float64array "%DCMTK")
+  (export '%dcmtk::+dcm-table-head-tilt-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sequence-pointer-items+ "%DCMTK")
+  (export '%dcmtk::+dcm-parameter-item-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-display-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-gray-lookup-table-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-spatial-registration-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-prior-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-intraocular-lens-calculations-right-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-annotation-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-parallel-rt-beam-delimiters+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-specific-character-set+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-referenced-series-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-acquisition-protocol-element-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-notch-filter-bandwidth+ "%DCMTK")
+  (export '%dcmtk::+dcm-per-frame-functional-groups-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-window+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-directory-record-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-expected-completion-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-multi-planar-excitation+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-rotation-direction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-convolution-kernel+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-annotation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-iol-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-execution-status+ "%DCMTK")
+  (export '%dcmtk::~dcm-short-string "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-pre-amplifier-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-sample-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-attenuation-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-maxdictlinesize+ "%DCMTK")
+  (export '%dcmtk::+dcm-long-code-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-radius-of-circular-shutter+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-time-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-average-beam-dose-point-ssd+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-float32array "%DCMTK")
+  (export '%dcmtk::+dcm-effective-echo-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-horizontal-justification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-requested-procedure-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-identification-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-technique-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-category+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-ophthalmic-axial-length-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-data-elements-signed+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-angle-first-axis+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-physiological-state-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-linac-output+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-upper-lower-pixel-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-media-available-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-list-node "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-discharge-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-lateral-adjusted-position+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-visual-stimuli+ "%DCMTK")
+  (export '%dcmtk::+dcm-white-point-flag+ "%DCMTK")
+  (export '%dcmtk::~dcm-other-float "%DCMTK")
+  (export '%dcmtk::dcm-tag-key "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-leaf-jaw-pairs+ "%DCMTK")
+  (export '%dcmtk::+dcm-fluoroscopy-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-receiver+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-total-number-of-exposures+ "%DCMTK")
+  (export '%dcmtk::+dcm-prior-treatment-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-block-slab-thickness+
+          "%DCMTK")
+  (export '%dcmtk::~dcm-overlay-data "%DCMTK")
+  (export '%dcmtk::+dcm-retired-topic-subject+ "%DCMTK")
+  (export '%dcmtk::+dcm-indication-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-state-compositor-component-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-block-identifying-information-status+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-filter-by-category+ "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-filters+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-algorithm-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-transmit-transducer-sequence+ "%DCMTK")
+  (export '%dcmtk::next-in-container "%DCMTK")
+  (export '%dcmtk::+dcm-objective-lens-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-value-mapping-explanation+ "%DCMTK")
+  (export '%dcmtk::+dcm-toric-iol-power-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-quality-indicator-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-frame-origin+ "%DCMTK")
+  (export '%dcmtk::+dcm-pupil-centroid-y-coordinate+ "%DCMTK")
+  (export '%dcmtk::get-referenced-mrdr "%DCMTK")
+  (export '%dcmtk::get-min-value-length "%DCMTK")
+  (export '%dcmtk::of-time "%DCMTK")
+  (export '%dcmtk::replace "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-blue-palette-color-lookup-table-descriptor+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-display-filter-percentage+ "%DCMTK")
+  (export '%dcmtk::+dcm-tick-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-set-delivery-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-print-job-description-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-linac-energy+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time+check "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-element1position+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-rows-for-nth-order-coefficients+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-volume-based-calculation-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-longitudinal-adjusted-position+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-ophthalmic-axial-length-acquisition-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-type-of-patient-id+ "%DCMTK")
+  (export '%dcmtk::put-uint32 "%DCMTK")
+  (export '%dcmtk::tag-exists-with-value "%DCMTK")
+  (export '%dcmtk::+dcm-source-position+ "%DCMTK")
+  (export '%dcmtk::good "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-refractive-measurements-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-block-number-of-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-crusher-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-bolus-cutoff-delay-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-fluence-data-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-laterality+ "%DCMTK")
+  (export '%dcmtk::+dcm-whole-slide-microscopy-image-frame-type-sequence+
+          "%DCMTK")
+  (export '%dcmtk::put-and-insert-sint32 "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-position-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-surface-points-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-shading-style+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-keratometry-right-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-expected-in-vivo-measurement-value-index+
+          "%DCMTK")
+  (export '%dcmtk::set-next-record "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-design-rationale+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-potential-diagnostic-tasks+ "%DCMTK")
+  (export '%dcmtk::+dcm-distal-depth-fraction+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-attribute-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-measured-dose-reference-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-tolerance-set-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-column-angulation+ "%DCMTK")
+  (export '%dcmtk::+dcm-anomaly-locator-indicator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-keratometric-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-cylinder-lens-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-setup-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-lateral-increment+ "%DCMTK")
+  (export '%dcmtk::+dcm-international-route-segment+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-region-right-vertical-edge+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-focal-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-entrance-dose-inm-gy+ "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-polygon+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-machine-ssd+ "%DCMTK")
+  (export '%dcmtk::+dcm-softcopy-voilut-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-wedge-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-location-description+ "%DCMTK")
+  (export '%dcmtk::check-for-specific-character-set "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned64bit-very-long "%DCMTK")
+  (export '%dcmtk::+dcm-original-specialized-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::get-xfer-name "%DCMTK")
+  (export '%dcmtk::+dcm-retired-original-image-identification-nomenclature+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-message-set-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-eccentric-adjusted-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-sample-skew+ "%DCMTK")
+  (export '%dcmtk::+dcm-assertion-date-time+ "%DCMTK")
+  (export '%dcmtk::get-length-field "%DCMTK")
+  (export '%dcmtk::+dcm-performed-station-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-k-space-traversal+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-physician-intent-narrative+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-divergence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-image-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-float-pixel-padding-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-measured-dose-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::operator= "%DCMTK")
+  (export '%dcmtk::+dcm-image-to-equipment-mapping-matrix+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-elemental-composition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-phase-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-control-point-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tray-accessory-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-zonal-map-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-performed-processing-applications-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-sequence-of-compressed-data+
+          "%DCMTK")
+  (export '%dcmtk::get-parent "%DCMTK")
+  (export '%dcmtk::+dcm-retired-physician-approving-interpretation+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-attribute-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-original-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-device-roll-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-radius-along-wedge+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-discontinuation-reason-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-pixel-spacing-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-study-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-age-corrected-sensitivity-deviation-algorithm-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-or-image-magnification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-identifying-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-performing-physician-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-potential-threat-object-id+ "%DCMTK")
+  (export '%dcmtk::find-first-of "%DCMTK")
+  (export '%dcmtk::find-and-get-float64array "%DCMTK")
+  (export '%dcmtk::+dcm-transmitter-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-displayed-area-top-left-hand-corner-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fill-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-water-equivalent-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-id-issuer+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-mating-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-group-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-smallest-pixel-value-in-series+ "%DCMTK")
+  (export '%dcmtk::+dcm-actual-cardiac-trigger-time-prior-to-r-peak+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multi-planar-reconstruction-style+ "%DCMTK")
+  (export '%dcmtk::+dcm-decoupling-chemical-shift-reference+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-subtraction-item-id+ "%DCMTK")
+  (export '%dcmtk::uses-extended-length-encoding "%DCMTK")
+  (export '%dcmtk::+dcm-template-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-event-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-total-pixel-matrix-focal-planes+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-stack-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-volume-to-transducer-relationship+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-status-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-slide-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-single-collimation-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-rendered-image-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-sensitivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-pre-amplifier-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-primitive-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-swivel-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-displayed-area-bottom-right-hand-corner-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-approval-subject-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-frame-location-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomo-class+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-divergence+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sequence "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-source-or-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-comments-on-radiation-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-lut-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-low-rr-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-blending-operation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-the-container-identifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-time+get-of-time-from-string "%DCMTK")
+  (export '%dcmtk::+dcm-retired-data-value-representation+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent-detected+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-mode+ "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-string-from-name-components
+          "%DCMTK")
+  (export '%dcmtk::get-uint8array "%DCMTK")
+  (export '%dcmtk::+dcm-blood-signal-nulling+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-area+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-operations-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-anatomical-orientation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-laterality+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-surface-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-annotation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-elemental-composition-atomic-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reporting-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-context-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-time-synchronized+ "%DCMTK")
+  (export '%dcmtk::+dcm-dicom-retrieval-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-volume-cropping-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-stereometric-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-identifying-private-elements+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-zero-fills+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dosimetric-objective-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-delivery-time-structure-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cumulative-dose-to-dose-reference+ "%DCMTK")
+  (export '%dcmtk::dcmobj- "%DCMTK")
+  (export '%dcmtk::+dcm-grid-period+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-definition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-end-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-air-counts+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-protocol-ethics-committee-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-positive-catch-trials-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-beam-order-index-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-bits-stored+ "%DCMTK")
+  (export '%dcmtk::e-transfer-syntax "%DCMTK")
+  (export '%dcmtk::+dcm-decoupling-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-physical-property+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-f-number+ "%DCMTK")
+  (export '%dcmtk::dcm-dataset "%DCMTK")
+  (export '%dcmtk::+dcm-surface-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-findings-source-category-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::put-float32 "%DCMTK")
+  (export '%dcmtk::+dcm-photometric-interpretation+ "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensitivity-type+ "%DCMTK")
+  (export '%dcmtk::e-jpeg-encapsulated "%DCMTK")
+  (export '%dcmtk::+dcm-asl-slab-number+ "%DCMTK")
+  (export '%dcmtk::get-delimiter-chars "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-perspective-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-application-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-range-shifters+ "%DCMTK")
+  (export '%dcmtk::+dcm-distance-between-focal-planes+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-data-descriptor+ "%DCMTK")
+  (export '%dcmtk::+dcm-lut-explanation+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-display-sets+ "%DCMTK")
+  (export '%dcmtk::+dcm-ultrasound-color-data-present+ "%DCMTK")
+  (export '%dcmtk::+dcm-short-term-fluctuation-probability-calculated+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-physical-and-geometric-content-detail-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-imaged-nucleus+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-isotope-half-life+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-variable-coefficients-sdhn+ "%DCMTK")
+  (export '%dcmtk::+dcm-encrypted-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-radiation-rt-control-point-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-active-aperture+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-instance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-along-scan-spatial-resolution+ "%DCMTK")
+  (export '%dcmtk::+dcm-refractive-index-of-cornea+ "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-shape+ "%DCMTK")
+  (export '%dcmtk::dcm-date+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-visit-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-completed-suboperations+ "%DCMTK")
+  (export '%dcmtk::is-big-endian "%DCMTK")
+  (export '%dcmtk::+dcm-iol-formula-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-alpha-lut-transfer-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-radiation-dose-identification-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-point-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-soft-tissue-focus-thermal-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-add-gray-scale+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-isocenter-primary-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modifying-device-id+ "%DCMTK")
+  (export '%dcmtk::is-implicit-vr "%DCMTK")
+  (export '%dcmtk::+dcm-numeric-value+ "%DCMTK")
+  (export '%dcmtk::convert-character-set "%DCMTK")
+  (export '%dcmtk::+dcm-device-alternate-identifier-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-receive-coil-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectroscopy-acquisition-data-columns+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-string "%DCMTK")
+  (export '%dcmtk::+dcm-ctd-ivol+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-lt-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-global-crop+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-radiation-set-intent+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-reference-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-primary-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-intensifier-active-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-recognizable-visual-features+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-calculated-dose-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-table-entries+ "%DCMTK")
+  (export '%dcmtk::+dcm-predicted-toric-error-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-longitude+ "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-formatted-name-from-string
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-label+ "%DCMTK")
+  (export '%dcmtk::dcm-integer-string "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-source-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-gpsdop+ "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-meta-information-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-technique-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-conversion-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-effective-dose-calculation-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-additional-parameter-recording-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-upper-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-content-item-identifier+ "%DCMTK")
+  (export '%dcmtk::+dcm-constant-volume-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-evaluation-result-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-file-set-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-oct-acquisition-domain+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-session-ion-beam-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-private-group-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-person-telephone-numbers+ "%DCMTK")
+  (export '%dcmtk::+dcm-blind-spot-y-coordinate+ "%DCMTK")
+  (export '%dcmtk::+dcm-quality-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-label-text+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-age+ "%DCMTK")
+  (export '%dcmtk::+dcm-decomposition-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-point-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-series-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-thickness-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-bolus-cutoff-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-transmit-coil-sequence+ "%DCMTK")
+  (export '%dcmtk::is-explicit-vr "%DCMTK")
+  (export '%dcmtk::+dcm-battery-level+ "%DCMTK")
+  (export '%dcmtk::+dcm-model-mirroring+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-phantom-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-alarm-objects+ "%DCMTK")
+  (export '%dcmtk::+dcm-cornea-measurements-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-inter-marker-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-used-segments-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-curvature-type+ "%DCMTK")
+  (export '%dcmtk::insert-sub "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-illuminator-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transducer-orientation-modifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-group-of-patients-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-c-arm-positioner-tabletop-relationship+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-phase-delay+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-reference-dose-definition+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-time-offsets+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-resources-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gain-control+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-tolerance-table-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-summation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-registration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-time-stamp+ "%DCMTK")
+  (export '%dcmtk::+dcm-country-of-residence+ "%DCMTK")
+  (export '%dcmtk::+dcm-model-group-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-directory-record-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-insurance-plan-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-matches+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensitivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-motion-compensation-technique-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-background-color+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sequence-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ob-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-plane-position-sequence+ "%DCMTK")
+  (export '%dcmtk::put-sint16 "%DCMTK")
+  (export '%dcmtk::get-dataset "%DCMTK")
+  (export '%dcmtk::+dcm-retired-scheduled-processing-applications-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-decomposition-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-protocol-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-soft-tissue-thermal-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-finite-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-rectification-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-brightness-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-specification+ "%DCMTK")
+  (export '%dcmtk::+dcm-referring-physician-telephone-numbers+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-requested-procedure-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-octz-offset-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-half-value-layer+ "%DCMTK")
+  (export '%dcmtk::+dcm-environmental-conditions+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-exposure-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-digitizing-device-transport-direction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-shutter-left-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-blue-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-occurrence-private-creator+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-shielding-device-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-replaced-implant-template-group-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-creation-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-ingredient+ "%DCMTK")
+  (export '%dcmtk::+dcm-iso-speed+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-acquisition-phase-encoding-steps-in-plane+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-generalized-defect-sensitivity-deviation-algorithm-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modified-image-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-value-type+ "%DCMTK")
+  (export '%dcmtk::put-uint64 "%DCMTK")
+  (export '%dcmtk::+dcm-requested-sop-class-uid+ "%DCMTK")
+  (export '%dcmtk::~dcm-private-tag-cache-entry "%DCMTK")
+  (export '%dcmtk::+dcm-radial-position+ "%DCMTK")
+  (export '%dcmtk::get-of-date "%DCMTK")
+  (export '%dcmtk::+dcm-requested-procedure-comments+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-thickness-minimum+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-columns-for-nth-order-coefficients+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-dead-time-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-trim+ "%DCMTK")
+  (export '%dcmtk::+dcm-sensitivity-calibrated+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-annotation-content-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-human-performer-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-source-coordinate-system-roll-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-time-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-patient-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-bandwidth+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-of-y-break-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-view-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-wedge-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-secondary-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-acquisition-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-body-part-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-beat-rejection-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-by-attribute-presence+ "%DCMTK")
+  (export '%dcmtk::+dcm-control-point-relative-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-sample-interpretation+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-setup-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-station-name-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-chemical-shift-maximum-integration-limit-in-hz+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-effective-dose-calculation-method-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-frame-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-references+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-interest-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-italic+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-smoking-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-isolation-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-index-probability-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-shininess+ "%DCMTK")
+  (export '%dcmtk::+dcm-multi-frame-presentation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-tolerance-table-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-reference-to-recorded-sound+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-distal-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-max-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-last-detector-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-sampling-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-tile-vertical-dimension+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-effective-wedge-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-derivation-algorithm-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-white-balance+ "%DCMTK")
+  (export '%dcmtk::+dcm-waveform-sequence+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint16array "%DCMTK")
+  (export '%dcmtk::dcm-list-node "%DCMTK")
+  (export '%dcmtk::+dcm-d-bdt+ "%DCMTK")
+  (export '%dcmtk::+dcm-intraocular-lens-calculations-left-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::get-of-string "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-accession-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-time-delay+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-image-evidence-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-view-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-row-position-in-total-image-pixel-matrix+
+          "%DCMTK")
+  (export '%dcmtk::of-date "%DCMTK")
+  (export '%dcmtk::+dcm-retired-data-block-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-tm-line-position-y0+ "%DCMTK")
+  (export '%dcmtk::+dcm-switching-phase-transition-duration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-digital-signature-purpose-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reformatting-interval+ "%DCMTK")
+  (export '%dcmtk::+dcm-requested-media-application-profile+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-calculated-dose-reference-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-connector-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-plane-normal+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-preparation-step-content-item-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-definition-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-box-annotation-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-time-slot-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectroscopy-acquisition-phase-rows+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-sequence-tag+ "%DCMTK")
+  (export '%dcmtk::dcm-signed-long "%DCMTK")
+  (export '%dcmtk::+dcm-rt-related-roi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-other-secondary-approval-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectroscopy-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-unified-procedure-step-performed-procedure-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-rotation-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-shape-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-cycle-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-the-specimen-identifier-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-lossy-image-compression-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-functional-settling-phase-frames-present+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-roi-contour-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-omitted-channel-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-beam-dimension-b+ "%DCMTK")
+  (export '%dcmtk::+dcm-timezone-offset-from-utc+ "%DCMTK")
+  (export '%dcmtk::+dcm-magnetization-transfer+ "%DCMTK")
+  (export '%dcmtk::dcm-element "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-stop-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-value-mapping-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-virtual-source-axis-distances+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent-administered+ "%DCMTK")
+  (export '%dcmtk::+dcm-excitation-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-tm-line-position-y1retired+ "%DCMTK")
+  (export '%dcmtk::remove-all-but-original-representations "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-selection-method-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mydriatic-agent-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-advanced-blending-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-float-real-world-value-last-value-mapped+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-block-slab-items+ "%DCMTK")
+  (export '%dcmtk::remove-representation "%DCMTK")
+  (export '%dcmtk::dcm-meta-info "%DCMTK")
+  (export '%dcmtk::+dcm-request-priority+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-of-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-scale-representation+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-velocity+ "%DCMTK")
+  (export '%dcmtk::+dcm-tracking-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-position-measuring-device-used+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-offset-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-branch-of-service+ "%DCMTK")
+  (export '%dcmtk::+dcm-storage-media-file-set-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-encoding+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-lateral-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-fractionation-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-samples+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-vertical-extent+ "%DCMTK")
+  (export '%dcmtk::of-list<unsigned+int> "%DCMTK")
+  (export '%dcmtk::+dcm-threat-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-registration-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-override-reason+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-imaging-modifier-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-color-space+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-beam-energy-unit+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-z-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-preferred-playback-sequencing+ "%DCMTK")
+  (export '%dcmtk::+dcm-command-group-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-position-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-issuer-of-accession-number-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modifying-device-manufacturer+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-false-positives-estimate-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-lower-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-assertion-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-volume+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-transmission+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-proximal-thickness-map+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-organization+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-positioner-scan-start-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-end-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-summary-calculated-dose-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::put-and-insert-of-string-array "%DCMTK")
+  (export '%dcmtk::+dcm-skip-frame-range-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-status+ "%DCMTK")
+  (export '%dcmtk::e-grp-len-encoding "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-latitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-intercept+ "%DCMTK")
+  (export '%dcmtk::+dcm-light-path-filter-type-stack-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-physical-delta-y+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-positioner-scan-start-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-requested-image-size-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-algorithm-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-rt-accessory-holder-device-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-ctdi-phantom-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-compound-graphic-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-shielding-device-label+ "%DCMTK")
+  (export '%dcmtk::get-sint64 "%DCMTK")
+  (export '%dcmtk::+dcm-reference-geometry-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-home-community-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-u-value-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-image-frame-type-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-private-tag-cache-entry "%DCMTK")
+  (export '%dcmtk::+dcm-retired-variable-coefficients-sdvn+ "%DCMTK")
+  (export '%dcmtk::+dcm-decoupled-nucleus+ "%DCMTK")
+  (export '%dcmtk::dcm-long-string "%DCMTK")
+  (export '%dcmtk::+dcm-beam-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-coupling-velocity+ "%DCMTK")
+  (export '%dcmtk::+dcm-degree-of-freedom-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-ct-additional-x-ray-source-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-parameters+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-angle+ "%DCMTK")
+  (export '%dcmtk::~dcm-data-dictionary "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-region-upper-horizontal-edge+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-amplifier-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-generation-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-satellites+ "%DCMTK")
+  (export '%dcmtk::+dcm-rgblut-transfer-function+ "%DCMTK")
+  (export '%dcmtk::~dcm-date-time "%DCMTK")
+  (export '%dcmtk::~dcm-meta-info "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-label-in-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-protocol-element-specification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-tomosynthesis-source-images+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-range-shifter-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-context-group-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-instance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-opening-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-probe-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-curve+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-block-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-processing+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-scan-acquisition-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-assessed-sop-instance-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-observation-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contraindications-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-ingredient-concentration+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-related-reference-rt-image-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-series-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-internal-detector-frame-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-general-purpose-performed-procedure-step-status+
+          "%DCMTK")
+  (export '%dcmtk::put-sint64 "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-characteristics-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-termination-condition+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomotherapeutic-leaf-open-durations+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-ait-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-tolerance-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-product-parameter-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-r-wave-pointer+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-voilut-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-dose-roi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-prescription-notes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-cell-values-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-compensators+ "%DCMTK")
+  (export '%dcmtk::+dcm-study-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-beam-path-length-maximum+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-iol-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-imaged-volume-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-distal-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ov-value+ "%DCMTK")
+  (export '%dcmtk::new-factory "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-box-presentation-lut-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-head-fixation-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-calibration-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-point-normals-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-quality-indicator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-fiducial-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-species-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-originating-sop-instance-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::e-encoding-type "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-segmentation-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-hanging-protocol-user-identification-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-lut-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-counts-accumulated+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessed-attribute-value-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-secondary-angle-vector+ "%DCMTK")
+  (export '%dcmtk::prepend "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-treatment-position-index+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ct-acquisition-type-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-echo-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-randoms-correction-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-queue-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-respiratory-trigger-delay-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-constraint-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-outer-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-segmental-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-measures-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-general-purpose-scheduled-procedure-step-transaction-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-column-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-anatomic-location-of-examining-instrument-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-custodial-organization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-partial-data-display-handling+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-rt-beam-limiting-devices+ "%DCMTK")
+  (export '%dcmtk::of-string+iterator "%DCMTK")
+  (export '%dcmtk::+dcm-snr-threshold+ "%DCMTK")
+  (export '%dcmtk::operator!= "%DCMTK")
+  (export '%dcmtk::compact "%DCMTK")
+  (export '%dcmtk::+dcm-sop-authorization-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-referenced-roi-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-frame-of-reference-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-shift-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-block-tray-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-owner-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-tabulated-values-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-set-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-density+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-site+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-religious-preference+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-axis-labels+ "%DCMTK")
+  (export '%dcmtk::of-list<dcm-representation-entry*> "%DCMTK")
+  (export '%dcmtk::+dcm-immersion-media+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-position-tolerance-order-index+
+          "%DCMTK")
+  (export '%dcmtk::std+basic-ostream<char> "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-code-value+ "%DCMTK")
+  (export '%dcmtk::dcm-other-float "%DCMTK")
+  (export '%dcmtk::find-and-get-sint32 "%DCMTK")
+  (export '%dcmtk::is-nested "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-axial-length-measurements-type+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-institution-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-material+ "%DCMTK")
+  (export '%dcmtk::+dcm-keratometric-axis+ "%DCMTK")
+  (export '%dcmtk::+dcm-administration-route-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-data-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-material-properties-description+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time+get-iso-formatted-date-time-from-string
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reference-basis-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-path-filter-pass-band+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-slot-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-compression-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-archive-requested+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pertinent-resources-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-error-tag-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-tile-horizontal-dimension+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-index-probability+ "%DCMTK")
+  (export '%dcmtk::+dcm-expected-in-vivo-measurement-values-sequence+
+          "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint8array "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-energy+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-reason-for-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-waveform-channels+ "%DCMTK")
+  (export '%dcmtk::+dcm-drive-probe-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-series-in-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-evaluation-scope+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-synchronization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-offset-x+ "%DCMTK")
+  (export '%dcmtk::+dcm-horizontal-field-of-view+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-requested-procedure-description-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pvc-rejection+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-point+ "%DCMTK")
+  (export '%dcmtk::of-vector<double> "%DCMTK")
+  (export '%dcmtk::~dcm-time "%DCMTK")
+  (export '%dcmtk::dcm-unlimited-text+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-data-area-rotation-angle-relative-to-fov+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-snout-position-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-smallest-image-pixel-value-in-plane+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-of-x-break-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-grid-pitch+ "%DCMTK")
+  (export '%dcmtk::+dcm-impedance-measurement-current-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-hours-between-fractions+ "%DCMTK")
+  (export '%dcmtk::+dcm-autosequence-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-range+ "%DCMTK")
+  (export '%dcmtk::+dcm-near-pupillary-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-generation-mode-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-transformation-matrix+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-atd-assessment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-protocol-element-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-paintings+ "%DCMTK")
+  (export '%dcmtk::+dcm-manufacturer-model-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-screens+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-JPEG-ENCAPSULATED| "%DCMTK")
+  (export '%dcmtk::+dcm-retired-related-frame-of-reference-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-observation-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-additional-inspection-selection-criteria+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-emitter-color-temperature+ "%DCMTK")
+  (export '%dcmtk::+dcm-camera-elevation-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-beam-wedge-thin-edge-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-start-location-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-vertical-offset-of-sensor+ "%DCMTK")
+  (export '%dcmtk::+dcm-resonant-nucleus+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-slot-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-effective-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-prescription-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-catheter-rotational-rate+ "%DCMTK")
+  (export '%dcmtk::begin "%DCMTK")
+  (export '%dcmtk::+dcm-retired-angular-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-intended-delivery-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-tomo-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-to-compensator-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-placer-order-number-procedure+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-keyword+ "%DCMTK")
+  (export '%dcmtk::+dcm-registered-localizer-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-frame-of-reference-relationship-sequence+
+          "%DCMTK")
+  (export '%dcmtk::seek-to "%DCMTK")
+  (export '%dcmtk::+dcm-add-near-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervention-drug-information-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-leaf-mounting-side+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-size-mode+ "%DCMTK")
+  (export '%dcmtk::~dcm-list "%DCMTK")
+  (export '%dcmtk::+dcm-observation-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-gate-settings-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-images-in-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-routing-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-basis-rt-treatment-phase-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-parameter-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-device-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-reference-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-input-sequence+ "%DCMTK")
+  (export '%dcmtk::remove-sub "%DCMTK")
+  (export '%dcmtk::clear "%DCMTK")
+  (export '%dcmtk::put-and-insert-float64 "%DCMTK")
+  (export '%dcmtk::+dcm-tip-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-double-exposure-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-record-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-set-selector-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-compound-graphic-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-k-space-filtering+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-initiator+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-toric-iol-power-for-exact-target-refraction-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-inner-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-optimization-precedence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-region-left-vertical-edge+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-total-processing-time+ "%DCMTK")
+  (export '%dcmtk::put "%DCMTK")
+  (export '%dcmtk::+dcm-data-representation+ "%DCMTK")
+  (export '%dcmtk::dcm-signed-short "%DCMTK")
+  (export '%dcmtk::+dcm-navigation-indicator-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-shading-flag+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-VR-TYPE| "%DCMTK")
+  (export '%dcmtk::+dcm-decimate-crop-result+ "%DCMTK")
+  (export '%dcmtk::+dcm-output-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-algorithm-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-admitting-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-asymmetry-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-compensator-mounting-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-cine-relative-to-real-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-document-id+ "%DCMTK")
+  (export '%dcmtk::status "%DCMTK")
+  (export '%dcmtk::+dcm-beam-order-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-organ-at-risk-limit-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-detectors+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-bearing-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-general-accessory-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-show-patient-demographics-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-inm-as+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-tip-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulser-notes+ "%DCMTK")
+  (export '%dcmtk::+dcm-offset-of-referenced-lower-level-directory-entity+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-presentation-opacity+ "%DCMTK")
+  (export '%dcmtk::+dcm-list-of-mime-types+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-physical-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-long-primitive-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-white-point+ "%DCMTK")
+  (export '%dcmtk::dcm-stack "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-image-box-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-total-width+ "%DCMTK")
+  (export '%dcmtk::+dcm-decay-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-source-coordinate-system-pitch-angle+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-isocenter-to-range-shifter-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-plane-normal+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-hardcopy-device-manufacturer+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-overridden-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::add-entry "%DCMTK")
+  (export '%dcmtk::+dcm-wadors-retrieval-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-outline-lower-horizontal-edge+ "%DCMTK")
+  (export '%dcmtk::dcm-unsigned-long-offset "%DCMTK")
+  (export '%dcmtk::+dcm-subject-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-issue-date-of-imaging-service-request+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-segment-reference-index+ "%DCMTK")
+  (export '%dcmtk::number-of-repeating-tag-entries "%DCMTK")
+  (export '%dcmtk::+dcm-dose-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-position-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-asl-pulse-train-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-anatomic-regions-in-study-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-observation-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-placer-order-number-imaging-service-request+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-point-radius+ "%DCMTK")
+  (export '%dcmtk::get-iso-formatted-date "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-machine-name+ "%DCMTK")
+  (export '%dcmtk::dcm-date-time "%DCMTK")
+  (export '%dcmtk::create-uint64array "%DCMTK")
+  (export '%dcmtk::+dcm-source-movement-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-description-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-date+ "%DCMTK")
+  (export '%dcmtk::write-json "%DCMTK")
+  (export '%dcmtk::+dcm-volume-stream-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-numbe-of-table-columns+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-structured-context-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-descriptor-green+ "%DCMTK")
+  (export '%dcmtk::+dcm-tissue-heterogeneity-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-component2referenced-mating-feature-set-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-postprocessing-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-velocity-of-sound+ "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-point-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-voilut-function+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-selected-ophthalmic-axial-length-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-region-location-max-y1+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-regulatory-disapproval-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-admission-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-filler-order-number-imaging-service-request+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-thickness-map-threshold-quality-rating+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multiple-component-approval-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-storage-media-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-distance-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-values-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-template-extension-organization-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-vectors+ "%DCMTK")
+  (export '%dcmtk::+dcm-first-order-phase-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-matrix-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtroi-interpreted-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-reformatting-operation-initial-view-direction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-implant-part-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-aliased-data-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-exposure-dose-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dosimetric-objectives-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-short-term-fluctuation+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-treatment-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-bulk-motion-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-exclusion-start-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-applicator-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-end-message-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-start-condition+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint32array "%DCMTK")
+  (export '%dcmtk::+dcm-lens-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-simple-frame-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-point-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-measurement-point-coordinates+
+          "%DCMTK")
+  (export '%dcmtk::get-root-item "%DCMTK")
+  (export '%dcmtk::seek "%DCMTK")
+  (export '%dcmtk::put-and-insert-string "%DCMTK")
+  (export '%dcmtk::+dcm-identical-documents-sequence+ "%DCMTK")
+  (export '%dcmtk::create-float32array "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-confidentiality-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-manufacturer+ "%DCMTK")
+  (export '%dcmtk::append "%DCMTK")
+  (export '%dcmtk::+dcm-quantity-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-evaluator-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-cycle-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-response-sequence-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-universal-entity-id-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-bolus-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-code-number-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-spot-position-map+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-agent-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-synchronization-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-relative-density-difference-threshold+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-path-filter-pass-through-wavelength+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-date-of-document-or-verbal-transaction-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-vertices-of-the-region+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-table-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-partial-view-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-slice-progression-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-serial-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-interpretation-recorder+ "%DCMTK")
+  (export '%dcmtk::~dcm-vr "%DCMTK")
+  (export '%dcmtk::get-formatted-name "%DCMTK")
+  (export '%dcmtk::+dcm-optical-path-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-scan-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-position-reference-indicator+ "%DCMTK")
+  (export '%dcmtk::+dcm-stage-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-test-point-normals-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-escape-triplet+ "%DCMTK")
+  (export '%dcmtk::+dcm-sar+ "%DCMTK")
+  (export '%dcmtk::get-dir-file-name "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sv-value+ "%DCMTK")
+  (export '%dcmtk::can-write-xfer "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-treatment-record-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-result-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-welder-i-ds+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-accessory-holder-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-short-term-fluctuation-probability+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachytherapy-source-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-definition-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-overall-template-spatial-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-ion-machine-verification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-isotope-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-measured-dose-reference-number+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-circular-collimator+ "%DCMTK")
+  (export '%dcmtk::get-key "%DCMTK")
+  (export '%dcmtk::is-repeating-group "%DCMTK")
+  (export '%dcmtk::+dcm-image-set-selector-usage-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-outline-right-vertical-edge+ "%DCMTK")
+  (export '%dcmtk::get-file-offset "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-number-of-bins+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-subsystem-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-image-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-status-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-group-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-track-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-segmented-green-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retrieve-location-uid+ "%DCMTK")
+  (export '%dcmtk::c-str "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-flow-rtp-sampling-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-optical-path-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-date "%DCMTK")
+  (export '%dcmtk::+dcm-safe-position-exit-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-original-implant-template-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-time-since-last-exposure+ "%DCMTK")
+  (export '%dcmtk::dcm-person-name+get-formatted-name-from-components
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-frame-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::max-size "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-total-objects+ "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-sensing-region-shape+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-samples-per-pixel+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-identifier-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-contour-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-assessment-observations+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-termination-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-multiplex-group-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-modality+ "%DCMTK")
+  (export '%dcmtk::+dcm-failed-sop-instance-uid-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-approval-status-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-transform-version-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-spacing+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-species-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-encapsulation-nominal-transmission+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-target-minimum-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-application-setup-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-retrieve-uri+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-series-description-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-route-segment-start-location-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-bits-allocated+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-display-format+ "%DCMTK")
+  (export '%dcmtk::+dcm-subjective-refraction-right-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-corneal-size+ "%DCMTK")
+  (export '%dcmtk::dcm-item+new-dicom-element "%DCMTK")
+  (export '%dcmtk::+dcm-reference-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-workitem-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tagging-delay+ "%DCMTK")
+  (export '%dcmtk::+dcm-echo-train-length+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-description-sequence+ "%DCMTK")
+  (export '%dcmtk::elem "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-fraction-group-number+ "%DCMTK")
+  (export '%dcmtk::get-current-representation-key "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multiplexed-audio-channels-description-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-read-date+ "%DCMTK")
+  (export '%dcmtk::dcm-representation-parameter "%DCMTK")
+  (export '%dcmtk::+dcm-weighting-lookup-table-descriptor+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical+ "%DCMTK")
+  (export '%dcmtk::~dcm-floating-point-single "%DCMTK")
+  (export '%dcmtk::+dcm-retired-topic-keywords+ "%DCMTK")
+  (export '%dcmtk::+dcm-clinical-trial-subject-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-quantified-defect+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-as-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-measurement-units-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-move-originator-application-entity-title+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-sets-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-billing-procedure-step-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-subject-uid-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-baseline+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-patient-clinical-information-right-eye-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-fiducials-property-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-control-point3d-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-failed-sop-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dict-default-path+ "%DCMTK")
+  (export '%dcmtk::+dcm-nonconforming-modified-attributes-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-system-status-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-activation-layer+ "%DCMTK")
+  (export '%dcmtk::+dcm-show-graphic-annotation-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-horizontal-prism-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-mounting-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-plan-relationship+ "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-range-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-of-parameter-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-variation-dimension-name+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-axis-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-distal-depth+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-receptor-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-average-corneal-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-administration-profile-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-mandatory-component-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-relationship-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-custom-rendered+ "%DCMTK")
+  (export '%dcmtk::+dcm-offset-of-the-next-directory-record+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-compression-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-motion+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectrally-selected-excitation+ "%DCMTK")
+  (export '%dcmtk::+dcm-fractional-channel-display-scale+ "%DCMTK")
+  (export '%dcmtk::+dcm-language-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-source-applicator-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-coefficient-coding-pointers+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-end-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-print-priority+ "%DCMTK")
+  (export '%dcmtk::dcm-short-text "%DCMTK")
+  (export '%dcmtk::check-value "%DCMTK")
+  (export '%dcmtk::+dcm-direct-segment-reference-sequence+ "%DCMTK")
+  (export '%dcmtk::insert-sub-at-current-pos "%DCMTK")
+  (export '%dcmtk::+dcm-rt-referenced-study-sequence+ "%DCMTK")
+  (export '%dcmtk::put-tag-val "%DCMTK")
+  (export '%dcmtk::+dcm-absolute-channel-display-scale+ "%DCMTK")
+  (export '%dcmtk::+dcm-animation-curve-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-long-triangle-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-therapeutic-role-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-target-underdose-volume-fraction+ "%DCMTK")
+  (export '%dcmtk::+dcm-pattern-off-color-cie-lab-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-value-multiplicity+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-audio-sample-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-scatter-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-acquisition-dose-sequence+ "%DCMTK")
+  (export '%dcmtk::assign-to-sop-file "%DCMTK")
+  (export '%dcmtk::+dcm-image-set-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-capture-device-manufacturer+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-grid-name+ "%DCMTK")
+  (export '%dcmtk::empty "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-implant-template-group-member-id+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-largest-image-pixel-value-in-plane+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-nonconforming-data-element-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-asl-mid-slab-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-counts-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-primary-positioner-scan-arc+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-discharge-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-signal-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-counts-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-end-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-set-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-green-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-step-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-surface-data-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-large-blue-palette-color-lookup-table-data+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-x-offset-in-slide-coordinate-system+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-source-strength+ "%DCMTK")
+  (export '%dcmtk::of-bool "%DCMTK")
+  (export '%dcmtk::+dcm-bounding-box-crop+ "%DCMTK")
+  (export '%dcmtk::+dcm-physical-units-y-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-geometry-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-the-attribute-modification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-distribution-address+ "%DCMTK")
+  (export '%dcmtk::calc-element-length "%DCMTK")
+  (export '%dcmtk::+dcm-pre-deformation-matrix-registration-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calculated-frame-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-contact-uri+ "%DCMTK")
+  (export '%dcmtk::+dcm-long-vertex-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-birth-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-structure-set-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-trim+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-temperature+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-film-box-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-vertical-position-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-triangle-fan-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-data+ "%DCMTK")
+  (export '%dcmtk::get-vr-name "%DCMTK")
+  (export '%dcmtk::+dcm-tag-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-performed-protocol-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-additional-patient-history+ "%DCMTK")
+  (export '%dcmtk::+dcm-irradiation-event-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-item-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-type-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-time-slot-information-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-pixel-magnification-ratio+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-track-statistics-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-thickness-map-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::of-date-time "%DCMTK")
+  (export '%dcmtk::+dcm-relative-uri-reference-within-encapsulated-document+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-test-reliability-global-index-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-autorefraction-left-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-map-points+ "%DCMTK")
+  (export '%dcmtk::+dcm-concatenation-frame-offset-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-control-point-orientation+ "%DCMTK")
+  (export '%dcmtk::+dcm-radius-of-curvature+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-delivery-order-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-relative-elevation+ "%DCMTK")
+  (export '%dcmtk::+dcm-constraint-value-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-trigger-time-offset+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-address-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-predecessor-documents-sequence+ "%DCMTK")
+  (export '%dcmtk::get-original-representation-key "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-start-condition-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-degree-of-freedom-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-start-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-depth-dose-parameters-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-shield-nominal-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-transducer-application-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::dcm-codec "%DCMTK")
+  (export '%dcmtk::get-vm-max "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-view-orientation-modifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-boxes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-x-ray-source-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-based-relationship-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-selector-attribute+ "%DCMTK")
+  (export '%dcmtk::+dcm-execution-status-info+ "%DCMTK")
+  (export '%dcmtk::+dcm-collimator-shape-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-tolerance-table-label+ "%DCMTK")
+  (export '%dcmtk::e-padding-encoding "%DCMTK")
+  (export '%dcmtk::+dcm-retired-discharge-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-normalization-correction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-overlay-plane-groups+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-energy-window-lower-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-meterset+ "%DCMTK")
+  (export '%dcmtk::is-lossless "%DCMTK")
+  (export '%dcmtk::+dcm-scan-mode+ "%DCMTK")
+  (export '%dcmtk::+dcm-angio-flag+ "%DCMTK")
+  (export '%dcmtk::operator++ "%DCMTK")
+  (export '%dcmtk::+dcm-transmit-coil-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-of-freedom+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-maximum-coordinate-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-lens-model+ "%DCMTK")
+  (export '%dcmtk::+dcm-detector-conditions-nominal-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-target-center-patient+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-raw-data-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtroi-identification-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-setup-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-memory-allocation+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-post-deformation-matrix-registration-sequence+
+          "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-ENCODING-TYPE| "%DCMTK")
+  (export '%dcmtk::+dcm-image-trigger-delay+ "%DCMTK")
+  (export '%dcmtk::+dcm-medical-alerts+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-element-characteristics-summary+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-asl-crusher-flow-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-specified-number-of-pulses+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-planning-landmark-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-percent-phase-field-of-view+ "%DCMTK")
+  (export '%dcmtk::+dcm-font-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-dose-definition+ "%DCMTK")
+  (export '%dcmtk::+dcm-mac-algorithm+ "%DCMTK")
+  (export '%dcmtk::+dcm-hl7document-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::private-creator-match "%DCMTK")
+  (export '%dcmtk::+dcm-exposure-control-mode-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-view-orientation-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-target-minimum-luminance+ "%DCMTK")
+  (export '%dcmtk::+dcm-device-diameter-units+ "%DCMTK")
+  (export '%dcmtk::+dcm-date-of-last-detector-calibration+ "%DCMTK")
+  (export '%dcmtk::+dcm-coating-materials-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-latitude-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-traverse+ "%DCMTK")
+  (export '%dcmtk::+dcm-code-meaning+ "%DCMTK")
+  (export '%dcmtk::get-private-creator "%DCMTK")
+  (export '%dcmtk::+dcm-frame-usefulness-group-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-breed-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-global-deviation-probability+ "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-rear-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-two-d-line-coordinates-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-site-code-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-file-cache "%DCMTK")
+  (export '%dcmtk::+dcm-data-frame-assignment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-mass+ "%DCMTK")
+  (export '%dcmtk::dcm-file-format "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-interpretation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-code-table-location+ "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-properties+ "%DCMTK")
+  (export '%dcmtk::+dcm-viewpoint-look-at-point+ "%DCMTK")
+  (export '%dcmtk::+dcm-interlock-origin-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-presentation-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-requesting-service-code-sequence+ "%DCMTK")
+  (export '%dcmtk::~dcm-char-string "%DCMTK")
+  (export '%dcmtk::+dcm-retired-therapy-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-rendering-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquired-image-area-dose-product+ "%DCMTK")
+  (export '%dcmtk::+dcm-measured-lateral-dimension+ "%DCMTK")
+  (export '%dcmtk::+dcm-mr-acquisition-frequency-encoding-steps+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-tolerance-table-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-block-tray-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-mapping-resource-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-sending-presentation-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-lens-constant-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-frames-integrated+ "%DCMTK")
+  (export '%dcmtk::+dcm-brachy-accessory-device-id+ "%DCMTK")
+  (export '%dcmtk::set-group "%DCMTK")
+  (export '%dcmtk::+dcm-starting-respiratory-amplitude+ "%DCMTK")
+  (export '%dcmtk::+dcm-itinerary-id+ "%DCMTK")
+  (export '%dcmtk::~dcm-dicom-dir "%DCMTK")
+  (export '%dcmtk::+dcm-retired-specimen-accession-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-positions+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-study-component-status-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-bottom-right-hand-corner-of-localizer-area+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-keratometer-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-shadow-offset-y+ "%DCMTK")
+  (export '%dcmtk::find-and-get-sequence-item "%DCMTK")
+  (export '%dcmtk::+dcm-detector-element-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-compression-code+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-cs-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-application-setup-manufacturer+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-basic-annotation-box-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-element-spacing+ "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-long "%DCMTK")
+  (export '%dcmtk::dcm-short-text+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-device-motion-parameter-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::create-uint32array "%DCMTK")
+  (export '%dcmtk::+dcm-instance-creation-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-progress-information-sequence+
+          "%DCMTK")
+  (export '%dcmtk::e-byte-order "%DCMTK")
+  (export '%dcmtk::+dcm-retired-original-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-start-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-manipulated-image+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-algorithm-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pressure+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-diagnosis-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-parallel-rt-beam-delimiter-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-birth-date-in-alternative-calendar+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ophthalmic-volumetric-properties-flag+
+          "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-PADDING-ENCODING| "%DCMTK")
+  (export '%dcmtk::+dcm-total-compensator-tray-water-equivalent-thickness+
+          "%DCMTK")
+  (export '%dcmtk::dcm-pixel-item "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-light-azimuthal-angle+ "%DCMTK")
+  (export '%dcmtk::set "%DCMTK")
+  (export '%dcmtk::+dcm-includes-information+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-time-of-document-creation-or-verbal-transaction-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-clinical-trial-participation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-blind-spot-x-coordinate+ "%DCMTK")
+  (export '%dcmtk::operator> "%DCMTK")
+  (export '%dcmtk::is-private "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-frame-of-reference-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-information-summary+ "%DCMTK")
+  (export '%dcmtk::+dcm-render-projection+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-display-subsystems+ "%DCMTK")
+  (export '%dcmtk::dcm-write-cache "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-setup-image-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-date+get-iso-formatted-date-from-string
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-object-directory-binary-identifier-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-uv-mapping-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-ss-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-axial-power+ "%DCMTK")
+  (export '%dcmtk::+dcm-tick-alignment+ "%DCMTK")
+  (export '%dcmtk::+dcm-anatomic-region-sequence+ "%DCMTK")
+  (export '%dcmtk::operator* "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axis-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-ntp-source-address+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-display-color+ "%DCMTK")
+  (export '%dcmtk::+dcm-template-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-request-attributes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-alternate-beam-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-selector-sequence-pointer-private-creator+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-cardiac-beat-rejection-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-termination-counts-threshold+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-image-translation-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-step-cancellation-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-concept-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-flash-firing-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-waveform-channels+ "%DCMTK")
+  (export '%dcmtk::+dcm-dvh-data+ "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-BYTE-ORDER| "%DCMTK")
+  (export '%dcmtk::+dcm-visual-field-catch-trial-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-related-series-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-segmentation-defined-flag+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-explanation+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-algorithm+ "%DCMTK")
+  (export '%dcmtk::+dcm-specific-absorption-rate-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-position-group-label+ "%DCMTK")
+  (export '%dcmtk::dcm-output-stream "%DCMTK")
+  (export '%dcmtk::+dcm-content-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-source-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-horizontal-pixels+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-version+ "%DCMTK")
+  (export '%dcmtk::dcm-attribute-tag "%DCMTK")
+  (export '%dcmtk::+dcm-mrfov-geometry-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-dose-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-template-extension-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-light-polar-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-simulated-keratometric-cylinder-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ctx-ray-source-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-multi-frame-source-sop-instance-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-shared-functional-groups-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-compression-originator+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-primary-dose-value-indicator+ "%DCMTK")
+  (export '%dcmtk::+dcm-text-object-sequence+ "%DCMTK")
+  (export '%dcmtk::assign-to-mrdr "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-non-image-composite-sop-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-three-d-rendering-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-radiation-generation-mode-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-order-entered-by+ "%DCMTK")
+  (export '%dcmtk::+dcm-image-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-processing-method+ "%DCMTK")
+  (export '%dcmtk::is-private-creator-for "%DCMTK")
+  (export '%dcmtk::+dcm-overlay-subtype+ "%DCMTK")
+  (export '%dcmtk::+dcm-atd-ability-assessment+ "%DCMTK")
+  (export '%dcmtk::+dcm-system-status+ "%DCMTK")
+  (export '%dcmtk::delete-sub-and-purge-file "%DCMTK")
+  (export '%dcmtk::+dcm-count-loss-normalization-corrected+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-instance-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-report-status-comment-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-line-pattern+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-acquisition-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-small-scroll-amount+ "%DCMTK")
+  (export '%dcmtk::+dcm-decoupling-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-radionuclide-total-dose+ "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-repetition-interval+ "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-blending-display-input-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-convolution-kernel-group+ "%DCMTK")
+  (export '%dcmtk::+dcm-spectrally-selected-suppression+ "%DCMTK")
+  (export '%dcmtk::number-of-skeleton-entries "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-min-energy+ "%DCMTK")
+  (export '%dcmtk::set-element-range-restriction "%DCMTK")
+  (export '%dcmtk::+dcm-performed-station-name-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pulse-sequence-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-equipment-coordinate-system-identification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-vertical-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-checked-quantity+ "%DCMTK")
+  (export '%dcmtk::+dcm-fluence-data-scale+ "%DCMTK")
+  (export '%dcmtk::+dcm-omitted-application-setup-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-top-left-hand-corner+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-approval-status+ "%DCMTK")
+  (export '%dcmtk::load-all-data-into-memory "%DCMTK")
+  (export '%dcmtk::+dcm-sort-by-category+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-control-point-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-assembly-template-version+ "%DCMTK")
+  (export '%dcmtk::+dcm-multienergy-ct-path-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-topic-author+ "%DCMTK")
+  (export '%dcmtk::dcm-application-entity "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-real-world-value-mapping-instance-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-temporal-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-roll-angle-tolerance+ "%DCMTK")
+  (export '%dcmtk::+dcm-histogram-number-of-bins+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-phase-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-text-style-sequence+ "%DCMTK")
+  (export '%dcmtk::find-and-get-float64 "%DCMTK")
+  (export '%dcmtk::+dcm-gps-dest-latitude-ref+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-rtv-communication-sop-instance-uid+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-feed-per-rotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-field-of-view+ "%DCMTK")
+  (export '%dcmtk::get-upper-group "%DCMTK")
+  (export '%dcmtk::+dcm-retired-report-status-id-trial+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-transport-arrangements+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-detector-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-id+ "%DCMTK")
+  (export '%dcmtk::choose-representation "%DCMTK")
+  (export '%dcmtk::+dcm-total-number-of-pieces-of-media-created+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-actual-frame-duration+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-absent-pixel-cie-lab-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-largest-valid-pixel-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-filter-type+ "%DCMTK")
+  (export '%dcmtk::set-eq "%DCMTK")
+  (export '%dcmtk::search "%DCMTK")
+  (export '%dcmtk::+dcm-contour-uncertainty-radius+ "%DCMTK")
+  (export '%dcmtk::+dcm-assigning-agency-or-department-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-wedge-model-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-intensifier-active-dimensions+ "%DCMTK")
+  (export '%dcmtk::+dcm-item-delimitation-item+ "%DCMTK")
+  (export '%dcmtk::+dcm-burned-in-annotation+ "%DCMTK")
+  (export '%dcmtk::+dcm-test-image-validation+ "%DCMTK")
+  (export '%dcmtk::e-list-pos "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-conceptual-volume-constituent-segmentation-reference-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-effective-wedge-angle+ "%DCMTK")
+  (export '%dcmtk::tag-exists "%DCMTK")
+  (export '%dcmtk::+dcm-viewpoint-up-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-material-properties-file-format-retired+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-occupation+ "%DCMTK")
+  (export '%dcmtk::+dcm-diffusion-directionality+ "%DCMTK")
+  (export '%dcmtk::+dcm-asserter-identification-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-whole-body-technique+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-dosimetric-objective-purpose+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-protocol-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-model-modification+ "%DCMTK")
+  (export '%dcmtk::+dcm-physicians-of-record-identification-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-intermediate-pupillary-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-leaf-pairs-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-y-coordinates-center-pixel-view-angle+
+          "%DCMTK")
+  (export '%dcmtk::find-and-get-uint8 "%DCMTK")
+  (export '%dcmtk::+dcm-table-horizontal-rotation-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-device-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-scatter-correction-method+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-size+ "%DCMTK")
+  (export '%dcmtk::+dcm-lossy-image-compression+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-remaining-suboperations+ "%DCMTK")
+  (export '%dcmtk::value "%DCMTK")
+  (export '%dcmtk::+dcm-transmit-transducer-settings-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-displayed-area-top-left-hand-corner+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-long-edge-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-default-value-sequence+ "%DCMTK")
+  (export '%dcmtk::find-and-get-float32 "%DCMTK")
+  (export '%dcmtk::+dcm-series-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-support-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-multiple-spin-echo+ "%DCMTK")
+  (export '%dcmtk::+dcm-gantry-rotation-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-examined-body-thickness+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-proximal-distance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-track-point-index-list+ "%DCMTK")
+  (export '%dcmtk::+dcm-dimension-organization-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-modified-image-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-patient-treatment-orientation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-specular-reflection-intensity+ "%DCMTK")
+  (export '%dcmtk::+dcm-major-ticks-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-attribute-tolerance-values-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-double-float-real-world-value-first-value-mapped+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-afterloader-channel-id+ "%DCMTK")
+  (export '%dcmtk::~dcm-hash-dict "%DCMTK")
+  (export '%dcmtk::+dcm-rt-prescription-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-lateral-spreading-device-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-product-lot-identifier+ "%DCMTK")
+  (export '%dcmtk::uses-wide-chars "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-uniformity-result-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-rt-treatment-termination-reason-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::|C:@EA@E-SEARCH-MODE| "%DCMTK")
+  (export '%dcmtk::+dcm-retired-observation-category-code-sequence-trial+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-center-point-coordinates-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-data-collection-diameter+ "%DCMTK")
+  (export '%dcmtk::+dcm-probe-drive-equipment-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-rotation-offset+ "%DCMTK")
+  (export '%dcmtk::flush "%DCMTK")
+  (export '%dcmtk::+dcm-steep-corneal-axis-sequence+ "%DCMTK")
+  (export '%dcmtk::of-string-stream "%DCMTK")
+  (export '%dcmtk::+dcm-retired-specimen-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-information-from-manufacturer-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-scan-progression-direction+ "%DCMTK")
+  (export '%dcmtk::+dcm-shadow-style+ "%DCMTK")
+  (export '%dcmtk::+dcm-in-concatenation-total-number+ "%DCMTK")
+  (export '%dcmtk::verify "%DCMTK")
+  (export '%dcmtk::+dcm-us-image-description-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-eccentric-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-velocity-encoding-maximum-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-impedance-measurement-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-mating-feature-sets-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-sop-classes-in-study+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-left-eye-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-qualification+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-stopper-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-low-energy-detectors+ "%DCMTK")
+  (export '%dcmtk::+dcm-results-normals-sequence+ "%DCMTK")
+  (export '%dcmtk::std+basic-stringstream<char+std+char-traits<char>+std+allocator<char>>
+          "%DCMTK")
+  (export '%dcmtk::~dcm-dataset "%DCMTK")
+  (export '%dcmtk::+dcm-failure-attributes+ "%DCMTK")
+  (export '%dcmtk::+dcm-range-modulator-gating-start-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-x-ray-tube-current+ "%DCMTK")
+  (export '%dcmtk::data "%DCMTK")
+  (export '%dcmtk::validate-meta-info "%DCMTK")
+  (export '%dcmtk::+dcm-detector-y-position-to-isocenter+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-sensitivity-units-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-component-data-type+ "%DCMTK")
+  (export '%dcmtk::capacity "%DCMTK")
+  (export '%dcmtk::+dcm-blending-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-maximum-corneal-curvature+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-curve-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-pen-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-contrast-bolus-t1relaxivity+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-beam-dose-specification-point+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-private-data-element-number-of-items+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-image-box-small-scroll-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-pen-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-topic-title+ "%DCMTK")
+  (export '%dcmtk::+dcm-plate-type+ "%DCMTK")
+  (export '%dcmtk::get-mrdr-sequence "%DCMTK")
+  (export '%dcmtk::+dcm-extended-offset-table+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-roll-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-hpgl-pen-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-curve-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-roi-number+ "%DCMTK")
+  (export '%dcmtk::~of-filename "%DCMTK")
+  (export '%dcmtk::+dcm-volumetric-presentation-input-set-uid+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-printer-configuration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lut-descriptor+ "%DCMTK")
+  (export '%dcmtk::+dcm-film-size-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-completion-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-tolerance-violation-identification+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-derivation-implant-assembly-template-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-coding-scheme-designator+ "%DCMTK")
+  (export '%dcmtk::+dcm-procedure-expiration-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-gps-status+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-tm-line-position-x1retired+ "%DCMTK")
+  (export '%dcmtk::+dcm-setup-device-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-omitted-beam-task-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-positioner-position-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-graphic-group-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-event-timer-sequence+ "%DCMTK")
+  (export '%dcmtk::dcm-representation-list-const-iterator "%DCMTK")
+  (export '%dcmtk::+dcm-station-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-luminance-response-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-surface-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-therapeutic-role-category-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-calculation-comment+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-of-previous-values+ "%DCMTK")
+  (export '%dcmtk::+dcm-frame-label-vector+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-referenced-image-box-sequence-retired+
+          "%DCMTK")
+  (export '%dcmtk::~of-condition "%DCMTK")
+  (export '%dcmtk::get-dir-file-format "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-control-point-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-dose-values-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-assertion-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-impedance-measurement-frequency+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-number-of-transform-steps+ "%DCMTK")
+  (export '%dcmtk::~dcm-unlimited-text "%DCMTK")
+  (export '%dcmtk::+dcm-coordinate-system-axes-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-acquisition-device-processing-description+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-radiopharmaceutical-agent-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-container-component-type-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-lateral-spreading-device-sequence+ "%DCMTK")
+  (export '%dcmtk::get-group "%DCMTK")
+  (export '%dcmtk::+dcm-mean-point-distance+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-beam-limiting-device-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-segment-reference-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-display-set-vertical-justification+ "%DCMTK")
+  (export '%dcmtk::+dcm-tag-angle-second-axis+ "%DCMTK")
+  (export '%dcmtk::+dcm-receive-coil-name+ "%DCMTK")
+  (export '%dcmtk::of-iterator<dcm-representation-entry*> "%DCMTK")
+  (export '%dcmtk::+dcm-main-lobe-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-time-of-flight-contrast+ "%DCMTK")
+  (export '%dcmtk::+dcm-implant-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-recommended-animation-rate+ "%DCMTK")
+  (export '%dcmtk::+dcm-channel-position+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-copies+ "%DCMTK")
+  (export '%dcmtk::+dcm-assigning-facility-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-cassette-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-reference-dose-point-coordinates+ "%DCMTK")
+  (export '%dcmtk::+dcm-reason-for-performed-procedure-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-reconstruction-index+ "%DCMTK")
+  (export '%dcmtk::dcm-time+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-implant-assembly-template-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-mpr-view-height+ "%DCMTK")
+  (export '%dcmtk::+dcm-segment-identification-sequence+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-uint32 "%DCMTK")
+  (export '%dcmtk::+dcm-effective-date-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-sequence-of-ultrasound-regions+ "%DCMTK")
+  (export '%dcmtk::+dcm-nominal-percentage-of-respiratory-phase+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-detector-geometry+ "%DCMTK")
+  (export '%dcmtk::+dcm-recorded-rt-control-point-date-time+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-prism-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-intervals-rejected+ "%DCMTK")
+  (export '%dcmtk::+dcm-series-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-source-applicator-id+ "%DCMTK")
+  (export '%dcmtk::+dcm-impedance-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-rt-segment-annotation-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-fill-style-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-data-set-name+ "%DCMTK")
+  (export '%dcmtk::put-float64 "%DCMTK")
+  (export '%dcmtk::put-sint16array "%DCMTK")
+  (export '%dcmtk::+dcm-numeric-value-qualifier-code-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-retired-distribution-name+ "%DCMTK")
+  (export '%dcmtk::put-and-insert-float64array "%DCMTK")
+  (export '%dcmtk::+dcm-referenced-dose-reference-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-in-stack-position-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-real-world-value-lut-data+ "%DCMTK")
+  (export '%dcmtk::+dcm-element-dimension-a+ "%DCMTK")
+  (export '%dcmtk::+dcm-generalized-defect-corrected-sensitivity-deviation-probability-value+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-ultrasound-ophthalmic-axial-length-measurements-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-minimum-stored-value-mapped+ "%DCMTK")
+  (export '%dcmtk::+dcm-fraction-pattern-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-fraction-pattern-digits-per-day+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-beam-limiting-device-angle-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-respiratory-signal-source+ "%DCMTK")
+  (export '%dcmtk::+dcm-protocol-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-breed-registration-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-lesion-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-tm-line-position-x1+ "%DCMTK")
+  (export '%dcmtk::+dcm-false-negatives-estimate+ "%DCMTK")
+  (export '%dcmtk::+dcm-visual-acuity-type-code-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-beam-dose-point-ssd+ "%DCMTK")
+  (export '%dcmtk::+dcm-robotic-node-identifier+ "%DCMTK")
+  (export '%dcmtk::dcm-code-string+check-string-value "%DCMTK")
+  (export '%dcmtk::+dcm-specific-absorption-rate-definition+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-surface-regularity-index+ "%DCMTK")
+  (export '%dcmtk::+dcm-specimen-detailed-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-overlay-code-label+ "%DCMTK")
+  (export '%dcmtk::of-string "%DCMTK")
+  (export '%dcmtk::+dcm-number-of-wedge-positions+ "%DCMTK")
+  (export '%dcmtk::+dcm-delivered-nominal-range-modulation-fractions+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-center-of-pto+ "%DCMTK")
+  (export '%dcmtk::+dcm-table-top-pitch-adjusted-angle+ "%DCMTK")
+  (export '%dcmtk::+dcm-final-cumulative-meterset-weight+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-positioner-increment-sign+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-channel-derivation-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-macid-number+ "%DCMTK")
+  (export '%dcmtk::+dcm-ultrasound-acquisition-geometry+ "%DCMTK")
+  (export '%dcmtk::+dcm-foveal-point-normative-data-flag+ "%DCMTK")
+  (export '%dcmtk::+dcm-rescale-intercept+ "%DCMTK")
+  (export '%dcmtk::is-flushed "%DCMTK")
+  (export '%dcmtk::+dcm-requested-procedure-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-organ-at-risk-overdose-volume-fraction+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-patient-alternative-calendar+ "%DCMTK")
+  (export '%dcmtk::+dcm-presentation-creation-date+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-film-box-content-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-metabolite-map-description+ "%DCMTK")
+  (export '%dcmtk::+dcm-component-shape+ "%DCMTK")
+  (export '%dcmtk::+dcm-geometry-of-k-space-traversal+ "%DCMTK")
+  (export '%dcmtk::+dcm-contour-image-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-rectilinear-phase-encode-reordering+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-pixel-aspect-ratio+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-creator-name+ "%DCMTK")
+  (export '%dcmtk::~dcm-unsigned-long-offset "%DCMTK")
+  (export '%dcmtk::+dcm-rotation-of-scanned-film+ "%DCMTK")
+  (export '%dcmtk::~of-condition-const "%DCMTK")
+  (export '%dcmtk::get-tag-val "%DCMTK")
+  (export '%dcmtk::+dcm-selector-at-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-treatment-time-limit+ "%DCMTK")
+  (export '%dcmtk::+dcm-mac+ "%DCMTK")
+  (export '%dcmtk::+dcm-content-template-sequence+ "%DCMTK")
+  (export '%dcmtk::+dcm-cumulative-meterset+ "%DCMTK")
+  (export '%dcmtk::+dcm-retired-block-rows+ "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-procedure-step-end-time+ "%DCMTK")
+  (export '%dcmtk::+dcm-video-image-format-acquired+ "%DCMTK")
+  (export '%dcmtk::+dcm-reformatting-operation-type+ "%DCMTK")
+  (export '%dcmtk::+dcm-performed-procedure-step-end-date+ "%DCMTK")
+  (export '%dcmtk::e-vr-type "%DCMTK")
+  (export '%dcmtk::+dcm-scheduled-station-name+ "%DCMTK")
+  (export '%dcmtk::+dcm-secondary-positioner-scan-arc+ "%DCMTK")
+  (export '%dcmtk::+dcm-surface-model-scaling-factor+ "%DCMTK")
+  (export '%dcmtk::+dcm-assessment-label+ "%DCMTK")
+  (export '%dcmtk::+dcm-extended-code-value+ "%DCMTK")
+  (export '%dcmtk::+dcm-fixation-light-polar-angle-tolerance+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-structured-constraint-observation-sequence+
+          "%DCMTK")
+  (export '%dcmtk::+dcm-implant-template-group-members-sequence+
+          "%DCMTK"))
 

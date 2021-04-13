@@ -15,7 +15,8 @@
                           (:persistent :cl-dcmtk-bindings
                            :asd-path "../cl-dcmtk-bindings.asd"
                            :bindings-path "../bindings/")
-                          (:include-definitions "^Dcm.*" "^E_.*")
+                          (:include-definitions "^Dcm.*" "^E_.*" "^DCM_"
+                                                "^OFString" "^OFFilename" "^OFCondition")
                           (:exclude-definitions "DcmEVR$")
                           (:language :c++))
   :in-package :%dcmtk
