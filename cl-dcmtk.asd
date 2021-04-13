@@ -19,7 +19,7 @@
 
 
 (asdf:defsystem :cl-dcmtk/example
-  :description "Thin wrapper over DCMTK DICOM libraries"
+  :description "Example for cl-dcmtk system"
   :depends-on (:iffi :cl-dcmtk)
   :pathname "example/"
   :serial t
