@@ -8,5 +8,14 @@
 *~
 .\#*
 
-# system dependent junk 
-local/
+# jetbrains junk
+.idea/
+cmake-build-*/
+
+# system dependent junk
+/local/
+
+**/*.so*
+**/*.dll*
+**/*.dylib*
+src/lib/build/

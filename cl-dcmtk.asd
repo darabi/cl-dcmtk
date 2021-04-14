@@ -8,8 +8,19 @@
 
 
 (asdf:defsystem :cl-dcmtk/wrapper
-  :description "Thin wrapper over DCMTK DICOM libraries"
-  :depends-on (:alexandria :uiop :cffi :claw-utils :claw)
+  :description "Wrapper generator for DCMTK DICOM libraries"
+  :depends-on (:alexandria :uiop :cffi :claw)
   :pathname "src/"
   :serial t
-  :components ((:file "claw")))
+  :components ((:file "claw")
+               (:module :oflog-includes :pathname "lib/dcmtk/oflog/include/")
+               (:module :ofstd-includes :pathname "lib/dcmtk/ofstd/include/")
+               (:module :dcmdata-includes :pathname "lib/dcmtk/dcmdata/include/")))
+
+
+(asdf:defsystem :cl-dcmtk/example
+  :description "Example for cl-dcmtk system"
+  :depends-on (:iffi :cl-dcmtk)
+  :pathname "example/"
+  :serial t
+  :components ((:file "example")))
